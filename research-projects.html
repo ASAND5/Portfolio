@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Research Projects — Abrar</title>
+
   <style>
     :root {
       --accent      : #0f766e;
@@ -11,11 +13,41 @@
       --page-bg     : #f0fdfa;
       --page-text   : #042f2e;
       --nav-accent  : #0f766e;
+      /* Glass variables */
+      --glass-bg    : rgba(255,255,255,0.55);
+      --glass-border: rgba(255,255,255,0.72);
+      --glass-shadow: 0 8px 32px rgba(15,118,110,0.10);
+      --glass-blur  : blur(14px);
     }
     body { background: var(--page-bg); color: var(--page-text); }
   </style>
+
   <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
   <style>
+    /* ── GLASS DEPTH BACKGROUND — teal/mint tones ──────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: -1;
+      background:
+        radial-gradient(ellipse at 15% 15%, rgba(15,118,110,0.10)  0%, transparent 55%),
+        radial-gradient(ellipse at 85% 70%, rgba(20,184,166,0.09)  0%, transparent 50%),
+        radial-gradient(ellipse at 55% 30%, rgba(153,246,228,0.10) 0%, transparent 45%),
+        radial-gradient(ellipse at 25% 85%, rgba(15,118,110,0.07)  0%, transparent 40%),
+        linear-gradient(160deg, #e0faf5 0%, #f0fdfa 40%, #d8f8f3 100%);
+      pointer-events: none;
+    }
+
+    /* ── GLASS TOPBAR ──────────────────────────────────────── */
+    .topbar {
+      background: rgba(240,253,250,0.72) !important;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid rgba(153,246,228,0.55) !important;
+    }
+
+    /* ── COMING SOON SECTION ───────────────────────────────── */
     .coming-soon-wrap {
       min-height: 60vh;
       display: flex; flex-direction: column;
@@ -32,15 +64,24 @@
       font-size: 16px; color: var(--gray-600);
       max-width: 460px; line-height: 1.7;
     }
+
+    /* ── GLASS COMING SOON CARD ────────────────────────────── */
+    .coming-soon-card {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r-lg);
+      padding: 48px 40px;
+      box-shadow: var(--glass-shadow);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; max-width: 500px; width: 100%;
+    }
   </style>
 </head>
+
 <body>
-
-<header class="topbar">
-  <div class="topbar-brand">Abrar <small>Research Projects</small></div>
-  <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
-</header>
-
 <!-- SIDE NAVIGATION  -->
 <div class="sidenav-overlay" id="sidenavOverlay"></div>
 <nav class="sidenav" id="sidenav">
@@ -85,6 +126,7 @@
     </div>
 
     <div class="coming-soon-wrap">
+    <div class="coming-soon-card">
       <div class="coming-soon-icon">🔬</div>
       <div class="coming-soon-title">Research Projects</div>
       <p class="coming-soon-text">
@@ -92,7 +134,7 @@
         Check back once projects are successfully completed —
         they will be showcased here with full details.
       </p>
-      <a class="explore-btn" href="index.html" style="margin-top:28px">
+      <a class="explore-btn" href="index.html" style="margin-top:28px;">
         &#8592; Back to Home
       </a>
     </div>
