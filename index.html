@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abrar — Environmental Scientist</title>
+
+  <!-- ═══ PAGE THEME — EDIT COLORS HERE ══════════════════════
+       --accent        Main green (headings, borders, buttons)
+       --accent-light  Soft green (backgrounds, card borders)
+       --page-bg       Page background
+       --page-text     Main body text
+  ═══════════════════════════════════════════════════════════ -->
+  <style>
+    :root {
+      --accent      : #2d6a4f;
+      --accent-light: #b7e4c7;
+      --page-bg     : #f0fdf4;
+      --page-text   : #1a2e1f;
+      --nav-accent  : #2d6a4f;
+      --card-border : #b7e4c7;
+    }
+    body { background: var(--page-bg); color: var(--page-text); }
+  </style>
+
+  <link rel="stylesheet" href="css/shared.css" />
+
+  <!-- ═══ HOME PAGE SPECIFIC STYLES ══════════════════════════ -->
+  <style>
+    /* ── HERO ──────────────────────────────────────────────── */
+    .hero {
+      min-height: 420px;
+      background: linear-gradient(135deg, #d8f3dc 0%, #b7e4c7 100%);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center;
+    }
+    .hero .container { position: relative; z-index: 2; }
+    .hero-text { max-width: 54%; padding: 48px 0; }
+
+    /* EDIT: Change your name display style here */
+    .hero-name {
+      font-family: var(--font-heading);
+      font-size: 42px; font-weight: 700;
+      color: var(--accent); line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    /* EDIT: Change title style here */
+    .hero-title-line {
+      font-size: 16px; font-weight: 600;
+      color: #2d6a4f; margin-bottom: 4px;
+    }
+    .hero-field, .hero-uni {
+      font-size: 14px; color: #52796f; margin-bottom: 2px;
+    }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .hero-tag {
+      background: rgba(255,255,255,.65);
+      border: 1px solid #95d5b2;
+      color: #1b4332; font-size: 12px; font-weight: 500;
+      padding: 4px 12px; border-radius: 20px;
+    }
+
+    /* Half-cut circle photo — right side */
+    .hero-photo-area {
+      position: absolute; right: 0; top: 0; bottom: 0;
+      width: 46%; overflow: hidden;
+      display: flex; align-items: center; justify-content: flex-end;
+    }
+    .hero-circle {
+      width: 420px; height: 420px; border-radius: 50%;
+      overflow: hidden; flex-shrink: 0;
+      border: 6px solid rgba(255,255,255,.65);
+      box-shadow: 0 0 60px rgba(45,106,79,.15);
+      transform: translateX(30%); /* half-cut effect */
+    }
+    .hero-circle img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-circle .photo-placeholder {
+      width: 100%; height: 100%; font-size: 80px;
+      background: linear-gradient(135deg,#52b788,#40916c);
+      color: rgba(255,255,255,.7);
+    }
+
+    /* ── HOME SECTION PREVIEWS ────────────────────────────── */
+    .home-section {
+      padding: 40px 0 0;
+      margin-bottom: 44px;
+    }
+    /* Clickable section title */
+    .home-sec-title {
+      font-family: var(--font-heading);
+      font-size: 26px; font-weight: 700; /* EDIT size/family */
+      color: var(--accent);              /* EDIT color       */
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent-light);
+      display: inline-block;
+      transition: opacity .2s;
+    }
+    .home-sec-title:hover { opacity: .75; }
+    .home-sec-title::after { content: ' ›'; font-weight: 300; }
+
+    /* ── INTRODUCTION ─────────────────────────────────────── */
+    .intro-section { padding: 44px 0 0; }
+    /* EDIT: Change punchline style here */
+    .intro-punchline {
+      font-family: var(--font-heading);
+      font-size: 22px; font-weight: 600;
+      color: var(--accent); margin-bottom: 14px;
+      font-style: italic;
+    }
+
+    /* ── LIFE THROUGH MY LENS preview ─────────────────────── */
+    .lens-preview {
+      background: linear-gradient(135deg,#d8f3dc,#b7e4c7);
+      border-radius: var(--r-lg); padding: 28px 32px;
+      display: block; transition: box-shadow var(--ease), transform var(--ease);
+      border: 2px solid var(--accent-light);
+    }
+    .lens-preview:hover {
+      box-shadow: var(--shadow-hover); transform: translateY(-2px);
+    }
+    .lens-preview-text {
+      font-family: var(--font-heading);
+      font-size: 18px; color: #1b4332;
+      font-style: italic; line-height: 1.6;
+    }
+    .lens-preview-cta {
+      font-size: 13px; font-weight: 600;
+      color: var(--accent); margin-top: 10px;
+    }
+
+    /* ── CONTACT PREVIEW ──────────────────────────────────── */
+    .contact-preview {
+      background: #fff; border: 2px solid var(--accent-light);
+      border-radius: var(--r-lg); padding: 26px 28px;
+    }
+    .contact-preview p {
+      font-size: 14.5px; color: var(--gray-600); margin-bottom: 14px;
+    }
+
+    /* Mobile hero */
+    @media (max-width: 700px) {
+      .hero-text  { max-width: 100%; padding-right: 0; }
+      .hero-name  { font-size: 30px; }
+      .hero-photo-area { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══ TOP BAR ════════════════════════════════════════════ -->
+<header class="topbar">
+  <!-- EDIT: Change display name here -->
+  <div class="topbar-brand">
+    Abrar
+    <small>Environmental Scientist</small>
+  </div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ═══ SIDE NAVIGATION ════════════════════════════════════ -->
+<div class="sidenav-overlay" id="sidenavOverlay"></div>
+<nav class="sidenav" id="sidenav">
+  <div class="sidenav-top">
+    <!-- EDIT: Change name here -->
+    <span class="sidenav-logo">Abrar</span>
+    <button class="sidenav-close-btn" id="sidenavCloseBtn" aria-label="Close">&#x2715;</button>
+  </div>
+  <div class="sidenav-nav">
+    <!-- EDIT: Update href paths if you rename files -->
+    <a href="index.html"><span class="nav-em">🏠</span> Home</a>
+    <a href="professional-leadership.html"><span class="nav-em">💼</span> Professional &amp; Leadership</a>
+    <a href="research-articles.html"><span class="nav-em">📄</span> Research &amp; Articles</a>
+    <a href="research-projects.html"><span class="nav-em">🔬</span> Research Projects <span class="nav-badge">Soon</span></a>
+    <a href="awards-certificates.html"><span class="nav-em">🏆</span> Awards &amp; Certificates</a>
+    <a href="mentoring-experience.html"><span class="nav-em">🎓</span> Mentoring Experience</a>
+    <a href="life-through-my-lens.html"><span class="nav-em">📸</span> Life Through My Lens</a>
+    <a href="contact.html"><span class="nav-em">✉️</span> Contact</a>
+  </div>
+  <div class="sidenav-socials">
+    <!-- EDIT: Replace # with your actual profile URLs -->
+    <a href="#" target="_blank" title="LinkedIn">in</a>
+    <a href="#" target="_blank" title="Google Scholar">GS</a>
+    <a href="#" target="_blank" title="ResearchGate">RG</a>
+    <a href="#" target="_blank" title="Facebook">f</a>
+  </div>
+</nav>
+
+<!-- ═══ MAIN PAGE ══════════════════════════════════════════ -->
+<main class="page-wrapper">
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <!-- EDIT: Your name -->
+        <h1 class="hero-name">Abrar</h1>
+        <!-- EDIT: Your title/designation -->
+        <p class="hero-title-line">Environmental Scientist &amp; Researcher</p>
+        <!-- EDIT: Your department/field -->
+        <p class="hero-field">Department of Environmental Science</p>
+        <!-- EDIT: Your university/institution -->
+        <p class="hero-uni">Your University Name</p>
+        <div class="hero-tags">
+          <!-- EDIT: Change or add tags for your specializations -->
+          <span class="hero-tag">🌿 Climate Science</span>
+          <span class="hero-tag">💧 Water Resources</span>
+          <span class="hero-tag">🌍 Sustainability</span>
+          <span class="hero-tag">📊 Environmental Data</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Half-circle photo (right side) -->
+    <div class="hero-photo-area">
+      <div class="hero-circle">
+        <!--
+          EDIT: Replace the photo-placeholder div with:
+          <img src="images/abrar-hero.jpg" alt="Abrar" />
+          Upload your photo to the images/ folder.
+        -->
+        <div class="photo-placeholder">🌿</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- ── INTRODUCTION ──────────────────────────────────── -->
+    <section class="intro-section fade-up">
+      <!--
+        EDIT: Write your own punchline title below.
+        This is like a personal tagline — one bold, memorable line.
+      -->
+      <p class="intro-punchline">"Studying the Earth to protect it for generations yet to come."</p>
+
+      <!--
+        EDIT: Replace this paragraph with your own introduction.
+        Use <p class="content-block"> for each paragraph.
+      -->
+      <p class="content-block">
+        Welcome. I am Abrar, an environmental scientist passionate about
+        understanding the intricate systems that sustain life on our planet.
+        My research spans [your research areas], with the goal of informing
+        evidence-based solutions for a sustainable future.
+      </p>
+      <p class="content-block">
+        Based at [Your University], I work at the intersection of
+        [field 1] and [field 2], collaborating with institutions and communities
+        to translate science into action.
+      </p>
+    </section>
+
+    <!-- ── RESEARCH &amp; ARTICLES PREVIEW ───────────────── -->
+    <section class="home-section fade-up">
+      <!-- Clicking title goes to Research page -->
+      <a class="home-sec-title" href="research-articles.html">Research &amp; Articles</a>
+
+      <!-- ═══ MOST RECENT RESEARCH ENTRY ═══════════════════
+           EDIT: Replace title, year, journal, abstract excerpt.
+           Right thumb: upload journal cover to images/ folder.
+      ═══════════════════════════════════════════════════════ -->
+      <div class="entry-card">
+        <div class="entry-body">
+          <div class="entry-title">Your Most Recent Research Publication Title Goes Here</div>
+          <div class="entry-meta">
+            <span>2024</span><span class="dot">·</span>
+            <span>Journal of Environmental Science</span>
+          </div>
+          <div class="entry-excerpt">
+            Two lines from your abstract go here. Describe the key findings
+            or the objective of your research in brief, engaging language.
+          </div>
+          <!-- EDIT: Replace # with the DOI or publication URL -->
+          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">
+          <!--
+            EDIT: <img src="images/journal-thumb-1.jpg" alt="Journal cover" />
+          -->
+          📰
+        </div>
+      </div>
+
+      <!-- ═══ MOST RECENT ARTICLE ENTRY ════════════════════
+           EDIT: Replace with your most recent article.
+      ═══════════════════════════════════════════════════════ -->
+      <div class="entry-card">
+        <div class="entry-body">
+          <div class="entry-title">Your Most Recent Article Title Goes Here</div>
+          <div class="entry-meta">
+            <span>2024</span><span class="dot">·</span>
+            <span>LinkedIn / Medium / Other Platform</span>
+          </div>
+          <div class="entry-excerpt">
+            Brief description of the article — what it covers, who it is for,
+            and why readers should care about it.
+          </div>
+          <!-- EDIT: Replace # with the article URL -->
+          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">
+          <!--
+            EDIT: <img src="images/article-platform-logo.png" alt="Platform" />
+          -->
+          ✍️
+        </div>
+      </div>
+
+      <a class="explore-btn" href="research-articles.html">Explore more &rsaquo;&rsaquo;&rsaquo;</a>
+    </section>
+
+    <!-- ── PROFESSIONAL &amp; LEADERSHIP PREVIEW ─────────── -->
+    <section class="home-section fade-up">
+      <a class="home-sec-title" href="professional-leadership.html">Professional &amp; Leadership</a>
+
+      <!-- ═══ MOST RECENT EXPERIENCE — copy block for more ══
+           EDIT: Title, organization, timeline, summary.
+           Right thumb: organization logo image.
+      ═══════════════════════════════════════════════════════ -->
+      <div class="entry-card">
+        <div class="entry-body">
+          <div class="entry-title">Your Most Recent Position / Role Title</div>
+          <div class="entry-meta">
+            <span>Your Organization</span>
+            <span class="dot">·</span>
+            <span>Jan 2022 – Present</span>
+          </div>
+          <div class="entry-excerpt">
+            Two lines summarizing your key responsibilities and achievements
+            in this role. Keep it concise and impactful.
+          </div>
+          <a class="see-more" href="professional-leadership.html">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">
+          <!--
+            EDIT: <img src="images/org-logo-1.png" alt="Organization logo" />
+          -->
+          🏛️
+        </div>
+      </div>
+
+      <a class="explore-btn" href="professional-leadership.html">Explore more &rsaquo;&rsaquo;&rsaquo;</a>
+    </section>
+
+    <!-- ── LIFE THROUGH MY LENS PREVIEW ──────────────────── -->
+    <section class="home-section fade-up">
+      <!-- Clickable section title -->
+      <a class="home-sec-title" href="life-through-my-lens.html">Life Through My Lens</a>
+
+      <!--
+        The entire block below is one clickable link to the page.
+        EDIT: Change the tagline text inside .lens-preview-text
+      -->
+      <a class="lens-preview" href="life-through-my-lens.html">
+        <p class="lens-preview-text">
+          "Behold — let the world of Abrar be revealed to you as you venture in."
+        </p>
+        <p class="lens-preview-cta">Explore &rsaquo;&rsaquo;&rsaquo;</p>
+      </a>
+    </section>
+
+    <!-- ── CONTACT PREVIEW ────────────────────────────────── -->
+    <section class="home-section fade-up">
+      <a class="home-sec-title" href="contact.html">Contact</a>
+      <div class="contact-preview">
+        <p>
+          Have a question, collaboration idea, or just want to say hello?
+          I would love to hear from you. Reach out and I will get back to
+          you as soon as possible.
+        </p>
+        <a class="explore-btn" href="contact.html">Reach out &rsaquo;&rsaquo;&rsaquo;</a>
+      </div>
+    </section>
+
+  </div><!-- /container -->
+</main>
+
+<!-- ═══ FOOTER / BOTTOM BAR ════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-body">
+
+    <!-- Left: photo, name, social links -->
+    <div class="footer-left">
+      <div class="footer-avatar">
+        <!--
+          EDIT: <img src="images/abrar-hero.jpg" alt="Abrar" />
+        -->
+        <div class="photo-placeholder">A</div>
+      </div>
+      <!-- EDIT: Your name -->
+      <div class="footer-name">Abrar</div>
+
+      <div class="footer-socials">
+        <!-- EDIT: Replace # with your actual profile URLs -->
+        <a class="footer-social" href="#" target="_blank">
+          <span class="s-icon s-linkedin">in</span> LinkedIn
+        </a>
+        <a class="footer-social" href="#" target="_blank">
+          <span class="s-icon s-scholar">GS</span> Google Scholar
+        </a>
+        <a class="footer-social" href="#" target="_blank">
+          <span class="s-icon s-rg">RG</span> ResearchGate
+        </a>
+        <a class="footer-social" href="#" target="_blank">
+          <span class="s-icon s-fb">f</span> Facebook
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: page links, one below another -->
+    <div class="footer-right">
+      <div class="footer-pages-label">Pages</div>
+      <div class="footer-page-links">
+        <a href="index.html">🏠 Home</a>
+        <a href="professional-leadership.html">💼 Professional &amp; Leadership</a>
+        <a href="research-articles.html">📄 Research &amp; Articles</a>
+        <a href="research-projects.html">🔬 Research Projects</a>
+        <a href="awards-certificates.html">🏆 Awards &amp; Certificates</a>
+        <a href="mentoring-experience.html">🎓 Mentoring Experience</a>
+        <a href="life-through-my-lens.html">📸 Life Through My Lens</a>
+        <a href="contact.html">✉️ Contact</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Copyright — EDIT: Update name and year -->
+  <div class="footer-bottom">
+    &copy; 2025 Abrar. All rights reserved. Copyright of the contents of this page belongs to Abrar.
+  </div>
+</footer>
+
+<!-- ═══ LIGHTBOX (shared across all pages) ═════════════════ -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="lbClose()">&#x2715;</button>
+    <img class="lightbox-img" id="lbImg" src="" alt="Gallery image" />
+    <div class="lightbox-cap" id="lbCap"></div>
+  </div>
+  <button class="lb-nav lb-prev" onclick="lbPrev()">&#8592;</button>
+  <button class="lb-nav lb-next" onclick="lbNext()">&#8594;</button>
+</div>
+
+<script src="js/shared.js"></script>
+</body>
+</html>

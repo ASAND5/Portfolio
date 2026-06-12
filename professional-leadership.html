@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professional &amp; Leadership — Abrar</title>
+
+  <!-- ═══ PAGE THEME — EDIT COLORS HERE ══════════════════════
+       Blue / light-blue theme — conveys trust
+  ═══════════════════════════════════════════════════════════ -->
+  <style>
+    :root {
+      --accent      : #1e40af;
+      --accent-light: #bfdbfe;
+      --page-bg     : #eff6ff;
+      --page-text   : #1e3a5f;
+      --nav-accent  : #1e40af;
+      --card-border : #bfdbfe;
+    }
+    body { background: var(--page-bg); color: var(--page-text); }
+  </style>
+
+  <link rel="stylesheet" href="css/shared.css" />
+</head>
+
+<body>
+
+<!-- ═══ TOP BAR ════════════════════════════════════════════ -->
+<header class="topbar">
+  <div class="topbar-brand">
+    Abrar <small>Professional &amp; Leadership</small>
+  </div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ═══ SIDE NAVIGATION ════════════════════════════════════ -->
+<div class="sidenav-overlay" id="sidenavOverlay"></div>
+<nav class="sidenav" id="sidenav">
+  <div class="sidenav-top">
+    <span class="sidenav-logo">Abrar</span>
+    <button class="sidenav-close-btn" id="sidenavCloseBtn">&#x2715;</button>
+  </div>
+  <div class="sidenav-nav">
+    <a href="index.html"><span class="nav-em">🏠</span> Home</a>
+    <a href="professional-leadership.html"><span class="nav-em">💼</span> Professional &amp; Leadership</a>
+    <a href="research-articles.html"><span class="nav-em">📄</span> Research &amp; Articles</a>
+    <a href="research-projects.html"><span class="nav-em">🔬</span> Research Projects <span class="nav-badge">Soon</span></a>
+    <a href="awards-certificates.html"><span class="nav-em">🏆</span> Awards &amp; Certificates</a>
+    <a href="mentoring-experience.html"><span class="nav-em">🎓</span> Mentoring Experience</a>
+    <a href="life-through-my-lens.html"><span class="nav-em">📸</span> Life Through My Lens</a>
+    <a href="contact.html"><span class="nav-em">✉️</span> Contact</a>
+  </div>
+  <div class="sidenav-socials">
+    <a href="#" target="_blank">in</a>
+    <a href="#" target="_blank">GS</a>
+    <a href="#" target="_blank">RG</a>
+    <a href="#" target="_blank">f</a>
+  </div>
+</nav>
+
+<!-- ═══ MAIN PAGE ══════════════════════════════════════════ -->
+<main class="page-wrapper">
+  <div class="container">
+
+    <!-- Page header: name left, thumbnail right -->
+    <div class="pg-header fade-up">
+      <div>
+        <div class="pg-header-name">Abrar</div><!-- EDIT name -->
+        <div class="pg-header-sub">Environmental Scientist &amp; Researcher</div><!-- EDIT subtitle -->
+      </div>
+      <div class="pg-header-photo">
+        <!-- EDIT: <img src="images/abrar-thumb.jpg" alt="Abrar" /> -->
+        <div class="photo-placeholder">A</div>
+      </div>
+    </div>
+
+    <!-- ── PROFESSIONAL &amp; LEADERSHIP ─────────────────── -->
+    <section class="section-wrap">
+      <h1 class="sec-title">Professional &amp; Leadership</h1>
+
+      <!--
+      ═══════════════════════════════════════════════════════════
+      ENTRY CARD — COPY THIS ENTIRE BLOCK TO ADD A NEW ENTRY
+      Fill in: POSITION_TITLE, ORGANIZATION, TIMELINE, SUMMARY,
+               ORG_LOGO_IMAGE, FULL_DESCRIPTION_URL
+      ═══════════════════════════════════════════════════════════
+      -->
+      <!-- ENTRY 1 (always visible) -->
+      <div class="entry-card fade-up">
+        <div class="entry-body">
+          <!-- EDIT: Your position title -->
+          <div class="entry-title">Your Most Recent Position Title</div>
+          <div class="entry-meta">
+            <!-- EDIT: Organization name and timeline -->
+            <span>Organization Name</span>
+            <span class="dot">·</span>
+            <span>Month Year – Present</span>
+          </div>
+          <div class="entry-excerpt">
+            <!-- EDIT: Two lines about your work and achievements here -->
+            Summary of your key responsibilities, achievements, and impact
+            in this role. Write two concise lines that highlight your work.
+          </div>
+          <!-- EDIT: Link to full description or organization site -->
+          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">
+          <!-- EDIT: <img src="images/org-logo-1.png" alt="Organization logo" /> -->
+          🏛️
+        </div>
+      </div>
+      <!-- END ENTRY 1 -->
+
+      <!-- ENTRY 2 (always visible) -->
+      <div class="entry-card fade-up">
+        <div class="entry-body">
+          <div class="entry-title">Your Second Position Title</div>
+          <div class="entry-meta">
+            <span>Organization Name</span>
+            <span class="dot">·</span>
+            <span>Month Year – Month Year</span>
+          </div>
+          <div class="entry-excerpt">
+            Summary of your role and key contributions. Two lines highlighting
+            your achievements and the impact you made in this position.
+          </div>
+          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">
+          <!-- EDIT: <img src="images/org-logo-2.png" alt="Organization logo" /> -->
+          🌐
+        </div>
+      </div>
+      <!-- END ENTRY 2 -->
+
+      <!--
+      ═══════════════════════════════════════════════════════════
+      EXTRA ENTRIES — hidden by default, shown on "Load more"
+      Add class="entry-card extra" to hide initially.
+      ═══════════════════════════════════════════════════════════
+      -->
+
+      <!-- EXTRA ENTRY 3 -->
+      <div class="entry-card extra fade-up">
+        <div class="entry-body">
+          <div class="entry-title">Third Position Title</div>
+          <div class="entry-meta">
+            <span>Organization Name</span>
+            <span class="dot">·</span>
+            <span>Month Year – Month Year</span>
+          </div>
+          <div class="entry-excerpt">
+            Summary of this role and key contributions. Two lines about
+            your responsibilities and what you accomplished.
+          </div>
+          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">🎯</div>
+      </div>
+      <!-- END EXTRA ENTRY 3 -->
+
+      <!-- EXTRA ENTRY 4 — copy and paste for more entries -->
+      <div class="entry-card extra fade-up">
+        <div class="entry-body">
+          <div class="entry-title">Fourth Position Title</div>
+          <div class="entry-meta">
+            <span>Organization Name</span>
+            <span class="dot">·</span>
+            <span>Month Year – Month Year</span>
+          </div>
+          <div class="entry-excerpt">
+            Brief summary of responsibilities and achievements in this role.
+            Two lines highlighting impact and key contributions.
+          </div>
+          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">📋</div>
+      </div>
+      <!-- END EXTRA ENTRY 4 -->
+
+      <div class="load-more-wrap">
+        <button class="load-more-btn" id="loadMoreProfBtn">
+          Load more &rsaquo;&rsaquo;&rsaquo;
+        </button>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ═══ FOOTER ══════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-body">
+    <div class="footer-left">
+      <div class="footer-avatar">
+        <!-- EDIT: <img src="images/abrar-hero.jpg" alt="Abrar" /> -->
+        <div class="photo-placeholder">A</div>
+      </div>
+      <div class="footer-name">Abrar</div>
+      <div class="footer-socials">
+        <a class="footer-social" href="#" target="_blank"><span class="s-icon s-linkedin">in</span> LinkedIn</a>
+        <a class="footer-social" href="#" target="_blank"><span class="s-icon s-scholar">GS</span> Google Scholar</a>
+        <a class="footer-social" href="#" target="_blank"><span class="s-icon s-rg">RG</span> ResearchGate</a>
+        <a class="footer-social" href="#" target="_blank"><span class="s-icon s-fb">f</span> Facebook</a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-pages-label">Pages</div>
+      <div class="footer-page-links">
+        <a href="index.html">🏠 Home</a>
+        <a href="professional-leadership.html">💼 Professional &amp; Leadership</a>
+        <a href="research-articles.html">📄 Research &amp; Articles</a>
+        <a href="research-projects.html">🔬 Research Projects</a>
+        <a href="awards-certificates.html">🏆 Awards &amp; Certificates</a>
+        <a href="mentoring-experience.html">🎓 Mentoring Experience</a>
+        <a href="life-through-my-lens.html">📸 Life Through My Lens</a>
+        <a href="contact.html">✉️ Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Abrar. All rights reserved. Copyright of the contents of this page belongs to Abrar.
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="lbClose()">&#x2715;</button>
+    <img class="lightbox-img" id="lbImg" src="" alt="" />
+    <div class="lightbox-cap" id="lbCap"></div>
+  </div>
+  <button class="lb-nav lb-prev" onclick="lbPrev()">&#8592;</button>
+  <button class="lb-nav lb-next" onclick="lbNext()">&#8594;</button>
+</div>
+
+<script src="js/shared.js"></script>
+<script>
+  // Load more for professional entries
+  setupLoadMore('loadMoreProfBtn', '.entry-card.extra');
+</script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Awards &amp; Certificates — Abrar</title>
+
+  <!-- ═══ PAGE THEME — full navy blue ════════════════════════ -->
+  <style>
+    :root {
+      --accent      : #1e3a5f;
+      --accent-light: #c8d5eb;
+      --page-bg     : #e8edf7;
+      --page-text   : #0a1128;
+      --nav-accent  : #1e3a5f;
+      --card-border : #c8d5eb;
+    }
+    body { background: var(--page-bg); color: var(--page-text); }
+  </style>
+
+  <link rel="stylesheet" href="css/shared.css" />
+
+  <style>
+    /* ── AWARDS GRID — 2 per row ──────────────────────────── */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    /*
+      AWARD CARD — COPY THIS BLOCK TO ADD A NEW AWARD
+      No zoom / lightbox on this page by design.
+    */
+    .award-card {
+      background: #fff;
+      border: 2px solid var(--card-border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      transition: box-shadow var(--ease), transform var(--ease);
+    }
+    .award-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+    .award-img-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--accent-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 56px;
+    }
+    .award-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .award-caption {
+      padding: 12px 14px 14px;
+      border-top: 1px solid var(--card-border);
+    }
+    .award-name {
+      font-size: 14px; font-weight: 600;
+      color: var(--page-text); margin-bottom: 3px;
+    }
+    .award-year {
+      font-size: 12px; color: var(--gray-500);
+    }
+
+    /* hidden extras for load more */
+    .award-card.extra { display: none; }
+    .award-card.extra.visible { display: block; }
+
+    @media (max-width: 600px) {
+      .awards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══ TOP BAR ════════════════════════════════════════════ -->
+<header class="topbar">
+  <div class="topbar-brand">Abrar <small>Awards &amp; Certificates</small></div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ═══ SIDE NAVIGATION ════════════════════════════════════ -->
+<div class="sidenav-overlay" id="sidenavOverlay"></div>
+<nav class="sidenav" id="sidenav">
+  <div class="sidenav-top">
+    <span class="sidenav-logo">Abrar</span>
+    <button class="sidenav-close-btn" id="sidenavCloseBtn">&#x2715;</button>
+  </div>
+  <div class="sidenav-nav">
+    <a href="index.html"><span class="nav-em">🏠</span> Home</a>
+    <a href="professional-leadership.html"><span class="nav-em">💼</span> Professional &amp; Leadership</a>
+    <a href="research-articles.html"><span class="nav-em">📄</span> Research &amp; Articles</a>
+    <a href="research-projects.html"><span class="nav-em">🔬</span> Research Projects <span class="nav-badge">Soon</span></a>
+    <a href="awards-certificates.html"><span class="nav-em">🏆</span> Awards &amp; Certificates</a>
+    <a href="mentoring-experience.html"><span class="nav-em">🎓</span> Mentoring Experience</a>
+    <a href="life-through-my-lens.html"><span class="nav-em">📸</span> Life Through My Lens</a>
+    <a href="contact.html"><span class="nav-em">✉️</span> Contact</a>
+  </div>
+  <div class="sidenav-socials">
+    <a href="#" target="_blank">in</a>
+    <a href="#" target="_blank">GS</a>
+    <a href="#" target="_blank">RG</a>
+    <a href="#" target="_blank">f</a>
+  </div>
+</nav>
+
+<!-- ═══ MAIN PAGE ══════════════════════════════════════════ -->
+<main class="page-wrapper">
+  <div class="container">
+
+    <div class="pg-header fade-up">
+      <div>
+        <div class="pg-header-name">Abrar</div>
+        <div class="pg-header-sub">Environmental Scientist &amp; Researcher</div>
+      </div>
+      <div class="pg-header-photo">
+        <!-- EDIT: <img src="images/abrar-thumb.jpg" alt="Abrar" /> -->
+        <div class="photo-placeholder">A</div>
+      </div>
+    </div>
+
+    <section class="section-wrap">
+      <h1 class="sec-title">Awards &amp; Certificates</h1>
+      <p class="content-block">
+        Recognitions, honors, and certifications — chronologically ordered,
+        most recent first (left to right, top to bottom).
+      </p>
+
+      <div class="awards-grid">
+
+        <!--
+        ═════════════════════════════════════════════════════════
+        AWARD CARD — COPY THIS BLOCK TO ADD A NEW AWARD
+        Fill in: AWARD_NAME, YEAR, IMAGE (upload to images/)
+        The first 4 cards are always visible (2×2 grid).
+        Add class="award-card extra" for cards hidden by default.
+        ═════════════════════════════════════════════════════════
+        -->
+
+        <!-- AWARD 1 (visible) — most recent, top left -->
+        <div class="award-card fade-up">
+          <div class="award-img-wrap">
+            <!--
+              EDIT: Replace emoji with:
+              <img src="images/award-1.jpg" alt="Award name" />
+            -->
+            🏆
+          </div>
+          <div class="award-caption">
+            <!-- EDIT: Award name and year -->
+            <div class="award-name">Your Most Recent Award or Certificate Name</div>
+            <div class="award-year">2024 · Awarding Organization</div>
+          </div>
+        </div>
+        <!-- END AWARD 1 -->
+
+        <!-- AWARD 2 (visible) — top right -->
+        <div class="award-card fade-up">
+          <div class="award-img-wrap">
+            <!-- EDIT: <img src="images/award-2.jpg" alt="" /> -->
+            🥇
+          </div>
+          <div class="award-caption">
+            <div class="award-name">Second Award or Certificate Name</div>
+            <div class="award-year">2023 · Awarding Organization</div>
+          </div>
+        </div>
+        <!-- END AWARD 2 -->
+
+        <!-- AWARD 3 (visible) — bottom left of first 4 -->
+        <div class="award-card fade-up">
+          <div class="award-img-wrap">
+            <!-- EDIT: <img src="images/award-3.jpg" alt="" /> -->
+            🎖️
+          </div>
+          <div class="award-caption">
+            <div class="award-name">Third Award or Certificate Name</div>
+            <div class="award-year">2022 · Awarding Organization</div>
+          </div>
+        </div>
+        <!-- END AWARD 3 -->
+
+        <!-- AWARD 4 (visible) — bottom right of first 4 -->
+        <div class="award-card fade-up">
+          <div class="award-img-wrap">
+            <!-- EDIT: <img src="images/award-4.jpg" alt="" /> -->
+            📜
+          </div>
+          <div class="award-caption">
+            <div class="award-name">Fourth Award or Certificate Name</div>
+            <div class="award-year">2021 · Awarding Organization</div>
+          </div>
+        </div>
+        <!-- END AWARD 4 -->
+
+        <!-- ── EXTRA AWARDS (hidden until Load more) ───────── -->
+
+        <!-- EXTRA AWARD 5 — copy/paste to add more -->
+        <div class="award-card extra fade-up">
+          <div class="award-img-wrap">
+            <!-- EDIT: <img src="images/award-5.jpg" alt="" /> -->
+            🌟
+          </div>
+          <div class="award-caption">
+            <div class="award-name">Fifth Award or Certificate Name</div>
+            <div class="award-year">2020 · Awarding Organization</div>
+          </div>
+        </div>
+
+        <!-- EXTRA AWARD 6 -->
+        <div class="award-card extra fade-up">
+          <div class="award-img-wrap">
+            <!-- EDIT: <img src="images/award-6.jpg" alt="" /> -->
+            🎗️
+          </div>
+          <div class="award-caption">
+            <div class="award-name">Sixth Award or Certificate Name</div>
+            <div class="award-year">2019 · Awarding Organization</div>
+          </div>
+        </div>
+
+        <!-- Add more extra award cards here by copying the block above -->
+
+      </div><!-- /awards-grid -->
+
+      <div class="load-more-wrap">
+        <button class="load-more-btn" id="loadMoreAwardsBtn">
+          Load more &rsaquo;&rsaquo;&rsaquo;
+        </button>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ═══ FOOTER ══════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-body">
+    <div class="footer-left">
+      <div class="footer-avatar"><div class="photo-placeholder">A</div></div>
+      <div class="footer-name">Abrar</div>
+      <div class="footer-socials">
+        <a class="footer-social" href="#" target="_blank"><span class="s-icon s-linkedin">in</span> LinkedIn</a>
+        <a class="footer-social" href="#" target="_blank"><span class="s-icon s-scholar">GS</span> Google Scholar</a>
+        <a class="footer-social" href="#" target="_blank"><span class="s-icon s-rg">RG</span> ResearchGate</a>
+        <a class="footer-social" href="#" target="_blank"><span class="s-icon s-fb">f</span> Facebook</a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-pages-label">Pages</div>
+      <div class="footer-page-links">
+        <a href="index.html">🏠 Home</a>
+        <a href="professional-leadership.html">💼 Professional &amp; Leadership</a>
+        <a href="research-articles.html">📄 Research &amp; Articles</a>
+        <a href="research-projects.html">🔬 Research Projects</a>
+        <a href="awards-certificates.html">🏆 Awards &amp; Certificates</a>
+        <a href="mentoring-experience.html">🎓 Mentoring Experience</a>
+        <a href="life-through-my-lens.html">📸 Life Through My Lens</a>
+        <a href="contact.html">✉️ Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Abrar. All rights reserved. Copyright of the contents of this page belongs to Abrar.
+  </div>
+</footer>
+
+<script src="js/shared.js"></script>
+<script>
+  document.getElementById('loadMoreAwardsBtn')?.addEventListener('click', function() {
+    document.querySelectorAll('.award-card.extra:not(.visible)')
+      .forEach(el => el.classList.add('visible'));
+    this.textContent = '✓ All loaded';
+    this.disabled = true;
+  });
+</script>
+</body>
+</html>

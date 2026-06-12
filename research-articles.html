@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research &amp; Articles — Abrar</title>
+
+  <!-- ═══ PAGE THEME — light purple / lavender ═══════════════ -->
+  <style>
+    :root {
+      --accent      : #7c3aed;
+      --accent-light: #ddd6fe;
+      --page-bg     : #faf5ff;
+      --page-text   : #3b0764;
+      --nav-accent  : #7c3aed;
+      --card-border : #ddd6fe;
+    }
+    body { background: var(--page-bg); color: var(--page-text); }
+  </style>
+
+  <link rel="stylesheet" href="css/shared.css" />
+</head>
+
+<body>
+
+<!-- ═══ TOP BAR ════════════════════════════════════════════ -->
+<header class="topbar">
+  <div class="topbar-brand">Abrar <small>Research &amp; Articles</small></div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ═══ SIDE NAVIGATION ════════════════════════════════════ -->
+<div class="sidenav-overlay" id="sidenavOverlay"></div>
+<nav class="sidenav" id="sidenav">
+  <div class="sidenav-top">
+    <span class="sidenav-logo">Abrar</span>
+    <button class="sidenav-close-btn" id="sidenavCloseBtn">&#x2715;</button>
+  </div>
+  <div class="sidenav-nav">
+    <a href="index.html"><span class="nav-em">🏠</span> Home</a>
+    <a href="professional-leadership.html"><span class="nav-em">💼</span> Professional &amp; Leadership</a>
+    <a href="research-articles.html"><span class="nav-em">📄</span> Research &amp; Articles</a>
+    <a href="research-projects.html"><span class="nav-em">🔬</span> Research Projects <span class="nav-badge">Soon</span></a>
+    <a href="awards-certificates.html"><span class="nav-em">🏆</span> Awards &amp; Certificates</a>
+    <a href="mentoring-experience.html"><span class="nav-em">🎓</span> Mentoring Experience</a>
+    <a href="life-through-my-lens.html"><span class="nav-em">📸</span> Life Through My Lens</a>
+    <a href="contact.html"><span class="nav-em">✉️</span> Contact</a>
+  </div>
+  <div class="sidenav-socials">
+    <a href="#" target="_blank">in</a>
+    <a href="#" target="_blank">GS</a>
+    <a href="#" target="_blank">RG</a>
+    <a href="#" target="_blank">f</a>
+  </div>
+</nav>
+
+<!-- ═══ MAIN PAGE ══════════════════════════════════════════ -->
+<main class="page-wrapper">
+  <div class="container">
+
+    <div class="pg-header fade-up">
+      <div>
+        <div class="pg-header-name">Abrar</div>
+        <div class="pg-header-sub">Environmental Scientist &amp; Researcher</div>
+      </div>
+      <div class="pg-header-photo">
+        <!-- EDIT: <img src="images/abrar-thumb.jpg" alt="Abrar" /> -->
+        <div class="photo-placeholder">A</div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 1: RESEARCH PUBLICATIONS
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-wrap">
+      <h1 class="sec-title">Research Publications</h1>
+      <p class="content-block">
+        Listed in reverse chronological order — most recent first.
+      </p>
+
+      <!--
+      ═══════════════════════════════════════════════════════════
+      RESEARCH ENTRY — COPY THIS BLOCK TO ADD A NEW PUBLICATION
+      Fill in: TITLE, YEAR, JOURNAL_NAME, ABSTRACT_EXCERPT,
+               JOURNAL_THUMB_IMAGE (upload to images/), DOI_URL
+      ═══════════════════════════════════════════════════════════
+      -->
+
+      <!-- RESEARCH ENTRY 1 (always visible) -->
+      <div class="entry-card fade-up">
+        <div class="entry-body">
+          <!-- EDIT: Full title of your publication -->
+          <div class="entry-title">Title of Your Most Recent Research Publication</div>
+          <div class="entry-meta">
+            <!-- EDIT: Year, Journal name -->
+            <span>2024</span>
+            <span class="dot">·</span>
+            <span>Journal of Environmental Science</span>
+          </div>
+          <div class="entry-excerpt">
+            <!-- EDIT: First 2 lines of your abstract -->
+            Paste the first two lines of your abstract here. This gives
+            visitors a quick preview of your research focus and findings.
+          </div>
+          <!-- EDIT: Replace # with your DOI link or publication URL -->
+          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">
+          <!-- EDIT: <img src="images/research-thumb-1.jpg" alt="Journal cover" /> -->
+          📰
+        </div>
+      </div>
+      <!-- END RESEARCH ENTRY 1 -->
+
+      <!-- RESEARCH ENTRY 2 (always visible) -->
+      <div class="entry-card fade-up">
+        <div class="entry-body">
+          <div class="entry-title">Title of Your Second Research Publication</div>
+          <div class="entry-meta">
+            <span>2023</span>
+            <span class="dot">·</span>
+            <span>Environmental Science &amp; Technology</span>
+          </div>
+          <div class="entry-excerpt">
+            Two lines from the abstract of this publication. Keep it concise
+            and informative so readers know what the paper is about.
+          </div>
+          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">
+          <!-- EDIT: <img src="images/research-thumb-2.jpg" alt="Journal cover" /> -->
+          📓
+        </div>
+      </div>
+      <!-- END RESEARCH ENTRY 2 -->
+
+      <!-- EXTRA RESEARCH ENTRY 3 — hidden until Load more clicked -->
+      <div class="entry-card extra fade-up">
+        <div class="entry-body">
+          <div class="entry-title">Title of Your Third Research Publication</div>
+          <div class="entry-meta">
+            <span>2022</span><span class="dot">·</span>
+            <span>Global Change Biology</span>
+          </div>
+          <div class="entry-excerpt">
+            Two lines from the abstract of this publication. Summarise the
+            core contribution and findings clearly.
+          </div>
+          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">📗</div>
+      </div>
+
+      <!-- EXTRA RESEARCH ENTRY 4 — copy/paste for more -->
+      <div class="entry-card extra fade-up">
+        <div class="entry-body">
+          <div class="entry-title">Title of Your Fourth Research Publication</div>
+          <div class="entry-meta">
+            <span>2021</span><span class="dot">·</span>
+            <span>Nature Environmental Science</span>
+          </div>
+          <div class="entry-excerpt">
+            Two lines from the abstract. What was the question, what did
+            you find, and why does it matter?
+          </div>
+          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">📘</div>
+      </div>
+
+      <div class="load-more-wrap">
+        <button class="load-more-btn" id="loadMoreResearchBtn">
+          Load more &rsaquo;&rsaquo;&rsaquo;
+        </button>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 2: ARTICLE PUBLICATIONS
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-wrap">
+      <h2 class="sec-title">Article Publications</h2>
+
+      <!--
+      ═══════════════════════════════════════════════════════════
+      ARTICLE ENTRY — COPY THIS BLOCK TO ADD A NEW ARTICLE
+      Right thumb: upload platform logo (LinkedIn, Medium, etc.)
+      ═══════════════════════════════════════════════════════════
+      -->
+
+      <!-- ARTICLE ENTRY 1 (always visible) -->
+      <div class="entry-card fade-up">
+        <div class="entry-body">
+          <!-- EDIT: Article title -->
+          <div class="entry-title">Title of Your Most Recent Article</div>
+          <div class="entry-meta">
+            <!-- EDIT: Year and platform -->
+            <span>2024</span>
+            <span class="dot">·</span>
+            <span>LinkedIn</span>
+          </div>
+          <div class="entry-excerpt">
+            <!-- EDIT: 2-line description of the article -->
+            What this article covers — a brief summary that tells the reader
+            why it is worth reading and what they will learn.
+          </div>
+          <!-- EDIT: Replace # with article URL -->
+          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">
+          <!-- EDIT: <img src="images/linkedin-logo.png" alt="LinkedIn" />
+               OR any platform thumbnail or article cover image -->
+          💼
+        </div>
+      </div>
+      <!-- END ARTICLE ENTRY 1 -->
+
+      <!-- ARTICLE ENTRY 2 (always visible) -->
+      <div class="entry-card fade-up">
+        <div class="entry-body">
+          <div class="entry-title">Title of Your Second Article</div>
+          <div class="entry-meta">
+            <span>2023</span>
+            <span class="dot">·</span>
+            <span>Medium</span>
+          </div>
+          <div class="entry-excerpt">
+            Two-line description of this article. What topic does it explore?
+            Who is the audience and what can they take away from reading it?
+          </div>
+          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">
+          <!-- EDIT: <img src="images/medium-logo.png" alt="Medium" /> -->
+          ✍️
+        </div>
+      </div>
+      <!-- END ARTICLE ENTRY 2 -->
+
+      <!-- EXTRA ARTICLE ENTRY 3 — hidden until Load more -->
+      <div class="entry-card extra fade-up">
+        <div class="entry-body">
+          <div class="entry-title">Title of Your Third Article</div>
+          <div class="entry-meta">
+            <span>2022</span><span class="dot">·</span><span>ResearchGate</span>
+          </div>
+          <div class="entry-excerpt">
+            Two-line description of this article or opinion piece.
+          </div>
+          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">📝</div>
+      </div>
+
+      <div class="load-more-wrap">
+        <button class="load-more-btn" id="loadMoreArticlesBtn">
+          Load more &rsaquo;&rsaquo;&rsaquo;
+        </button>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ═══ FOOTER ══════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-body">
+    <div class="footer-left">
+      <div class="footer-avatar">
+        <div class="photo-placeholder">A</div>
+      </div>
+      <div class="footer-name">Abrar</div>
+      <div class="footer-socials">
+        <a class="footer-social" href="#" target="_blank"><span class="s-icon s-linkedin">in</span> LinkedIn</a>
+        <a class="footer-social" href="#" target="_blank"><span class="s-icon s-scholar">GS</span> Google Scholar</a>
+        <a class="footer-social" href="#" target="_blank"><span class="s-icon s-rg">RG</span> ResearchGate</a>
+        <a class="footer-social" href="#" target="_blank"><span class="s-icon s-fb">f</span> Facebook</a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-pages-label">Pages</div>
+      <div class="footer-page-links">
+        <a href="index.html">🏠 Home</a>
+        <a href="professional-leadership.html">💼 Professional &amp; Leadership</a>
+        <a href="research-articles.html">📄 Research &amp; Articles</a>
+        <a href="research-projects.html">🔬 Research Projects</a>
+        <a href="awards-certificates.html">🏆 Awards &amp; Certificates</a>
+        <a href="mentoring-experience.html">🎓 Mentoring Experience</a>
+        <a href="life-through-my-lens.html">📸 Life Through My Lens</a>
+        <a href="contact.html">✉️ Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Abrar. All rights reserved. Copyright of the contents of this page belongs to Abrar.
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="lbClose()">&#x2715;</button>
+    <img class="lightbox-img" id="lbImg" src="" alt="" />
+    <div class="lightbox-cap" id="lbCap"></div>
+  </div>
+  <button class="lb-nav lb-prev" onclick="lbPrev()">&#8592;</button>
+  <button class="lb-nav lb-next" onclick="lbNext()">&#8594;</button>
+</div>
+
+<script src="js/shared.js"></script>
+<script>
+  setupLoadMore('loadMoreResearchBtn', '#\\31 0 .entry-card.extra');
+  // Separate load-more for each section
+  (function() {
+    const resBtn = document.getElementById('loadMoreResearchBtn');
+    const artBtn = document.getElementById('loadMoreArticlesBtn');
+
+    // Collect extras per section
+    const sections = document.querySelectorAll('.section-wrap');
+
+    sections.forEach((sec, i) => {
+      const btn = sec.querySelector('.load-more-btn');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const hidden = sec.querySelectorAll('.entry-card.extra:not(.visible)');
+        hidden.forEach(el => el.classList.add('visible'));
+        if (sec.querySelectorAll('.entry-card.extra:not(.visible)').length === 0) {
+          btn.textContent = '✓ All loaded';
+          btn.disabled = true;
+        }
+      });
+    });
+  })();
+</script>
+</body>
+</html>

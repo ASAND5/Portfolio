@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Abrar</title>
+
+  <!-- ═══ PAGE THEME — greenish beige, warm & playful ════════
+       Goal: keep visitors energized and comfortable while
+       writing a message — soft greens + warm beige.
+  ═══════════════════════════════════════════════════════════ -->
+  <style>
+    :root {
+      --accent      : #5c7a50;
+      --accent-light: #c8dbb8;
+      --page-bg     : #f5f0e8;
+      --page-text   : #2d3a2d;
+      --nav-accent  : #5c7a50;
+      --card-border : #c8dbb8;
+    }
+    body { background: var(--page-bg); color: var(--page-text); }
+  </style>
+
+  <link rel="stylesheet" href="css/shared.css" />
+
+  <style>
+    /* ══════════════════════════════════════════════════════════
+       CONTACT PAGE SPECIFIC STYLES
+    ══════════════════════════════════════════════════════════ */
+
+    /* Page hero strip */
+    .contact-hero {
+      background: linear-gradient(135deg, #dde8d0 0%, #e8dfc8 100%);
+      padding: 36px var(--pad) 30px;
+      text-align: center;
+      border-bottom: 2px solid var(--accent-light);
+    }
+    .contact-hero-emoji { font-size: 52px; margin-bottom: 10px; }
+    .contact-hero h1 {
+      font-family: var(--font-heading);
+      font-size: 30px; font-weight: 700;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .contact-hero p {
+      font-size: 15px; color: var(--gray-600);
+      max-width: 520px; margin: 0 auto; line-height: 1.7;
+    }
+
+    /* Address cards */
+    .address-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px; margin-bottom: 36px;
+    }
+    .address-card {
+      background: #fff;
+      border: 2px solid var(--card-border);
+      border-radius: var(--r-lg);
+      padding: 20px 22px;
+    }
+    .address-card-title {
+      font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .07em;
+      color: var(--accent); margin-bottom: 10px;
+    }
+    .address-line {
+      font-size: 13.5px; color: var(--gray-700);
+      line-height: 1.7; margin-bottom: 4px;
+    }
+    .address-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13.5px; color: var(--accent);
+      font-weight: 500;
+      border-bottom: 1px solid var(--accent-light);
+      padding-bottom: 1px;
+      transition: opacity var(--ease);
+    }
+    .address-link:hover { opacity: .75; }
+
+    /* Contact form */
+    .contact-form-wrap {
+      background: #fff;
+      border: 2px solid var(--card-border);
+      border-radius: var(--r-lg);
+      padding: 28px 30px;
+      margin-bottom: 20px;
+    }
+    .contact-form-title {
+      font-family: var(--font-heading);
+      font-size: 20px; font-weight: 700;
+      color: var(--accent); margin-bottom: 6px;
+    }
+    .contact-form-sub {
+      font-size: 13.5px; color: var(--gray-500);
+      margin-bottom: 22px;
+    }
+
+    .form-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; margin-bottom: 14px;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label {
+      font-size: 12px; font-weight: 600;
+      color: var(--gray-600); letter-spacing: .03em;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      padding: 11px 14px;
+      border: 2px solid var(--card-border);
+      border-radius: var(--r-md);
+      font-size: 14px; font-family: var(--font-body);
+      color: var(--page-text);
+      background: var(--page-bg);
+      outline: none;
+      transition: border-color var(--ease);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      background: #fff;
+    }
+    .form-group textarea {
+      min-height: 130px; resize: vertical; line-height: 1.6;
+    }
+    .form-group.full { grid-column: 1 / -1; }
+
+    .form-submit-btn {
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 30px;
+      padding: 13px 36px; font-size: 15px; font-weight: 600;
+      font-family: var(--font-body);
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: var(--ease); cursor: pointer;
+    }
+    .form-submit-btn:hover { opacity: .88; transform: translateY(-1px); }
+
+    .form-note {
+      font-size: 12px; color: var(--gray-400);
+      margin-top: 14px; line-height: 1.6;
+    }
+    .form-note a { color: var(--accent); }
+
+    /* Success message */
+    .form-success {
+      display: none;
+      background: #f0fdf4; border: 2px solid #86efac;
+      border-radius: var(--r-md); padding: 20px 22px;
+      margin-top: 18px; text-align: center;
+    }
+    .form-success.show { display: block; }
+    .form-success p { font-size: 15px; color: #166534; }
+
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form-wrap { padding: 20px 18px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══ TOP BAR ════════════════════════════════════════════ -->
+<header class="topbar">
+  <div class="topbar-brand">Abrar <small>Contact</small></div>
+  <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ═══ SIDE NAVIGATION ════════════════════════════════════ -->
+<div class="sidenav-overlay" id="sidenavOverlay"></div>
+<nav class="sidenav" id="sidenav">
+  <div class="sidenav-top">
+    <span class="sidenav-logo">Abrar</span>
+    <button class="sidenav-close-btn" id="sidenavCloseBtn">&#x2715;</button>
+  </div>
+  <div class="sidenav-nav">
+    <a href="index.html"><span class="nav-em">🏠</span> Home</a>
+    <a href="professional-leadership.html"><span class="nav-em">💼</span> Professional &amp; Leadership</a>
+    <a href="research-articles.html"><span class="nav-em">📄</span> Research &amp; Articles</a>
+    <a href="research-projects.html"><span class="nav-em">🔬</span> Research Projects <span class="nav-badge">Soon</span></a>
+    <a href="awards-certificates.html"><span class="nav-em">🏆</span> Awards &amp; Certificates</a>
+    <a href="mentoring-experience.html"><span class="nav-em">🎓</span> Mentoring Experience</a>
+    <a href="life-through-my-lens.html"><span class="nav-em">📸</span> Life Through My Lens</a>
+    <a href="contact.html"><span class="nav-em">✉️</span> Contact</a>
+  </div>
+  <div class="sidenav-socials">
+    <a href="#" target="_blank">in</a><a href="#" target="_blank">GS</a>
+    <a href="#" target="_blank">RG</a><a href="#" target="_blank">f</a>
+  </div>
+</nav>
+
+<!-- ═══ MAIN PAGE ══════════════════════════════════════════ -->
+<main class="page-wrapper">
+
+  <!-- Hero strip -->
+  <div class="contact-hero">
+    <div class="contact-hero-emoji">✉️</div>
+    <h1>Let's Connect</h1>
+    <p>
+      Whether it is about research, collaboration, a book you spotted on
+      my shelf, or just a hello — writing something thoughtful takes
+      courage. I appreciate every message. 🌿
+    </p>
+  </div>
+
+  <div class="container">
+
+    <div class="pg-header fade-up" style="margin-top:28px;">
+      <div>
+        <div class="pg-header-name">Abrar</div><!-- EDIT -->
+        <div class="pg-header-sub">Environmental Scientist &amp; Researcher</div><!-- EDIT -->
+      </div>
+      <div class="pg-header-photo">
+        <!-- EDIT: <img src="images/abrar-thumb.jpg" alt="Abrar" /> -->
+        <div class="photo-placeholder">A</div>
+      </div>
+    </div>
+
+    <!-- ── ADDRESS CARDS ────────────────────────────────────── -->
+    <section class="section-wrap fade-up">
+      <h2 class="sec-title">Find Me</h2>
+      <div class="address-grid">
+
+        <!-- EDIT: Fill in your home address details -->
+        <div class="address-card">
+          <div class="address-card-title">🏠 Home Address</div>
+          <div class="address-line">Street / Area Name</div>
+          <div class="address-line">City, Postal Code</div>
+          <div class="address-line">Bangladesh</div><!-- EDIT: country -->
+        </div>
+
+        <!-- EDIT: Fill in your office/university address -->
+        <div class="address-card">
+          <div class="address-card-title">🏛️ Office Address</div>
+          <div class="address-line">Department of Environmental Science</div><!-- EDIT -->
+          <div class="address-line">Your University Name</div><!-- EDIT -->
+          <div class="address-line">Building, Room Number</div><!-- EDIT -->
+          <div class="address-line">City, Country</div><!-- EDIT -->
+        </div>
+
+        <!-- EDIT: Fill in your contact details -->
+        <div class="address-card">
+          <div class="address-card-title">📡 Direct Contact</div>
+          <!-- EDIT: Replace with your email -->
+          <div class="address-line">
+            <a class="address-link" href="mailto:your.email@university.edu">
+              ✉️ your.email@university.edu
+            </a>
+          </div>
+          <!-- EDIT: Replace with your phone (optional — remove if preferred) -->
+          <div class="address-line" style="margin-top:8px;">
+            <a class="address-link" href="tel:+88XXXXXXXXXX">
+              📞 +88 XXXX-XXXXXX
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CONTACT FORM ─────────────────────────────────────── -->
+    <section class="section-wrap fade-up">
+      <div class="contact-form-wrap">
+        <div class="contact-form-title">Send Me a Message</div>
+        <div class="contact-form-sub">
+          I read every message. Fill out the form below and I will
+          get back to you as soon as I can.
+        </div>
+
+        <!--
+        ═══════════════════════════════════════════════════════════
+        HOW TO ENABLE EMAIL SENDING (GitHub Pages compatible):
+
+        1. Go to https://formspree.io and create a FREE account.
+        2. Create a new form — use your email address.
+        3. Copy the form endpoint (looks like: https://formspree.io/f/abcdefgh)
+        4. Replace the action="#" below with your Formspree endpoint.
+        5. Done! Every submission will send you an email.
+
+        EDIT: Replace action="#" with your Formspree URL.
+        ═══════════════════════════════════════════════════════════
+        -->
+        <form id="contactForm" action="#" method="POST">
+
+          <!-- Hidden fields for Formspree -->
+          <input type="hidden" name="_subject" value="Message from your portfolio website" />
+          <input type="text" name="_gotcha" style="display:none" /><!-- spam filter -->
+
+          <div class="form-row">
+            <!-- EDIT: Field labels can be changed freely -->
+            <div class="form-group">
+              <label for="contactName">Your Name *</label>
+              <input type="text" id="contactName" name="name"
+                     placeholder="e.g. Ahmed Hasan" required />
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Your Email *</label>
+              <input type="email" id="contactEmail" name="email"
+                     placeholder="you@example.com" required />
+            </div>
+          </div>
+
+          <div class="form-group full" style="margin-bottom:14px;">
+            <label for="contactSubject">Subject</label>
+            <input type="text" id="contactSubject" name="subject"
+                   placeholder="What is this about?" />
+          </div>
+
+          <div class="form-group full" style="margin-bottom:20px;">
+            <label for="contactMessage">Your Message *</label>
+            <textarea id="contactMessage" name="message"
+                      placeholder="Write your message here. Don't worry — thoughtful messages are always welcome! 🌿"
+                      required></textarea>
+          </div>
+
+          <button type="submit" class="form-submit-btn">
+            Send message &#10148;
+          </button>
+
+          <p class="form-note">
+            * Required fields. Your information will only be used to respond to your message.
+            <br>
+            <!--
+              EDIT: Once you set up Formspree, replace the line below with:
+              Powered by <a href="https://formspree.io" target="_blank">Formspree</a>.
+            -->
+            To activate email delivery: add your Formspree endpoint to the form's action attribute.
+            See instructions in the HTML comment above.
+          </p>
+        </form>
+
+        <!-- Success message shown after valid submission -->
+        <div class="form-success" id="formSuccess">
+          <p>✅ Thank you! Your message has been sent. I will get back to you soon. 🌿</p>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ═══ FOOTER ══════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-body">
+    <div class="footer-left">
+      <div class="footer-avatar"><div class="photo-placeholder">A</div></div>
+      <!-- EDIT: Your name -->
+      <div class="footer-name">Abrar</div>
+      <div class="footer-socials">
+        <!-- EDIT: Replace # with your actual URLs -->
+        <a class="footer-social" href="#" target="_blank"><span class="s-icon s-linkedin">in</span> LinkedIn</a>
+        <a class="footer-social" href="#" target="_blank"><span class="s-icon s-scholar">GS</span> Google Scholar</a>
+        <a class="footer-social" href="#" target="_blank"><span class="s-icon s-rg">RG</span> ResearchGate</a>
+        <a class="footer-social" href="#" target="_blank"><span class="s-icon s-fb">f</span> Facebook</a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-pages-label">Pages</div>
+      <div class="footer-page-links">
+        <a href="index.html">🏠 Home</a>
+        <a href="professional-leadership.html">💼 Professional &amp; Leadership</a>
+        <a href="research-articles.html">📄 Research &amp; Articles</a>
+        <a href="research-projects.html">🔬 Research Projects</a>
+        <a href="awards-certificates.html">🏆 Awards &amp; Certificates</a>
+        <a href="mentoring-experience.html">🎓 Mentoring Experience</a>
+        <a href="life-through-my-lens.html">📸 Life Through My Lens</a>
+        <a href="contact.html">✉️ Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Abrar. All rights reserved. Copyright of the contents of this page belongs to Abrar.
+  </div>
+</footer>
+
+<script src="js/shared.js"></script>
+<script>
+  /* ── Contact form handling ─────────────────────────────── */
+  document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+    const action = this.action;
+
+    // If Formspree not yet configured (action="#"), show inline success demo
+    if (!action || action === '#' || action.endsWith('#')) {
+      e.preventDefault();
+      document.getElementById('formSuccess').classList.add('show');
+      this.reset();
+      document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    // When Formspree is configured, let the form submit normally via POST
+    // Formspree will redirect back to your page with ?success=true
+  });
+
+  // Show success message if redirected back from Formspree
+  if (new URLSearchParams(window.location.search).get('success') === 'true') {
+    document.getElementById('formSuccess')?.classList.add('show');
+  }
+</script>
+</body>
+</html>
