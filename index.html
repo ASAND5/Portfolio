@@ -5,12 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Md Abrar Hasin Parash — B.S. in Soil, Water and Environment</title>
 
-  <!-- ═══ PAGE THEME — EDIT COLORS HERE ══════════════════════
-       --accent        Main green (headings, borders, buttons)
-       --accent-light  Soft green (backgrounds, card borders)
-       --page-bg       Page background
-       --page-text     Main body text
-  ═══════════════════════════════════════════════════════════ -->
   <style>
     :root {
       --accent      : #2d6a4f;
@@ -18,60 +12,104 @@
       --page-bg     : #f0fdf4;
       --page-text   : #1a2e1f;
       --nav-accent  : #2d6a4f;
-      --card-border : #b7e4c7;
+      --card-border : rgba(183,228,199,0.6);
+      /* Glass variables */
+      --glass-bg    : rgba(255,255,255,0.55);
+      --glass-border: rgba(255,255,255,0.7);
+      --glass-shadow: 0 8px 32px rgba(45,106,79,0.10);
+      --glass-blur  : blur(14px);
     }
     body { background: var(--page-bg); color: var(--page-text); }
   </style>
 
   <link rel="stylesheet" href="css/shared.css" />
 
-  <!-- ═══ HOME PAGE SPECIFIC STYLES ══════════════════════════ -->
   <style>
-    /* ── HERO ──────────────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════
+       GLASS DEPTH BACKGROUND
+       Soft floating gradient orbs give the page visual depth
+    ══════════════════════════════════════════════════════════ */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: -1;
+      background:
+        radial-gradient(ellipse at 15% 15%, rgba(45,106,79,0.10) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 75%, rgba(82,183,136,0.09) 0%, transparent 50%),
+        radial-gradient(ellipse at 60% 30%, rgba(183,228,199,0.08) 0%, transparent 45%),
+        radial-gradient(ellipse at 30% 80%, rgba(52,211,153,0.06) 0%, transparent 40%),
+        linear-gradient(160deg, #e8f8ed 0%, #f0fdf4 40%, #e0f5e8 100%);
+      pointer-events: none;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       GLASS TOPBAR
+    ══════════════════════════════════════════════════════════ */
+    .topbar {
+      background: rgba(240,253,244,0.72) !important;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid rgba(183,228,199,0.5) !important;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════════════════════ */
     .hero {
-      min-height: 420px;
-      background: linear-gradient(135deg, #d8f3dc 0%, #b7e4c7 100%);
+      min-height: 440px;
+      background: none;
       position: relative; overflow: hidden;
       display: flex; align-items: center;
     }
+    /* Layered hero background */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse at 70% 50%, rgba(82,183,136,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(45,106,79,0.10) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(216,243,220,0.85) 0%, rgba(183,228,199,0.70) 100%);
+      backdrop-filter: none;
+    }
     .hero .container { position: relative; z-index: 2; }
-    .hero-text { max-width: 54%; padding: 48px 0; }
+    .hero-text { max-width: 54%; padding: 52px 0; }
 
-    /* EDIT: Change your name display style here */
     .hero-name {
       font-family: var(--font-heading);
-      font-size: 42px; font-weight: 700;
-      color: var(--accent); line-height: 1.1;
+      font-size: 38px; font-weight: 700;
+      color: var(--accent); line-height: 1.15;
       margin-bottom: 8px;
+      text-shadow: 0 2px 12px rgba(45,106,79,0.10);
     }
-    /* EDIT: Change title style here */
     .hero-title-line {
-      font-size: 16px; font-weight: 600;
+      font-size: 15.5px; font-weight: 600;
       color: #2d6a4f; margin-bottom: 4px;
     }
     .hero-field, .hero-uni {
-      font-size: 14px; color: #52796f; margin-bottom: 2px;
+      font-size: 13.5px; color: #52796f; margin-bottom: 2px;
     }
     .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
     .hero-tag {
-      background: rgba(255,255,255,.65);
-      border: 1px solid #95d5b2;
+      background: var(--glass-bg);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.8);
       color: #1b4332; font-size: 12px; font-weight: 500;
-      padding: 4px 12px; border-radius: 20px;
+      padding: 5px 13px; border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(45,106,79,0.08);
     }
 
-    /* Half-cut circle photo — right side */
+    /* Half-circle photo */
     .hero-photo-area {
       position: absolute; right: 0; top: 0; bottom: 0;
       width: 46%; overflow: hidden;
       display: flex; align-items: center; justify-content: flex-end;
+      z-index: 1;
     }
     .hero-circle {
       width: 420px; height: 420px; border-radius: 50%;
       overflow: hidden; flex-shrink: 0;
-      border: 6px solid rgba(255,255,255,.65);
-      box-shadow: 0 0 60px rgba(45,106,79,.15);
-      transform: translateX(30%); /* half-cut effect */
+      border: 6px solid rgba(255,255,255,0.7);
+      box-shadow: 0 0 80px rgba(45,106,79,0.20), 0 0 0 2px rgba(183,228,199,0.4);
+      transform: translateX(30%);
     }
     .hero-circle img { width: 100%; height: 100%; object-fit: cover; }
     .hero-circle .photo-placeholder {
@@ -80,16 +118,30 @@
       color: rgba(255,255,255,.7);
     }
 
-    /* ── HOME SECTION PREVIEWS ────────────────────────────── */
-    .home-section {
-      padding: 40px 0 0;
-      margin-bottom: 44px;
+    /* ══════════════════════════════════════════════════════════
+       GLASS ENTRY CARDS
+    ══════════════════════════════════════════════════════════ */
+    .entry-card {
+      background: var(--glass-bg) !important;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border) !important;
+      box-shadow: var(--glass-shadow);
     }
-    /* Clickable section title */
+    .entry-card:hover {
+      background: rgba(255,255,255,0.75) !important;
+      box-shadow: 0 12px 40px rgba(45,106,79,0.15) !important;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       HOME SECTION PREVIEWS
+    ══════════════════════════════════════════════════════════ */
+    .home-section { padding: 40px 0 0; margin-bottom: 44px; }
+
     .home-sec-title {
       font-family: var(--font-heading);
-      font-size: 26px; font-weight: 700; /* EDIT size/family */
-      color: var(--accent);              /* EDIT color       */
+      font-size: 26px; font-weight: 700;
+      color: var(--accent);
       margin-bottom: 20px;
       padding-bottom: 10px;
       border-bottom: 2px solid var(--accent-light);
@@ -99,25 +151,44 @@
     .home-sec-title:hover { opacity: .75; }
     .home-sec-title::after { content: ' ›'; font-weight: 300; }
 
-    /* ── INTRODUCTION ─────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════
+       GLASS INTRODUCTION
+    ══════════════════════════════════════════════════════════ */
     .intro-section { padding: 44px 0 0; }
-    /* EDIT: Change punchline style here */
+    .intro-glass {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r-lg);
+      padding: 28px 32px;
+      box-shadow: var(--glass-shadow);
+    }
     .intro-punchline {
       font-family: var(--font-heading);
-      font-size: 22px; font-weight: 600;
+      font-size: 21px; font-weight: 600;
       color: var(--accent); margin-bottom: 14px;
       font-style: italic;
     }
 
-    /* ── LIFE THROUGH MY LENS preview ─────────────────────── */
+    /* ══════════════════════════════════════════════════════════
+       LIFE THROUGH MY LENS PREVIEW
+    ══════════════════════════════════════════════════════════ */
     .lens-preview {
-      background: linear-gradient(135deg,#d8f3dc,#b7e4c7);
+      background: linear-gradient(135deg,
+        rgba(216,243,220,0.75) 0%,
+        rgba(183,228,199,0.65) 100%);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid rgba(255,255,255,0.7);
       border-radius: var(--r-lg); padding: 28px 32px;
-      display: block; transition: box-shadow var(--ease), transform var(--ease);
-      border: 2px solid var(--accent-light);
+      display: block;
+      box-shadow: var(--glass-shadow);
+      transition: box-shadow var(--ease), transform var(--ease);
     }
     .lens-preview:hover {
-      box-shadow: var(--shadow-hover); transform: translateY(-2px);
+      box-shadow: 0 16px 48px rgba(45,106,79,0.18);
+      transform: translateY(-2px);
     }
     .lens-preview-text {
       font-family: var(--font-heading);
@@ -129,19 +200,24 @@
       color: var(--accent); margin-top: 10px;
     }
 
-    /* ── CONTACT PREVIEW ──────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════
+       CONTACT PREVIEW
+    ══════════════════════════════════════════════════════════ */
     .contact-preview {
-      background: #fff; border: 2px solid var(--accent-light);
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
       border-radius: var(--r-lg); padding: 26px 28px;
+      box-shadow: var(--glass-shadow);
     }
     .contact-preview p {
       font-size: 14.5px; color: var(--gray-600); margin-bottom: 14px;
     }
 
-    /* Mobile hero */
     @media (max-width: 700px) {
       .hero-text  { max-width: 100%; padding-right: 0; }
-      .hero-name  { font-size: 30px; }
+      .hero-name  { font-size: 26px; }
       .hero-photo-area { display: none; }
     }
   </style>
@@ -149,9 +225,8 @@
 
 <body>
 
-<!-- ═══ TOP BAR ════════════════════════════════════════════ -->
+<!-- TOP BAR -->
 <header class="topbar">
-  <!-- EDIT: Change display name here -->
   <div class="topbar-brand">
     Md Abrar Hasin Parash
     <small>Life Science Researcher &amp; Educator</small>
@@ -161,25 +236,24 @@
   </button>
 </header>
 
-<!-- ═══ SIDE NAVIGATION ════════════════════════════════════ -->
+<!-- SIDE NAVIGATION -->
 <div class="sidenav-overlay" id="sidenavOverlay"></div>
 <nav class="sidenav" id="sidenav">
   <div class="sidenav-top">
-    <!-- EDIT: Change name here -->
     <span class="sidenav-logo">Md Abrar Hasin Parash</span>
     <button class="sidenav-close-btn" id="sidenavCloseBtn" aria-label="Close">&#x2715;</button>
   </div>
   <div class="sidenav-nav">
-    <!-- EDIT: Update href paths if you rename files -->
     <a href="index.html"><span class="nav-em">🏠</span> Home</a>
-    <a href="research-articles.html"><span class="nav-em">📄</span> Research and Articles</a>
     <a href="professional-leadership.html"><span class="nav-em">💼</span> Professional and Leadership</a>
+    <a href="research-articles.html"><span class="nav-em">📄</span> Research and Articles</a>
+    <a href="research-projects.html"><span class="nav-em">🔬</span> Research Projects <span class="nav-badge">Soon</span></a>
     <a href="awards-certificates.html"><span class="nav-em">🏆</span> Awards &amp; Certificates</a>
+    <a href="mentoring-experience.html"><span class="nav-em">🎓</span> Mentoring Experience</a>
     <a href="life-through-my-lens.html"><span class="nav-em">📸</span> Life Through My Lens</a>
     <a href="contact.html"><span class="nav-em">✉️</span> Contact</a>
   </div>
   <div class="sidenav-socials">
-    <!-- EDIT: Replace # with your actual profile URLs -->
     <a href="#" target="_blank" title="LinkedIn">
       <span class="s-icon s-linkedin" style="color:#fff;font-size:13px;font-weight:700;">in</span>
     </a>
@@ -193,39 +267,33 @@
       <span class="s-icon s-fb" style="color:#fff;font-size:15px;font-weight:700;">f</span>
     </a>
   </div>
+</nav>
+<!-- ☝️ THE MISSING </nav> TAG WAS THE BUG — now fixed above -->
 
-<!-- ═══ MAIN PAGE ══════════════════════════════════════════ -->
+<!-- MAIN PAGE -->
 <main class="page-wrapper">
 
-  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
       <div class="hero-text">
-        <!-- EDIT: Your name -->
         <h1 class="hero-name">Md Abrar Hasin Parash</h1>
-        <!-- EDIT: Your title/designation -->
         <p class="hero-title-line">B.S. in Soil, Water and Environment</p>
-        <!-- EDIT: Your department/field -->
         <p class="hero-field">Department of Soil, Water and Environment</p>
-        <!-- EDIT: Your university/institution -->
         <p class="hero-uni">University of Dhaka</p>
         <div class="hero-tags">
-          <!-- EDIT: Change or add tags for your specializations -->
-          <span class="hero-tag">Soil Science</span>
-          <span class="hero-tag">Soil Ecology</span>
-          <span class="hero-tag">Soil Mycology</span>
-          <span class="hero-tag">Ecosystem &amp; Environment</span>
+          <span class="hero-tag">🌱 Soil Science</span>
+          <span class="hero-tag">🍄 Soil Ecology</span>
+          <span class="hero-tag">🔬 Soil Mycology</span>
+          <span class="hero-tag">🌍 Ecosystem &amp; Environment</span>
         </div>
       </div>
     </div>
-
-    <!-- Half-circle photo (right side) -->
     <div class="hero-photo-area">
       <div class="hero-circle">
         <!--
-          EDIT: Replace the photo-placeholder div with:
-          <img src="images/abrar-hero.jpg" alt="Abrar" />
-          Upload your photo to the images/ folder.
+          EDIT: Replace with your photo:
+          <img src="images/abrar-hero.jpg" alt="Md Abrar Hasin Parash" />
         -->
         <div class="photo-placeholder">🌿</div>
       </div>
@@ -234,65 +302,53 @@
 
   <div class="container">
 
-    <!-- ── INTRODUCTION ──────────────────────────────────── -->
+    <!-- INTRODUCTION -->
     <section class="intro-section fade-up">
-      <!--
-        EDIT: Write your own punchline title below.
-        This is like a personal tagline — one bold, memorable line.
-      -->
-      <p class="intro-punchline">"Study to broaden the horizon of knowledge in Soil Science."</p>
-
-      <!--
-        EDIT: Replace this paragraph with your own introduction.
-        Use <p class="content-block"> for each paragraph.
-      -->
-      <p class="content-block">
-        Welcome. I am Abrar, an environmental scientist passionate about
-        understanding the intricate systems that sustain life on our planet.
-        My research spans [your research areas], with the goal of informing
-        evidence-based solutions for a sustainable future.
-      </p>
-      <p class="content-block">
-        Based at [Your University], I work at the intersection of
-        [field 1] and [field 2], collaborating with institutions and communities
-        to translate science into action.
-      </p>
+      <div class="intro-glass">
+        <p class="intro-punchline">"Study to broaden the horizon of knowledge in Soil Science."</p>
+        <!--
+          EDIT: Replace with your own introduction paragraphs.
+          Use <p class="content-block"> for each paragraph.
+        -->
+        <p class="content-block">
+          Welcome. I am Abrar, a life science researcher passionate about
+          understanding the intricate systems that sustain life beneath our feet.
+          My research spans soil science, mycology, and environmental ecology,
+          with the goal of informing evidence-based solutions for a sustainable future.
+        </p>
+        <p class="content-block">
+          Based at the University of Dhaka, I work at the intersection of
+          soil ecology and environmental science, collaborating with peers and
+          institutions to translate science into meaningful action.
+        </p>
+      </div>
     </section>
 
-    <!-- ── RESEARCH AND ARTICLES PREVIEW ───────────────── -->
+    <!-- RESEARCH AND ARTICLES PREVIEW -->
     <section class="home-section fade-up">
-      <!-- Clicking title goes to Research page -->
       <a class="home-sec-title" href="research-articles.html">Research and Articles</a>
 
-      <!-- ═══ MOST RECENT RESEARCH ENTRY ═══════════════════
-           EDIT: Replace title, year, journal, abstract excerpt.
-           Right thumb: upload journal cover to images/ folder.
-      ═══════════════════════════════════════════════════════ -->
+      <!-- EDIT: Replace with your most recent research publication -->
       <div class="entry-card">
         <div class="entry-body">
           <div class="entry-title">Your Most Recent Research Publication Title Goes Here</div>
           <div class="entry-meta">
             <span>2024</span><span class="dot">·</span>
-            <span>Journal of Environmental Science</span>
+            <span>Journal Name</span>
           </div>
           <div class="entry-excerpt">
             Two lines from your abstract go here. Describe the key findings
             or the objective of your research in brief, engaging language.
           </div>
-          <!-- EDIT: Replace # with the DOI or publication URL -->
           <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
         </div>
         <div class="entry-thumb">
-          <!--
-            EDIT: <img src="images/journal-thumb-1.jpg" alt="Journal cover" />
-          -->
+          <!-- EDIT: <img src="images/journal-thumb-1.jpg" alt="Journal cover" /> -->
           📰
         </div>
       </div>
 
-      <!-- ═══ MOST RECENT ARTICLE ENTRY ════════════════════
-           EDIT: Replace with your most recent article.
-      ═══════════════════════════════════════════════════════ -->
+      <!-- EDIT: Replace with your most recent article -->
       <div class="entry-card">
         <div class="entry-body">
           <div class="entry-title">Your Most Recent Article Title Goes Here</div>
@@ -304,13 +360,10 @@
             Brief description of the article — what it covers, who it is for,
             and why readers should care about it.
           </div>
-          <!-- EDIT: Replace # with the article URL -->
           <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
         </div>
         <div class="entry-thumb">
-          <!--
-            EDIT: <img src="images/article-platform-logo.png" alt="Platform" />
-          -->
+          <!-- EDIT: <img src="images/article-platform-logo.png" alt="Platform" /> -->
           ✍️
         </div>
       </div>
@@ -318,14 +371,11 @@
       <a class="explore-btn" href="research-articles.html">Explore more &rsaquo;&rsaquo;&rsaquo;</a>
     </section>
 
-    <!-- ── PROFESSIONAL AND LEADERSHIP PREVIEW ─────────── -->
+    <!-- PROFESSIONAL AND LEADERSHIP PREVIEW -->
     <section class="home-section fade-up">
       <a class="home-sec-title" href="professional-leadership.html">Professional and Leadership</a>
 
-      <!-- ═══ MOST RECENT EXPERIENCE — copy block for more ══
-           EDIT: Title, organization, timeline, summary.
-           Right thumb: organization logo image.
-      ═══════════════════════════════════════════════════════ -->
+      <!-- EDIT: Replace with your most recent position -->
       <div class="entry-card">
         <div class="entry-body">
           <div class="entry-title">Your Most Recent Position / Role Title</div>
@@ -341,9 +391,7 @@
           <a class="see-more" href="professional-leadership.html">See more &rsaquo;&rsaquo;&rsaquo;</a>
         </div>
         <div class="entry-thumb">
-          <!--
-            EDIT: <img src="images/org-logo-1.png" alt="Organization logo" />
-          -->
+          <!-- EDIT: <img src="images/org-logo-1.png" alt="Organization logo" /> -->
           🏛️
         </div>
       </div>
@@ -351,15 +399,9 @@
       <a class="explore-btn" href="professional-leadership.html">Explore more &rsaquo;&rsaquo;&rsaquo;</a>
     </section>
 
-    <!-- ── LIFE THROUGH MY LENS PREVIEW ──────────────────── -->
+    <!-- LIFE THROUGH MY LENS PREVIEW -->
     <section class="home-section fade-up">
-      <!-- Clickable section title -->
       <a class="home-sec-title" href="life-through-my-lens.html">Life Through My Lens</a>
-
-      <!--
-        The entire block below is one clickable link to the page.
-        EDIT: Change the tagline text inside .lens-preview-text
-      -->
       <a class="lens-preview" href="life-through-my-lens.html">
         <p class="lens-preview-text">
           "Behold — let the world of Abrar be revealed to you as you venture in."
@@ -368,7 +410,7 @@
       </a>
     </section>
 
-    <!-- ── CONTACT PREVIEW ────────────────────────────────── -->
+    <!-- CONTACT PREVIEW -->
     <section class="home-section fade-up">
       <a class="home-sec-title" href="contact.html">Contact</a>
       <div class="contact-preview">
@@ -381,63 +423,58 @@
       </div>
     </section>
 
-  </div><!-- /container -->
+  </div>
 </main>
 
-<!-- ═══ FOOTER / BOTTOM BAR ════════════════════════════════ -->
+<!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-body">
-
-    <!-- Left: photo, name, social links -->
     <div class="footer-left">
       <div class="footer-avatar">
-        <!--
-          EDIT: <img src="images/abrar-hero.jpg" alt="Abrar" />
-        -->
+        <!-- EDIT: <img src="images/abrar-hero.jpg" alt="Abrar" /> -->
         <div class="photo-placeholder">A</div>
       </div>
-      <!-- EDIT: Your name -->
       <div class="footer-name">Md Abrar Hasin Parash</div>
-
       <div class="footer-socials">
         <!-- EDIT: Replace # with your actual profile URLs -->
         <a class="footer-social" href="#" target="_blank">
           <span class="s-icon s-linkedin" style="color:#fff;font-size:13px;font-weight:700;">in</span>
+          LinkedIn
         </a>
         <a class="footer-social" href="#" target="_blank">
           <span class="s-icon s-scholar" style="color:#fff;font-size:11px;font-weight:700;">GS</span>
+          Google Scholar
         </a>
         <a class="footer-social" href="#" target="_blank">
           <span class="s-icon s-rg" style="color:#fff;font-size:11px;font-weight:700;">RG</span>
+          ResearchGate
         </a>
         <a class="footer-social" href="#" target="_blank">
           <span class="s-icon s-fb" style="color:#fff;font-size:15px;font-weight:700;">f</span>
+          Facebook
         </a>
       </div>
     </div>
-
-    <!-- Right: page links, one below another -->
     <div class="footer-right">
       <div class="footer-pages-label">Pages</div>
       <div class="footer-page-links">
         <a href="index.html">🏠 Home</a>
-        <a href="research-articles.html">📄 Research and Articles</a>
         <a href="professional-leadership.html">💼 Professional and Leadership</a>
+        <a href="research-articles.html">📄 Research and Articles</a>
+        <a href="research-projects.html">🔬 Research Projects</a>
         <a href="awards-certificates.html">🏆 Awards and Certificates</a>
+        <a href="mentoring-experience.html">🎓 Mentoring Experience</a>
         <a href="life-through-my-lens.html">📸 Life Through My Lens</a>
         <a href="contact.html">✉️ Contact</a>
       </div>
     </div>
-
   </div>
-
-  <!-- Copyright — EDIT: Update name and year -->
   <div class="footer-bottom">
-    &copy; 2026 Abrar. All rights reserved.
+    &copy; 2026 Md Abrar Hasin Parash. All rights reserved. Copyright of the contents of this page belongs to Abrar.
   </div>
 </footer>
 
-<!-- ═══ LIGHTBOX (shared across all pages) ═════════════════ -->
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <div class="lightbox-inner">
     <button class="lightbox-close" onclick="lbClose()">&#x2715;</button>
