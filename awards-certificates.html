@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Awards and Certificates — Md Abrar Hasin Parash</title>
-
+  <title>Awards &amp; Certificates — Abrar</title>
+ 
   <!-- ═══ PAGE THEME — full navy blue ════════════════════════ -->
   <style>
     :root {
@@ -15,68 +14,105 @@
       --page-text   : #0a1128;
       --nav-accent  : #1e3a5f;
       --card-border : #c8d5eb;
+      /* Glass variables */
+      --glass-bg    : rgba(255,255,255,0.55);
+      --glass-border: rgba(255,255,255,0.70);
+      --glass-shadow: 0 8px 32px rgba(30,58,95,0.10);
+      --glass-blur  : blur(14px);
     }
     body { background: var(--page-bg); color: var(--page-text); }
   </style>
-
+ 
   <link rel="stylesheet" href="css/shared.css" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+ 
   <style>
+    /* ── GLASS DEPTH BACKGROUND — navy blue tones ─────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: -1;
+      background:
+        radial-gradient(ellipse at 15% 15%, rgba(30,58,95,0.12)  0%, transparent 55%),
+        radial-gradient(ellipse at 85% 75%, rgba(79,110,176,0.10) 0%, transparent 50%),
+        radial-gradient(ellipse at 60% 30%, rgba(200,213,235,0.09) 0%, transparent 45%),
+        radial-gradient(ellipse at 30% 80%, rgba(30,58,95,0.07)  0%, transparent 40%),
+        linear-gradient(160deg, #dde4f0 0%, #e8edf7 40%, #d5dff2 100%);
+      pointer-events: none;
+    }
+ 
+    /* ── GLASS TOPBAR ──────────────────────────────────────── */
+    .topbar {
+      background: rgba(232,237,247,0.72) !important;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid rgba(200,213,235,0.55) !important;
+    }
+ 
     /* ── AWARDS GRID — 2 per row ──────────────────────────── */
     .awards-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
-
-    /*
-      AWARD CARD — COPY THIS BLOCK TO ADD A NEW AWARD
-      No zoom / lightbox on this page by design.
-    */
+ 
+    /* ── GLASS AWARD CARDS ────────────────────────────────── */
     .award-card {
-      background: #fff;
-      border: 2px solid var(--card-border);
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border) !important;
       border-radius: var(--r-lg);
       overflow: hidden;
+      box-shadow: var(--glass-shadow);
       transition: box-shadow var(--ease), transform var(--ease);
     }
     .award-card:hover {
-      box-shadow: var(--shadow-hover);
+      background: rgba(255,255,255,0.75);
+      box-shadow: 0 12px 40px rgba(30,58,95,0.16) !important;
       transform: translateY(-3px);
     }
     .award-img-wrap {
       width: 100%;
       aspect-ratio: 4 / 3;
       overflow: hidden;
-      background: var(--accent-light);
+      background: rgba(200,213,235,0.35);
       display: flex; align-items: center; justify-content: center;
       font-size: 56px;
     }
-    .award-img-wrap img {
-      width: 100%; height: 100%; object-fit: cover;
-    }
+    .award-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
     .award-caption {
       padding: 12px 14px 14px;
-      border-top: 1px solid var(--card-border);
+      border-top: 1px solid rgba(200,213,235,0.5);
+      background: rgba(255,255,255,0.30);
     }
     .award-name {
       font-size: 14px; font-weight: 600;
       color: var(--page-text); margin-bottom: 3px;
     }
-    .award-year {
-      font-size: 12px; color: var(--gray-500);
+    .award-year { font-size: 12px; color: var(--gray-500); }
+ 
+    /* ── GLASS PAGE HEADER ────────────────────────────────── */
+    .pg-header {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r-lg);
+      padding: 20px 24px;
+      box-shadow: var(--glass-shadow);
+      margin-bottom: 28px;
     }
-
+ 
     /* hidden extras for load more */
     .award-card.extra { display: none; }
     .award-card.extra.visible { display: block; }
-
+ 
     @media (max-width: 600px) {
       .awards-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
-
+ 
 <body>
 
 <!-- ═══ TOP BAR ════════════════════════════════════════════ -->
