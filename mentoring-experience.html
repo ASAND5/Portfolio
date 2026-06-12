@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
+<meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mentoring Experience — Abrar</title>
+
   <style>
     :root {
       --accent      : #0f766e;
@@ -12,18 +10,68 @@
       --page-text   : #042f2e;
       --nav-accent  : #0f766e;
       --card-border : #99f6e4;
+      /* Glass variables */
+      --glass-bg    : rgba(255,255,255,0.55);
+      --glass-border: rgba(255,255,255,0.72);
+      --glass-shadow: 0 8px 32px rgba(15,118,110,0.10);
+      --glass-blur  : blur(14px);
     }
     body { background: var(--page-bg); color: var(--page-text); }
   </style>
+
   <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ── GLASS DEPTH BACKGROUND — teal/mint tones ──────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: -1;
+      background:
+        radial-gradient(ellipse at 15% 15%, rgba(15,118,110,0.10)  0%, transparent 55%),
+        radial-gradient(ellipse at 85% 70%, rgba(20,184,166,0.09)  0%, transparent 50%),
+        radial-gradient(ellipse at 55% 30%, rgba(153,246,228,0.10) 0%, transparent 45%),
+        radial-gradient(ellipse at 25% 85%, rgba(15,118,110,0.07)  0%, transparent 40%),
+        linear-gradient(160deg, #e0faf5 0%, #f0fdfa 40%, #d8f8f3 100%);
+      pointer-events: none;
+    }
+
+    /* ── GLASS TOPBAR ──────────────────────────────────────── */
+    .topbar {
+      background: rgba(240,253,250,0.72) !important;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid rgba(153,246,228,0.55) !important;
+    }
+
+    /* ── GLASS PAGE HEADER ─────────────────────────────────── */
+    .pg-header {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r-lg);
+      padding: 20px 24px;
+      box-shadow: var(--glass-shadow);
+      margin-bottom: 28px;
+    }
+
+    /* ── GLASS ENTRY CARDS ─────────────────────────────────── */
+    .entry-card {
+      background: var(--glass-bg) !important;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border) !important;
+      box-shadow: var(--glass-shadow);
+    }
+    .entry-card:hover {
+      background: rgba(255,255,255,0.75) !important;
+      box-shadow: 0 12px 40px rgba(15,118,110,0.15) !important;
+    }
+  </style>
 </head>
+
 <body>
-
-<header class="topbar">
-  <div class="topbar-brand">Abrar <small>Mentoring Experience</small></div>
-  <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
-</header>
-
 <!-- SIDE NAVIGATION -->
 <div class="sidenav-overlay" id="sidenavOverlay"></div>
 <nav class="sidenav" id="sidenav">
@@ -35,7 +83,8 @@
     <a href="index.html"><span class="nav-em">🏠</span> Home</a>
     <a href="research-articles.html"><span class="nav-em">📄</span> Research and Articles</a>
     <a href="professional-leadership.html"><span class="nav-em">💼</span> Professional and Leadership</a>
-    <a href="awards-certificates.html"><span class="nav-em">🏆</span> Awards &amp; Certificates</a>
+    <a href="awards-certificates.html
+<header class="topbar">"><span class="nav-em">🏆</span> Awards &amp; Certificates</a>
     <a href="mentoring-experience.html"><span class="nav-em">🎓</span> Mentoring Experience</a>
     <a href="life-through-my-lens.html"><span class="nav-em">📸</span> Life Through My Lens</a>
     <a href="contact.html"><span class="nav-em">✉️</span> Contact</a>
