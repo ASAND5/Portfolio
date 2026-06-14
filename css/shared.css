@@ -390,7 +390,12 @@ ul    { list-style: none; }
 .section-wrap { margin-bottom: 50px; }
 
 /* ─── FOOTER ─────────────────────────────────────────────── */
-.site-footer { background: var(--footer-bg); margin-top: 64px; }
+.site-footer {
+  background: var(--footer-bg);
+  margin-top: 64px;
+  width: 100%;
+  display: block;
+}
 .footer-body {
   max-width: var(--max-w); margin: 0 auto;
   padding: 46px var(--pad) 30px;
