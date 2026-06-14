@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic Results — Abrar</title>
+
+  <style>
+    :root {
+      --accent      : #4338ca;
+      --accent-light: #c7d2fe;
+      --page-bg     : #eef2ff;
+      --page-text   : #1e1b4b;
+      --nav-accent  : #4338ca;
+      --card-border : #c7d2fe;
+      --glass-bg    : rgba(255,255,255,0.55);
+      --glass-border: rgba(255,255,255,0.72);
+      --glass-shadow: 0 8px 32px rgba(67,56,202,0.10);
+      --glass-blur  : blur(14px);
+    }
+    body { background: var(--page-bg); color: var(--page-text); }
+  </style>
+
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ── GLASS DEPTH BACKGROUND — indigo tones ─────────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: -1;
+      background:
+        radial-gradient(ellipse at 15% 15%, rgba(67,56,202,0.10)  0%, transparent 55%),
+        radial-gradient(ellipse at 85% 70%, rgba(99,102,241,0.09) 0%, transparent 50%),
+        radial-gradient(ellipse at 55% 30%, rgba(199,210,254,0.10) 0%, transparent 45%),
+        radial-gradient(ellipse at 25% 85%, rgba(67,56,202,0.07)  0%, transparent 40%),
+        linear-gradient(160deg, #e6eaff 0%, #eef2ff 40%, #e0e7ff 100%);
+      pointer-events: none;
+    }
+
+    /* ── GLASS TOPBAR ──────────────────────────────────────── */
+    .topbar {
+      background: rgba(238,242,255,0.72) !important;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid rgba(199,210,254,0.55) !important;
+    }
+
+    /* ── GLASS PAGE HEADER ─────────────────────────────────── */
+    .pg-header {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r-lg);
+      padding: 20px 24px;
+      box-shadow: var(--glass-shadow);
+      margin-bottom: 28px;
+    }
+
+    /* ── RESULT TABLE ──────────────────────────────────────── */
+    /*
+      MODULAR: Copy a <tr> row to add a new semester/year result.
+      EDIT: Change the values in each <td> cell.
+    */
+    .result-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--r-lg);
+      box-shadow: var(--glass-shadow);
+      margin-bottom: 8px;
+    }
+    .result-table {
+      width: 100%; border-collapse: collapse;
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+    }
+    .result-table thead tr {
+      background: rgba(67,56,202,0.12);
+    }
+    .result-table th {
+      padding: 13px 16px; text-align: left;
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .07em;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent-light);
+    }
+    .result-table td {
+      padding: 12px 16px; font-size: 14px;
+      color: var(--page-text);
+      border-bottom: 1px solid rgba(199,210,254,0.4);
+    }
+    .result-table tbody tr:last-child td { border-bottom: none; }
+    .result-table tbody tr:hover td {
+      background: rgba(255,255,255,0.45);
+    }
+    .result-grade {
+      font-weight: 700; color: var(--accent);
+      font-size: 15px;
+    }
+    .result-badge {
+      display: inline-block;
+      font-size: 11px; font-weight: 600;
+      padding: 2px 9px; border-radius: 12px;
+      border: 1px solid var(--accent-light);
+      background: rgba(199,210,254,0.35);
+      color: var(--accent);
+    }
+
+    /* ── EXAM RESULT CARDS (SSC/HSC/Tests) ────────────────── */
+    /*
+      MODULAR: Copy a .exam-card block to add a new exam result.
+    */
+    .exam-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px; margin-bottom: 8px;
+    }
+    .exam-card {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r-lg);
+      padding: 22px 24px;
+      box-shadow: var(--glass-shadow);
+      transition: box-shadow var(--ease), transform var(--ease);
+    }
+    .exam-card:hover {
+      background: rgba(255,255,255,0.75);
+      box-shadow: 0 12px 40px rgba(67,56,202,0.15);
+      transform: translateY(-2px);
+    }
+    .exam-icon { font-size: 32px; margin-bottom: 12px; }
+    .exam-name {
+      font-family: var(--font-heading);
+      font-size: 17px; font-weight: 700;
+      color: var(--accent); margin-bottom: 4px;
+    }
+    .exam-board {
+      font-size: 12px; color: var(--gray-500);
+      margin-bottom: 14px;
+    }
+    .exam-score {
+      font-size: 28px; font-weight: 700;
+      color: var(--page-text); line-height: 1;
+    }
+    .exam-score-label {
+      font-size: 12px; color: var(--gray-500);
+      margin-top: 3px;
+    }
+    .exam-year {
+      font-size: 12px; color: var(--gray-400);
+      margin-top: 10px;
+    }
+
+    /* ── TEST SCORE CARDS ──────────────────────────────────── */
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .test-card {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r-lg);
+      padding: 20px;
+      text-align: center;
+      box-shadow: var(--glass-shadow);
+      transition: box-shadow var(--ease), transform var(--ease);
+    }
+    .test-card:hover {
+      background: rgba(255,255,255,0.75);
+      box-shadow: 0 12px 40px rgba(67,56,202,0.15);
+      transform: translateY(-2px);
+    }
+    .test-name {
+      font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .06em;
+      color: var(--accent); margin-bottom: 10px;
+    }
+    .test-score {
+      font-family: var(--font-heading);
+      font-size: 36px; font-weight: 700;
+      color: var(--page-text); line-height: 1;
+    }
+    .test-max {
+      font-size: 13px; color: var(--gray-400);
+      margin-top: 3px;
+    }
+    .test-year {
+      font-size: 12px; color: var(--gray-400);
+      margin-top: 8px;
+    }
+    .test-breakdown {
+      margin-top: 12px; font-size: 12px;
+      color: var(--gray-600); line-height: 1.8;
+      text-align: left;
+      border-top: 1px solid rgba(199,210,254,0.4);
+      padding-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="topbar-brand">Md Abrar Hasin Parash <small>Academic Results</small></div>
+  <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
+</header>
+
+<!-- SIDE NAVIGATION -->
+<div class="sidenav-overlay" id="sidenavOverlay"></div>
+<nav class="sidenav" id="sidenav">
+  <div class="sidenav-top">
+    <span class="sidenav-logo">Md Abrar Hasin Parash</span>
+    <button class="sidenav-close-btn" id="sidenavCloseBtn">&#x2715;</button>
+  </div>
+  <div class="sidenav-nav">
+    <a href="index.html"><span class="nav-em">🏠</span> Home</a>
+    <a href="professional-leadership.html"><span class="nav-em">💼</span> Professional &amp; Leadership</a>
+    <a href="research-articles.html"><span class="nav-em">📄</span> Research &amp; Articles</a>
+    <a href="research-projects.html"><span class="nav-em">🔬</span> Research Projects <span class="nav-badge">Soon</span></a>
+    <a href="awards-certificates.html"><span class="nav-em">🏆</span> Awards &amp; Certificates</a>
+    <a href="cocurricular-activities.html"><span class="nav-em">🎯</span> Co-curricular Activities</a>
+    <a href="mentoring-experience.html"><span class="nav-em">🎓</span> Mentoring Experience</a>
+    <a href="life-through-my-lens.html"><span class="nav-em">📸</span> Life Through My Lens</a>
+    <a href="academic-results.html"><span class="nav-em">📊</span> Academic Results</a>
+    <a href="contact.html"><span class="nav-em">✉️</span> Contact</a>
+  </div>
+  <div class="sidenav-socials">
+    <a href="https://www.linkedin.com/in/abrar-hasin-parash-md/" target="_blank" title="LinkedIn">
+      <i class="fa-brands fa-linkedin" style="font-size:26px;color:#0a66c2;"></i>
+    </a>
+    <a href="https://scholar.google.com/citations?user=Wed5szQAAAAJ&hl=en" target="_blank" title="Google Scholar">
+      <i class="fa-brands fa-google-scholar" style="font-size:26px;color:#4285f4;"></i>
+    </a>
+    <a href="https://www.researchgate.net/profile/Abrar-Hasin-Parash-Md" target="_blank" title="ResearchGate">
+      <i class="fa-brands fa-researchgate" style="font-size:26px;color:#40ba9b;"></i>
+    </a>
+    <a href="https://www.facebook.com/cognitionconveyer" target="_blank" title="Facebook">
+      <i class="fa-brands fa-facebook" style="font-size:26px;color:#1877f2;"></i>
+    </a>
+  </div>
+</nav>
+<!-- ☝️ </nav> closing tag — do not remove -->
+
+<!-- MAIN PAGE -->
+<main class="page-wrapper">
+  <div class="container">
+
+    <div class="pg-header fade-up">
+      <div>
+        <div class="pg-header-name">Md Abrar Hasin Parash</div>
+        <div class="pg-header-sub">Life Science Researcher &amp; Educator</div>
+      </div>
+      <div class="pg-header-photo">
+        <!-- EDIT: <img src="images/abrar-thumb.jpg" alt="Abrar" /> -->
+        <div class="photo-placeholder">A</div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 1: UNIVERSITY RESULTS
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-wrap">
+      <h1 class="sec-title">University Results</h1>
+      <p class="content-block">
+        B.S. in Soil, Water and Environment — University of Dhaka.
+        <!-- EDIT: Update degree name and university -->
+      </p>
+
+      <div class="result-table-wrap fade-up">
+        <table class="result-table">
+          <thead>
+            <tr>
+              <!-- EDIT: Change column headers if needed -->
+              <th>Year / Semester</th>
+              <th>CGPA / GPA</th>
+              <th>Credits</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!--
+            ═══════════════════════════════════════════════════
+            ROW — COPY THIS BLOCK TO ADD A NEW SEMESTER/YEAR
+            EDIT: Year, CGPA, Credits, Status
+            ═══════════════════════════════════════════════════
+            -->
+            <tr>
+              <td>Year 4 / Semester 2 <span class="result-badge">Most Recent</span></td>
+              <td><span class="result-grade">X.XX / 4.00</span></td><!-- EDIT -->
+              <td>XX Credits</td><!-- EDIT -->
+              <td>Completed</td>
+            </tr>
+            <tr>
+              <td>Year 4 / Semester 1</td>
+              <td><span class="result-grade">X.XX / 4.00</span></td><!-- EDIT -->
+              <td>XX Credits</td>
+              <td>Completed</td>
+            </tr>
+            <tr>
+              <td>Year 3 / Semester 2</td>
+              <td><span class="result-grade">X.XX / 4.00</span></td><!-- EDIT -->
+              <td>XX Credits</td>
+              <td>Completed</td>
+            </tr>
+            <tr>
+              <td>Year 3 / Semester 1</td>
+              <td><span class="result-grade">X.XX / 4.00</span></td><!-- EDIT -->
+              <td>XX Credits</td>
+              <td>Completed</td>
+            </tr>
+            <tr>
+              <td>Year 2 / Semester 2</td>
+              <td><span class="result-grade">X.XX / 4.00</span></td><!-- EDIT -->
+              <td>XX Credits</td>
+              <td>Completed</td>
+            </tr>
+            <tr>
+              <td>Year 2 / Semester 1</td>
+              <td><span class="result-grade">X.XX / 4.00</span></td><!-- EDIT -->
+              <td>XX Credits</td>
+              <td>Completed</td>
+            </tr>
+            <tr>
+              <td>Year 1 / Semester 2</td>
+              <td><span class="result-grade">X.XX / 4.00</span></td><!-- EDIT -->
+              <td>XX Credits</td>
+              <td>Completed</td>
+            </tr>
+            <tr>
+              <td>Year 1 / Semester 1</td>
+              <td><span class="result-grade">X.XX / 4.00</span></td><!-- EDIT -->
+              <td>XX Credits</td>
+              <td>Completed</td>
+            </tr>
+            <!-- Copy a <tr> block above to add more semesters -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 2: SSC / HSC
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-wrap">
+      <h2 class="sec-title">Secondary &amp; Higher Secondary</h2>
+
+      <div class="exam-grid">
+
+        <!--
+        ═══════════════════════════════════════════════════════
+        EXAM CARD — COPY THIS BLOCK TO ADD A NEW EXAM
+        EDIT: exam name, board, score, year
+        ═══════════════════════════════════════════════════════
+        -->
+
+        <!-- HSC -->
+        <div class="exam-card fade-up">
+          <div class="exam-icon">📘</div>
+          <div class="exam-name">HSC</div>
+          <!-- EDIT: Board name -->
+          <div class="exam-board">Board Name · Science Group</div>
+          <!-- EDIT: Your GPA -->
+          <div class="exam-score">X.XX</div>
+          <div class="exam-score-label">GPA out of 5.00</div>
+          <!-- EDIT: Year -->
+          <div class="exam-year">📅 Year</div>
+        </div>
+
+        <!-- SSC -->
+        <div class="exam-card fade-up">
+          <div class="exam-icon">📗</div>
+          <div class="exam-name">SSC</div>
+          <!-- EDIT: Board name -->
+          <div class="exam-board">Board Name · Science Group</div>
+          <!-- EDIT: Your GPA -->
+          <div class="exam-score">X.XX</div>
+          <div class="exam-score-label">GPA out of 5.00</div>
+          <!-- EDIT: Year -->
+          <div class="exam-year">📅 Year</div>
+        </div>
+
+        <!-- Copy the block above to add JSC or other exams -->
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 3: STANDARDIZED TESTS
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-wrap">
+      <h2 class="sec-title">Standardized Tests</h2>
+
+      <div class="test-grid">
+
+        <!--
+        ═══════════════════════════════════════════════════════
+        TEST CARD — COPY THIS BLOCK TO ADD A NEW TEST
+        EDIT: test name, score, max score, year, breakdown
+        ═══════════════════════════════════════════════════════
+        -->
+
+        <!-- IELTS -->
+        <div class="test-card fade-up">
+          <div class="test-name">IELTS</div>
+          <!-- EDIT: Your overall band score -->
+          <div class="test-score">X.X</div>
+          <div class="test-max">out of 9.0</div>
+          <!-- EDIT: Year taken -->
+          <div class="test-year">📅 Year</div>
+          <div class="test-breakdown">
+            <!-- EDIT: Your individual band scores -->
+            Listening: X.X<br />
+            Reading: X.X<br />
+            Writing: X.X<br />
+            Speaking: X.X
+          </div>
+        </div>
+
+        <!-- GRE -->
+        <div class="test-card fade-up">
+          <div class="test-name">GRE</div>
+          <!-- EDIT: Your total score -->
+          <div class="test-score">XXX</div>
+          <div class="test-max">out of 340</div>
+          <div class="test-year">📅 Year</div>
+          <div class="test-breakdown">
+            <!-- EDIT: Section scores -->
+            Verbal: XXX<br />
+            Quantitative: XXX<br />
+            Writing: X.X / 6.0
+          </div>
+        </div>
+
+        <!-- TOEFL -->
+        <div class="test-card fade-up">
+          <div class="test-name">TOEFL</div>
+          <!-- EDIT: Your score -->
+          <div class="test-score">XXX</div>
+          <div class="test-max">out of 120</div>
+          <div class="test-year">📅 Year</div>
+          <div class="test-breakdown">
+            Reading: XX<br />
+            Listening: XX<br />
+            Speaking: XX<br />
+            Writing: XX
+          </div>
+        </div>
+
+        <!-- Copy a test-card block above to add more tests -->
+
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-body">
+    <div class="footer-left">
+      <div class="footer-avatar">
+        <!-- EDIT: <img src="images/abrar-hero.jpg" alt="Abrar" /> -->
+        <div class="photo-placeholder">A</div>
+      </div>
+      <div class="footer-name">Md Abrar Hasin Parash</div>
+      <div class="footer-socials">
+        <a class="footer-social" href="https://www.linkedin.com/in/abrar-hasin-parash-md/" target="_blank">
+          <i class="fa-brands fa-linkedin" style="font-size:20px;color:#0a66c2;"></i> LinkedIn
+        </a>
+        <a class="footer-social" href="https://scholar.google.com/citations?user=Wed5szQAAAAJ&hl=en" target="_blank">
+          <i class="fa-brands fa-google-scholar" style="font-size:20px;color:#4285f4;"></i> Google Scholar
+        </a>
+        <a class="footer-social" href="https://www.researchgate.net/profile/Abrar-Hasin-Parash-Md" target="_blank">
+          <i class="fa-brands fa-researchgate" style="font-size:20px;color:#40ba9b;"></i> ResearchGate
+        </a>
+        <a class="footer-social" href="https://www.facebook.com/cognitionconveyer" target="_blank">
+          <i class="fa-brands fa-facebook" style="font-size:20px;color:#1877f2;"></i> Facebook
+        </a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-pages-label">Pages</div>
+      <div class="footer-page-links">
+        <a href="index.html">🏠 Home</a>
+        <a href="professional-leadership.html">💼 Professional &amp; Leadership</a>
+        <a href="research-articles.html">📄 Research &amp; Articles</a>
+        <a href="research-projects.html">🔬 Research Projects</a>
+        <a href="awards-certificates.html">🏆 Awards &amp; Certificates</a>
+        <a href="cocurricular-activities.html">🎯 Co-curricular Activities</a>
+        <a href="mentoring-experience.html">🎓 Mentoring Experience</a>
+        <a href="life-through-my-lens.html">📸 Life Through My Lens</a>
+        <a href="academic-results.html">📊 Academic Results</a>
+        <a href="contact.html">✉️ Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Md Abrar Hasin Parash. All rights reserved. Copyright of the contents of this page belongs to Abrar.
+  </div>
+</footer>
+
+<script src="js/shared.js"></script>
+</body>
+</html>

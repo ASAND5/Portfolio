@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Co-curricular Activities — Abrar</title>
+
+  <style>
+    :root {
+      --accent      : #b45309;
+      --accent-light: #fde68a;
+      --page-bg     : #fffbeb;
+      --page-text   : #451a03;
+      --nav-accent  : #b45309;
+      --card-border : #fde68a;
+      --glass-bg    : rgba(255,255,255,0.55);
+      --glass-border: rgba(255,255,255,0.72);
+      --glass-shadow: 0 8px 32px rgba(180,83,9,0.10);
+      --glass-blur  : blur(14px);
+    }
+    body { background: var(--page-bg); color: var(--page-text); }
+  </style>
+
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ── GLASS DEPTH BACKGROUND — warm amber/gold tones ───── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: -1;
+      background:
+        radial-gradient(ellipse at 15% 15%, rgba(180,83,9,0.10)   0%, transparent 55%),
+        radial-gradient(ellipse at 85% 70%, rgba(245,158,11,0.09) 0%, transparent 50%),
+        radial-gradient(ellipse at 55% 30%, rgba(253,230,138,0.10) 0%, transparent 45%),
+        radial-gradient(ellipse at 25% 85%, rgba(180,83,9,0.07)   0%, transparent 40%),
+        linear-gradient(160deg, #fef9e8 0%, #fffbeb 40%, #fef3c7 100%);
+      pointer-events: none;
+    }
+
+    /* ── GLASS TOPBAR ──────────────────────────────────────── */
+    .topbar {
+      background: rgba(255,251,235,0.72) !important;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid rgba(253,230,138,0.55) !important;
+    }
+
+    /* ── GLASS PAGE HEADER ─────────────────────────────────── */
+    .pg-header {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r-lg);
+      padding: 20px 24px;
+      box-shadow: var(--glass-shadow);
+      margin-bottom: 28px;
+    }
+
+    /* ── GLASS ENTRY CARDS ─────────────────────────────────── */
+    .entry-card {
+      background: var(--glass-bg) !important;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border) !important;
+      box-shadow: var(--glass-shadow);
+    }
+    .entry-card:hover {
+      background: rgba(255,255,255,0.75) !important;
+      box-shadow: 0 12px 40px rgba(180,83,9,0.15) !important;
+    }
+
+    /* ── BOOK READING CONTEST — 3 winner cards ─────────────── */
+    .winner-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+    .winner-card {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r-lg);
+      padding: 24px 16px;
+      text-align: center;
+      box-shadow: var(--glass-shadow);
+      transition: box-shadow var(--ease), transform var(--ease);
+    }
+    .winner-card:hover {
+      background: rgba(255,255,255,0.75);
+      box-shadow: 0 12px 40px rgba(180,83,9,0.18);
+      transform: translateY(-3px);
+    }
+    .winner-trophy { font-size: 42px; margin-bottom: 10px; }
+    .winner-year {
+      font-family: var(--font-heading);
+      font-size: 22px; font-weight: 700;
+      color: var(--accent); margin-bottom: 4px;
+    }
+    .winner-label {
+      font-size: 12px; color: var(--gray-600);
+      line-height: 1.5;
+    }
+    .winner-badge {
+      display: inline-block;
+      background: #fde68a; color: #92400e;
+      font-size: 11px; font-weight: 600;
+      padding: 3px 10px; border-radius: 20px;
+      border: 1px solid #fcd34d;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .winner-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="topbar-brand">Md Abrar Hasin Parash <small>Co-curricular Activities</small></div>
+  <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
+</header>
+
+<!-- SIDE NAVIGATION -->
+<div class="sidenav-overlay" id="sidenavOverlay"></div>
+<nav class="sidenav" id="sidenav">
+  <div class="sidenav-top">
+    <span class="sidenav-logo">Md Abrar Hasin Parash</span>
+    <button class="sidenav-close-btn" id="sidenavCloseBtn">&#x2715;</button>
+  </div>
+  <div class="sidenav-nav">
+    <a href="index.html"><span class="nav-em">🏠</span> Home</a>
+    <a href="professional-leadership.html"><span class="nav-em">💼</span> Professional &amp; Leadership</a>
+    <a href="research-articles.html"><span class="nav-em">📄</span> Research &amp; Articles</a>
+    <a href="research-projects.html"><span class="nav-em">🔬</span> Research Projects <span class="nav-badge">Soon</span></a>
+    <a href="awards-certificates.html"><span class="nav-em">🏆</span> Awards &amp; Certificates</a>
+    <a href="cocurricular-activities.html"><span class="nav-em">🎯</span> Co-curricular Activities</a>
+    <a href="mentoring-experience.html"><span class="nav-em">🎓</span> Mentoring Experience</a>
+    <a href="life-through-my-lens.html"><span class="nav-em">📸</span> Life Through My Lens</a>
+    <a href="academic-results.html"><span class="nav-em">📊</span> Academic Results</a>
+    <a href="contact.html"><span class="nav-em">✉️</span> Contact</a>
+  </div>
+  <div class="sidenav-socials">
+    <a href="https://www.linkedin.com/in/abrar-hasin-parash-md/" target="_blank" title="LinkedIn">
+      <i class="fa-brands fa-linkedin" style="font-size:26px;color:#0a66c2;"></i>
+    </a>
+    <a href="https://scholar.google.com/citations?user=Wed5szQAAAAJ&hl=en" target="_blank" title="Google Scholar">
+      <i class="fa-brands fa-google-scholar" style="font-size:26px;color:#4285f4;"></i>
+    </a>
+    <a href="https://www.researchgate.net/profile/Abrar-Hasin-Parash-Md" target="_blank" title="ResearchGate">
+      <i class="fa-brands fa-researchgate" style="font-size:26px;color:#40ba9b;"></i>
+    </a>
+    <a href="https://www.facebook.com/cognitionconveyer" target="_blank" title="Facebook">
+      <i class="fa-brands fa-facebook" style="font-size:26px;color:#1877f2;"></i>
+    </a>
+  </div>
+</nav>
+<!-- ☝️ </nav> closing tag — do not remove -->
+
+<!-- MAIN PAGE -->
+<main class="page-wrapper">
+  <div class="container">
+
+    <div class="pg-header fade-up">
+      <div>
+        <div class="pg-header-name">Md Abrar Hasin Parash</div>
+        <div class="pg-header-sub">Life Science Researcher &amp; Educator</div>
+      </div>
+      <div class="pg-header-photo">
+        <!-- EDIT: <img src="images/abrar-thumb.jpg" alt="Abrar" /> -->
+        <div class="photo-placeholder">A</div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 1: SCIENCE FESTIVALS
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-wrap">
+      <h1 class="sec-title">Science Festivals</h1>
+
+      <!--
+        ENTRY — COPY THIS BLOCK TO ADD A NEW FESTIVAL
+      -->
+
+      <!-- SCIENCE FESTIVAL 2019 (most recent first) -->
+      <div class="entry-card fade-up">
+        <div class="entry-body">
+          <!-- EDIT: Festival name -->
+          <div class="entry-title">Science Festival 2019</div>
+          <div class="entry-meta">
+            <!-- EDIT: Organizer and date -->
+            <span>Organizing Institution</span>
+            <span class="dot">·</span>
+            <span>2019</span>
+          </div>
+          <div class="entry-excerpt">
+            <!-- EDIT: Describe your participation — what you presented,
+                 which event you took part in, what you achieved -->
+            Brief description of your participation in this science festival.
+            What did you present or compete in? What was the outcome?
+          </div>
+          <!-- EDIT: Replace # with a link if available, or remove the line -->
+          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">
+          <!-- EDIT: <img src="images/festival-2019.jpg" alt="Science Festival 2019" /> -->
+          🔭
+        </div>
+      </div>
+      <!-- END SCIENCE FESTIVAL 2019 -->
+
+      <!-- SCIENCE FESTIVAL 2018 -->
+      <div class="entry-card fade-up">
+        <div class="entry-body">
+          <div class="entry-title">Science Festival 2018</div>
+          <div class="entry-meta">
+            <span>Organizing Institution</span>
+            <span class="dot">·</span>
+            <span>2018</span>
+          </div>
+          <div class="entry-excerpt">
+            Brief description of your participation in this science festival.
+            What did you present or compete in? What was the outcome?
+          </div>
+          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">
+          <!-- EDIT: <img src="images/festival-2018.jpg" alt="Science Festival 2018" /> -->
+          🧪
+        </div>
+      </div>
+      <!-- END SCIENCE FESTIVAL 2018 -->
+
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 2: UNIVERSITY ACTIVITIES (DUSS)
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-wrap">
+      <h2 class="sec-title">University Activities</h2>
+
+      <!-- DUSS PROVISIONAL MEMBER 2022-2023 (most recent first) -->
+      <div class="entry-card fade-up">
+        <div class="entry-body">
+          <div class="entry-title">Provisional Member</div>
+          <div class="entry-meta">
+            <span>Dhaka University Science Society (DUSS)</span>
+            <span class="dot">·</span>
+            <span>2022 – 2023</span>
+          </div>
+          <div class="entry-excerpt">
+            <!-- EDIT: Describe what being a provisional member involved —
+                 meetings attended, contributions made, events participated in -->
+            Served as a provisional member of the Dhaka University Science Society,
+            contributing to the promotion of science culture among students.
+          </div>
+          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">
+          <!-- EDIT: <img src="images/duss-logo.png" alt="DUSS" /> -->
+          🏛️
+        </div>
+      </div>
+      <!-- END DUSS MEMBER -->
+
+      <!-- DUSS VOLUNTEER -->
+      <div class="entry-card fade-up">
+        <div class="entry-body">
+          <div class="entry-title">Volunteer</div>
+          <div class="entry-meta">
+            <span>Dhaka University Science Society (DUSS)</span>
+            <span class="dot">·</span>
+            <!-- EDIT: Add the year/date of the volunteer program -->
+            <span>Year — Program Name</span>
+          </div>
+          <div class="entry-excerpt">
+            <!-- EDIT: Describe the program you volunteered at —
+                 what was it about, what was your role, what did you do -->
+            Volunteered at a program organized by the Dhaka University Science
+            Society, supporting event operations and engaging with participants.
+          </div>
+          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
+        </div>
+        <div class="entry-thumb">
+          <!-- EDIT: <img src="images/duss-volunteer.jpg" alt="DUSS Volunteer" /> -->
+          🤝
+        </div>
+      </div>
+      <!-- END DUSS VOLUNTEER -->
+
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 3: BOOK READING CONTEST
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-wrap">
+      <h2 class="sec-title">📚 Book Reading Contest</h2>
+      <p class="content-block">
+        Won awards in three consecutive years at an annual book reading contest —
+        a testament to a lifelong love of reading.
+      </p>
+
+      <!-- 3 winner cards side by side -->
+      <div class="winner-grid">
+
+        <!-- EDIT: Update contest name and award details for each year -->
+
+        <!-- 2015 winner card -->
+        <div class="winner-card fade-up">
+          <div class="winner-trophy">🥇</div>
+          <div class="winner-year">2015</div>
+          <div class="winner-label">
+            <!-- EDIT: Contest/award name -->
+            Annual Book Reading Contest<br />
+            <!-- EDIT: Organizer -->
+            Organizing Institution
+          </div>
+          <span class="winner-badge">🏆 Award Winner</span>
+        </div>
+
+        <!-- 2014 winner card -->
+        <div class="winner-card fade-up">
+          <div class="winner-trophy">🥇</div>
+          <div class="winner-year">2014</div>
+          <div class="winner-label">
+            Annual Book Reading Contest<br />
+            Organizing Institution
+          </div>
+          <span class="winner-badge">🏆 Award Winner</span>
+        </div>
+
+        <!-- 2013 winner card -->
+        <div class="winner-card fade-up">
+          <div class="winner-trophy">🥇</div>
+          <div class="winner-year">2013</div>
+          <div class="winner-label">
+            Annual Book Reading Contest<br />
+            Organizing Institution
+          </div>
+          <span class="winner-badge">🏆 Award Winner</span>
+        </div>
+
+      </div><!-- /winner-grid -->
+    </section>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-body">
+    <div class="footer-left">
+      <div class="footer-avatar">
+        <!-- EDIT: <img src="images/abrar-hero.jpg" alt="Abrar" /> -->
+        <div class="photo-placeholder">A</div>
+      </div>
+      <div class="footer-name">Md Abrar Hasin Parash</div>
+      <div class="footer-socials">
+        <a class="footer-social" href="https://www.linkedin.com/in/abrar-hasin-parash-md/" target="_blank">
+          <i class="fa-brands fa-linkedin" style="font-size:20px;color:#0a66c2;"></i> LinkedIn
+        </a>
+        <a class="footer-social" href="https://scholar.google.com/citations?user=Wed5szQAAAAJ&hl=en" target="_blank">
+          <i class="fa-brands fa-google-scholar" style="font-size:20px;color:#4285f4;"></i> Google Scholar
+        </a>
+        <a class="footer-social" href="https://www.researchgate.net/profile/Abrar-Hasin-Parash-Md" target="_blank">
+          <i class="fa-brands fa-researchgate" style="font-size:20px;color:#40ba9b;"></i> ResearchGate
+        </a>
+        <a class="footer-social" href="https://www.facebook.com/cognitionconveyer" target="_blank">
+          <i class="fa-brands fa-facebook" style="font-size:20px;color:#1877f2;"></i> Facebook
+        </a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-pages-label">Pages</div>
+      <div class="footer-page-links">
+        <a href="index.html">🏠 Home</a>
+        <a href="professional-leadership.html">💼 Professional &amp; Leadership</a>
+        <a href="research-articles.html">📄 Research &amp; Articles</a>
+        <a href="research-projects.html">🔬 Research Projects</a>
+        <a href="awards-certificates.html">🏆 Awards &amp; Certificates</a>
+        <a href="cocurricular-activities.html">🎯 Co-curricular Activities</a>
+        <a href="mentoring-experience.html">🎓 Mentoring Experience</a>
+        <a href="life-through-my-lens.html">📸 Life Through My Lens</a>
+        <a href="academic-results.html">📊 Academic Results</a>
+        <a href="contact.html">✉️ Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Md Abrar Hasin Parash. All rights reserved. Copyright of the contents of this page belongs to Abrar.
+  </div>
+</footer>
+
+<script src="js/shared.js"></script>
+</body>
+</html>
