@@ -170,13 +170,13 @@ ul    { list-style: none; }
 .sidenav-socials a:hover { color: var(--gray-800); }
 
 /* ─── PAGE WRAPPER ───────────────────────────────────────── */
-.page-wrapper {
-  padding-top: var(--topbar-h);
-}
+.page-wrapper { padding-top: var(--topbar-h); }
+.container    { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+
 /* ─── PAGE HEADER (name + thumbnail, on every inner page) ── */
 .pg-header {
   padding: 28px 0 20px;
-  margin-top: 22px;        /* ← THIS adds the breathing room */
+  margin-top: 24px
   display: flex; align-items: center; justify-content: space-between;
   border-bottom: 1px solid var(--accent-light, #d8f3dc);
   margin-bottom: 34px;
@@ -391,10 +391,7 @@ ul    { list-style: none; }
 .section-wrap { margin-bottom: 50px; }
 
 /* ─── FOOTER ─────────────────────────────────────────────── */
-.site-footer {
-  background: var(--footer-bg);
-  margin-top: 64px;
-}
+.site-footer { background: var(--footer-bg); margin-top: 64px; }
 .footer-body {
   max-width: var(--max-w); margin: 0 auto;
   padding: 46px var(--pad) 30px;
