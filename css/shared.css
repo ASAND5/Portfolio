@@ -170,9 +170,13 @@ ul    { list-style: none; }
 .sidenav-socials a:hover { color: var(--gray-800); }
 
 /* ─── PAGE WRAPPER ───────────────────────────────────────── */
-.page-wrapper { padding-top: var(--topbar-h); }
-.container    { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+.page-wrapper {
+  padding-top: var(--topbar-h);
+}
 
+.page-wrapper .container {
+  padding-top: 28px; /* EDIT: increase or decrease this number for more/less space */
+}
 /* ─── PAGE HEADER (name + thumbnail, on every inner page) ── */
 .pg-header {
   padding: 28px 0 20px;
