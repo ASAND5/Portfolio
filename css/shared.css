@@ -394,8 +394,6 @@ ul    { list-style: none; }
 .site-footer {
   background: var(--footer-bg);
   margin-top: 64px;
-  width: 100%;
-  display: block;
 }
 .footer-body {
   max-width: var(--max-w); margin: 0 auto;
