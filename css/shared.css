@@ -175,11 +175,12 @@ ul    { list-style: none; }
 }
 
 .page-wrapper .container {
-  padding-top: 48px; /* EDIT: increase or decrease this number for more/less space */
+  padding-top: 28px; /* EDIT: increase or decrease this number for more/less space */
 }
 /* ─── PAGE HEADER (name + thumbnail, on every inner page) ── */
 .pg-header {
   padding: 28px 0 20px;
+  margin-top: 28px;        /* ← THIS adds the breathing room */
   display: flex; align-items: center; justify-content: space-between;
   border-bottom: 1px solid var(--accent-light, #d8f3dc);
   margin-bottom: 34px;
