@@ -176,7 +176,7 @@ ul    { list-style: none; }
 /* ─── PAGE HEADER (name + thumbnail, on every inner page) ── */
 .pg-header {
   padding: 28px 0 20px;
-  margin-top: 18px;        /* ← THIS adds the breathing room */
+  margin-top: 22px;        /* ← THIS adds the breathing room */
   display: flex; align-items: center; justify-content: space-between;
   border-bottom: 1px solid var(--accent-light, #d8f3dc);
   margin-bottom: 34px;
