@@ -175,7 +175,7 @@ ul    { list-style: none; }
 }
 
 .page-wrapper .container {
-  padding-top: 28px; /* EDIT: increase or decrease this number for more/less space */
+  padding-top: 48px; /* EDIT: increase or decrease this number for more/less space */
 }
 /* ─── PAGE HEADER (name + thumbnail, on every inner page) ── */
 .pg-header {
