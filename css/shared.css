@@ -414,7 +414,7 @@ ul    { list-style: none; }
   top: -20px; right: 32px;
   width: 40px; height: 40px;
   background: rgba(180, 195, 185, 0.8);
-  border: 2px solid rgba(255,255,255,0.12);
+  border: 2px solid rgba(255,255,255,1);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   color: rgba(180, 195, 185, 0.8);
@@ -424,7 +424,7 @@ ul    { list-style: none; }
 }
 .back-to-top:hover {
   background: rgba(180, 195, 185, 0.8);
-  color: rgb(148, 163, 153);
+  color: rgb(255, 255, 255);
   border-color: rgba(255,255,255,0.3);
 }
 
