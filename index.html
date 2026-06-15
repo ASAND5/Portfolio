@@ -115,7 +115,7 @@
   top: 0;
   bottom: 0;
   width: 55%;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -126,10 +126,13 @@
   width: 780px;
   height: 780px;
   border-radius: 50%;
+  overflow: hidden; /* clips image to circle */
   flex-shrink: 0;
+
   border: 7px solid rgba(255,255,255,0.60);
   box-shadow: -4px 0 60px rgba(45,106,79,0.14),
               0 0 0 2px rgba(183,228,199,0.30);
+
   transform: translateX(25%);
   margin-bottom: -160px;
 }
