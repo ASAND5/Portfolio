@@ -151,15 +151,15 @@
     .home-section { padding: 40px 0 0; margin-bottom: 44px; }
 
     .home-sec-title {
-      font-family: var(--font-heading);
-      font-size: 26px; font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--accent-light);
-      display: inline-block;
-      transition: opacity .2s;
-    }
+  font-family: var(--font-heading);
+  font-size: 26px; font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent-light);
+  display: block; /* ← change from "inline-block" to "block" */
+  transition: opacity .2s;
+}
     .home-sec-title:hover { opacity: .75; }
     .home-sec-title::after { content: ' ›'; font-weight: 300; }
 
