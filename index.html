@@ -52,33 +52,45 @@
       border-bottom: 1px solid rgba(183,228,199,0.5) !important;
     }
 
-    /* ══════════════════════════════════════════════════════════
+   /* ══════════════════════════════════════════════════════════
    HERO
 ══════════════════════════════════════════════════════════ */
 .hero {
-  min-height: 440px;
-  background: none;
-  position: relative; overflow: hidden;
-  display: flex; align-items: center;
+  background: transparent;   /* page bg shows outside the band */
+  position: relative;
+  overflow: visible;          /* KEY: lets circle bleed out */
+  display: flex;
+  align-items: center;
+  z-index: 2;                 /* sits above intro section below */
 }
-.hero::before {
-  content: '';
-  position: absolute; inset: 0; z-index: 0;
-  background:
-    radial-gradient(ellipse at 85% 50%, rgba(82,183,136,0.12) 0%, transparent 35%),
-    linear-gradient(135deg, rgba(216,243,220,0.88) 0%, rgba(183,228,199,0.72) 100%);
-  /* smaller, tighter gradient — covers less area */
+
+/* Remove old gradient — replaced by .hero-band */
+.hero::before { display: none; }
+
+/* The colored horizontal band — only as tall as text */
+.hero-band {
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  background: linear-gradient(to right,
+    rgba(216,243,220,0.95) 0%,
+    rgba(183,228,199,0.88) 45%,
+    rgba(183,228,199,0.20) 72%,
+    transparent 88%);
+  z-index: 0;
+  pointer-events: none;
 }
+
 .hero .container {
   position: relative;
   z-index: 2;
   width: 100%;
 }
+
 .hero-text {
-  max-width: 54%;
-  padding: 52px 0;
+  max-width: 50%;
+  padding: 48px 0;
 }
-/* EDIT: adjust font size if name still wraps on your screen */
+
 .hero-name {
   font-family: var(--font-heading);
   font-size: clamp(20px, 2.4vw, 32px);
@@ -86,65 +98,72 @@
   color: var(--accent);
   line-height: 1.15;
   margin-bottom: 8px;
-  white-space: nowrap; /* keeps name on one line */
+  white-space: nowrap;
 }
+
 .hero-title-line {
   font-size: 15.5px; font-weight: 600;
   color: #2d6a4f; margin-bottom: 4px;
 }
+
 .hero-field, .hero-uni {
   font-size: 13.5px; color: #52796f; margin-bottom: 2px;
 }
+
 .hero-tags {
   display: flex; flex-wrap: wrap;
   gap: 8px; margin-top: 18px;
 }
+
 .hero-tag {
   background: var(--glass-bg);
-  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255,255,255,0.8);
   color: #1b4332; font-size: 12px; font-weight: 500;
   padding: 5px 13px; border-radius: 20px;
   box-shadow: 0 2px 8px rgba(45,106,79,0.08);
 }
 
-    /* Half-circle photo */
-    .hero-photo-area {
+/* Large circle — overflows above and below the band */
+.hero-photo-area {
   position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 55%;
-  overflow: visible;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  z-index: 1;
+  right: -30px;              /* slightly off right edge */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;                /* above band and intro section */
+  width: 500px; height: 500px;
 }
 
 .hero-circle {
-  width: 780px;
-  height: 780px;
+  width: 500px; height: 500px;
   border-radius: 50%;
-  overflow: hidden; /* clips image to circle */
+  overflow: hidden;
   flex-shrink: 0;
-
-  border: 7px solid rgba(255,255,255,0.60);
-  box-shadow: -4px 0 60px rgba(45,106,79,0.14),
-              0 0 0 2px rgba(183,228,199,0.30);
-
-  transform: translateX(25%);
-  margin-bottom: -160px;
+  border: 7px solid rgba(255,255,255,0.68);
+  box-shadow:
+    0 0 0 2px rgba(183,228,199,0.35),
+    -8px 0 60px rgba(45,106,79,0.16),
+    0 20px 80px rgba(45,106,79,0.12);
 }
-    
-    .hero-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+.hero-circle img { width: 100%; height: 100%; object-fit: cover; }
 .hero-circle .photo-placeholder {
-  width: 100%; height: 100%; font-size: 80px;
+  width: 100%; height: 100%;
+  font-size: 80px;
   background: linear-gradient(135deg, #52b788, #40916c);
   color: rgba(255,255,255,.7);
   display: flex; align-items: center; justify-content: center;
 }
 
+/* Mobile: hide circle, band goes full width */
+@media (max-width: 700px) {
+  .hero-text  { max-width: 100%; padding-right: 16px; }
+  .hero-name  { font-size: 26px; white-space: normal; }
+  .hero-photo-area { display: none; }
+  .hero-band { background: linear-gradient(135deg,
+    rgba(216,243,220,0.92) 0%, rgba(183,228,199,0.75) 100%); }
+}
     /* ══════════════════════════════════════════════════════════
        GLASS ENTRY CARDS
     ══════════════════════════════════════════════════════════ */
@@ -304,6 +323,7 @@
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-band"></div>
     <div class="container">
       <div class="hero-text">
         <h1 class="hero-name">Md Abrar Hasin Parash</h1>
