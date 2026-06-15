@@ -435,7 +435,6 @@ ul    { list-style: none; }
   border-color: #ffffff;
   transform: translateY(-2px);
 }
-
 .footer-body {
   max-width: var(--max-w); margin: 0 auto;
   padding: 46px var(--pad) 30px;
