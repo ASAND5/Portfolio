@@ -171,7 +171,7 @@ ul    { list-style: none; }
 
 /* ─── PAGE WRAPPER ───────────────────────────────────────── */
 .page-wrapper {
-  padding-top: calc(var(--topbar-h) + 24px); /* topbar height + breathing room */
+  padding-top: calc(var(--topbar-h) + 20px); /* topbar height + breathing room */
 }
 .container    { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
 
