@@ -424,7 +424,7 @@ ul    { list-style: none; }
 }
 .back-to-top:hover {
   background: rgba(255,255,255,0.1);
-  color: #fff;
+  color: rgb(148, 163, 153);
   border-color: rgba(255,255,255,0.3);
 }
 
