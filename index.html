@@ -115,22 +115,25 @@
   top: 0;
   bottom: 0;
   width: 55%;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
-  align-items: flex-end;    /* anchors circle to bottom */
+  align-items: flex-end;
   justify-content: flex-end;
   z-index: 1;
 }
-    .hero-circle {
-  width: 780px; height: 780px; /* large circle */
+
+.hero-circle {
+  width: 780px;
+  height: 780px;
   border-radius: 50%;
-  overflow: visible; flex-shrink: 0;
+  flex-shrink: 0;
   border: 7px solid rgba(255,255,255,0.60);
   box-shadow: -4px 0 60px rgba(45,106,79,0.14),
               0 0 0 2px rgba(183,228,199,0.30);
-  transform: translateX(25%); /* hides 67%, shows left 33% only */
-  margin-bottom: -160px;      /* pushes circle down — off-center toward bottom */
+  transform: translateX(25%);
+  margin-bottom: -160px;
 }
+    
     .hero-circle img { width: 100%; height: 100%; object-fit: cover; }
 .hero-circle .photo-placeholder {
   width: 100%; height: 100%; font-size: 80px;
