@@ -393,12 +393,51 @@ ul    { list-style: none; }
 .section-wrap { margin-bottom: 50px; }
 
 /* ─── FOOTER ─────────────────────────────────────────────── */
-.site-footer { background: var(--footer-bg); margin-top: 64px; }
+.site-footer {
+  background: var(--footer-bg);
+  margin-top: 64px;
+  position: relative;
+}
+
+/* Decorative gradient line at very top of footer */
+.site-footer::before {
+  content: '';
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg,
+    #2d6a4f 0%, #4338ca 25%, #7c3aed 50%, #b45309 75%, #2d6a4f 100%);
+}
+
+/* Back to top button */
+.back-to-top {
+  position: absolute;
+  top: -20px; right: 32px;
+  width: 40px; height: 40px;
+  background: var(--footer-bg);
+  border: 2px solid rgba(255,255,255,0.12);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5);
+  font-size: 18px; cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+.back-to-top:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border-color: rgba(255,255,255,0.3);
+}
+
 .footer-body {
   max-width: var(--max-w); margin: 0 auto;
   padding: 46px var(--pad) 30px;
-  display: grid; grid-template-columns: 220px 1fr; gap: 48px;
+  display: grid;
+  grid-template-columns: 210px 1fr 220px; /* 3 columns */
+  gap: 40px;
 }
+
+/* ── LEFT: photo + name + socials ── */
+.footer-left {}
 .footer-avatar {
   width: 58px; height: 58px; border-radius: 50%;
   overflow: hidden; border: 2px solid rgba(255,255,255,.14);
@@ -409,41 +448,82 @@ ul    { list-style: none; }
 .footer-name {
   font-family: var(--font-heading);
   font-size: 15px; font-weight: 700;
-  color: var(--footer-heading); margin-bottom: 18px;
+  color: var(--footer-heading); margin-bottom: 4px;
+}
+.footer-tagline {
+  font-size: 11.5px; color: var(--footer-text);
+  font-style: italic; margin-bottom: 16px; line-height: 1.5;
 }
 .footer-socials { display: flex; flex-direction: column; gap: 11px; }
 .footer-social {
   display: flex; align-items: center; gap: 10px;
   color: var(--footer-text); font-size: 13px;
-  transition: color var(--ease);
+  transition: color 0.25s ease;
 }
 .footer-social:hover { color: var(--footer-heading); }
-.s-icon {
-  width: 30px; height: 30px; border-radius: 7px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px; flex-shrink: 0;
-}
-.s-linkedin { background: #0a66c2; }
-.s-scholar  { background: #4285f4; }
-.s-rg       { background: #40ba9b; }
-.s-fb       { background: #1877f2; }
 
+/* ── MIDDLE: quote + research tags ── */
+.footer-middle {}
+.footer-quote {
+  font-family: var(--font-heading);
+  font-size: 15px; font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  font-style: italic; line-height: 1.7;
+  margin-bottom: 20px;
+  padding-left: 14px;
+  border-left: 2px solid rgba(255,255,255,0.12);
+}
+.footer-interests-label {
+  font-size: 11px; text-transform: uppercase;
+  letter-spacing: .10em; font-weight: 600;
+  color: var(--footer-text); margin-bottom: 12px;
+}
+.footer-tags {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 24px;
+}
+.footer-tag {
+  font-size: 11px; padding: 4px 11px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.50);
+}
+.footer-location {
+  font-size: 12px; color: var(--footer-text);
+  display: flex; align-items: center; gap: 6px;
+}
+
+/* ── RIGHT: page links ── */
+.footer-right {}
 .footer-pages-label {
   font-size: 11px; text-transform: uppercase;
-  letter-spacing: .1em; color: var(--footer-text);
+  letter-spacing: .10em; color: var(--footer-text);
   margin-bottom: 14px; font-weight: 600;
 }
 .footer-page-links { display: flex; flex-direction: column; gap: 9px; }
 .footer-page-links a {
   font-size: 13.5px; color: var(--footer-text);
-  transition: color var(--ease);
+  transition: color 0.25s ease;
   display: flex; align-items: center; gap: 7px;
 }
 .footer-page-links a:hover { color: var(--footer-heading); }
+
+/* ── BOTTOM BAR ── */
 .footer-bottom {
   border-top: 1px solid var(--footer-border);
   padding: 14px var(--pad); text-align: center;
   font-size: 12px; color: rgba(255,255,255,.27);
+  display: flex; align-items: center;
+  justify-content: center; gap: 16px; flex-wrap: wrap;
+}
+.footer-bottom-dot {
+  color: rgba(255,255,255,0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-body { grid-template-columns: 1fr; gap: 28px; }
 }
 
 /* ─── RESPONSIVE ─────────────────────────────────────────── */
