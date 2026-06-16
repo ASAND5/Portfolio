@@ -10,7 +10,7 @@
     :root {
       --accent      : #2d6a4f;
       --accent-light: #b7e4c7;
-      --page-bg     : #f0fdf4;
+      --page-bg     : #ffffff;
       --page-text   : #1a2e1f;
       --nav-accent  : #2d6a4f;
       --card-border : rgba(183,228,199,0.6);
@@ -26,21 +26,10 @@
   <link rel="stylesheet" href="css/shared.css" />
 
   <style>
-    /* ══════════════════════════════════════════════════════════
-       GLASS DEPTH BACKGROUND
-       Soft floating gradient orbs give the page visual depth
-    ══════════════════════════════════════════════════════════ */
-    body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: -1;
-      background:
-        radial-gradient(ellipse at 15% 15%, rgba(45,106,79,0.10) 0%, transparent 55%),
-        radial-gradient(ellipse at 85% 75%, rgba(82,183,136,0.09) 0%, transparent 50%),
-        radial-gradient(ellipse at 60% 30%, rgba(183,228,199,0.08) 0%, transparent 45%),
-        radial-gradient(ellipse at 30% 80%, rgba(52,211,153,0.06) 0%, transparent 40%),
-        linear-gradient(160deg, #e8f8ed 0%, #f0fdf4 40%, #e0f5e8 100%);
-      pointer-events: none;
-    }
+    /* ── BACKGROUND — solid white ──────────────────────────── */
+body::before {
+  display: none;
+}
 
     /* ══════════════════════════════════════════════════════════
        GLASS TOPBAR
