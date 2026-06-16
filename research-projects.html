@@ -10,7 +10,7 @@
     :root {
       --accent      : #0f766e;
       --accent-light: #99f6e4;
-      --page-bg     : #f0fdfa;
+      --page-bg     : #ffffff;
       --page-text   : #042f2e;
       --nav-accent  : #0f766e;
       /* Glass variables */
@@ -26,18 +26,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
-    /* ── GLASS DEPTH BACKGROUND — teal/mint tones ──────────── */
-    body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: -1;
-      background:
-        radial-gradient(ellipse at 15% 15%, rgba(15,118,110,0.10)  0%, transparent 55%),
-        radial-gradient(ellipse at 85% 70%, rgba(20,184,166,0.09)  0%, transparent 50%),
-        radial-gradient(ellipse at 55% 30%, rgba(153,246,228,0.10) 0%, transparent 45%),
-        radial-gradient(ellipse at 25% 85%, rgba(15,118,110,0.07)  0%, transparent 40%),
-        linear-gradient(160deg, #e0faf5 0%, #f0fdfa 40%, #d8f8f3 100%);
-      pointer-events: none;
-    }
+   /* ── BACKGROUND — solid white ──────────────────────────── */
+body::before {
+  display: none;
+}
 
     /* ── GLASS TOPBAR ──────────────────────────────────────── */
     .topbar {
