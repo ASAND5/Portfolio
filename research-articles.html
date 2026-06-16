@@ -10,7 +10,7 @@
     :root {
       --accent      : #7c3aed;
       --accent-light: #ddd6fe;
-      --page-bg     : #faf5ff;
+      --page-bg     : #ffffff;
       --page-text   : #3b0764;
       --nav-accent  : #7c3aed;
       --card-border : #ddd6fe;
@@ -27,18 +27,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
-    /* ── GLASS DEPTH BACKGROUND — purple/lavender tones ───── */
-    body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: -1;
-      background:
-        radial-gradient(ellipse at 15% 15%, rgba(124,58,237,0.10)  0%, transparent 55%),
-        radial-gradient(ellipse at 85% 70%, rgba(167,139,250,0.09) 0%, transparent 50%),
-        radial-gradient(ellipse at 55% 30%, rgba(221,214,254,0.10) 0%, transparent 45%),
-        radial-gradient(ellipse at 25% 85%, rgba(124,58,237,0.07)  0%, transparent 40%),
-        linear-gradient(160deg, #f3eeff 0%, #faf5ff 40%, #ede9fe 100%);
-      pointer-events: none;
-    }
+    /* ── BACKGROUND — solid white ──────────────────────────── */
+body::before {
+  display: none;
+}
 
     /* ── GLASS TOPBAR ──────────────────────────────────────── */
     .topbar {
