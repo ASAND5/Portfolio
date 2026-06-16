@@ -27,18 +27,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
  
   <style>
-    /* ── GLASS DEPTH BACKGROUND — navy blue tones ─────────── */
-    body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: -1;
-      background:
-        radial-gradient(ellipse at 15% 15%, rgba(30,58,95,0.12)  0%, transparent 55%),
-        radial-gradient(ellipse at 85% 75%, rgba(79,110,176,0.10) 0%, transparent 50%),
-        radial-gradient(ellipse at 60% 30%, rgba(200,213,235,0.09) 0%, transparent 45%),
-        radial-gradient(ellipse at 30% 80%, rgba(30,58,95,0.07)  0%, transparent 40%),
-        linear-gradient(160deg, #dde4f0 0%, #e8edf7 40%, #d5dff2 100%);
-      pointer-events: none;
-    }
+    /* ── BACKGROUND — solid white ──────────────────────────── */
+body::before {
+  display: none;
+}
  
     /* ── GLASS TOPBAR ──────────────────────────────────────── */
     .topbar {
