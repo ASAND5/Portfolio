@@ -26,17 +26,9 @@
 
   <style>
     /* ── GLASS DEPTH BACKGROUND — indigo tones ─────────────── */
-    body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: -1;
-      background:
-        radial-gradient(ellipse at 15% 15%, rgba(67,56,202,0.10)  0%, transparent 55%),
-        radial-gradient(ellipse at 85% 70%, rgba(99,102,241,0.09) 0%, transparent 50%),
-        radial-gradient(ellipse at 55% 30%, rgba(199,210,254,0.10) 0%, transparent 45%),
-        radial-gradient(ellipse at 25% 85%, rgba(67,56,202,0.07)  0%, transparent 40%),
-        linear-gradient(160deg, #e6eaff 0%, #eef2ff 40%, #e0e7ff 100%);
-      pointer-events: none;
-    }
+body::before {
+  display: none;
+}
 
     /* ── GLASS TOPBAR ──────────────────────────────────────── */
     .topbar {
