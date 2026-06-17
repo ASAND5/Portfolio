@@ -106,7 +106,7 @@ body::before {
     /* ── TRAVELLING ────────────────────────────────────────── */
     .trips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
     .trip-card {
-      height: 260px; border-radius: var(--r-lg);
+      height: 3200px; border-radius: var(--r-lg);
       overflow: hidden; position: relative;
       cursor: default; user-select: none;
       box-shadow: var(--glass-shadow);
@@ -137,7 +137,7 @@ body::before {
     .trip-card.extra.visible  { display: block; }
     @media (max-width: 640px) {
       .trips-grid { grid-template-columns: 1fr; }
-      .trip-card  { height: 220px; }
+      .trip-card  { height: 320px; }
     }
 
     /* ── CHESS ─────────────────────────────────────────────── */
@@ -166,7 +166,7 @@ body::before {
       border: 2px solid var(--accent); border-radius: 10px;
       padding: 5px 9px; font-size: 11px; font-weight: 600;
       color: var(--accent); white-space: nowrap;
-      pointer-events: none; z-index: 10;
+      pointer-events: auto; z-index: 10;
       box-shadow: var(--glass-shadow);
     }
     .king-bubble::after {
@@ -784,7 +784,7 @@ body::before {
     ════════════════════════════════════════════════════════ -->
     <section class="section-wrap">
       <h2 class="sec-title">Travelling</h2>
-      <p class="content-block">Places that left a mark — in reverse order of visits.</p>
+      <p class="content-block">Places that left a mark within me during the visits.</p>
 
       <!--
       ═════════════════════════════════════════════════════════
@@ -859,6 +859,23 @@ body::before {
           </div>
         </div>
       </div>
+
+      <!-- ═══ CHESS CHALLENGE MODAL ═══════════════════════════════ -->
+      <div class="chess-modal" id="chessModal">
+        <div class="chess-modal-box">
+          <button class="chess-modal-close" onclick="closeChessModal()">&#x2715;</button>
+            <h3>♟ Challenge Abrar on Chess.com</h3>
+              <p>
+                  Enter your Chess.com username below. You will be taken to
+                  Chess.com to send the challenge — no login on this website.
+              </p>
+            <input type="text" id="chessOpponent" placeholder="Your Chess.com username" />
+          <button class="chess-modal-btn" onclick="launchChessChallenge()">
+            Go to Chess.com &#8594;
+          </button>
+        </div>
+      </div>
+      
     </section>
 
     <!-- ════════════════════════════════════════════════════
@@ -1122,21 +1139,6 @@ body::before {
   </div>
 
 </footer>
-<!-- ═══ CHESS CHALLENGE MODAL ═══════════════════════════════ -->
-<div class="chess-modal" id="chessModal">
-  <div class="chess-modal-box">
-    <button class="chess-modal-close" onclick="closeChessModal()">&#x2715;</button>
-    <h3>♟ Challenge Abrar on Chess.com</h3>
-    <p>
-      Enter your Chess.com username below. You will be taken to
-      Chess.com to send the challenge — no login on this website.
-    </p>
-    <input type="text" id="chessOpponent" placeholder="Your Chess.com username" />
-    <button class="chess-modal-btn" onclick="launchChessChallenge()">
-      Go to Chess.com &#8594;
-    </button>
-  </div>
-</div>
 
 <!-- ═══ LIGHTBOX ════════════════════════════════════════════ -->
 <div class="lightbox" id="lightbox">
