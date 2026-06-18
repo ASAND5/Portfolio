@@ -101,6 +101,70 @@ body::before {
       color: var(--accent);
     }
 
+    /* ── FIELD WORKS ───────────────────────────────────────── */
+.fieldwork-entry {
+  display: flex; gap: 20px; align-items: flex-start;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-lg);
+  padding: 22px 24px;
+  margin-bottom: 16px;
+  box-shadow: var(--glass-shadow);
+  transition: box-shadow var(--ease), transform var(--ease);
+}
+.fieldwork-entry:hover {
+  background: rgba(255,255,255,0.75);
+  box-shadow: 0 12px 40px rgba(67,56,202,0.13);
+  transform: translateY(-2px);
+}
+.fieldwork-entry.extra { display: none; }
+.fieldwork-entry.extra.visible { display: flex; }
+
+.fieldwork-body { flex: 1; min-width: 0; }
+.fieldwork-title {
+  font-family: var(--font-heading);
+  font-size: 16px; font-weight: 700;
+  color: var(--accent); margin-bottom: 4px;
+  line-height: 1.4;
+}
+.fieldwork-meta {
+  font-size: 12px; color: var(--gray-400);
+  margin-bottom: 10px;
+  display: flex; align-items: center;
+  gap: 8px; flex-wrap: wrap;
+}
+.fieldwork-year {
+  background: rgba(67,56,202,0.10);
+  color: var(--accent);
+  font-size: 11px; font-weight: 600;
+  padding: 2px 9px; border-radius: 12px;
+  border: 1px solid var(--accent-light);
+}
+.fieldwork-desc {
+  font-size: 13.5px; color: var(--gray-600);
+  line-height: 1.75;
+}
+.fieldwork-img {
+  width: 160px; height: 120px;
+  border-radius: var(--r-md);
+  overflow: hidden; flex-shrink: 0;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-sm);
+  background: var(--accent-light);
+  display: flex; align-items: center;
+  justify-content: center; font-size: 32px;
+}
+.fieldwork-img img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+@media (max-width: 600px) {
+  .fieldwork-entry { flex-direction: column; }
+  .fieldwork-img   { width: 100%; height: 180px; }
+}
+    
     /* ── EXAM RESULT CARDS (SSC/HSC/Tests) ────────────────── */
     /*
       MODULAR: Copy a .exam-card block to add a new exam result.
@@ -312,6 +376,171 @@ body::before {
         </table>
       </div>
     </section>
+
+    <!-- ══════════════════════════════════════════════════════
+     FIELD WORKS SECTION
+     First 2 entries always visible.
+     Add class="fieldwork-entry extra" to hide the rest.
+     COPY a .fieldwork-entry block to add a new visit.
+══════════════════════════════════════════════════════════ -->
+<section class="section-wrap">
+  <h2 class="sec-title">Field Works</h2>
+  <p class="content-block">
+    Field visits are at the heart of environmental science —
+    where textbooks meet the real world. Here are the places
+    I have visited as part of my academic journey at the
+    University of Dhaka.
+  </p>
+
+  <!--
+  ═══════════════════════════════════════════════════════════
+  FIELD WORK ENTRY — COPY THIS BLOCK TO ADD A NEW VISIT
+  EDIT: title, year badge, location, description, image
+  For hidden entries: add class="fieldwork-entry extra"
+  ═══════════════════════════════════════════════════════════
+  -->
+
+  <!-- ENTRY 1 (always visible) -->
+  <div class="fieldwork-entry fade-up">
+    <div class="fieldwork-body">
+      <!-- EDIT: Title of the field visit -->
+      <div class="fieldwork-title">Soil Profile Study — Madhupur Tract</div>
+      <div class="fieldwork-meta">
+        <!-- EDIT: Year of bachelor and location -->
+        <span class="fieldwork-year">1st Year</span>
+        <span>📍 Madhupur, Tangail</span>
+      </div>
+      <p class="fieldwork-desc">
+        <!-- EDIT: 2 sentences about this visit -->
+        Write your first sentence about what you studied or
+        observed during this field visit. Write a second sentence
+        about key findings, methods used, or significance of
+        the location.
+      </p>
+    </div>
+    <div class="fieldwork-img">
+      <!--
+        EDIT: <img src="images/field-1.jpg" alt="Field visit" />
+      -->
+      🌾
+    </div>
+  </div>
+  <!-- END ENTRY 1 -->
+
+  <!-- ENTRY 2 (always visible) -->
+  <div class="fieldwork-entry fade-up">
+    <div class="fieldwork-body">
+      <div class="fieldwork-title">River Morphology Study — Padma River</div>
+      <div class="fieldwork-meta">
+        <span class="fieldwork-year">1st Year</span>
+        <span>📍 Rajshahi</span>
+      </div>
+      <p class="fieldwork-desc">
+        Write your first sentence about the hydrology or river
+        morphology aspects observed during this visit. Write a
+        second sentence about what was measured or collected
+        in the field.
+      </p>
+    </div>
+    <div class="fieldwork-img">
+      <!--
+        EDIT: <img src="images/field-2.jpg" alt="Field visit" />
+      -->
+      💧
+    </div>
+  </div>
+  <!-- END ENTRY 2 -->
+
+  <!-- ENTRY 3 (hidden — add more like this) -->
+  <div class="fieldwork-entry extra fade-up">
+    <div class="fieldwork-body">
+      <div class="fieldwork-title">Agricultural Soil Assessment — Barind Tract</div>
+      <div class="fieldwork-meta">
+        <span class="fieldwork-year">2nd Year</span>
+        <span>📍 Rajshahi / Chapai</span>
+      </div>
+      <p class="fieldwork-desc">
+        Write your first sentence about the sustainable agriculture
+        or soil assessment conducted at this location. Write a
+        second sentence about the environmental conditions or
+        key findings observed.
+      </p>
+    </div>
+    <div class="fieldwork-img">
+      <!--
+        EDIT: <img src="images/field-3.jpg" alt="Field visit" />
+      -->
+      🌱
+    </div>
+  </div>
+  <!-- END ENTRY 3 -->
+
+  <!-- ENTRY 4 (hidden) -->
+  <div class="fieldwork-entry extra fade-up">
+    <div class="fieldwork-body">
+      <div class="fieldwork-title">Wetland Ecosystem Study — Hakaluki Haor</div>
+      <div class="fieldwork-meta">
+        <span class="fieldwork-year">2nd Year</span>
+        <span>📍 Moulvibazar / Sylhet</span>
+      </div>
+      <p class="fieldwork-desc">
+        Write your first sentence about the wetland ecology
+        or biodiversity aspects studied during this visit.
+        Write a second sentence about water quality, flora,
+        or fauna observations made in the field.
+      </p>
+    </div>
+    <div class="fieldwork-img">
+      <!--
+        EDIT: <img src="images/field-4.jpg" alt="Field visit" />
+      -->
+      🦆
+    </div>
+  </div>
+  <!-- END ENTRY 4 -->
+
+  <!-- ENTRY 5 (hidden) -->
+  <div class="fieldwork-entry extra fade-up">
+    <div class="fieldwork-body">
+      <div class="fieldwork-title">Coastal Soil Salinity Study — Sundarbans Region</div>
+      <div class="fieldwork-meta">
+        <span class="fieldwork-year">3rd Year</span>
+        <span>📍 Khulna / Bagerhat</span>
+      </div>
+      <p class="fieldwork-desc">
+        Write your first sentence about the coastal soil salinity
+        or mangrove ecosystem studied here. Write a second sentence
+        about the environmental challenges or findings observed
+        in this area.
+      </p>
+    </div>
+    <div class="fieldwork-img">
+      <!--
+        EDIT: <img src="images/field-5.jpg" alt="Field visit" />
+      -->
+      🌊
+    </div>
+  </div>
+  <!-- END ENTRY 5 -->
+
+  <!-- Copy any entry above and add class="fieldwork-entry extra"
+       to add more hidden entries -->
+
+  <div class="load-more-wrap">
+    <button class="load-more-btn" id="loadMoreFieldBtn">
+      Load more &rsaquo;&rsaquo;&rsaquo;
+    </button>
+  </div>
+</section>
+
+    <script>
+  document.getElementById('loadMoreFieldBtn')?.addEventListener('click', function() {
+    document.querySelectorAll('.fieldwork-entry.extra:not(.visible)')
+      .forEach(el => el.classList.add('visible'));
+    this.textContent = '✓ All loaded';
+    this.disabled = true;
+  });
+</script>
 
     <!-- ══════════════════════════════════════════════════════
          SECTION 2: SSC / HSC
