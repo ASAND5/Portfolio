@@ -107,6 +107,10 @@ body::before {
       margin-top: 8px;
     }
 
+    /* hidden extras for load more */
+    .entry-card.extra { display: none; }
+    .entry-card.extra.visible { display: block; }
+
     @media (max-width: 600px) {
       .winner-grid { grid-template-columns: 1fr; }
     }
@@ -222,7 +226,7 @@ body::before {
       <!-- END DUSS MEMBER -->
 
       <!-- DUSS VOLUNTEER -->
-      <div class="entry-card fade-up">
+      <div class="entry-card extra fade-up">
         <div class="entry-body">
           <div class="entry-title">Volunteer</div>
           <div class="entry-meta">
@@ -237,7 +241,6 @@ body::before {
             Volunteered at a program organized by the Dhaka University Science
             Society, supporting event operations and engaging with participants.
           </div>
-          <a class="see-more" href="#" target="_blank">See more &rsaquo;&rsaquo;&rsaquo;</a>
         </div>
         <div class="entry-thumb">
           <!-- EDIT: <img src="images/duss-volunteer.jpg" alt="DUSS Volunteer" /> -->
@@ -245,7 +248,11 @@ body::before {
         </div>
       </div>
       <!-- END DUSS VOLUNTEER -->
-
+<div class="load-more-wrap">
+        <button class="load-more-btn" id="loadMoreAwardsBtn">
+          Load more &rsaquo;&rsaquo;&rsaquo;
+        </button>
+      </div>
     </section>
 
     <!-- ══════════════════════════════════════════════════════
