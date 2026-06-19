@@ -64,19 +64,29 @@ body::before {
       transform: translateY(-3px);
     }
     .award-img-wrap {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-      background: rgba(200,213,235,0.35);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 56px;
-    }
-    .award-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-    .award-caption {
-      padding: 12px 14px 14px;
-      border-top: 1px solid rgba(200,213,235,0.5);
-      background: rgba(255,255,255,0.30);
-    }
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #ffffff; /* white fill for letterboxing */
+  display: flex; align-items: center; justify-content: center;
+  font-size: 56px;
+  padding: 8px; /* breathing room around image */
+}
+.award-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: contain; /* contain = no crop, white fills gaps */
+  background: #ffffff;
+}
+    .award-pdf {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #ffffff;
+  display: block;
+}
+.award-img-wrap.pdf-wrap {
+  padding: 0; /* no padding for PDFs — they fill naturally */
+}
     .award-name {
       font-size: 14px; font-weight: 600;
       color: var(--page-text); margin-bottom: 3px;
@@ -161,7 +171,7 @@ body::before {
     <div class="pg-header fade-up">
       <div>
         <div class="pg-header-name">Md Abrar Hasin Parash</div>
-        <div class="pg-header-sub">Environmental Scientist &amp; Researcher</div>
+        <div class="pg-header-sub">Life Science Researcher &amp; Educator</div>
       </div>
       <div class="pg-header-photo">
         <img src="images/26-May (13).jpg" alt="Abrar" />
@@ -189,32 +199,33 @@ body::before {
         <!-- AWARD 1 (visible) — most recent, top left -->
         <div class="award-card fade-up">
           <div class="award-img-wrap">
-            <!--
-              EDIT: Replace emoji with:
-              <img src="images/award-1.jpg" alt="Award name" />
-            -->
-            🏆
+              <img src="images/26-01-Md Abrar Hasin Parash.jpg" alt="Award name" />
           </div>
           <div class="award-caption">
             <!-- EDIT: Award name and year -->
-            <div class="award-name">Your Most Recent Award or Certificate Name</div>
-            <div class="award-year">2024 · Awarding Organization</div>
+            <div class="award-name">Internship Certificate</div>
+            <div class="award-year">2026 · Business Development Department, SDG 360</div>
           </div>
         </div>
         <!-- END AWARD 1 -->
 
-        <!-- AWARD 2 (visible) — top right -->
+        <!-- AWARD CARD WITH PDF
+           EDIT: award-name, year, pdf file path
+           Upload your PDF to the images/ folder -->
         <div class="award-card fade-up">
-          <div class="award-img-wrap">
-            <!-- EDIT: <img src="images/award-2.jpg" alt="" /> -->
-            🥇
+          <div class="award-img-wrap pdf-wrap">
+            <iframe
+            class="award-pdf"
+            src="images/26-02-fundamentals-publishing-certificate.pdf"
+            title="fundamentals-publishing-certificate"
+            loading="lazy">
+            </iframe>
           </div>
-          <div class="award-caption">
-            <div class="award-name">Second Award or Certificate Name</div>
-            <div class="award-year">2023 · Awarding Organization</div>
-          </div>
-        </div>
-        <!-- END AWARD 2 -->
+        <div class="award-caption">
+      <div class="award-name">Fundamentals of Publishing</div>
+      <div class="award-year">2026 · Elsevier Researcher Academy</div>
+      </div>
+    </div>
 
         <!-- AWARD 3 (visible) — bottom left of first 4 -->
         <div class="award-card fade-up">
