@@ -110,7 +110,7 @@ body::before {
     }
 
     /* hidden extras for load more */
-    .entry-card.extra { display: none; }
+    .entry-card.extra         { display: none; }
     .entry-card.extra.visible { display: block; }
 
     @media (max-width: 600px) {
@@ -464,6 +464,9 @@ body::before {
 
 </footer>
 
-<script src="js/shared.js"></script>
+<script src="js/shared.js">
+   /* ── Load more ─────────────────────────────────────────── */
+  setupLoadMore('loadMoreEntryBtn',  '.entry-card.extra');
+</script>
 </body>
 </html>
