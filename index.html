@@ -173,6 +173,11 @@ body::before {
       background: rgba(255,255,255,0.75) !important;
       box-shadow: 0 12px 40px rgba(45,106,79,0.15) !important;
     }
+    .entry-thumb iframe {
+      width: 100%; height: 100%;
+      border: none; background: #ffffff;
+      display: block;
+    }
 
     /* ══════════════════════════════════════════════════════════
        HOME SECTION PREVIEWS
@@ -500,6 +505,80 @@ body::before {
     
     <!-- Add Co-curricular and awards (together, may have double links) and mentoring - 2 section -->
 
+    <!-- ── AWARDS & CERTIFICATES PREVIEW ─────────────────── -->
+    <section class="home-section fade-up">
+      <a class="home-sec-title" href="awards-certificates.html">Awards &amp; Certificates</a>
+
+      <!-- ═══ MOST RECENT AWARD ═══════════════════════════
+           EDIT: Replace with your most recent certificate.
+           Right thumb: upload a jpg/png for the thumbnail
+           (for PDF certificates, a screenshot works best here
+           since this is a small preview box).
+      ═══════════════════════════════════════════════════════ -->
+      <div class="entry-card">
+        <div class="entry-body">
+          <div class="entry-title">Internship Certificate</div>
+          <div class="entry-meta">
+            <span>2026</span><span class="dot">·</span>
+            <span>Business Development Department, SDG 360</span>
+          </div>
+        </div>
+        <div class="entry-thumb">
+          <img src="images/26-01-Md Abrar Hasin Parash.jpg" alt="Internship Certificate" />
+        </div>
+      </div>
+
+      <!-- ═══ SECOND MOST RECENT AWARD ═══════════════════ -->
+      <div class="entry-card">
+        <div class="entry-body">
+          <div class="entry-title">Fundamentals of Publishing</div>
+          <div class="entry-meta">
+            <span>2026</span><span class="dot">·</span>
+            <span>Elsevier Researcher Academy</span>
+          </div>
+        </div>
+        <div class="entry-thumb">
+          <iframe
+            src="images/26-02-fundamentals-publishing-certificate.pdf"
+            title="Fundamentals of Publishing"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <a class="explore-btn" href="awards-certificates.html">Explore more &rsaquo;&rsaquo;&rsaquo;</a>
+    </section>
+
+    <!-- ── CO-CURRICULAR ACTIVITIES PREVIEW ──────────────── -->
+    <section class="home-section fade-up">
+      <a class="home-sec-title" href="cocurricular-activities.html">Co-curricular Activities</a>
+
+      <!-- ═══ FEATURED CLUB ACTIVITY ═══════════════════════
+           EDIT: Replace with whichever activity you want to
+           feature on the home page.
+      ═══════════════════════════════════════════════════════ -->
+      <div class="entry-card">
+        <div class="entry-body">
+          <div class="entry-title">Joint Secretary (Finance and Logistics)</div>
+          <div class="entry-meta">
+            <span>Soil Club - Dhaka University Chapter</span>
+            <span class="dot">·</span>
+            <span>2025 – 2026</span>
+          </div>
+          <div class="entry-excerpt">
+            Successfully organized a webinar in observance of World Soil Day
+            2025, bringing together participants from Bangladesh, Nepal, and
+            the Philippines to foster knowledge sharing and regional engagement.
+          </div>
+        </div>
+        <div class="entry-thumb">
+          <img src="images/Soil Club.jpg" alt="Soil Club DU" />
+        </div>
+      </div>
+
+      <a class="explore-btn" href="cocurricular-activities.html">Explore more &rsaquo;&rsaquo;&rsaquo;</a>
+    </section>
+    
     <!-- LIFE THROUGH MY LENS PREVIEW -->
     <section class="home-section fade-up">
       <a class="home-sec-title" href="life-through-my-lens.html">Life Through My Lens</a>
