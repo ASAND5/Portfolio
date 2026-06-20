@@ -41,57 +41,85 @@ body::before {
     }
  
     /* ── AWARDS GRID — 2 per row ──────────────────────────── */
-    .awards-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
- 
-    /* ── GLASS AWARD CARDS ────────────────────────────────── */
-    .award-card {
-      background: var(--glass-bg);
-      backdrop-filter: var(--glass-blur);
-      -webkit-backdrop-filter: var(--glass-blur);
-      border: 1px solid var(--glass-border) !important;
-      border-radius: var(--r-lg);
-      overflow: hidden;
-      box-shadow: var(--glass-shadow);
-      transition: box-shadow var(--ease), transform var(--ease);
-    }
-    .award-card:hover {
-      background: rgba(255,255,255,0.75);
-      box-shadow: 0 12px 40px rgba(30,58,95,0.16) !important;
-      transform: translateY(-3px);
-    }
-    .award-img-wrap {
-  width: 100%;
-  aspect-ratio: 4 / 3;
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* ── UNIFIED SIDE-CAPTION AWARD CARD ──────────────────────
+   Media on the left (fixed width, white bg), caption on the
+   right — same layout for BOTH images and PDFs.
+   ═══════════════════════════════════════════════════════ */
+.award-card {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border) !important;
+  border-radius: var(--r-lg);
   overflow: hidden;
-  background: #ffffff; /* white fill for letterboxing */
-  display: flex; align-items: center; justify-content: center;
-  font-size: 56px;
-  padding: 0px; /* breathing room around image */
+  box-shadow: var(--glass-shadow);
+  transition: box-shadow var(--ease), transform var(--ease);
+}
+.award-card:hover {
+  background: rgba(255,255,255,0.75);
+  box-shadow: 0 12px 40px rgba(30,58,95,0.16) !important;
+  transform: translateY(-3px);
+}
+
+.award-img-wrap {
+  width: 150px;
+  flex-shrink: 0;
+  aspect-ratio: 3 / 4;       /* portrait, like a certificate page */
+  overflow: hidden;
+  background: #ffffff;       /* white fill — always */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .award-img-wrap img {
   width: 100%; height: 100%;
-  object-fit: contain; /* contain = no crop, white fills gaps */
+  object-fit: contain;       /* no crop, white fills the gaps */
   background: #ffffff;
 }
-    .award-pdf {
-  width: 100%;
-  height: 100%;
+
+.award-pdf {
+  width: 100%; height: 100%;
   border: none;
-  background: #ffffff;
+  background: #ffffff;       /* white fill behind the PDF */
   display: block;
 }
-.award-img-wrap.pdf-wrap {
-  padding: 0; /* no padding for PDFs — they fill naturally */
+
+.award-caption {
+  flex: 1;
+  min-width: 0;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-    .award-name {
-      font-size: 14px; font-weight: 600;
-      color: var(--page-text); margin-top: 12px; margin-left: 12px;
-    }
-    .award-year { font-size: 12px; color: var(--gray-500); margin-bottom: 12px; margin-left: 12px; }
+.award-name {
+  font-size: 14px; font-weight: 600;
+  color: var(--page-text);
+  line-height: 1.4;
+  margin: 0 0 6px;
+}
+.award-year {
+  font-size: 12px; color: var(--gray-500);
+  margin: 0;
+}
+
+/* hidden extras for load more */
+.award-card.extra { display: none; }
+.award-card.extra.visible { display: flex; }
+
+@media (max-width: 700px) {
+  .awards-grid { grid-template-columns: 1fr; }
+  .award-img-wrap { width: 110px; }
+}
  
     /* ── PILL-SHAPED PAGE HEADER ──────────────────────────────
    Rectangular on the left, fully rounded capsule on the right
@@ -128,7 +156,6 @@ body::before {
 }
   </style>
 </head>
- 
 <body>
 
 <!-- ═══ TOP BAR ════════════════════════════════════════════ -->
@@ -199,192 +226,176 @@ body::before {
 
       <div class="awards-grid">
 
-        <!--
-        ═════════════════════════════════════════════════════════
-        AWARD CARD — COPY THIS BLOCK TO ADD A NEW AWARD
-        Fill in: AWARD_NAME, YEAR, IMAGE (upload to images/)
-        The first 4 cards are always visible (2×2 grid).
-        Add class="award-card extra" for cards hidden by default.
-        ═════════════════════════════════════════════════════════
-        -->
+  <!--
+  ═════════════════════════════════════════════════════════
+  AWARD CARD — COPY THIS BLOCK TO ADD A NEW AWARD
+  For images: use the IMAGE template
+  For PDFs:   use the PDF template (notice the #view=FitH bit
+              in the src — that trims the toolbar and fits
+              the page width inside the white box)
+  ═════════════════════════════════════════════════════════
+  -->
 
-        <!-- AWARD 1 (visible) — most recent, top left -->
-        <div class="award-card fade-up">
-          <div class="award-img-wrap">
-              <img src="images/26-01-Md Abrar Hasin Parash.jpg" alt="Award name" />
-          </div>
-          <div class="award-caption">
-            <!-- EDIT: Award name and year -->
-            <div class="award-name">Internship Certificate</div>
-            <div class="award-year">2026 · Business Development Department, SDG 360</div>
-          </div>
-        </div>
-        <!-- END AWARD 1 -->
+  <!-- AWARD 1 (visible) -->
+  <div class="award-card fade-up">
+    <div class="award-img-wrap">
+      <img src="images/26-01-Md Abrar Hasin Parash.jpg" alt="Internship Certificate" />
+    </div>
+    <div class="award-caption">
+      <div class="award-name">Internship Certificate</div>
+      <div class="award-year">2026 · Business Development Department, SDG 360</div>
+    </div>
+  </div>
 
-        <!-- AWARD CARD WITH PDF
-           EDIT: award-name, year, pdf file path
-           Upload your PDF to the images/ folder -->
-        <div class="award-card fade-up">
-          <div class="award-img-wrap pdf-wrap">
-            <iframe class="award-pdf" src="images/26-02-fundamentals-publishing-certificate.pdf" title="Certificate" loading="lazy"></iframe>
-          </div>
-        <div class="award-caption">
+  <!-- AWARD 2 (visible) — PDF -->
+  <div class="award-card fade-up">
+    <div class="award-img-wrap">
+      <iframe class="award-pdf"
+        src="images/26-02-fundamentals-publishing-certificate.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+        title="Certificate" loading="lazy"></iframe>
+    </div>
+    <div class="award-caption">
       <div class="award-name">Fundamentals of Publishing</div>
       <div class="award-year">2026 · Elsevier Researcher Academy</div>
-      </div>
     </div>
+  </div>
 
-        <!-- AWARD 3 (visible) — bottom left of first 4 -->
-        <div class="award-card fade-up">
-          <div class="award-img-wrap">
-            <img src="images/25-01-DURE2024.jpg" alt="" />
-          </div>
-          <div class="award-caption">
-            <div class="award-name">DU Research Excellence Recognition 2024</div>
-            <div class="award-year">2025 · University of Dhaka</div>
-          </div>
-        </div>
-        <!-- END AWARD 3 -->
+  <!-- AWARD 3 (visible) -->
+  <div class="award-card fade-up">
+    <div class="award-img-wrap">
+      <img src="images/25-01-DURE2024.jpg" alt="DU Research Excellence Recognition 2024" />
+    </div>
+    <div class="award-caption">
+      <div class="award-name">DU Research Excellence Recognition 2024</div>
+      <div class="award-year">2025 · University of Dhaka</div>
+    </div>
+  </div>
 
-        <!-- AWARD 4 (visible) — bottom right of first 4 -->
-        <div class="award-card fade-up">
-          <div class="award-img-wrap pdf-wrap">
-            <iframe
-            class="award-pdf"
-            src="images/25-02-fundamentals-manuscript-preparation-certificate.pdf"
-            title="fundamentals-manuscript-preparation-certificate"
-            loading="lazy">
-            </iframe>
-          </div>
-        <div class="award-caption">
+  <!-- AWARD 4 (visible) — PDF -->
+  <div class="award-card fade-up">
+    <div class="award-img-wrap">
+      <iframe class="award-pdf"
+        src="images/25-02-fundamentals-manuscript-preparation-certificate.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+        title="fundamentals-manuscript-preparation-certificate" loading="lazy"></iframe>
+    </div>
+    <div class="award-caption">
       <div class="award-name">Fundamentals of Manuscript Preparation</div>
       <div class="award-year">2025 · Elsevier Researcher Academy</div>
-      </div>
     </div>
-        <!-- END AWARD 4 -->
+  </div>
 
-        <!-- ── EXTRA AWARDS (hidden until Load more) ───────── -->
+  <!-- ── EXTRA AWARDS (hidden until Load more) ───────── -->
 
-        <!-- EXTRA AWARD 5 — copy/paste to add more -->
-        <div class="award-card extra fade-up">
-          <div class="award-img-wrap pdf-wrap">
-            <iframe
-            class="award-pdf"
-            src="images/25-03-Copy of Md. Abrar Hasin Parash_4th.pdf"
-            title="ItForAll"
-            loading="lazy">
-            </iframe>
-          </div>
-        <div class="award-caption">
+  <!-- EXTRA 5 — PDF -->
+  <div class="award-card extra fade-up">
+    <div class="award-img-wrap">
+      <iframe class="award-pdf"
+        src="images/25-03-Copy of Md. Abrar Hasin Parash_4th.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+        title="ItForAll" loading="lazy"></iframe>
+    </div>
+    <div class="award-caption">
       <div class="award-name">IT for All</div>
       <div class="award-year">2025 · Academic Affiliation</div>
-      </div>
     </div>
+  </div>
 
-        <!-- EXTRA AWARD 6 -->
-        <div class="award-card extra fade-up">
-          <div class="award-img-wrap pdf-wrap">
-            <iframe
-            class="award-pdf"
-            src="images/25-04-Md Abrar Hasin Parash_Certificate.pdf"
-            title="PythonandDataScience"
-            loading="lazy">
-            </iframe>
-          </div>
-        <div class="award-caption">
+  <!-- EXTRA 6 — PDF -->
+  <div class="award-card extra fade-up">
+    <div class="award-img-wrap">
+      <iframe class="award-pdf"
+        src="images/25-04-Md Abrar Hasin Parash_Certificate.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+        title="PythonandDataScience" loading="lazy"></iframe>
+    </div>
+    <div class="award-caption">
       <div class="award-name">Python and Data Science</div>
       <div class="award-year">2025 · Academic Affiliation</div>
-      </div>
     </div>
+  </div>
 
-        <div class="award-card extra fade-up">
-          <div class="award-img-wrap pdf-wrap">
-            <iframe
-            class="award-pdf"
-            src="images/25-05-writing-skills-certificate.pdf"
-            title="WritingSkills"
-            loading="lazy">
-            </iframe>
-          </div>
-        <div class="award-caption">
+  <!-- EXTRA 7 — PDF -->
+  <div class="award-card extra fade-up">
+    <div class="award-img-wrap">
+      <iframe class="award-pdf"
+        src="images/25-05-writing-skills-certificate.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+        title="WritingSkills" loading="lazy"></iframe>
+    </div>
+    <div class="award-caption">
       <div class="award-name">Writing Skills</div>
       <div class="award-year">2025 · Elsevier Researcher Academy</div>
-      </div>
     </div>
+  </div>
 
-        <div class="award-card extra fade-up">
-          <div class="award-img-wrap">
-              <img src="images/25-06-rose academy.jpeg" alt="Award name" />
-          </div>
-          <div class="award-caption">
-            <!-- EDIT: Award name and year -->
-            <div class="award-name">Participation in "Ramadan, the month of triumph of Islam</div>
-            <div class="award-year">2025 · Rose Academy</div>
-          </div>
-        </div>
+  <!-- EXTRA 8 -->
+  <div class="award-card extra fade-up">
+    <div class="award-img-wrap">
+      <img src="images/25-06-rose academy.jpeg" alt="Ramadan participation certificate" />
+    </div>
+    <div class="award-caption">
+      <div class="award-name">Participation in "Ramadan, the month of triumph of Islam"</div>
+      <div class="award-year">2025 · Rose Academy</div>
+    </div>
+  </div>
 
-        <div class="award-card extra fade-up">
-          <div class="award-img-wrap pdf-wrap">
-            <iframe
-            class="award-pdf"
-            src="images/23-01-Parash.pdf"
-            title="JournalCertificate"
-            loading="lazy">
-            </iframe>
-          </div>
-        <div class="award-caption">
+  <!-- EXTRA 9 — PDF -->
+  <div class="award-card extra fade-up">
+    <div class="award-img-wrap">
+      <iframe class="award-pdf"
+        src="images/23-01-Parash.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+        title="JournalCertificate" loading="lazy"></iframe>
+    </div>
+    <div class="award-caption">
       <div class="award-name">Publication Certificate</div>
       <div class="award-year">2023 · International Journal of Advanced Multidisciplinary Research and Studies</div>
-      </div>
     </div>
+  </div>
 
-        <div class="award-card extra fade-up">
-          <div class="award-img-wrap">
-              <img src="images/22-01-duss.jpeg" alt="Award name" />
-          </div>
-          <div class="award-caption">
-            <!-- EDIT: Award name and year -->
-            <div class="award-name">Certificate of Voluneering</div>
-            <div class="award-year">2022 · Dhaka University Science Society (DUSS)</div>
-          </div>
-        </div>
+  <!-- EXTRA 10 -->
+  <div class="award-card extra fade-up">
+    <div class="award-img-wrap">
+      <img src="images/22-01-duss.jpeg" alt="Certificate of Volunteering" />
+    </div>
+    <div class="award-caption">
+      <div class="award-name">Certificate of Volunteering</div>
+      <div class="award-year">2022 · Dhaka University Science Society (DUSS)</div>
+    </div>
+  </div>
 
-        <div class="award-card extra fade-up">
-          <div class="award-img-wrap">
-              <img src="images/19-01-IMG_20220219_174028.jpg" alt="Award name" />
-          </div>
-          <div class="award-caption">
-            <!-- EDIT: Award name and year -->
-            <div class="award-name">Participant Certificate - 9th Bangladesh Chemistry Olympiad</div>
-            <div class="award-year">2019 · Bangladesh Chemical Society</div>
-          </div>
-        </div>
+  <!-- EXTRA 11 -->
+  <div class="award-card extra fade-up">
+    <div class="award-img-wrap">
+      <img src="images/19-01-IMG_20220219_174028.jpg" alt="Bangladesh Chemistry Olympiad certificate" />
+    </div>
+    <div class="award-caption">
+      <div class="award-name">Participant Certificate - 9th Bangladesh Chemistry Olympiad</div>
+      <div class="award-year">2019 · Bangladesh Chemical Society</div>
+    </div>
+  </div>
 
-        <div class="award-card extra fade-up">
-          <div class="award-img-wrap">
-              <img src="images/19-02-IMG_20220219_174332.jpg" alt="Award name" />
-          </div>
-          <div class="award-caption">
-            <!-- EDIT: Award name and year -->
-            <div class="award-name">Participant Certificate - HCC Science Fest 2018-19</div>
-            <div class="award-year">2019 · Holy Cross College Science Club</div>
-          </div>
-        </div>
+  <!-- EXTRA 12 -->
+  <div class="award-card extra fade-up">
+    <div class="award-img-wrap">
+      <img src="images/19-02-IMG_20220219_174332.jpg" alt="HCC Science Fest certificate" />
+    </div>
+    <div class="award-caption">
+      <div class="award-name">Participant Certificate - HCC Science Fest 2018-19</div>
+      <div class="award-year">2019 · Holy Cross College Science Club</div>
+    </div>
+  </div>
 
-        <div class="award-card extra fade-up">
-          <div class="award-img-wrap">
-              <img src="images/18-IMG_20220219_174305.jpg" alt="Award name" />
-          </div>
-          <div class="award-caption">
-            <!-- EDIT: Award name and year -->
-            <div class="award-name">Participant Certificate - SAGC Science Fest 2018</div>
-            <div class="award-year">2018 · SAGC Science Club</div>
-          </div>
-        </div>
+  <!-- EXTRA 13 -->
+  <div class="award-card extra fade-up">
+    <div class="award-img-wrap">
+      <img src="images/18-IMG_20220219_174305.jpg" alt="SAGC Science Fest certificate" />
+    </div>
+    <div class="award-caption">
+      <div class="award-name">Participant Certificate - SAGC Science Fest 2018</div>
+      <div class="award-year">2018 · SAGC Science Club</div>
+    </div>
+  </div>
 
-        <!-- Add more extra award cards here by copying the block above -->
+  <!-- Copy any IMAGE or PDF block above to add more -->
 
-      </div><!-- /awards-grid -->
+</div><!-- /awards-grid -->
 
       <div class="load-more-wrap">
         <button class="load-more-btn" id="loadMoreAwardsBtn">
