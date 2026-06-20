@@ -252,7 +252,7 @@ body::before {
       <!-- END DUSS VOLUNTEER -->
       
 <div class="load-more-wrap">
-        <button class="load-more-btn" id="loadMoreEntriesBtn">
+        <button class="load-more-btn" id="loadMoreClubBtn">
           Load more &rsaquo;&rsaquo;&rsaquo;
         </button>
       </div>
@@ -318,13 +318,11 @@ body::before {
       <!-- END SCIENCE FESTIVAL 2018 -->
 
       <div class="load-more-wrap">
-        <button class="load-more-btn" id="loadMoreEntriesBtn">
+        <button class="load-more-btn" id="loadMoreScienceBtn">
           Load more &rsaquo;&rsaquo;&rsaquo;
         </button>
       </div>
-
     </section>
-
 
     <!-- ══════════════════════════════════════════════════════
          SECTION 3: BOOK READING CONTEST
@@ -464,9 +462,21 @@ body::before {
 
 </footer>
 
-<script src="js/shared.js">
-   /* ── Load more ─────────────────────────────────────────── */
-  setupLoadMore('loadMoreEntryBtn',  '.entry-card.extra');
+<script src="js/shared.js"></script>
+<script>
+  /* ── Load more — scoped per section, same pattern as Research page ── */
+  document.querySelectorAll('.section-wrap').forEach(sec => {
+    const btn = sec.querySelector('.load-more-btn');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const hidden = sec.querySelectorAll('.entry-card.extra:not(.visible)');
+      hidden.forEach(el => el.classList.add('visible'));
+      if (sec.querySelectorAll('.entry-card.extra:not(.visible)').length === 0) {
+        btn.textContent = '✓ All loaded';
+        btn.disabled = true;
+      }
+    });
+  });
 </script>
 </body>
 </html>
