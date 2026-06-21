@@ -214,6 +214,68 @@ body::before {
       font-style: italic;
     }
 
+    /* ── AWARDS PREVIEW (home page) — side-caption cards ────── */
+.awards-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 4px;
+}
+.award-card {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--glass-shadow);
+  transition: box-shadow var(--ease), transform var(--ease);
+}
+.award-card:hover {
+  background: rgba(255,255,255,0.75);
+  box-shadow: 0 12px 40px rgba(45,106,79,0.15);
+  transform: translateY(-2px);
+}
+.award-img-wrap {
+  width: 110px;
+  flex-shrink: 0;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #ffffff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+}
+.award-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  background: #ffffff;
+}
+.award-pdf {
+  width: 100%; height: 100%;
+  border: none; background: #ffffff;
+  display: block;
+}
+.award-caption {
+  flex: 1; min-width: 0;
+  padding: 14px 16px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.award-name {
+  font-size: 13.5px; font-weight: 600;
+  color: var(--gray-800); line-height: 1.4;
+  margin: 0 0 4px;
+}
+.award-meta {
+  font-size: 11.5px; color: var(--gray-500);
+}
+
+@media (max-width: 600px) {
+  .awards-preview-grid { grid-template-columns: 1fr; }
+}
+
     /* ══════════════════════════════════════════════════════════
        LIFE THROUGH MY LENS PREVIEW
     ══════════════════════════════════════════════════════════ */
@@ -497,49 +559,41 @@ body::before {
     <!-- Add Co-curricular and awards (together, may have double links) and mentoring - 2 section -->
 
     <!-- ── AWARDS & CERTIFICATES PREVIEW ─────────────────── -->
-    <section class="home-section fade-up">
-      <a class="home-sec-title" href="awards-certificates.html">Awards &amp; Certificates</a>
+    <!-- ── AWARDS & CERTIFICATES PREVIEW ─────────────────── -->
+<section class="home-section fade-up">
+  <a class="home-sec-title" href="awards-certificates.html">Awards and Certificates</a>
 
-      <!-- ═══ MOST RECENT AWARD ═══════════════════════════
-           EDIT: Replace with your most recent certificate.
-           Right thumb: upload a jpg/png for the thumbnail
-           (for PDF certificates, a screenshot works best here
-           since this is a small preview box).
-      ═══════════════════════════════════════════════════════ -->
-      <div class="entry-card">
-        <div class="entry-body">
-          <div class="entry-title">Internship Certificate</div>
-          <div class="entry-meta">
-            <span>2026</span><span class="dot">·</span>
-            <span>Business Development Department, SDG 360</span>
-          </div>
-        </div>
-        <div class="entry-thumb">
-          <img src="images/26-01-Md Abrar Hasin Parash.jpg" alt="Internship Certificate" />
-        </div>
+  <div class="awards-preview-grid">
+
+    <!-- AWARD PREVIEW 1 -->
+    <div class="award-card">
+      <div class="award-img-wrap">
+        <img src="images/26-01-Md Abrar Hasin Parash.jpg" alt="Internship Certificate" />
       </div>
-
-      <!-- ═══ SECOND MOST RECENT AWARD ═══════════════════ -->
-      <div class="entry-card">
-        <div class="entry-body">
-          <div class="entry-title">Fundamentals of Publishing</div>
-          <div class="entry-meta">
-            <span>2026</span><span class="dot">·</span>
-            <span>Elsevier Researcher Academy</span>
-          </div>
-        </div>
-        <div class="entry-thumb">
-          <iframe
-            src="images/26-02-fundamentals-publishing-certificate.pdf"
-            title="Fundamentals of Publishing"
-            loading="lazy">
-          </iframe>
-        </div>
+      <div class="award-caption">
+        <div class="award-name">Internship Certificate</div>
+        <div class="award-meta">2026 · SDG 360</div>
       </div>
+    </div>
 
-      <a class="explore-btn" href="awards-certificates.html">Explore more &rsaquo;&rsaquo;&rsaquo;</a>
-    </section>
+    <!-- AWARD PREVIEW 2 — PDF (live embed, white bg, no toolbar) -->
+    <div class="award-card">
+      <div class="award-img-wrap">
+        <iframe class="award-pdf"
+          src="images/26-02-fundamentals-publishing-certificate.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+          title="Fundamentals of Publishing" loading="lazy"></iframe>
+      </div>
+      <div class="award-caption">
+        <div class="award-name">Fundamentals of Publishing</div>
+        <div class="award-meta">2026 · Elsevier Researcher Academy</div>
+      </div>
+    </div>
 
+  </div>
+
+  <a class="explore-btn" href="awards-certificates.html">Explore more &rsaquo;&rsaquo;&rsaquo;</a>
+</section>
+    
     <!-- ── CO-CURRICULAR ACTIVITIES PREVIEW ──────────────── -->
     <section class="home-section fade-up">
       <a class="home-sec-title" href="cocurricular-activities.html">Co-curricular Activities</a>
