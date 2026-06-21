@@ -101,6 +101,17 @@ body::before {
       color: var(--accent);
     }
 
+    .course-code {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--accent);
+  background: rgba(67,56,202,0.08);
+  padding: 2px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+}
+
     /* ── FIELD WORKS ───────────────────────────────────────── */
 .fieldwork-entry {
   display: flex; gap: 20px; align-items: flex-start;
@@ -329,7 +340,7 @@ body::before {
     <section class="section-wrap">
       <h1 class="sec-title">University Results</h1>
       <p class="content-block">
-        B.S. in Soil, Water and Environment — University of Dhaka.
+        From the Department of Soil, Water and Environment, which is adminstered under the Faculty of Biological Sciences, University of Dhaka.
         <!-- EDIT: Update degree name and university -->
       </p>
 
@@ -379,6 +390,73 @@ body::before {
         </table>
       </div>
     </section>
+
+    <!-- ══════════════════════════════════════════════════════
+     COURSE-WISE RESULTS
+     MODULAR — copy a <tr> block to add a new course
+══════════════════════════════════════════════════════════ -->
+<section class="section-wrap">
+  <h2 class="sec-title">Course-wise Results</h2>
+  <p class="content-block">
+    Courses completed throughout the B.S. program — organized
+    by code, with credit hours and individual grades.
+  </p>
+
+  <div class="result-table-wrap fade-up">
+    <table class="result-table">
+      <thead>
+        <tr>
+          <th>Course Code</th>
+          <th>Course Name</th>
+          <th>Credit</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!--
+        ═══════════════════════════════════════════════════
+        ROW — COPY THIS BLOCK TO ADD A NEW COURSE
+        EDIT: Course Code, Course Name, Credit, Grade
+        ═══════════════════════════════════════════════════
+        -->
+        <tr>
+          <td><span class="course-code">SWE 101</span></td>
+          <td>Introduction to Soil Science</td>
+          <td>3.00</td>
+          <td><span class="result-grade">A+</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">SWE 102</span></td>
+          <td>Principles of Hydrology</td>
+          <td>3.00</td>
+          <td><span class="result-grade">A</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">SWE 103</span></td>
+          <td>Environmental Chemistry</td>
+          <td>2.00</td>
+          <td><span class="result-grade">A-</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">SWE 104</span></td>
+          <td>Soil Physics</td>
+          <td>3.00</td>
+          <td><span class="result-grade">A</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">SWE 105</span></td>
+          <td>Agricultural Meteorology</td>
+          <td>2.00</td>
+          <td><span class="result-grade">B+</span></td>
+        </tr>
+
+        <!-- Copy a <tr> block above to add more courses -->
+
+      </tbody>
+    </table>
+  </div>
+</section>
 
     <!-- ══════════════════════════════════════════════════════
      FIELD WORKS SECTION
