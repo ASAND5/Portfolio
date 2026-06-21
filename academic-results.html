@@ -112,6 +112,44 @@ body::before {
   letter-spacing: 0.02em;
 }
 
+    /* ── COLLAPSIBLE COURSE TABLE ──────────────────────────── */
+    .collapse-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: 30px;
+      padding: 10px 22px;
+      font-size: 13.5px; font-weight: 600;
+      color: var(--accent);
+      cursor: pointer;
+      box-shadow: var(--glass-shadow);
+      transition: background var(--ease), box-shadow var(--ease);
+    }
+    .collapse-toggle:hover {
+      background: rgba(255,255,255,0.75);
+      box-shadow: 0 10px 32px rgba(67,56,202,0.14);
+    }
+    .collapse-toggle .chevron {
+      transition: transform 0.3s ease;
+      font-size: 11px;
+    }
+    .collapse-toggle.open .chevron {
+      transform: rotate(180deg);
+    }
+    .collapse-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .collapse-panel.open {
+      max-height: 3000px;
+      margin-top: 18px;
+    }
+
     /* ── FIELD WORKS ───────────────────────────────────────── */
 .fieldwork-entry {
   display: flex; gap: 20px; align-items: flex-start;
@@ -401,6 +439,12 @@ body::before {
     Noteworthy courses completed during the Bachelor of Science program.
   </p>
 
+  <button class="collapse-toggle" id="courseToggleBtn" onclick="toggleCourseTable()">
+    <span id="courseToggleText">View all courses</span>
+    <span class="chevron">▾</span>
+  </button>
+
+  <div class="collapse-panel" id="coursePanel">
   <div class="result-table-wrap fade-up">
     <table class="result-table">
       <thead>
@@ -438,7 +482,7 @@ body::before {
           <td><span class="result-grade">A</span></td>
         </tr>
         <tr>
-          <td><span class="course-code">GLT </span></td>
+          <td><span class="course-code">GLT 101</span></td>
           <td>Geology</td>
           <td>2.00</td>
           <td><span class="result-grade">A+</span></td>
@@ -449,11 +493,108 @@ body::before {
           <td>2.00</td>
           <td><span class="result-grade">A+</span></td>
         </tr>
+        <tr>
+          <td><span class="course-code">SWE 201</span></td>
+          <td>Soil Mineralogy and Soil Colloids</td>
+          <td>2.00</td>
+          <td><span class="result-grade">A</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">SWE 203</span></td>
+          <td>General Microbiology</td>
+          <td>2.00</td>
+          <td><span class="result-grade">A</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">SWE 204</span></td>
+          <td>Calculus</td>
+          <td>2.00</td>
+          <td><span class="result-grade">A+</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">SWE 205</span></td>
+          <td>Bio-statistics</td>
+          <td>2.00</td>
+          <td><span class="result-grade">A-</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">SWE 207</span></td>
+          <td>Water Chemistry</td>
+          <td>2.00</td>
+          <td><span class="result-grade">A+</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">FC 2</span></td>
+          <td>Functional and Communicative English</td>
+          <td>2.00</td>
+          <td><span class="result-grade">A+</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">CM 241H</span></td>
+          <td>Chemistry of Elements</td>
+          <td>2.00</td>
+          <td><span class="result-grade">A+</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">CMGL 101H</span></td>
+          <td>General Chemistry Laboratory</td>
+          <td>2.00</td>
+          <td><span class="result-grade">A+</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">SWE 302</span></td>
+          <td>Soil Chemistry-I</td>
+          <td>4.00</td>
+          <td><span class="result-grade">A-</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">SWE 304</span></td>
+          <td>Soil and Environmental Microbiology</td>
+          <td>2.00</td>
+          <td><span class="result-grade">A</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">SWE 401</span></td>
+          <td>Soil Survey and Remote Sensing</td>
+          <td>2.00</td>
+          <td><span class="result-grade">A-</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">SWE 404</span></td>
+          <td>Soil Management</td>
+          <td>2.00</td>
+          <td><span class="result-grade">B+</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">SWE 405</span></td>
+          <td>Agronomy</td>
+          <td>2.00</td>
+          <td><span class="result-grade">A</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">SWE 407</span></td>
+          <td>Soil Pollution and Waste Management</td>
+          <td>4.00</td>
+          <td><span class="result-grade">A</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">SWE 409</span></td>
+          <td>Soils of Bangladesh</td>
+          <td>2.00</td>
+          <td><span class="result-grade">B</span></td>
+        </tr>
+        <tr>
+          <td><span class="course-code">SWE 410</span></td>
+          <td>Soil Chemistry-II</td>
+          <td>2.00</td>
+          <td><span class="result-grade">B</span></td>
+        </tr>
 
         <!-- Copy a <tr> block above to add more courses -->
 
       </tbody>
     </table>
+  </div>
   </div>
 </section>
 
@@ -849,7 +990,22 @@ body::before {
   </div>
 
 </footer>
-      
+
+<script>
+  function toggleCourseTable() {
+    const panel = document.getElementById('coursePanel');
+    const btn   = document.getElementById('courseToggleBtn');
+    const text  = document.getElementById('courseToggleText');
+
+    panel.classList.toggle('open');
+    btn.classList.toggle('open');
+
+    text.textContent = panel.classList.contains('open')
+      ? 'Hide courses'
+      : 'View all courses';
+  }
+</script>
+
 <script src="js/shared.js"></script>
 </body>
 </html>
