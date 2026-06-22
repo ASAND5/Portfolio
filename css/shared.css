@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
-@import url('css/Fonts/Kalpurush.ttf');
+@import url('css/Fonts/kalpurush.ttf');
 
 /* ================================================================
    ABRAR'S PORTFOLIO — SHARED STYLESHEET (Redesigned)
@@ -28,7 +28,7 @@
    Place Kalpurush.ttf in a fonts/ folder next to css/.           */
 @font-face {
   font-family: 'Kalpurush';
-  src: url('css/fonts/Kalpurush.ttf') format('truetype');
+  src: url('css/fonts/kalpurush.ttf') format('truetype');
   font-weight: normal; font-style: normal; font-display: swap;
 }
 
