@@ -52,6 +52,8 @@
   --r-lg         : 14px;
 }
 
+body { font-family: 'Kalpurush', 'Jost', sans-serif; }
+
 /* ── RESET ────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html  { -webkit-text-size-adjust: 100%; }
