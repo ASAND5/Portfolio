@@ -4,7 +4,7 @@
    Place Kalpurush.ttf in a fonts/ folder next to css/.           */
 @font-face {
   font-family: 'Kalpurush';
-  src: url('css/Kalpurush.ttf') format('truetype');
+  src: url('Portfilio/css/Kalpurush.ttf') format('truetype');
   font-weight: normal; font-style: normal; font-display: swap;
 }
 
