@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('css/Fonts/Kalpurush.ttf');
+
 /* ================================================================
    ABRAR'S PORTFOLIO — SHARED STYLESHEET (Redesigned)
    Philosophy: Bauhaus (loud geometric titles) + Minimalism (95/5
@@ -25,12 +28,9 @@
    Place Kalpurush.ttf in a fonts/ folder next to css/.           */
 @font-face {
   font-family: 'Kalpurush';
-  src: url('../fonts/Kalpurush.ttf') format('truetype');
+  src: url('css/fonts/Kalpurush.ttf') format('truetype');
   font-weight: normal; font-style: normal; font-display: swap;
 }
-
-/* ── GOOGLE FONTS ─────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap');
 
 /* ── CSS VARIABLES ────────────────────────────────────────────── */
 :root {
@@ -50,8 +50,8 @@
   --footer-heading: #e2e8f0;
   --footer-border: rgba(255,255,255,0.07);
   --font-heading : 'Jost', sans-serif;
-  --font-body    : 'DM Sans', sans-serif;
-  --font-bangla  : 'Kalpurush', 'DM Sans', sans-serif;
+  --font-body    : 'Jost', sans-serif;
+  --font-bangla  : 'Kalpurush', 'Jost', sans-serif;
   --topbar-h     : 64px;
   --max-w        : 960px;
   --pad          : 24px;
