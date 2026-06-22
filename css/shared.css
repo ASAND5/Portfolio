@@ -713,7 +713,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   display: flex; align-items: center; justify-content: center;
   color: #ffffff; font-size: 18px; text-decoration: none; box-shadow: var(--card-shadow);
 }
-.back-to-top:hover {opacity: 0.45; }
+.back-to-top:hover {opacity: 0.60; }
 
 .footer-body {
   max-width: var(--max-w); margin: 0 auto; padding: 46px var(--pad) 30px;
