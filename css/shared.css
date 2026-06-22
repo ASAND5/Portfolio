@@ -159,7 +159,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 /* 30px — all section & card titles */
 .sec-title {
-  font-family: var(--font-heading); font-size: 28px; font-weight: 700;
+  font-family: var(--font-heading); font-size: 25px; font-weight: 700;
   color: var(--accent); margin-bottom: 20px;
   padding-bottom: 10px; border-bottom: 2px solid var(--accent-light);
 }
@@ -713,7 +713,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   display: flex; align-items: center; justify-content: center;
   color: #ffffff; font-size: 18px; text-decoration: none; box-shadow: var(--card-shadow);
 }
-.back-to-top:hover {color: ##f4f4ff; opacity: 0.99; }
+.back-to-top:hover {opacity: 0.45; }
 
 .footer-body {
   max-width: var(--max-w); margin: 0 auto; padding: 46px var(--pad) 30px;
