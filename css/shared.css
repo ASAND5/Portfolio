@@ -107,7 +107,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .topbar-nav .nav-link {
   font-family: var(--font-heading); font-size: 18px; font-weight: 600;
-  color: var(--accent); padding: 0 30px; height: 100%;
+  color: var(--accent); padding: 0 48px; height: 100%;
   display: flex; align-items: center;
   text-decoration: none; border-bottom: 2px solid transparent;
   white-space: nowrap;
