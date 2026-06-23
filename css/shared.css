@@ -408,7 +408,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   border-radius: var(--r-lg); padding: 28px 32px; display: block; box-shadow: var(--card-shadow);
 }
 .lens-preview:hover  { opacity: 0.9; }
-.lens-preview-text   { font-size: 18px; color: #0c1178; line-height: 1.75; }
+.lens-preview-text   { font-size: 18px; color: #1d3356; line-height: 1.75; }
 .lens-preview-cta    { font-size: 18px; font-weight: 600; color: var(--accent); margin-top: 10px; }
 
 .contact-preview {
