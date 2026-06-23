@@ -233,13 +233,13 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   display: flex; align-items: center; gap: 7px;
 }
 .footer-page-links .nav-sub-link:hover {
-  color: var(--footer-heading);
+  color: var(--footer-text);
   text-decoration: underline;
   text-decoration-color: rgba(255,255,255,0.4);
   text-underline-offset: 3px;
 }
 .footer-page-links .nav-home-link:hover {
-  color: var(--footer-heading);
+  color: var(--footer-text);
   text-decoration: underline;
   text-decoration-color: rgba(255,255,255,0.4);
   text-underline-offset: 3px;
