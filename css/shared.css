@@ -99,15 +99,16 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .topbar-nav {
   display: flex; align-items: stretch; gap: 0;
   height: var(--topbar-h);
-  margin-right: 12px;
+  margin-right: 12px; margin-left: auto;
 }
+
 .topbar-nav .nav-item {
   position: relative; display: flex; align-items: center;
 }
 .topbar-nav .nav-link {
-  font-family: var(--font-heading); font-size: 15px; font-weight: 600;
-  color: var(--accent); padding: 0 18px; height: 100%;
-  display: flex; align-items: center;
+  font-family: var(--font-heading); font-size: 18px; font-weight: 600;
+  color: var(--accent); padding: 0 22px; height: 100%;
+  display: flex;
   text-decoration: none; border-bottom: 2px solid transparent;
   white-space: nowrap;
 }
