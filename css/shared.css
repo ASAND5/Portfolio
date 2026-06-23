@@ -93,6 +93,57 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   display: block; font-family: var(--font-body);
   font-size: 14px; font-weight: 600; color: var(--accent); opacity: 0.6;
 }
+/* ================================================================
+   TOPBAR DESKTOP NAV — dropdown menus
+   ================================================================ */
+.topbar-nav {
+  display: flex; align-items: stretch; gap: 0;
+  height: var(--topbar-h);
+  margin-right: 12px;
+}
+.topbar-nav .nav-item {
+  position: relative; display: flex; align-items: center;
+}
+.topbar-nav .nav-link {
+  font-family: var(--font-heading); font-size: 15px; font-weight: 600;
+  color: var(--accent); padding: 0 18px; height: 100%;
+  display: flex; align-items: center;
+  text-decoration: none; border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+.topbar-nav .nav-link:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ── DROPDOWN ─────────────────────────────────────────────────── */
+.topbar-nav .dropdown {
+  position: absolute; top: 100%; left: 0;
+  background: var(--accent);
+  border: none; border-radius: 0;
+  min-width: 220px; z-index: 1000;
+  display: none;
+}
+.topbar-nav .nav-item:hover .dropdown { display: block; }
+
+.topbar-nav .dropdown a {
+  display: block; padding: 13px 20px;
+  font-family: var(--font-heading); font-size: 14px; font-weight: 400;
+  color: #ffffff; opacity: 0.85;
+  text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.10);
+  text-underline-offset: 3px;
+}
+.topbar-nav .dropdown a:last-child { border-bottom: none; }
+.topbar-nav .dropdown a:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,0.6);
+  text-underline-offset: 3px;
+}
+
+/* Hide desktop nav on mobile (hamburger takes over) */
+@media (max-width: 768px) {
+  .topbar-nav { display: none; }
+}
 .hamburger {
   background: none; border: none; padding: 8px;
   display: flex; flex-direction: column; gap: 5px; border-radius: var(--r-sm);
@@ -742,7 +793,12 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .footer-pages-label  { font-size: 14px; text-transform: uppercase; letter-spacing: 0.10em; color: var(--footer-text); margin-bottom: 14px; font-weight: 600; }
 .footer-page-links   { display: flex; flex-direction: column; gap: 9px; }
 .footer-page-links a { font-size: 14px; color: var(--footer-text); display: flex; align-items: center; gap: 7px; }
-.footer-page-links a:hover { color: var(--footer-heading); }
+.footer-page-links a:hover {
+  color: var(--footer-heading);
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,0.4);
+  text-underline-offset: 3px;
+}
 
 .footer-bottom {
   border-top: 1px solid var(--footer-border); padding: 14px var(--pad);
