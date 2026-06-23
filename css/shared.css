@@ -196,55 +196,41 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    SIDENAV — grouped hierarchy
    ================================================================ */
 .sidenav-nav .nav-group-label {
-  display: block; padding: 10px 20px 4px;
-  font-family: var(--page-text); font-size: 14px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.08em;
-  color: var(--page-text); opacity: 0.45;
-  pointer-events: none; user-select: none;
+  opacity: 0.35;
+  font-weight: 400;
+  font-size: 13px;
 }
+.sidenav-nav .nav-home a,
 .sidenav-nav .nav-sub a {
-  padding: 9px 20px 9px 34px;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--page-text);
+  opacity: 0.75;
 }
-.sidenav-nav .nav-home a {
-  font-weight: 600;
-}
-.sidenav-nav a:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-underline-offset: 3px;
+.sidenav-nav a:hover,
+.sidenav-nav a.active {
+  opacity: 1;
 }
 
 /* ================================================================
    FOOTER PAGE LINKS — grouped hierarchy
    ================================================================ */
 .footer-page-links .nav-group-label {
-  display: block;
-  font-size: 14px; font-weight: 500;
-  text-transform: uppercase; letter-spacing: 0.08em;
-  color: var(--footer-text); opacity: 1;
-  margin-top: 12px; margin-bottom: 2px;
-  pointer-events: none;
+  opacity: 0.30;
+  font-weight: 400;
+  font-size: 13px;
 }
-.footer-page-links .nav-group-label:first-child { margin-top: 0; }
+.footer-page-links .nav-home-link,
 .footer-page-links .nav-sub-link {
-  padding-left: 12px;
-  font-size: 14px; color: var(--footer-text);
-  display: flex; align-items: center; gap: 7px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--footer-text);
+  opacity: 1;
 }
+.footer-page-links .nav-home-link:hover,
 .footer-page-links .nav-sub-link:hover {
-  color: var(--footer-text);
-  text-decoration: underline;
-  text-decoration-color: rgba(255,255,255,0.4);
-  text-underline-offset: 3px;
+  color: var(--footer-heading);
 }
-.footer-page-links .nav-home-link:hover {
-  color: var(--footer-text);
-  text-decoration: underline;
-  text-decoration-color: rgba(255,255,255,0.4);
-  text-underline-offset: 3px;
-}
-
 /* ================================================================
    PAGE LAYOUT
    ================================================================ */
