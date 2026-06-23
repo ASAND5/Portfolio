@@ -197,15 +197,15 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    ================================================================ */
 .sidenav-nav .nav-group-label {
   opacity: 0.35;
-  font-weight: 400;
-  font-size: 13px;
+  font-weight: 700;
+  font-size: 14px;
 }
 .sidenav-nav .nav-home a,
 .sidenav-nav .nav-sub a {
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--page-text);
-  opacity: 0.75;
+  opacity: 1;
 }
 .sidenav-nav a:hover,
 .sidenav-nav a.active {
@@ -216,20 +216,20 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    FOOTER PAGE LINKS — grouped hierarchy
    ================================================================ */
 .footer-page-links .nav-group-label {
-  opacity: 0.30;
-  font-weight: 400;
-  font-size: 13px;
+  opacity: 1;
+  font-weight: 700;
+  font-size: 14px;
 }
 .footer-page-links .nav-home-link,
 .footer-page-links .nav-sub-link {
-  font-size: 13px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--footer-text);
   opacity: 1;
 }
 .footer-page-links .nav-home-link:hover,
 .footer-page-links .nav-sub-link:hover {
-  color: var(--footer-heading);
+  color: var(--footer-text);
 }
 /* ================================================================
    PAGE LAYOUT
