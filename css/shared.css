@@ -440,7 +440,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   padding: 5px 12px; border-radius: 20px; box-shadow: var(--card-shadow);
 }
 .hero-photo-area {
-  position: absolute; right: -70px; top: 30%; transform: translateY(-50%);
+  position: absolute; right: -70px; top: 40%; transform: translateY(-50%);
   z-index: 5; width: 500px; height: 500px;
 }
 .hero-circle {
