@@ -192,45 +192,68 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   padding: 14px 20px; border-top: 1px solid var(--card-border);
   display: flex; gap: 14px; flex-shrink: 0;
 }
+
 /* ================================================================
    SIDENAV — grouped hierarchy
    ================================================================ */
 .sidenav-nav .nav-group-label {
-  opacity: 0.35;
-  font-weight: 700;
-  font-size: 14px;
+  display: block; padding: 10px 20px 4px;
+  font-family: var(--font-heading); font-size: 14px; font-weight: 400;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--page-text); opacity: 0.45;
+  pointer-events: none; user-select: none;
 }
-.sidenav-nav .nav-home a,
+.sidenav-nav .nav-home a {
+  padding: 9px 20px;
+  font-family: var(--font-heading); font-size: 14px; font-weight: 400;
+  color: var(--page-text); opacity: 0.75;
+  border-left: 3px solid transparent; display: block;
+}
 .sidenav-nav .nav-sub a {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--page-text);
-  opacity: 1;
+  padding: 9px 20px 9px 34px;
+  font-family: var(--font-heading); font-size: 14px; font-weight: 400;
+  color: var(--page-text); opacity: 0.75;
+  border-left: 3px solid transparent; display: block;
 }
 .sidenav-nav a:hover,
 .sidenav-nav a.active {
   opacity: 1;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+  background: none;
+  border-left-color: transparent;
 }
 
 /* ================================================================
    FOOTER PAGE LINKS — grouped hierarchy
    ================================================================ */
 .footer-page-links .nav-group-label {
-  opacity: 1;
-  font-weight: 700;
-  font-size: 14px;
+  display: block;
+  font-family: var(--font-heading); font-size: 14px; font-weight: 400;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--footer-text); opacity: 0.45;
+  margin-top: 12px; margin-bottom: 2px;
+  pointer-events: none;
 }
-.footer-page-links .nav-home-link,
+.footer-page-links .nav-group-label:first-child { margin-top: 0; }
+.footer-page-links .nav-home-link {
+  font-family: var(--font-heading); font-size: 14px; font-weight: 400;
+  color: var(--footer-text); display: flex; align-items: center; gap: 7px;
+}
 .footer-page-links .nav-sub-link {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--footer-text);
-  opacity: 1;
+  padding-left: 12px;
+  font-family: var(--font-heading); font-size: 14px; font-weight: 400;
+  color: var(--footer-text); display: flex; align-items: center; gap: 7px;
 }
 .footer-page-links .nav-home-link:hover,
 .footer-page-links .nav-sub-link:hover {
-  color: var(--footer-text);
+  color: var(--footer-heading);
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,0.4);
+  text-underline-offset: 3px;
 }
+
 /* ================================================================
    PAGE LAYOUT
    ================================================================ */
