@@ -171,16 +171,16 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   display: flex; align-items: center; justify-content: space-between;
   border-bottom: 1px solid var(--card-border); flex-shrink: 0;
 }
-.sidenav-logo { font-family: var(--font-heading); font-size: 18px; font-weight: 700; color: var(--accent); }
+.sidenav-logo { font-family: var(--page-text); font-size: 18px; font-weight: 700; color: var(--accent); }
 .sidenav-close-btn {
-  background: none; border: none; font-size: 14px; line-height: 1;
+  background: none; border: none; font-size: 18px; line-height: 1;
   color: var(--page-text); opacity: 0.5; padding: 4px; border-radius: 6px;
 }
 .sidenav-close-btn:hover { background: var(--accent-light); opacity: 1; }
 .sidenav-nav { flex: 1; overflow-y: auto; padding: 8px 0; }
 .sidenav-nav a {
   display: flex; align-items: center; gap: 11px;
-  padding: 12px 20px; font-family: var(--font-body); font-size: 14px;
+  padding: 12px 20px; font-family: var(--page-text); font-size: 18px;
   color: var(--page-text); opacity: 0.7;
   border-left: 3px solid transparent;
 }
@@ -197,9 +197,9 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    ================================================================ */
 .sidenav-nav .nav-group-label {
   display: block; padding: 10px 20px 4px;
-  font-family: var(--font-heading); font-size: 14px; font-weight: 700;
+  font-family: var(--page-text); font-size: 14px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.08em;
-  color: var(--accent); opacity: 0.45;
+  color: var(--page-text); opacity: 0.45;
   pointer-events: none; user-select: none;
 }
 .sidenav-nav .nav-sub a {
