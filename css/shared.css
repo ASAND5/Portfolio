@@ -184,12 +184,65 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   color: var(--page-text); opacity: 0.7;
   border-left: 3px solid transparent;
 }
-.sidenav-nav a:hover, .sidenav-nav a.active {
-  background: var(--accent-light); opacity: 1; border-left-color: var(--accent);
+.sidenav-nav .nav-sub a:hover {
+  background: none;
+  border-left-color: transparent;
 }
 .sidenav-socials {
   padding: 14px 20px; border-top: 1px solid var(--card-border);
   display: flex; gap: 14px; flex-shrink: 0;
+}
+/* ================================================================
+   SIDENAV — grouped hierarchy
+   ================================================================ */
+.sidenav-nav .nav-group-label {
+  display: block; padding: 10px 20px 4px;
+  font-family: var(--font-heading); font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--accent); opacity: 0.45;
+  pointer-events: none; user-select: none;
+}
+.sidenav-nav .nav-sub a {
+  padding: 9px 20px 9px 34px;
+  font-size: 15px;
+}
+.sidenav-nav .nav-home a {
+  font-weight: 600;
+}
+.sidenav-nav a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+/* ================================================================
+   FOOTER PAGE LINKS — grouped hierarchy
+   ================================================================ */
+.footer-page-links .nav-group-label {
+  display: block;
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--footer-text); opacity: 0.5;
+  margin-top: 12px; margin-bottom: 2px;
+  pointer-events: none;
+}
+.footer-page-links .nav-group-label:first-child { margin-top: 0; }
+.footer-page-links .nav-sub-link {
+  padding-left: 12px;
+  font-size: 13px; color: var(--footer-text);
+  display: flex; align-items: center; gap: 7px;
+}
+.footer-page-links .nav-sub-link:hover {
+  color: var(--footer-heading);
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,0.4);
+  text-underline-offset: 3px;
+}
+.footer-page-links .nav-home-link:hover {
+  color: var(--footer-heading);
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,0.4);
+  text-underline-offset: 3px;
 }
 
 /* ================================================================
