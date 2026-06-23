@@ -836,7 +836,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .footer-avatar { width: 58px; height: 58px; border-radius: 50%; overflow: hidden; border: 2px solid rgba(255,255,255,0.14); margin-bottom: 10px; }
 .footer-avatar img { width: 100%; height: 100%; object-fit: cover; }
 .footer-name    { font-family: var(--font-heading); font-size: 18px; font-weight: 400; color: var(--footer-heading); margin-bottom: 4px; }
-.footer-tagline { font-size: 18px; color: var(--footer-text); margin-bottom: 16px; line-height: 1.75; }
+.footer-tagline { font-size: 18px; color: var(--footer-text); margin-bottom: 30px; line-height: 1.75; }
 .footer-tagline a, .footer-tagline a:visited { color: var(--footer-text); }
 .footer-tagline a:hover { color: var(--footer-heading); }
 .footer-socials { display: flex; flex-direction: column; gap: 11px; }
