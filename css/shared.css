@@ -441,10 +441,10 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .hero-photo-area {
   position: absolute; right: -70px; top: 50%; transform: translateY(-50%);
-  z-index: 5; width: 550px; height: 550px;
+  z-index: 5; width: 500px; height: 500px;
 }
 .hero-circle {
-  width: 550px; height: 550px; border-radius: 40%; overflow: hidden; flex-shrink: 0;
+  width: 500px; height: 500px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
   border: 5px solid #ffffff; box-shadow: var(--card-shadow);
 }
 .hero-circle img { width: 100%; height: 100%; object-fit: cover; }
