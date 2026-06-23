@@ -522,7 +522,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .result-table tbody tr:last-child td { border-bottom: none; }
 .result-table tbody tr:hover td { background: rgba(200,213,235,0.25); }
-.result-grade { font-family: var(--font-heading); font-weight: 700; color: var(--accent); font-size: 18px; }
+.result-grade { font-family: var(--font-heading); font-weight: 500; color: var(--accent); font-size: 18px; }
 .result-badge {
   display: inline-block; font-size: 14px; font-weight: 600;
   padding: 3px 9px; border-radius: 12px;
