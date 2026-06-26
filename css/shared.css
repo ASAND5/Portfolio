@@ -780,12 +780,13 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .sudoku-table {
   border-collapse: collapse;
   border: 2.5px solid var(--accent);
-  width: 100%;
+  width: auto;       /* ← removes the 100% stretch */
+  margin: 0 auto;    /* ← centers the table itself */
   background: #fff;
 }
 .sudoku-table td {
-  width: 11.11%;
-  aspect-ratio: 1;
+  width: 44px;       /* ← fixed pixel width */
+  height: 44px;      /* ← same as width = perfect square */
   text-align: center;
   vertical-align: middle;
   font-family: var(--font-body);
