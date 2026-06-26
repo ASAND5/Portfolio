@@ -785,8 +785,12 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   background: #fff;
 }
 .sudoku-table td {
-  width: 44px;       /* ← fixed pixel width */
-  height: 44px;      /* ← same as width = perfect square */
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  max-width: 48px;
+  max-height: 48px;
   text-align: center;
   vertical-align: middle;
   font-family: var(--font-body);
@@ -796,6 +800,8 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   background: #fff;
   cursor: pointer;
   user-select: none;
+  padding: 0;
+  box-sizing: content-box;
 }
 .sudoku-table td:nth-child(3n)      { border-right:  2.5px solid var(--accent); }
 .sudoku-table tr:nth-child(3n) td   { border-bottom: 2.5px solid var(--accent); }
