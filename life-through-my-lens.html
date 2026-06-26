@@ -925,71 +925,228 @@
     <!-- ════════════════════════════════════════════════════
          SECTION 4: SUDOKU
     ════════════════════════════════════════════════════════ -->
-    <section class="section-wrap">
-      <h2 class="sec-title">Sudoku</h2>
-      <p class="content-block">
-        Here's a sudoku for you, see how you may approach this one!
-      </p>
-      <div class="sudoku-wrap fade-up">
-        <!--
-          Sudoku puzzle — given numbers are bold orange.
-          Empty cells are blank. Solve on paper or in your head!
-          EDIT: To change the puzzle, update the td contents below.
-                class="given" = pre-filled number (bold)
-                No class      = empty cell
-        -->
-        <table class="sudoku-table">
-          <tbody>
-            <tr>
-              <td class="given">5</td><td class="given">3</td><td></td>
-              <td></td><td class="given">7</td><td></td>
-              <td></td><td></td><td></td>
-            </tr>
-            <tr>
-              <td class="given">6</td><td></td><td></td>
-              <td class="given">1</td><td class="given">9</td><td class="given">5</td>
-              <td></td><td></td><td></td>
-            </tr>
-            <tr>
-              <td></td><td class="given">9</td><td class="given">8</td>
-              <td></td><td></td><td></td>
-              <td></td><td class="given">6</td><td></td>
-            </tr>
-            <tr>
-              <td class="given">8</td><td></td><td></td>
-              <td></td><td class="given">6</td><td></td>
-              <td></td><td></td><td class="given">3</td>
-            </tr>
-            <tr>
-              <td class="given">4</td><td></td><td></td>
-              <td class="given">8</td><td></td><td class="given">3</td>
-              <td></td><td></td><td class="given">1</td>
-            </tr>
-            <tr>
-              <td class="given">7</td><td></td><td></td>
-              <td></td><td class="given">2</td><td></td>
-              <td></td><td></td><td class="given">6</td>
-            </tr>
-            <tr>
-              <td></td><td class="given">6</td><td></td>
-              <td></td><td></td><td></td>
-              <td class="given">2</td><td class="given">8</td><td></td>
-            </tr>
-            <tr>
-              <td></td><td></td><td></td>
-              <td class="given">4</td><td class="given">1</td><td class="given">9</td>
-              <td></td><td></td><td class="given">5</td>
-            </tr>
-            <tr>
-              <td></td><td></td><td></td>
-              <td></td><td class="given">8</td><td></td>
-              <td></td><td class="given">7</td><td class="given">9</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="sudoku-note">Blue numbers are given. Empty cells are for you to fill in.</p>
-    </section>
+    <!-- ══════════════════════════════════════════════════════
+     SUDOKU — INTERACTIVE GAME
+══════════════════════════════════════════════════════════ -->
+<section class="section-wrap">
+  <h2 class="sec-title">Sudoku</h2>
+  <p class="content-block">
+    Here's a sudoku for you, see how you may approach this one!
+    Click Play to start the timer.
+  </p>
+
+  <div class="sudoku-wrap">
+
+    <!-- Timer bar — hidden until Play clicked -->
+    <div class="sudoku-top-bar" id="sdkTopBar" style="visibility:hidden;">
+      <span class="sudoku-timer" id="sdkTimer">00:00</span>
+      <span class="sudoku-solved-label" id="sdkSolvedLabel"></span>
+    </div>
+
+    <!-- Grid — built by JS -->
+    <table class="sudoku-table" id="sdkGrid"></table>
+
+    <!-- Play button -->
+    <div class="sudoku-play-wrap" id="sdkPlayWrap">
+      <button class="sudoku-play-btn" onclick="sdkStart()">▶ Play</button>
+    </div>
+
+    <!-- Number pad — hidden until Play clicked -->
+    <div class="sudoku-numpad" id="sdkNumpad" style="display:none;">
+      <button class="s-num-btn" onclick="sdkInput(1)">1</button>
+      <button class="s-num-btn" onclick="sdkInput(2)">2</button>
+      <button class="s-num-btn" onclick="sdkInput(3)">3</button>
+      <button class="s-num-btn" onclick="sdkInput(4)">4</button>
+      <button class="s-num-btn" onclick="sdkInput(5)">5</button>
+      <button class="s-num-btn" onclick="sdkInput(6)">6</button>
+      <button class="s-num-btn" onclick="sdkInput(7)">7</button>
+      <button class="s-num-btn" onclick="sdkInput(8)">8</button>
+      <button class="s-num-btn" onclick="sdkInput(9)">9</button>
+      <button class="s-num-btn s-erase-btn" onclick="sdkInput(0)">⌫ Erase</button>
+    </div>
+
+    <p class="sudoku-hint" id="sdkHint">
+      Navy = given numbers. Click a cell, then a number.
+    </p>
+
+    <!-- Congratulations — hidden until solved -->
+    <div class="sudoku-congrats" id="sdkCongrats" style="display:none;">
+      Congratulations! Puzzle solved! Resetting in 4 seconds...
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function() {
+
+  /* ── PUZZLE & SOLUTION ──────────────────────────────────── */
+  const PUZZLE = [
+    [5,3,0, 0,7,0, 0,0,0],
+    [6,0,0, 1,9,5, 0,0,0],
+    [0,9,8, 0,0,0, 0,6,0],
+    [8,0,0, 0,6,0, 0,0,3],
+    [4,0,0, 8,0,3, 0,0,1],
+    [7,0,0, 0,2,0, 0,0,6],
+    [0,6,0, 0,0,0, 2,8,0],
+    [0,0,0, 4,1,9, 0,0,5],
+    [0,0,0, 0,8,0, 0,7,9]
+  ];
+
+  const SOLUTION = [
+    [5,3,4, 6,7,8, 9,1,2],
+    [6,7,2, 1,9,5, 3,4,8],
+    [1,9,8, 3,4,2, 5,6,7],
+    [8,5,9, 7,6,1, 4,2,3],
+    [4,2,6, 8,5,3, 7,9,1],
+    [7,1,3, 9,2,4, 8,5,6],
+    [9,6,1, 5,3,7, 2,8,4],
+    [2,8,7, 4,1,9, 6,3,5],
+    [3,4,5, 2,8,6, 1,7,9]
+  ];
+
+  /* ── STATE ──────────────────────────────────────────────── */
+  let board    = [];   // current player board
+  let cells    = [];   // DOM references [r][c]
+  let selected = null; // {r, c}
+  let active   = false;
+  let seconds  = 0;
+  let ticker   = null;
+
+  /* ── BUILD GRID ─────────────────────────────────────────── */
+  function buildGrid() {
+    const table = document.getElementById('sdkGrid');
+    table.innerHTML = '';
+    cells = [];
+    board = PUZZLE.map(row => [...row]);
+
+    for (let r = 0; r < 9; r++) {
+      const tr = document.createElement('tr');
+      cells[r] = [];
+      for (let c = 0; c < 9; c++) {
+        const td = document.createElement('td');
+        const given = PUZZLE[r][c] !== 0;
+        if (given) {
+          td.textContent = PUZZLE[r][c];
+          td.classList.add('s-given');
+        }
+        td.dataset.r = r;
+        td.dataset.c = c;
+        if (active && !given) {
+          td.addEventListener('click', () => selectCell(r, c));
+        }
+        cells[r][c] = td;
+        tr.appendChild(td);
+      }
+      table.appendChild(tr);
+    }
+  }
+
+  /* ── SELECT CELL ────────────────────────────────────────── */
+  function selectCell(r, c) {
+    if (!active) return;
+    if (selected) cells[selected.r][selected.c].classList.remove('s-selected');
+    selected = {r, c};
+    cells[r][c].classList.add('s-selected');
+  }
+
+  /* ── INPUT NUMBER ───────────────────────────────────────── */
+  window.sdkInput = function(num) {
+    if (!active || !selected) return;
+    const {r, c} = selected;
+    if (PUZZLE[r][c] !== 0) return;
+
+    if (num === 0) {
+      board[r][c] = 0;
+      cells[r][c].textContent = '';
+      cells[r][c].classList.remove('s-correct', 's-wrong');
+      return;
+    }
+
+    board[r][c] = num;
+    cells[r][c].textContent = num;
+
+    if (num === SOLUTION[r][c]) {
+      cells[r][c].classList.remove('s-wrong');
+      cells[r][c].classList.add('s-correct');
+    } else {
+      cells[r][c].classList.remove('s-correct');
+      cells[r][c].classList.add('s-wrong');
+    }
+
+    checkComplete();
+  };
+
+  /* ── CHECK COMPLETE ─────────────────────────────────────── */
+  function checkComplete() {
+    for (let r = 0; r < 9; r++)
+      for (let c = 0; c < 9; c++)
+        if (board[r][c] !== SOLUTION[r][c]) return;
+
+    // Solved!
+    active = false;
+    clearInterval(ticker);
+    if (selected) {
+      cells[selected.r][selected.c].classList.remove('s-selected');
+      selected = null;
+    }
+    document.getElementById('sdkNumpad').style.display    = 'none';
+    document.getElementById('sdkSolvedLabel').textContent = '✓ Solved!';
+    document.getElementById('sdkCongrats').style.display  = 'block';
+    document.getElementById('sdkHint').style.display      = 'none';
+
+    setTimeout(resetGame, 4000);
+  }
+
+  /* ── TIMER ──────────────────────────────────────────────── */
+  function tick() {
+    seconds++;
+    const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+    const s = String(seconds % 60).padStart(2, '0');
+    document.getElementById('sdkTimer').textContent = `${m}:${s}`;
+  }
+
+  /* ── START ──────────────────────────────────────────────── */
+  window.sdkStart = function() {
+    active   = true;
+    selected = null;
+    seconds  = 0;
+
+    document.getElementById('sdkPlayWrap').style.display      = 'none';
+    document.getElementById('sdkTopBar').style.visibility     = 'visible';
+    document.getElementById('sdkNumpad').style.display        = 'flex';
+    document.getElementById('sdkCongrats').style.display      = 'none';
+    document.getElementById('sdkSolvedLabel').textContent     = '';
+    document.getElementById('sdkHint').style.display          = 'block';
+    document.getElementById('sdkTimer').textContent           = '00:00';
+
+    buildGrid();
+    ticker = setInterval(tick, 1000);
+  };
+
+  /* ── RESET ──────────────────────────────────────────────── */
+  function resetGame() {
+    active   = false;
+    selected = null;
+    seconds  = 0;
+    clearInterval(ticker);
+
+    document.getElementById('sdkTopBar').style.visibility  = 'hidden';
+    document.getElementById('sdkNumpad').style.display     = 'none';
+    document.getElementById('sdkCongrats').style.display   = 'none';
+    document.getElementById('sdkPlayWrap').style.display   = 'block';
+    document.getElementById('sdkTimer').textContent        = '00:00';
+    document.getElementById('sdkSolvedLabel').textContent  = '';
+    document.getElementById('sdkHint').style.display       = 'block';
+
+    buildGrid(); // back to unsolved
+  }
+
+  /* ── INIT (static grid on page load) ───────────────────── */
+  buildGrid();
+
+})();
+</script>
 
     <!-- ════════════════════════════════════════════════════
          SECTION 5: PHOTOGRAPHY
