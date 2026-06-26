@@ -754,17 +754,107 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 /* ================================================================
    SUDOKU (life-through-my-lens)
    ================================================================ */
-.sudoku-wrap  { display: flex; justify-content: center; overflow-x: auto; }
-.sudoku-table { border-collapse: collapse; border: 2px solid var(--accent); }
-.sudoku-table td {
-  width: 40px; height: 40px; text-align: center; vertical-align: middle;
-  font-family: var(--font-body); font-size: 18px; font-weight: 500;
-  border: 1px solid var(--accent-light); color: var(--page-text); background: #ffffff;
+.sudoku-wrap       { max-width: 400px; }
+.sudoku-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  min-height: 28px;
 }
-.sudoku-table .given { font-weight: 700; color: var(--accent); }
-.sudoku-table td:nth-child(3n)   { border-right: 3px solid var(--accent); }
-.sudoku-table tr:nth-child(3n) td { border-bottom: 3px solid var(--accent); }
-.sudoku-note { font-size: 14px; color: var(--page-text); opacity: 0.7; text-align: center; margin-top: 10px; }
+.sudoku-timer {
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+.sudoku-solved-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #166534;
+}
+.sudoku-table {
+  border-collapse: collapse;
+  border: 2.5px solid var(--accent);
+  width: 100%;
+  background: #fff;
+}
+.sudoku-table td {
+  width: 11.11%;
+  aspect-ratio: 1;
+  text-align: center;
+  vertical-align: middle;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid var(--card-border);
+  background: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+.sudoku-table td:nth-child(3n)      { border-right:  2.5px solid var(--accent); }
+.sudoku-table tr:nth-child(3n) td   { border-bottom: 2.5px solid var(--accent); }
+.sudoku-table td.s-given            { color: var(--accent); font-weight: 700; cursor: default; }
+.sudoku-table td.s-selected         { background: var(--accent-light) !important; }
+.sudoku-table td.s-correct          { color: #166534; }
+.sudoku-table td.s-wrong            { color: #dc2626; }
+.sudoku-play-wrap  { margin-top: 16px; }
+.sudoku-play-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+.sudoku-numpad {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.s-num-btn {
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid var(--card-border);
+  border-radius: var(--r-md);
+  background: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent);
+  font-family: var(--font-body);
+  cursor: pointer;
+  box-shadow: var(--card-shadow);
+}
+.s-erase-btn {
+  width: auto;
+  padding: 0 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--page-text);
+  border-color: var(--card-border);
+}
+.sudoku-congrats {
+  margin-top: 14px;
+  padding: 16px 20px;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: var(--r-lg);
+  font-size: 16px;
+  font-weight: 600;
+  color: #166534;
+  box-shadow: var(--card-shadow);
+}
+.sudoku-hint {
+  font-size: 13px;
+  color: var(--footer-text);
+  margin-top: 10px;
+  font-style: italic;
+}
 
 /* ================================================================
    CONTACT PAGE
