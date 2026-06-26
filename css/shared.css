@@ -754,7 +754,10 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 /* ================================================================
    SUDOKU (life-through-my-lens)
    ================================================================ */
-.sudoku-wrap       { max-width: 400px; }
+.sudoku-wrap {
+  max-width: 420px;
+  margin: 0 auto; /* ← centers the whole game */
+}
 .sudoku-top-bar {
   display: flex;
   align-items: center;
