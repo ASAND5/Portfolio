@@ -463,7 +463,12 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   border: 1px solid var(--card-border); border-radius: var(--r-sm);
   overflow: hidden; background: #ffffff; cursor: pointer; box-shadow: var(--card-shadow);
 }
-.gallery-thumb { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+.gallery-thumb {
+  width: 100%; aspect-ratio: 1;
+  object-fit: contain;
+  background: #ffffff;
+  display: block;
+}
 .gallery-caption {
   padding: 6px 8px 8px; font-size: 18px; color: var(--accent);
   line-height: 1.4; background: #ffffff; border-top: 1px solid var(--card-border);
