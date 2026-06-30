@@ -941,7 +941,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 .webinar-poster {
   width: 100%;
-  height: 700px;
+  height: 450px;
   overflow: hidden;
   background: #ffffff;       /* letterbox fill — matches your award-img-wrap convention */
   display: flex;
