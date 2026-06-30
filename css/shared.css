@@ -922,6 +922,49 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .form-success p { font-size: 18px; color: #166534; }
 
 /* ================================================================
+   SEMINARS & WEBINARS — poster cards (Professional page)
+   ================================================================ */
+.webinar-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.webinar-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+.webinar-card.extra         { display: none; }
+.webinar-card.extra.visible { display: block; }
+
+.webinar-poster {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--accent-light);
+  border-bottom: 1px solid var(--card-border);
+}
+.webinar-poster img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.webinar-poster .award-pdf {
+  width: 100%; height: 100%; border: none; background: #ffffff; display: block;
+}
+
+.webinar-info { padding: 18px 20px; }
+.webinar-title {
+  font-family: var(--font-heading); font-size: 30px; font-weight: 700;
+  color: var(--accent); line-height: 1.3; margin-bottom: 6px;
+}
+.webinar-year      { font-size: 20px; color: var(--page-text); opacity: 0.75; }
+.webinar-institute { font-size: 20px; color: var(--page-text); opacity: 0.75; }
+
+@media (max-width: 768px) {
+  .webinar-grid { grid-template-columns: 1fr; }
+}
+
+/* ================================================================
    FOOTER
    ================================================================ */
 .site-footer { background: var(--footer-bg); margin-top: 64px; position: relative; }
