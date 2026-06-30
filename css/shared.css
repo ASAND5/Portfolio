@@ -941,7 +941,6 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 .webinar-poster {
   width: 100%;
-  aspect-ratio: 3 / 4;
   max-height: 75vh;
   overflow: hidden;
   background: var(--accent-light);
