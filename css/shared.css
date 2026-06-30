@@ -940,7 +940,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 .webinar-poster {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   background: var(--accent-light);
   border-bottom: 1px solid var(--card-border);
@@ -957,8 +957,8 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   font-family: var(--font-heading); font-size: 30px; font-weight: 700;
   color: var(--accent); line-height: 1.3; margin-bottom: 6px;
 }
-.webinar-year      { font-size: 20px; color: var(--page-text); opacity: 0.75; }
-.webinar-institute { font-size: 20px; color: var(--page-text); opacity: 0.75; }
+.webinar-year      { font-size: 18px; color: var(--page-text); opacity: 0.75; }
+.webinar-institute { font-size: 18px; color: var(--page-text); opacity: 0.75; }
 
 @media (max-width: 768px) {
   .webinar-grid { grid-template-columns: 1fr; }
