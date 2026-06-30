@@ -933,6 +933,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   box-shadow: var(--card-shadow);
+  border-radius: var(--r-lg);
   overflow: hidden;
 }
 .webinar-card.extra         { display: none; }
@@ -940,7 +941,8 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 .webinar-poster {
   width: 100%;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 3 / 4;
+  max-height: 75vh;
   overflow: hidden;
   background: var(--accent-light);
   border-bottom: 1px solid var(--card-border);
