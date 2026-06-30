@@ -105,7 +105,7 @@
 
     <!-- ── PROFESSIONAL AND LEADERSHIP ─────────────────── -->
     <section class="section-wrap">
-    
+      <div class="sec-title">Professional Experience</div>
       <!--
       ═══════════════════════════════════════════════════════════
       ENTRY CARD — COPY THIS ENTIRE BLOCK TO ADD A NEW ENTRY
@@ -180,6 +180,52 @@
 
       <div class="load-more-wrap">
         <button class="load-more-btn" id="loadMoreProfBtn">
+          Load more &rsaquo;&rsaquo;&rsaquo;
+        </button>
+      </div>
+    </section>
+
+        <section class="section-wrap">
+      <div class="sec-title">Seminars and Webinars</div>
+
+      <div class="webinar-grid">
+
+        <!--
+        ═══════════════════════════════════════════════════════════
+        WEBINAR CARD — COPY THIS BLOCK TO ADD A NEW ENTRY
+        Fill in: POSTER_IMAGE, TITLE, YEAR, ORGANIZING_INSTITUTE
+        Add class="webinar-card extra" to hide it until "Load more"
+        ═══════════════════════════════════════════════════════════
+        -->
+        <div class="webinar-card fade-up">
+          <div class="webinar-poster">
+            <img src="images/webinar-placeholder-1.jpg" alt="Webinar poster" />
+          </div>
+          <div class="webinar-info">
+            <div class="webinar-title">Webinar Title Goes Here</div>
+            <div class="webinar-year">2026</div>
+            <div class="webinar-institute">Organizing Institute Name</div>
+          </div>
+        </div>
+
+        <div class="webinar-card fade-up">
+          <div class="webinar-poster">
+            <img src="images/webinar-placeholder-2.jpg" alt="Webinar poster" />
+          </div>
+          <div class="webinar-info">
+            <div class="webinar-title">Webinar Title Goes Here</div>
+            <div class="webinar-year">2026</div>
+            <div class="webinar-institute">Organizing Institute Name</div>
+          </div>
+        </div>
+
+        <!-- Extra entries — hidden by default, shown on Load more -->
+        <!-- <div class="webinar-card extra fade-up"> ... </div> -->
+
+      </div>
+
+      <div class="load-more-wrap">
+        <button class="load-more-btn" id="loadMoreWebinarBtn">
           Load more &rsaquo;&rsaquo;&rsaquo;
         </button>
       </div>
@@ -289,8 +335,8 @@
 
 <script src="js/shared.js"></script>
 <script>
-  // Load more for professional entries
   setupLoadMore('loadMoreProfBtn', '.entry-card.extra');
+  setupLoadMore('loadMoreWebinarBtn', '.webinar-card.extra');
 </script>
 </body>
 </html>
