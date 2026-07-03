@@ -5,32 +5,21 @@
    Philosophy: Bauhaus (loud geometric titles) + Minimalism (95/5
    restraint) + Scientific efficiency (Tufte data-ink ratio)
 
-   TYPE SCALE
-   ──────────
-   40px  Jost 700    → Hero name, page title (.page-title-simple)
-   30px  Jost 700    → All section & card titles
-   20px  DM Sans 400 → Body, meta, excerpts, all informative text
-   13px  DM Sans 400 → Tags, badges, small labels, "out of X.XX"
-
-   Bangla → Kalpurush (place Kalpurush.ttf in fonts/ next to css/)
-   Scientific names (<i> tags) → italic kept by convention
-
    RULES
    ─────
    • Glass morphism: topbar ONLY
    • Animations / transitions: NONE
    • Gradients: NONE
-   • Cards: solid #ffffff / 1px #c8d5eb border / static shadow
    ================================================================ */
 
 /* ── CSS VARIABLES ────────────────────────────────────────────── */
 :root {
   --accent       : #1e3a5f;
   --accent-light : #c8d5eb;
-  --page-bg      : #f8f9fe;
+  --page-bg      : #f0fbff;
   --page-text    : #0a1128;
   --nav-accent   : #1e3a5f;
-  --card-bg      : #D1E4F8;
+  --card-bg      : #aaeff9;
   --card-border  : #c8d5eb;
   --card-shadow  : 0 6px 18px rgba(30,58,95,0.10);
   --topbar-bg    : rgba(232,237,247,0.72);
@@ -304,7 +293,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   border-radius: var(--r-sm); overflow: hidden;
   border: 1px solid var(--card-border); background: var(--accent-light);
   display: flex; align-items: center; justify-content: center;
-  font-size: 36px; color: var(--accent);
+  font-size: 36px; color: #C8D5EB;
 }
 .entry-thumb img    { width: 100%; height: 100%; object-fit: cover; }
 .entry-thumb iframe { width: 100%; height: 100%; border: none; background: #ffffff; display: block; }
@@ -531,7 +520,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .result-badge {
   display: inline-block; font-size: 14px; font-weight: 600;
   padding: 3px 9px; border-radius: 12px;
-  border: 1px solid var(--card-border); background: var(--accent-light); color: var(--accent);
+  border: 1px solid #86efac; background: #dcfce7; color: #166534;
 }
 .course-code {
   font-family: 'Courier New', monospace; font-weight: 700; font-size: 14px;
@@ -655,7 +644,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .tag-want     { background: #dbeafe; color: #1e40af; border-color: #93c5fd; }
 .tag-giveaway { background: #fef3c7; color: #92400e; border-color: #fcd34d; cursor: pointer; }
 .tag-giveaway:hover { background: #fde68a; }
-.tag-gave     { background: #f3e8ff; color: #6b21a8; border-color: #d8b4fe; }
+.tag-gave     { background: #fee2e2; color: #991b1b; border-color: #fca5a5; }
 .book-cover {
   width: 72px; height: 72px; border-radius: 4px; overflow: hidden; flex-shrink: 0;
   border: 1px solid var(--card-border); background: var(--accent-light);
