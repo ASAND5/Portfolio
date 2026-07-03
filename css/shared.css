@@ -721,6 +721,16 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45);
   z-index: 1500; align-items: center; justify-content: center;
 }
+.chess-modal-link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-light);
+  text-underline-offset: 2px;
+  word-break: break-all;
+}
+.chess-modal-link:hover {
+  text-decoration-color: var(--accent);
+}
 .chess-modal.open { display: flex; }
 .chess-modal-box {
   background: #ffffff; border: 1px solid var(--card-border);
