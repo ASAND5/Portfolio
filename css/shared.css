@@ -124,10 +124,10 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .topbar-nav .dropdown a:last-child { border-bottom: none; }
 .topbar-nav .dropdown a:hover {
+  background: #ffffff;
+  color: var(--accent);
   opacity: 1;
-  text-decoration: underline;
-  text-decoration-color: rgba(255,255,255,0.6);
-  text-underline-offset: 3px;
+  text-decoration: none;
 }
 
 /* Hide desktop nav on mobile (hamburger takes over) */
