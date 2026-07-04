@@ -22,8 +22,8 @@
   --card-bg      : #ffffff;
   --card-border  : #c8d5eb;
   --card-shadow  : 0 6px 18px rgba(30,58,95,0.10);
-  --topbar-bg    : rgba(232,237,247,0.72);
-  --topbar-border: rgba(200,213,235,0.55);
+  --topbar-bg    : #1e3a5f;
+  --topbar-border: rgba(255,255,255,0.08);
   --glass-blur   : blur(14px);
   --footer-bg    : #111b27;
   --footer-text  : #94a3b8;
@@ -68,19 +68,17 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   position: fixed; top: 0; left: 0; right: 0;
   height: var(--topbar-h);
   background: var(--topbar-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
   border-bottom: 1px solid var(--topbar-border);
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 var(--pad); z-index: 900;
 }
 .topbar-brand {
   font-family: var(--font-heading); font-size: 18px; font-weight: 700;
-  color: var(--accent); letter-spacing: -0.01em; line-height: 1.2;
+  color: #ffffff; letter-spacing: -0.01em; line-height: 1.2;
 }
 .topbar-brand small {
   display: block; font-family: var(--font-body);
-  font-size: 14px; font-weight: 600; color: var(--accent); opacity: 0.6;
+  font-size: 14px; font-weight: 600; color: #94a3b8; opacity: 1;
 }
 /* ================================================================
    TOPBAR DESKTOP NAV — dropdown menus
@@ -96,13 +94,15 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .topbar-nav .nav-link {
   font-family: var(--font-heading); font-size: 18px; font-weight: 600;
-  color: var(--accent); padding: 0 48px; height: 100%;
+  color: #94a3b8; padding: 0 48px; height: 100%;
   display: flex; align-items: center;
   text-decoration: none; border-bottom: 2px solid transparent;
   white-space: nowrap;
 }
 .topbar-nav .nav-link:hover {
-  border-bottom-color: var(--accent);
+  background: #ffffff;
+  color: var(--accent);
+  border-bottom-color: transparent;
 }
 
 /* ── DROPDOWN ─────────────────────────────────────────────────── */
@@ -138,8 +138,8 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   background: none; border: none; padding: 8px;
   display: flex; flex-direction: column; gap: 5px; border-radius: var(--r-sm);
 }
-.hamburger:hover { background: var(--accent-light); }
-.hamburger span { display: block; width: 24px; height: 2px; background: var(--accent); border-radius: 2px; }
+.hamburger span { background: #ffffff; }
+.hamburger:hover { background: rgba(255,255,255,0.15); }
 
 /* ================================================================
    SIDE NAVIGATION
