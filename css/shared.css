@@ -100,7 +100,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   white-space: nowrap;
 }
 .topbar-nav .nav-link:hover {
-  background: #ffffff;
+  background: #dbeafe;
   color: var(--accent);
   border-bottom-color: transparent;
 }
