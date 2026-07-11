@@ -16,7 +16,7 @@
 :root {
   --accent       : #1e3a5f;
   --accent-light : #c8d5eb;
-  --page-bg      : #dbeafe;
+  --page-bg      : #edf4fc;
   --page-text    : #0a1128;
   --nav-accent   : #1e3a5f;
   --card-bg      : #ffffff;
@@ -421,7 +421,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   color: var(--accent); line-height: 1.15; margin-bottom: 10px;
 }
 .hero-title-line { font-size: 18px; font-weight: 500; color: var(--accent); margin-bottom: 4px; }
-.hero-field, .hero-uni { font-size: 18px; color: var(--page-text); opacity: 0.65; margin-bottom: 2px; }
+.hero-field, .hero-uni { font-size: 18px; font-weight: 500; color: var(--accent); margin-bottom: 4px; }
 .hero-tags  { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 .hero-tag {
   background: var(--card-bg); border: 1px solid var(--card-border);
