@@ -813,6 +813,45 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .sudoku-table td.s-selected         { background: var(--accent-light) !important; }
 .sudoku-table td.s-correct          { color: #166534; }
 .sudoku-table td.s-wrong            { color: #dc2626; }
+@media (max-width: 480px) {
+  .sudoku-wrap {
+    max-width: 100%;
+  }
+  .sudoku-table td {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    min-height: 34px;
+    max-width: 34px;
+    max-height: 34px;
+    font-size: 14px;
+  }
+  .s-num-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+  .sudoku-numpad {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 360px) {
+  .sudoku-table td {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    min-height: 28px;
+    max-width: 28px;
+    max-height: 28px;
+    font-size: 12px;
+  }
+  .s-num-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+}
 .sudoku-play-wrap  { margin-top: 16px; }
 .sudoku-play-btn {
   background: var(--accent);
