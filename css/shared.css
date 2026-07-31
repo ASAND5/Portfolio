@@ -580,7 +580,11 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .exam-score { font-family: var(--font-heading); font-size: 28px; font-weight: 700; color: var(--page-text); line-height: 1; }
 .exam-score-label { font-size: 14px; color: var(--page-text); opacity: 0.5; margin-top: 3px; }
 .exam-year        { font-size: 18px; color: var(--page-text); opacity: 0.5; margin-top: 10px; }
-
+@media (max-width: 560px) {
+  .exam-grid {
+    grid-template-columns: 1fr;
+  }
+}
 .test-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 16px; }
 .test-card {
   background: var(--card-bg); border: 1px solid var(--card-border);
