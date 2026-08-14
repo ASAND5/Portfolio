@@ -9,6 +9,13 @@
 </head>
 
 <body>
+  <div class="ambient-bg" aria-hidden="true">
+  <div class="ambient-blob blob-1"></div>
+  <div class="ambient-blob blob-2"></div>
+  <div class="ambient-blob blob-3"></div>
+  <div class="ambient-blob blob-cursor" id="cursorBlob"></div>
+</div>
+  
 <!-- ═══ TOP BAR ════════════════════════════════════════════ -->
 <header class="topbar">
   <a href="index.html" class="topbar-brand">
@@ -1828,7 +1835,7 @@
   <button class="lb-nav lb-prev" onclick="lbPrev()">&#8592;</button>
   <button class="lb-nav lb-next" onclick="lbNext()">&#8594;</button>
 </div>
-
+<script src="js/ambient-bg.js"></script>
 <script src="js/shared.js"></script>
 <script>
   /* ── Build chess board ─────────────────────────────────── */
