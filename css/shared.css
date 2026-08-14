@@ -79,7 +79,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   position: absolute;
   border-radius: 50%;
   filter: blur(70px);
-  opacity: 0.16;
+  opacity: 0.40;
   will-change: transform;
 }
 
@@ -88,26 +88,26 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   width: 480px; height: 480px;
   background: #7dabff;
   top: -10%; left: -8%;
-  animation: driftA 26s ease-in-out infinite;
+  animation: driftA 12s ease-in-out infinite;
 }
 .blob-2 {
   width: 400px; height: 400px;
   background: #ffffff;
   top: 40%; right: -10%;
-  animation: driftB 32s ease-in-out infinite;
+  animation: driftB 14s ease-in-out infinite;
 }
 .blob-3 {
   width: 440px; height: 440px;
   background: #a9c8ff;
   bottom: -12%; left: 30%;
-  animation: driftC 29s ease-in-out infinite;
+  animation: driftC 13s ease-in-out infinite;
 }
 
 /* Cursor-following blob — brighter, smaller, more responsive */
 .blob-cursor {
   width: 340px; height: 340px;
   background: #cfe0ff;
-  opacity: 0.22;
+  opacity: 0.45;
   top: 0; left: 0;
   transform: translate(-50%, -50%);
   transition: opacity 0.4s ease;
@@ -116,18 +116,18 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 /* ── SLOW ORGANIC DRIFT (sine-like via multiple keyframes) ── */
 @keyframes driftA {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  33%      { transform: translate(60px, 40px) scale(1.08); }
-  66%      { transform: translate(-30px, 70px) scale(0.96); }
+  33%      { transform: translate(220px, 160px) scale(1.25); }
+  66%      { transform: translate(-140px, 240px) scale(0.85); }
 }
 @keyframes driftB {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  33%      { transform: translate(-50px, -30px) scale(0.94); }
-  66%      { transform: translate(40px, -60px) scale(1.06); }
+  33%      { transform: translate(-200px, -140px) scale(0.8); }
+  66%      { transform: translate(180px, -220px) scale(1.3); }
 }
 @keyframes driftC {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  33%      { transform: translate(45px, -50px) scale(1.05); }
-  66%      { transform: translate(-60px, -20px) scale(0.97); }
+  33%      { transform: translate(200px, -200px) scale(1.2); }
+  66%      { transform: translate(-220px, -100px) scale(0.82); }
 }
 
 @media (prefers-reduced-motion: reduce) {
