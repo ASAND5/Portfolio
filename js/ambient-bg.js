@@ -46,8 +46,8 @@
 
   function animate() {
     // EDIT: 0.06 = easing strength — smaller number = softer, laggier trail
-    blobX += (mouseX - blobX) * 0.06;
-    blobY += (mouseY - blobY) * 0.06;
+    blobX += (mouseX - blobX) * 0.15;
+    blobY += (mouseY - blobY) * 0.15;
 
     blob.style.transform =
       `translate(${blobX - BLOB_HALF_SIZE}px, ${blobY - BLOB_HALF_SIZE}px)`;
