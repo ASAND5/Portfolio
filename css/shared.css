@@ -62,8 +62,8 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .fade-up, .fade-up.in-view { opacity: 1; transform: none; }
 
 /* ── RIPPLE CANVAS ──────────────────────────────────────────
-   Full-page water-ripple effect. Gentle ambient waves at rest,
-   expanding ripple rings spawn as the cursor moves.
+   Full-page glassmorphic water shimmer. Gentle ambient drift
+   at rest, gentle two-sided warp near the cursor.
    ═══════════════════════════════════════════════════════ */
 #rippleCanvas {
   position: fixed;
