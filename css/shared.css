@@ -107,7 +107,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .blob-cursor {
   width: 340px; height: 340px;
   background: #DDEEFF;
-  opacity: 0.45;
+  opacity: 1;
   top: 0; left: 0;
   transform: translate(-50%, -50%);
   transition: opacity 0.5s ease;
