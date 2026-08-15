@@ -32,7 +32,7 @@
   const BLOB_HALF_SIZE = 170;
 
   // EDIT: how strongly the blob is visible while the cursor is active
-  const ACTIVE_OPACITY = '0.22';
+  const ACTIVE_OPACITY = '0.55';
 
   window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
@@ -46,8 +46,8 @@
 
   function animate() {
     // EDIT: 0.06 = easing strength — smaller number = softer, laggier trail
-    blobX += (mouseX - blobX) * 0.15;
-    blobY += (mouseY - blobY) * 0.15;
+    blobX += (mouseX - blobX) * 0.25;
+    blobY += (mouseY - blobY) * 0.25;
 
     blob.style.transform =
       `translate(${blobX - BLOB_HALF_SIZE}px, ${blobY - BLOB_HALF_SIZE}px)`;
