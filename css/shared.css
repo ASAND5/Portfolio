@@ -61,82 +61,21 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .fade-up, .fade-up.in-view { opacity: 1; transform: none; }
 
-/* ── AMBIENT GLASSMORPHIC BACKGROUND ───────────────────────
-   Soft blurred blue/white blobs drifting slowly at rest,
-   one blob follows the cursor. Sits behind everything.
-   Cards with backdrop-filter blur will show it shifting
-   underneath them — the "seen through frosted glass" effect.
+/* ── RIPPLE CANVAS ──────────────────────────────────────────
+   Full-page water-ripple effect. Gentle ambient waves at rest,
+   expanding ripple rings spawn as the cursor moves.
    ═══════════════════════════════════════════════════════ */
-.ambient-bg {
+#rippleCanvas {
   position: fixed;
   inset: 0;
   z-index: -1;
-  overflow: hidden;
   pointer-events: none;
-}
-
-.ambient-blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(70px);
-  opacity: 0.40;
-  will-change: transform;
-}
-
-/* EDIT: change hex colors here for a different blue/white blend */
-.blob-1 {
-  width: 480px; height: 480px;
-  background: #7dabff;
-  top: -10%; left: -8%;
-  animation: driftA 12s ease-in-out infinite;
-}
-.blob-2 {
-  width: 400px; height: 400px;
-  background: #ffffff;
-  top: 40%; right: -10%;
-  animation: driftB 14s ease-in-out infinite;
-}
-.blob-3 {
-  width: 440px; height: 440px;
-  background: #a9c8ff;
-  bottom: -12%; left: 30%;
-  animation: driftC 13s ease-in-out infinite;
-}
-
-/* Cursor-following blob — brighter, smaller, more responsive */
-.blob-cursor {
-  width: 340px; height: 340px;
-  background: #DDEEFF;
-  opacity: 1;
-  top: 0; left: 0;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.5s ease;
-}
-
-/* ── SLOW ORGANIC DRIFT (sine-like via multiple keyframes) ── */
-@keyframes driftA {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33%      { transform: translate(220px, 160px) scale(1.25); }
-  66%      { transform: translate(-140px, 240px) scale(0.85); }
-}
-@keyframes driftB {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33%      { transform: translate(-200px, -140px) scale(0.8); }
-  66%      { transform: translate(180px, -220px) scale(1.3); }
-}
-@keyframes driftC {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33%      { transform: translate(200px, -200px) scale(1.2); }
-  66%      { transform: translate(-220px, -100px) scale(0.82); }
+  width: 100%;
+  height: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ambient-blob { animation: none; }
-}
-
-@media (max-width: 700px) {
-  .ambient-blob        { filter: blur(50px); opacity: 0.12; }
-  .blob-cursor          { display: none; } /* no cursor on touch devices */
+  #rippleCanvas { display: none; }
 }
 
 /* ================================================================
