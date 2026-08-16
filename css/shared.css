@@ -45,7 +45,19 @@
 html  { -webkit-text-size-adjust: 100%; }
 body  { font-family: var(--font-body);
         color: var(--page-text,#1a1a1a); line-height: 1.65; overflow-x: hidden;
+         background-image: (img src='images/1.jpg');       /* EDIT: path to 5000x5000 image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
       }
+/* Phones and narrow screens — swap to the portrait crop */
+@media (max-width: 700px) {
+  body {
+    background-image: url('images/2.jpg');     /* EDIT: path to 1500x3000 image */
+    background-attachment: fixed;  /* fixed can feel janky on mobile */
+  }
+}
 img    { max-width: 100%; display: block; }
 a      { text-decoration: none; color: inherit; }
 button { cursor: pointer; font-family: inherit; }
@@ -70,21 +82,6 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    - background-position controls WHICH part of the image
      stays visible after cropping (center is usually safest).
    ═══════════════════════════════════════════════════════ */
-body {
-  background-image: url('images/1.jpg');       /* EDIT: path to 5000x5000 image */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-/* Phones and narrow screens — swap to the portrait crop */
-@media (max-width: 700px) {
-  body {
-    background-image: url('images/2.jpg');     /* EDIT: path to 1500x3000 image */
-    background-attachment: fixed;  /* fixed can feel janky on mobile */
-  }
-}
 
 /* ================================================================
    TOPBAR — the ONE glass element
