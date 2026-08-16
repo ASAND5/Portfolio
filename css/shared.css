@@ -45,18 +45,7 @@
 html  { -webkit-text-size-adjust: 100%; }
 body  { font-family: var(--font-body);
         color: var(--page-text,#1a1a1a); line-height: 1.65; overflow-x: hidden;
-         background-image: url('https://github.com/ASAND5/Portfolio/blob/main/images/1.jpg');       /* EDIT: path to 5000x5000 image */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
       }
-/* Phones and narrow screens — swap to the portrait crop */
-@media (max-width: 700px) {
-  body {
-    background-image: url('https://github.com/ASAND5/Portfolio/blob/main/images/2.jpg');     /* EDIT: path to 1500x3000 image */
-    background-attachment: fixed;  /* fixed can feel janky on mobile */
-  }
 }
 img    { max-width: 100%; display: block; }
 a      { text-decoration: none; color: inherit; }
@@ -71,17 +60,38 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .fade-up, .fade-up.in-view { opacity: 1; transform: none; }
 
-/* ── PAGE BACKGROUND IMAGE ─────────────────────────────────
+/* ================================================================
+   PAGE BACKGROUND IMAGES
    Desktop/tablet: wide 5000x5000 image, cropped to fill screen.
    Mobile: separate 1500x3000 portrait image, cropped to fill.
-   background-size: cover crops intelligently instead of
-   stretching or squeezing either image.
+   background-size: cover crops intelligently — never stretches.
 
    HOW TO EDIT:
-   - Replace # with the actual image file paths below.
-   - background-position controls WHICH part of the image
-     stays visible after cropping (center is usually safest).
-   ═══════════════════════════════════════════════════════ */
+   - Confirm your image files actually sit at these exact paths
+     inside your images/ folder (filenames are case-sensitive).
+   - background-position: center keeps the middle of the image
+     visible after cropping — change to "top center" etc. if a
+     different part of the image should stay in view.
+   ================================================================ */
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background-image: url('images/1.jpg');   /* EDIT: your 5000x5000 image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (max-width: 700px) {
+  body {
+    background-image: url('images/2.jpg'); /* EDIT: your 1500x3000 image */
+    background-attachment: scroll;         /* fixed can jitter on mobile */
+  }
+}
 
 /* ================================================================
    TOPBAR — the ONE glass element
