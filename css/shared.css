@@ -61,21 +61,31 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .fade-up, .fade-up.in-view { opacity: 1; transform: none; }
 
-/* ── RIPPLE CANVAS ──────────────────────────────────────────
-   Full-page glassmorphic water shimmer. Gentle ambient drift
-   at rest, gentle two-sided warp near the cursor.
+/* ── PAGE BACKGROUND IMAGE ─────────────────────────────────
+   Desktop/tablet: wide 5000x5000 image, cropped to fill screen.
+   Mobile: separate 1500x3000 portrait image, cropped to fill.
+   background-size: cover crops intelligently instead of
+   stretching or squeezing either image.
+
+   HOW TO EDIT:
+   - Replace # with the actual image file paths below.
+   - background-position controls WHICH part of the image
+     stays visible after cropping (center is usually safest).
    ═══════════════════════════════════════════════════════ */
-#rippleCanvas {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  width: 100%;
-  height: 100%;
+body {
+  background-image: url('images/1.jpg');       /* EDIT: path to 5000x5000 image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  #rippleCanvas { display: none; }
+/* Phones and narrow screens — swap to the portrait crop */
+@media (max-width: 700px) {
+  body {
+    background-image: url('images/2.jpg');     /* EDIT: path to 1500x3000 image */
+    background-attachment: fixed;  /* fixed can feel janky on mobile */
+  }
 }
 
 /* ================================================================
