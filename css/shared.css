@@ -45,7 +45,7 @@
 html  { -webkit-text-size-adjust: 100%; }
 body  { font-family: var(--font-body);
         color: var(--page-text,#1a1a1a); line-height: 1.65; overflow-x: hidden;
-         background-image: (img src='images/1.jpg');       /* EDIT: path to 5000x5000 image */
+         background-image: url('https://github.com/ASAND5/Portfolio/blob/main/images/1.jpg');       /* EDIT: path to 5000x5000 image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -54,7 +54,7 @@ body  { font-family: var(--font-body);
 /* Phones and narrow screens — swap to the portrait crop */
 @media (max-width: 700px) {
   body {
-    background-image: url('images/2.jpg');     /* EDIT: path to 1500x3000 image */
+    background-image: url('https://github.com/ASAND5/Portfolio/blob/main/images/2.jpg');     /* EDIT: path to 1500x3000 image */
     background-attachment: fixed;  /* fixed can feel janky on mobile */
   }
 }
