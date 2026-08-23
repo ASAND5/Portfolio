@@ -3,6 +3,38 @@
    File: js/shared.js
    ============================================================== */
 
+/* ─── HERO GLASS BANDS — cursor proximity brightening ───────
+   Hero section only. Bands stay in their normal drift animation;
+   nearby bands just brighten smoothly as the cursor approaches. */
+(function () {
+  const hero  = document.querySelector('.hero');
+  const bands = document.querySelectorAll('.hero-glass-band');
+  if (!hero || !bands.length) return;
+
+  const REACT_RADIUS = 90; // px — how close the cursor must be to react
+
+  hero.addEventListener('mousemove', (e) => {
+    const heroRect = hero.getBoundingClientRect();
+    const mouseX = e.clientX - heroRect.left;
+
+    bands.forEach(band => {
+      const bandRect = band.getBoundingClientRect();
+      const bandCenterX = bandRect.left - heroRect.left + bandRect.width / 2;
+      const dist = Math.abs(mouseX - bandCenterX);
+
+      if (dist < REACT_RADIUS) {
+        band.classList.add('near-cursor');
+      } else {
+        band.classList.remove('near-cursor');
+      }
+    });
+  });
+
+  hero.addEventListener('mouseleave', () => {
+    bands.forEach(band => band.classList.remove('near-cursor'));
+  });
+})();
+
 /* ─── SIDE NAVIGATION ─────────────────────────────────────── */
 const sidenav        = document.getElementById('sidenav');
 const sidenavOverlay = document.getElementById('sidenavOverlay');
