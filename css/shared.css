@@ -443,12 +443,12 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 .hero-glass-band {
   position: absolute;
-  top: -50px;                    /* extends 50px above the hero box */
-  bottom: -50px;                 /* extends 50px below the hero box */
+  top: -100px;                    /* extends 50px above the hero box */
+  bottom: -200px;                 /* extends 50px below the hero box */
   height: auto;                  /* let top/bottom control the length */
   width: 140px;
   background: linear-gradient(
-    135deg,
+    120deg,
     transparent 0%,
     rgba(200, 213, 235, 0.35) 45%,
     rgba(255, 255, 255, 0.55) 50%,
@@ -459,12 +459,12 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   animation: heroBandDrift 14s ease-in-out infinite;
   transition: filter 0.5s ease, opacity 0.5s ease;
 }
-.hero-glass-band:nth-child(1) { left: -10%; animation-delay: 0s; }
-.hero-glass-band:nth-child(2) { left: 12%;  animation-delay: -3s;  animation-duration: 17s; }
-.hero-glass-band:nth-child(3) { left: 34%;  animation-delay: -6s;  animation-duration: 15s; }
-.hero-glass-band:nth-child(4) { left: 56%;  animation-delay: -9s;  animation-duration: 19s; }
-.hero-glass-band:nth-child(5) { left: 78%;  animation-delay: -12s; animation-duration: 16s; }
-.hero-glass-band:nth-child(6) { left: 95%;  animation-delay: -2s;  animation-duration: 18s; }
+.hero-glass-band:nth-child(1) { left: 0%; animation-delay: 0s; }
+.hero-glass-band:nth-child(2) { left: 10%;  animation-delay: -3s;  animation-duration: 17s; }
+.hero-glass-band:nth-child(3) { left: 30%;  animation-delay: -6s;  animation-duration: 15s; }
+.hero-glass-band:nth-child(4) { left: 50%;  animation-delay: -9s;  animation-duration: 19s; }
+.hero-glass-band:nth-child(5) { left: 70%;  animation-delay: -12s; animation-duration: 16s; }
+.hero-glass-band:nth-child(6) { left: 90%;  animation-delay: -2s;  animation-duration: 18s; }
 
 @keyframes heroBandDrift {
   0%, 100% { transform: rotate(8deg) translateX(0); opacity: 0.5; }
