@@ -52,11 +52,26 @@ ul     { list-style: none; }
 em, i  { font-style: italic; } /* scientific names keep italic */
 
 /* ── NO ANIMATIONS / NO TRANSITIONS ──────────────────────────── */
-*, *::before, *::after {
+/* Exception: .fade-up is allowed to animate — this is the one
+   deliberate motion effect on the site, everything else stays still */
+*:not(.fade-up), *:not(.fade-up)::before, *:not(.fade-up)::after {
   animation: none !important; animation-duration: 0s !important;
   transition: none !important;
 }
-.fade-up, .fade-up.in-view { opacity: 1; transform: none; }
+
+/* ── FADE-UP / FLOAT-UP ON SCROLL ─────────────────────────────
+   Add class="fade-up" to any box you want to float up into view.
+   JS (shared.js) adds "in-view" once it scrolls into the viewport.
+   ═══════════════════════════════════════════════════════════ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* ================================================================
    TOPBAR — the ONE glass element
