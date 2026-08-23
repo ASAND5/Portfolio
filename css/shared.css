@@ -460,11 +460,11 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   transition: filter 0.5s ease, opacity 0.5s ease;
 }
 .hero-glass-band:nth-child(1) { left: 0%; animation-delay: 0s; }
-.hero-glass-band:nth-child(2) { left: 10%;  animation-delay: -3s;  animation-duration: 17s; }
-.hero-glass-band:nth-child(3) { left: 30%;  animation-delay: -6s;  animation-duration: 15s; }
-.hero-glass-band:nth-child(4) { left: 50%;  animation-delay: -9s;  animation-duration: 19s; }
-.hero-glass-band:nth-child(5) { left: 70%;  animation-delay: -12s; animation-duration: 16s; }
-.hero-glass-band:nth-child(6) { left: 90%;  animation-delay: -2s;  animation-duration: 18s; }
+.hero-glass-band:nth-child(2) { left: 45%;  animation-delay: -3s;  animation-duration: 17s; }
+.hero-glass-band:nth-child(3) { left: 59%;  animation-delay: -6s;  animation-duration: 15s; }
+.hero-glass-band:nth-child(4) { left: 70%;  animation-delay: -9s;  animation-duration: 19s; }
+.hero-glass-band:nth-child(5) { left: 82%;  animation-delay: -12s; animation-duration: 16s; }
+.hero-glass-band:nth-child(6) { left: 95%;  animation-delay: -2s;  animation-duration: 18s; }
 
 @keyframes heroBandDrift {
   0%, 100% { transform: rotate(8deg) translateX(0); opacity: 0.5; }
