@@ -52,9 +52,13 @@ ul     { list-style: none; }
 em, i  { font-style: italic; } /* scientific names keep italic */
 
 /* ── NO ANIMATIONS / NO TRANSITIONS ──────────────────────────── */
-/* Exception: .fade-up is allowed to animate — this is the one
-   deliberate motion effect on the site, everything else stays still */
-*:not(.fade-up), *:not(.fade-up)::before, *:not(.fade-up)::after {
+/* Exceptions: .fade-up (scroll float-up) and .hero-glass-band
+   (hero background animation) are allowed to animate — these are
+   the two deliberate motion effects on the site, everything else
+   stays still */
+*:not(.fade-up):not(.hero-glass-band),
+*:not(.fade-up):not(.hero-glass-band)::before,
+*:not(.fade-up):not(.hero-glass-band)::after {
   animation: none !important; animation-duration: 0s !important;
   transition: none !important;
 }
