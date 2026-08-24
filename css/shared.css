@@ -14,20 +14,20 @@
 
 /* ── CSS VARIABLES ────────────────────────────────────────────── */
 :root {
-  --accent       : #1e3a5f;
+  --accent       : #002147;
   --accent-light : #c8d5eb;
-  --page-bg      : #f5fdff;
+  --page-bg      : #eaf4a3;
   --page-text    : #0a1128;
   --nav-accent   : #1e3a5f;
-  --card-bg      : #ffffff;
+  --card-bg      : #f5fdff;
   --card-border  : #c8d5eb;
   --card-shadow  : 0 6px 18px rgba(30,58,95,0.10);
   --topbar-bg    : #1e3a5f;
   --topbar-border: rgba(255,255,255,0.08);
   --glass-blur   : blur(14px);
-  --footer-bg    : #111b27;
-  --footer-text  : #94a3b8;
-  --footer-heading: #e2e8f0;
+  --footer-bg    : #002147;
+  --footer-text  : #eaf4a3;
+  --footer-heading: #eaf4a3;
   --footer-border: rgba(255,255,255,0.07);
   --font-heading : 'Jost', sans-serif;
   --font-body    : 'Jost', sans-serif;
