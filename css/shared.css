@@ -437,7 +437,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .hero-glass-bg {
   position: absolute;
   inset: 0;
-  overflow: hidden;
+  overflow: visible;   /* must NOT be hidden, or the -50px is clipped */
   z-index: 0;
 }
 
