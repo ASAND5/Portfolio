@@ -16,16 +16,16 @@
 :root {
   --accent       : #002147;
   --accent-light : #c8d5eb;
-  --page-bg      : #f5fdff;
+  --page-bg      : #a9dce3;
   --page-text    : #0a1128;
   --nav-accent   : #1e3a5f;
-  --card-bg      : #a3eaf4;
+  --card-bg      : #f5fdff;
   --card-border  : #c8d5eb;
   --card-shadow  : 0 6px 18px rgba(30,58,95,0.10);
   --topbar-bg    : #1e3a5f;
   --topbar-border: rgba(255,255,255,0.08);
   --glass-blur   : blur(14px);
-  --footer-bg    : #002147;
+  --footer-bg    : #001227;
   --footer-text  : #f5fdff;
   --footer-heading: #f5fdff;
   --footer-border: rgba(255,255,255,0.07);
