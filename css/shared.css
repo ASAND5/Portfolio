@@ -458,6 +458,22 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   transform: rotate(8deg);
   animation: heroBandDrift 14s ease-in-out infinite;
   transition: filter 0.5s ease, opacity 0.5s ease;
+   /* NEW — fades the top and bottom ends so they taper off
+     instead of cutting sharply */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
 }
 .hero-glass-band:nth-child(1) { left: 0%; animation-delay: 0s; }
 .hero-glass-band:nth-child(2) { left: 15%;  animation-delay: -3s;  animation-duration: 17s; }
