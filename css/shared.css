@@ -16,18 +16,18 @@
 :root {
   --accent       : #002147;
   --accent-light : #c8d5eb;
-  --page-bg      : #eaf4a3;
+  --page-bg      : #f5fdff;
   --page-text    : #0a1128;
   --nav-accent   : #1e3a5f;
-  --card-bg      : #f5fdff;
+  --card-bg      : #eaf4a3;
   --card-border  : #c8d5eb;
   --card-shadow  : 0 6px 18px rgba(30,58,95,0.10);
   --topbar-bg    : #1e3a5f;
   --topbar-border: rgba(255,255,255,0.08);
   --glass-blur   : blur(14px);
   --footer-bg    : #002147;
-  --footer-text  : #eaf4a3;
-  --footer-heading: #eaf4a3;
+  --footer-text  : #f5fdff;
+  --footer-heading: #f5fdff;
   --footer-border: rgba(255,255,255,0.07);
   --font-heading : 'Jost', sans-serif;
   --font-body    : 'Jost', sans-serif;
