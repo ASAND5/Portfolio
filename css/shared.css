@@ -15,12 +15,12 @@
 /* ── CSS VARIABLES ────────────────────────────────────────────── */
 :root {
   --accent       : #002147;
-  --accent-light : #001227;
+  --accent-light : #cce3ff;
   --page-bg      : #c7ddeb;
   --page-text    : #0a1128;
   --nav-accent   : #002147;
-  --card-bg      : #ead292;
-  --card-border  : #001227;
+  --card-bg      : #fff1c9;
+  --card-border  : #cce3ff;
   --card-shadow  : 0 6px 18px rgba(30,58,95,0.10);
   --topbar-bg    : #002147;
   --topbar-border: rgba(255,255,255,0.08);
