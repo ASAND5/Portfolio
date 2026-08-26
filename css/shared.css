@@ -16,10 +16,10 @@
 :root {
   --accent       : #002147;
   --accent-light : #c8d5eb;
-  --page-bg      : #deeff4;
+  --page-bg      : #ead292;
   --page-text    : #0a1128;
   --nav-accent   : #002147;
-  --card-bg      : #e0ffff;
+  --card-bg      : #fff2d9;
   --card-border  : #c8d5eb;
   --card-shadow  : 0 6px 18px rgba(30,58,95,0.10);
   --topbar-bg    : #002147;
@@ -135,7 +135,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   white-space: nowrap;
 }
 .topbar-nav .nav-link:hover {
-  background: #deeff4;
+  background: #ead292;
   color: var(--accent);
   border-bottom-color: transparent;
 }
@@ -159,7 +159,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .topbar-nav .dropdown a:last-child { border-bottom: none; }
 .topbar-nav .dropdown a:hover {
-  background: #deeff4;
+  background: #ead292;
   color: var(--accent);
   opacity: 1;
   text-decoration: none;
