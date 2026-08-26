@@ -16,7 +16,7 @@
 :root {
   --accent       : #002147;
   --accent-light : #c8d5eb;
-  --page-bg      : #eeeef1;
+  --page-bg      : #eef1f9;
   --page-text    : #0a1128;
   --nav-accent   : #1e3a5f;
   --card-bg      : #efffff;
@@ -135,7 +135,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   white-space: nowrap;
 }
 .topbar-nav .nav-link:hover {
-  background: #eeeef1;
+  background: #eef1f9;
   color: var(--accent);
   border-bottom-color: transparent;
 }
