@@ -14,20 +14,20 @@
 
 /* ── CSS VARIABLES ────────────────────────────────────────────── */
 :root {
-  --accent       : #002147;
-  --accent-light : #cce3ff;
-  --page-bg      : #c7ddeb;
-  --page-text    : #0a1128;
-  --nav-accent   : #002147;
-  --card-bg      : #fff1c9;
-  --card-border  : #cce3ff;
+  --accent       : #1b4332;
+  --accent-light : #74c69d;
+  --page-bg      : #d8f3dc;
+  --page-text    : #0a1a14;
+  --nav-accent   : #1b4332;
+  --card-bg      : #b1ffe0;
+  --card-border  : #74c69d;
   --card-shadow  : 0 6px 18px rgba(30,58,95,0.10);
-  --topbar-bg    : #002147;
+  --topbar-bg    : #1b4332;
   --topbar-border: rgba(255,255,255,0.08);
   --glass-blur   : blur(14px);
-  --footer-bg    : #001227;
-  --footer-text  : #f5fdff;
-  --footer-heading: #f5fdff;
+  --footer-bg    : #002712;
+  --footer-text  : #dfffdf;
+  --footer-heading: #dfffdf;
   --footer-border: rgba(255,255,255,0.07);
   --font-heading : 'Jost', sans-serif;
   --font-body    : 'Jost', sans-serif;
@@ -113,7 +113,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .topbar-brand small {
   display: block; font-family: var(--font-body);
-  font-size: 14px; font-weight: 600; color: #94a3b8; opacity: 1;
+  font-size: 14px; font-weight: 600; color: #dfffdf; opacity: 1;
 }
 /* ================================================================
    TOPBAR DESKTOP NAV — dropdown menus
@@ -129,13 +129,13 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .topbar-nav .nav-link {
   font-family: var(--font-heading); font-size: 18px; font-weight: 600;
-  color: #94a3b8; padding: 0 48px; height: 100%;
+  color: #dfffdf; padding: 0 48px; height: 100%;
   display: flex; align-items: center;
   text-decoration: none; border-bottom: 2px solid transparent;
   white-space: nowrap;
 }
 .topbar-nav .nav-link:hover {
-  background: #c7ddeb;
+  background: #d8f3dc;
   color: var(--accent);
   border-bottom-color: transparent;
 }
@@ -159,7 +159,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .topbar-nav .dropdown a:last-child { border-bottom: none; }
 .topbar-nav .dropdown a:hover {
-  background: #c7ddeb;
+  background: #d8f3dc;
   color: var(--accent);
   opacity: 1;
   text-decoration: none;
