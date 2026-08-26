@@ -142,6 +142,31 @@ function initScrollAnim() {
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 }
 
+/* ─── REVEAL BOX — repeats every time, both scroll directions ─
+   Unlike initScrollAnim() (.fade-up, animates once and stops
+   watching), this keeps watching forever: toggles .in-view on
+   and off every time an element enters/exits the viewport. */
+function initRevealBoxes() {
+  const revealEls = document.querySelectorAll('.reveal-box');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      } else {
+        entry.target.classList.remove('in-view');
+      }
+      // NOTE: no unobserve() here — keeps watching forever,
+      // so it fades in/out every time, in both directions
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  revealEls.forEach(el => observer.observe(el));
+}
+
 /* ─── CONTACT FORM PRE-FILL (from URL params) ─────────────── */
 function prefillContact() {
   const params = new URLSearchParams(window.location.search);
@@ -171,6 +196,7 @@ function launchChessChallenge() {
 /* ─── INIT ────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initScrollAnim();
+  initRevealBoxes();
   prefillContact();
 
   // Gallery lightbox (if present on page)
