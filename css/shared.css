@@ -22,7 +22,7 @@
   --card-bg      : #f5fdff;
   --card-border  : #c8d5eb;
   --card-shadow  : 0 6px 18px rgba(30,58,95,0.10);
-  --topbar-bg    : #1e3a5f;
+  --topbar-bg    : #002147;
   --topbar-border: rgba(255,255,255,0.08);
   --glass-blur   : blur(14px);
   --footer-bg    : #001227;
@@ -56,11 +56,12 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    (hero background animation) are allowed to animate — these are
    the two deliberate motion effects on the site, everything else
    stays still */
-*:not(.fade-up):not(.hero-glass-band),
-*:not(.fade-up):not(.hero-glass-band)::before,
-*:not(.fade-up):not(.hero-glass-band)::after {
+*:not(.fade-up):not(.hero-glass-band):not(.reveal-box),
+*:not(.fade-up):not(.hero-glass-band):not(.reveal-box)::before,
+*:not(.fade-up):not(.hero-glass-band):not(.reveal-box)::after {
   animation: none !important; animation-duration: 0s !important;
   transition: none !important;
+}
 }
 
 /* ── FADE-UP / FLOAT-UP ON SCROLL ─────────────────────────────
@@ -73,6 +74,24 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   transition: opacity 0.75s ease, transform 0.75s ease;
 }
 .fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── REVEAL BOX — repeats every time, both directions ─────────
+   Unlike .fade-up (animates once), .reveal-box fades in AND out
+   every time it crosses into/out of the viewport — scrolling
+   down reveals it, scrolling back up hides it again.
+   Add class="reveal-box" to: text boxes, book entries, result
+   tables, photo/gallery items, game boxes (sudoku, chess).
+   Do NOT add to: titles, section headers, page headers.
+   ═══════════════════════════════════════════════════════════ */
+.reveal-box {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-box.in-view {
   opacity: 1;
   transform: translateY(0);
 }
