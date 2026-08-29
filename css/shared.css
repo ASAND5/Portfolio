@@ -96,50 +96,6 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   transform: translateY(0);
 }
 
-/* BG image =======================================================*/
-
-:root {
-  --bg-image-desktop: url("css/1.jpg");
-  --bg-image-mobile: url("css/2.jpg");
- 
-  /* Breakpoint where the site switches from mobile to desktop image.
-     768px is a common tablet/phone cutoff — adjust if your layout
-     already defines a different breakpoint elsewhere in the site. */
-  --bg-breakpoint: 768px;
-}
- 
-html, body {
-  margin: 0;
-  min-height: 100%;
-}
- 
-body {
-  position: relative;
-  isolation: isolate;
-  min-height: 100vh;
-}
- 
-/* Default (mobile-first): narrow-screen image.
-   Using background on body directly rather than a pseudo-element,
-   since there's no gradient/dot layer to stack underneath anymore. */
-body {
-  background-image: var(--bg-image-mobile);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll; /* fixed can be unreliable on mobile browsers */
-}
- 
-/* Wide screens: swap to the desktop image once viewport passes
-   the breakpoint. */
-@media (min-width: 768px) {
-  body {
-    background-image: var(--bg-image-desktop);
-    background-attachment: fixed;
-  }
-}
-
-
 /* ================================================================
    TOPBAR — the ONE glass element
    ================================================================ */
