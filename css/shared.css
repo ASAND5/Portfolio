@@ -16,7 +16,7 @@
 :root {
   --accent       : #1f3a60;
   --accent-light : #3582b8;
-  --page-bg      : #d2e4ed;
+  --page-bg      : #dfefff;
   --page-text    : #001227;
   --nav-accent   : #1f3a60;
   --card-bg      : #eaf7fb;
@@ -26,8 +26,8 @@
   --topbar-border: rgba(255,255,255,0.08);
   --glass-blur   : blur(14px);
   --footer-bg    : #001227;
-  --footer-text  : #dfdfff;
-  --footer-heading: #dfdfff;
+  --footer-text  : #dfe9ff;
+  --footer-heading: #dfe9ff;
   --footer-border: rgba(255,255,255,0.07);
   --font-heading : 'Jost', sans-serif;
   --font-body    : 'Jost', sans-serif;
@@ -113,7 +113,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .topbar-brand small {
   display: block; font-family: var(--font-body);
-  font-size: 14px; font-weight: 600; color: #dfffdf; opacity: 1;
+  font-size: 14px; font-weight: 600; color: #dfe9ff; opacity: 1;
 }
 /* ================================================================
    TOPBAR DESKTOP NAV — dropdown menus
@@ -129,13 +129,13 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .topbar-nav .nav-link {
   font-family: var(--font-heading); font-size: 18px; font-weight: 600;
-  color: #dfdfff; padding: 0 48px; height: 100%;
+  color: #dfe9ff; padding: 0 48px; height: 100%;
   display: flex; align-items: center;
   text-decoration: none; border-bottom: 2px solid transparent;
   white-space: nowrap;
 }
 .topbar-nav .nav-link:hover {
-  background: #9dc1cd;
+  background: #dfefff;
   color: var(--accent);
   border-bottom-color: transparent;
 }
@@ -159,7 +159,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .topbar-nav .dropdown a:last-child { border-bottom: none; }
 .topbar-nav .dropdown a:hover {
-  background: #9dc1cd;
+  background: #dfefff;
   color: var(--accent);
   opacity: 1;
   text-decoration: none;
