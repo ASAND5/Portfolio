@@ -99,8 +99,8 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 /* BG image =======================================================*/
 
 :root {
-  --bg-image-desktop: url("images/1.jpg");
-  --bg-image-mobile: url("images/2.jpg");
+  --bg-image-desktop: url("css/1.jpg");
+  --bg-image-mobile: url("css/2.jpg");
  
   /* Breakpoint where the site switches from mobile to desktop image.
      768px is a common tablet/phone cutoff — adjust if your layout
