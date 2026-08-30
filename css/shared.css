@@ -14,11 +14,11 @@
 
 /* ── CSS VARIABLES ────────────────────────────────────────────── */
 :root {
-  --accent       : #1f3a60;
+  --accent       : #002147;
   --accent-light : #3582b8;
-  --page-bg      : #dff3ff;
+  --page-bg      : #5b6978; /*dff3ff*/
   --page-text    : #001227;
-  --nav-accent   : #1f3a60;
+  --nav-accent   : #002147;
   --card-bg      : #f1f7ff;
   --card-border  : #3582b8;
   --card-shadow  : 0 6px 18px rgba(30,58,95,0.10);
