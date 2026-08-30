@@ -16,8 +16,9 @@
 :root {
   --accent       : #002147;
   --accent-light : #3582b8;
-  --page-bg      : #5b6978; /*dff3ff*/
+  --page-bg      : #5b6978;
   --page-text    : #001227;
+  --title-text   : #dff3ff;
   --nav-accent   : #002147;
   --card-bg      : #f1f7ff;
   --card-border  : #3582b8;
@@ -291,19 +292,19 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 /* 40px — hero name & page name only */
 .page-title-simple {
   font-family: var(--font-heading); font-size: 40px; font-weight: 700;
-  color: var(--accent); margin: 28px 0 36px;
-  padding-bottom: 16px; border-bottom: 2px solid var(--accent-light);
+  color: var(--title-text); margin: 28px 0 36px;
+  padding-bottom: 16px; border-bottom: 2px solid var(--card-bg);
 }
 
 /* 30px — all section & card titles */
 .sec-title {
   font-family: var(--font-heading); font-size: 25px; font-weight: 700;
-  color: var(--accent); margin-bottom: 20px;
-  padding-bottom: 10px; border-bottom: 2px solid var(--accent-light);
+  color: var(--title-text); margin-bottom: 20px;
+  padding-bottom: 10px; border-bottom: 2px solid var(--card-bg);
 }
 .sec-sub-title {
   font-family: var(--font-heading); font-size: 18px; font-weight: 600;
-  color: var(--accent); margin: 26px 0 14px;
+  color: var(--title-text); margin: 26px 0 14px;
 }
 
 /* 20px — body text */
@@ -385,7 +386,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .home-section { padding: 40px 0 0; margin-bottom: 44px; }
 .home-sec-title {
   font-family: var(--font-heading); font-size: 28px; font-weight: 700;
-  color: var(--accent); margin-bottom: 20px;
+  color: var(--title-text); margin-bottom: 20px;
   padding-bottom: 10px; border-bottom: 2px solid var(--accent-light); display: block;
 }
 .home-sec-title::after { content: ' ›'; font-weight: 300; }
@@ -454,10 +455,10 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .hero-text { max-width: 52%; padding: 48px 0; }
 .hero-name {
   font-family: var(--font-heading); font-size: 40px; font-weight: 700;
-  color: var(--accent); line-height: 1.15; margin-bottom: 10px;
+  color: var(--title-text); line-height: 1.15; margin-bottom: 10px;
 }
-.hero-title-line { font-size: 18px; font-weight: 500; color: var(--accent); margin-bottom: 4px; }
-.hero-field, .hero-uni { font-size: 18px; font-weight: 500; color: var(--accent); margin-bottom: 4px; }
+.hero-title-line { font-size: 18px; font-weight: 500; color: var(--title-text); margin-bottom: 4px; }
+.hero-field, .hero-uni { font-size: 18px; font-weight: 500; color: var(--title-text); margin-bottom: 4px; }
 .hero-tags  { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 .hero-tag {
   background: var(--card-bg); border: 1px solid var(--card-border);
