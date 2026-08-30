@@ -292,14 +292,14 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .page-title-simple {
   font-family: var(--font-heading); font-size: 40px; font-weight: 700;
   color: var(--accent); margin: 28px 0 36px;
-  padding-bottom: 16px; border-bottom: 2px solid var(--card-bg);
+  padding-bottom: 16px; border-bottom: 2px solid var(--accent);
 }
 
 /* 30px — all section & card titles */
 .sec-title {
   font-family: var(--font-heading); font-size: 25px; font-weight: 700;
   color: var(--accent); margin-bottom: 20px;
-  padding-bottom: 10px; border-bottom: 2px solid var(--card-bg);
+  padding-bottom: 10px; border-bottom: 2px solid var(--accent);
 }
 .sec-sub-title {
   font-family: var(--accent); font-size: 18px; font-weight: 600;
