@@ -448,80 +448,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   background: transparent; position: relative;
   display: flex; align-items: center; min-height: 320px; overflow: visible;
 }
-/* ================================================================
-   HERO ANIMATED GLASS BACKGROUND — hero section only
-   Diagonal light bands drift slowly at rest; brighten smoothly
-   when the cursor comes near. Pure CSS/JS, no dependencies.
-   ================================================================ */
-.hero-glass-bg {
-  position: absolute;
-  inset: 0;
-  overflow: visible;   /* must NOT be hidden, or the -50px is clipped */
-  z-index: 0;
-}
 
-.hero-glass-band {
-  position: absolute;
-  top: -100px;                    /* extends 50px above the hero box */
-  bottom: -80px;                 /* extends 50px below the hero box */
-  height: auto;                  /* let top/bottom control the length */
-  width: 140px;
-  background: linear-gradient(
-    110deg,
-    transparent 0%,
-     rgba(163, 216, 199, 0.35) 45%,
-     rgba(255, 255, 255, 0.55) 50%,
-     rgba(163, 216, 199, 0.35) 55%,
-    transparent 100%
-  );
-  transform: rotate(8deg);
-  animation: heroBandDrift 14s ease-in-out infinite;
-  transition: filter 0.5s ease, opacity 0.5s ease;
-   /* NEW — fades the top and bottom ends so they taper off
-     instead of cutting sharply */
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    black 12%,
-    black 88%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    black 12%,
-    black 88%,
-    transparent 100%
-  );
-}
-.hero-glass-band:nth-child(1) { left: 0%; animation-delay: 0s; }
-.hero-glass-band:nth-child(2) { left: 15%;  animation-delay: -3s;  animation-duration: 17s; }
-.hero-glass-band:nth-child(3) { left: 33%;  animation-delay: -6s;  animation-duration: 15s; }
-.hero-glass-band:nth-child(4) { left: 55%;  animation-delay: -9s;  animation-duration: 19s; }
-.hero-glass-band:nth-child(5) { left: 74%;  animation-delay: -12s; animation-duration: 16s; }
-.hero-glass-band:nth-child(6) { left: 90%;  animation-delay: -2s;  animation-duration: 18s; }
-
-@keyframes heroBandDrift {
-  0%, 100% { transform: rotate(8deg) translateX(0); opacity: 0.5; }
-  50%      { transform: rotate(8deg) translateX(60px); opacity: 0.9; }
-}
-
-/* Cursor reaction: bands near the pointer brighten smoothly */
-.hero-glass-band.near-cursor {
-  filter: brightness(1.33);
-  opacity: 1 !important;
-}
-
-/* keep hero content above the glass layer */
-.hero .container { position: relative; z-index: 2; }
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-glass-band { animation: none; }
-}
-
-@media (max-width: 700px) {
-  .hero-glass-bg { display: none; } /* keep mobile hero simple/fast */
-}
 .hero-band { display: none; }
 .hero .container { position: relative; z-index: 2; width: 100%; }
 .hero-text { max-width: 52%; padding: 48px 0; }
@@ -612,11 +539,10 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   border-radius: var(--r-lg); box-shadow: var(--card-shadow); margin-bottom: 8px;
 }
 .result-table { width: 100%; border-collapse: collapse; background: var(--card-bg); }
-.result-table thead tr { background: var(--accent-light); }
+.result-table thead tr { background: var(--card-bg); }
 .result-table th {
   padding: 13px 16px; text-align: left; font-family: var(--font-heading);
-  font-size: 18px; font-weight: 700; color: var(--card-bg);
-  border-bottom: 2px solid var(--card-border);
+  font-size: 18px; font-weight: 700; color: var(--accent);
   text-transform: uppercase; letter-spacing: 0.05em;
 }
 .result-table td {
@@ -626,7 +552,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .result-badge {
   display: inline-block; font-size: 14px; font-weight: 600;
   padding: 3px 9px; border-radius: 12px;
-  border: 1px solid #86efac; background: var(--card-bg);
+  background: #d5ebc8; color: #166534; border: 1px solid #86efac;
 }
 .course-code {
   font-family: 'Courier New', monospace; font-weight: 700; font-size: 14px;
@@ -724,7 +650,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .winner-label { font-family: var(--font-bangla); font-size: 18px; color: var(--page-text); line-height: 1.5; }
 .winner-badge {
   display: inline-block; font-family: var(--font-bangla);
-  background: #dcfce7; color: #166534;
+  background: #d5ebc8; color: #166534;
   font-size: 14px; font-weight: 500; padding: 4px 10px;
   border-radius: 20px; border: 1px solid #86efac; margin-top: 8px;
 }
