@@ -561,12 +561,15 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 .collapse-toggle {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--card-bg); border: 1px solid var(--card-border);
+  background: var(--accent); border: 1px solid var(--accent);
   border-radius: 30px; padding: 10px 22px;
   font-family: var(--font-body); font-size: 18px; font-weight: 600;
-  color: var(--accent); cursor: pointer; box-shadow: var(--card-shadow);
+  color: #ffffff; cursor: pointer; box-shadow: var(--card-shadow);
 }
-.collapse-toggle:hover { background: var(--accent-light); }
+.collapse-toggle:hover {
+  background: var(--page-bg);
+  color: var(--accent);
+}
 .chevron { font-size: 14px; }
 .collapse-panel         { max-height: 0; overflow: hidden; }
 .collapse-panel.open    { max-height: 4000px; margin-top: 18px; }
@@ -588,7 +591,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
 }
 .fieldwork-year {
-  background: var(--accent-light); color: var(--accent);
+  background: var(--page-bg); color: var(--accent);
   font-size: 14px; font-weight: 600; padding: 3px 9px; border-radius: 12px;
   border: 1px solid var(--card-border);
 }
