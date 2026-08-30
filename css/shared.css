@@ -135,7 +135,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   white-space: nowrap;
 }
 .topbar-nav .nav-link:hover {
-  background: #dff3ff;
+  background: #e6f0f7;
   color: var(--accent);
   border-bottom-color: transparent;
 }
@@ -159,7 +159,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .topbar-nav .dropdown a:last-child { border-bottom: none; }
 .topbar-nav .dropdown a:hover {
-  background: #dff3ff;
+  background: #e6f0f7;
   color: var(--accent);
   opacity: 1;
   text-decoration: none;
