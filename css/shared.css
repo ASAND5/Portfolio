@@ -20,7 +20,7 @@
   --page-text    : #001227;
   --nav-accent   : #002147;
   --card-bg      : #ffffff;
-  --card-border  : #3582b8;
+  --card-border  : #000000;
   --card-shadow  : 0 6px 18px rgba(30,58,95,0.10);
   --topbar-bg    : #002147;
   --topbar-border: rgba(255,255,255,0.08);
@@ -318,7 +318,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    ================================================================ */
 .entry-card {
   display: flex; gap: 18px;
-  border: 1px solid var(--card-border); border-radius: var(--r-lg);
+  border: 0.4px solid var(--card-border); border-radius: var(--r-lg);
   padding: 20px 24px; margin-bottom: 16px;
   background: var(--card-bg); box-shadow: var(--card-shadow);
 }
@@ -326,7 +326,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .entry-thumb {
   width: 100px; height: 120px; flex-shrink: 0;
   border-radius: var(--r-sm); overflow: hidden;
-  border: 1px solid var(--card-border); background: var(--accent-light);
+  border: 0.4px solid var(--card-border); background: var(--accent-light);
   display: flex; align-items: center; justify-content: center;
   font-size: 36px; color: #C8D5EB;
 }
@@ -386,14 +386,14 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .home-sec-title {
   font-family: var(--font-heading); font-size: 28px; font-weight: 700;
   color: var(--accent); margin-bottom: 20px;
-  padding-bottom: 10px; border-bottom: 2px solid var(--accent-light); display: block;
+  padding-bottom: 10px; border-bottom: 2px solid var(--accent); display: block;
 }
 .home-sec-title::after { content: ' ›'; font-weight: 300; }
 .home-sec-title:hover  { opacity: 0.75; }
 
 .intro-section { padding: 44px 0 0; }
 .intro-glass {
-  background: var(--card-bg); border: 1px solid var(--card-border);
+  background: var(--card-bg); border: 0.4px solid var(--card-border);
   border-radius: var(--r-lg); padding: 28px 32px; box-shadow: var(--card-shadow);
 }
 .intro-punchline {
@@ -406,7 +406,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .award-card {
   display: flex; flex-direction: row; align-items: stretch;
-  background: var(--card-bg); border: 1px solid var(--card-border);
+  background: var(--card-bg); border: 0.4px solid var(--card-border);
   border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--card-shadow);
 }
 .award-img-wrap {
@@ -428,7 +428,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .award-card.extra.visible { display: flex; }
 
 .lens-preview {
-  background: var(--card-bg); border: 1px solid var(--card-border);
+  background: var(--card-bg); border: 0.4px solid var(--card-border);
   border-radius: var(--r-lg); padding: 28px 32px; display: block; box-shadow: var(--card-shadow);
 }
 .lens-preview:hover  { opacity: 0.9; }
@@ -436,7 +436,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .lens-preview-cta    { font-size: 18px; font-weight: 600; color: var(--accent); margin-top: 10px; }
 
 .contact-preview {
-  background: var(--card-bg); border: 1px solid var(--card-border);
+  background: var(--card-bg); border: 0.4px solid var(--card-border);
   border-radius: var(--r-lg); padding: 26px 28px; box-shadow: var(--card-shadow);
 }
 .contact-preview p { font-size: 18px; color: var(--page-text); margin-bottom: 14px; }
@@ -460,7 +460,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .hero-field, .hero-uni { font-size: 18px; font-weight: 500; color: var(--accent); margin-bottom: 4px; }
 .hero-tags  { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 .hero-tag {
-  background: var(--card-bg); border: 1px solid var(--card-border);
+  background: var(--card-bg); border: 0.4px solid var(--card-border);
   color: var(--accent); font-size: 18px; font-weight: 500;
   padding: 5px 12px; border-radius: 20px; box-shadow: var(--card-shadow);
 }
@@ -485,7 +485,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 22px;
 }
 .gallery-item {
-  border: 1px solid var(--card-border); border-radius: var(--r-sm);
+  border: 0.4px solid var(--card-border); border-radius: var(--r-sm);
   overflow: hidden; background: #ffffff; cursor: pointer; box-shadow: var(--card-shadow);
 }
 .gallery-thumb {
@@ -535,7 +535,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    ACADEMIC RESULTS
    ================================================================ */
 .result-table-wrap {
-  overflow-x: auto; border: 1px solid var(--card-border);
+  overflow-x: auto; border: 0.4px solid var(--card-border);
   border-radius: var(--r-lg); box-shadow: var(--card-shadow); margin-bottom: 8px;
 }
 .result-table { width: 100%; border-collapse: collapse; background: var(--card-bg); }
@@ -552,7 +552,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .result-badge {
   display: inline-block; font-size: 14px; font-weight: 600;
   padding: 3px 9px; border-radius: 12px;
-  background: #d5ebc8; color: #166534; border: 1px solid #86efac;
+  background: #d5ebc8; color: #166534; border: 0.4px solid #86efac;
 }
 .course-code {
   font-family: 'Courier New', monospace; font-weight: 700; font-size: 14px;
@@ -561,7 +561,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 .collapse-toggle {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--accent); border: 1px solid var(--accent);
+  background: var(--accent); border: 0.4px solid var(--accent);
   border-radius: 30px; padding: 10px 22px;
   font-family: var(--font-body); font-size: 18px; font-weight: 600;
   color: #ffffff; cursor: pointer; box-shadow: var(--card-shadow);
@@ -593,19 +593,19 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .fieldwork-year {
   background: var(--page-bg); color: var(--accent);
   font-size: 14px; font-weight: 600; padding: 3px 9px; border-radius: 12px;
-  border: 1px solid var(--card-border);
+  border: 0.4px solid var(--card-border);
 }
 .fieldwork-desc { font-size: 18px; color: var(--page-text); line-height: 1.7; }
 .fieldwork-img {
   width: 160px; height: 120px; border-radius: var(--r-md); overflow: hidden; flex-shrink: 0;
-  border: 1px solid var(--card-border); background: var(--accent-light);
+  border: 0.4px solid var(--card-border); background: var(--accent-light);
   display: flex; align-items: center; justify-content: center; font-size: 48px;
 }
 .fieldwork-img img { width: 100%; height: 100%; object-fit: cover; }
 
 .exam-grid { display: grid; grid-template-columns: repeat(2, minmax(240px, 1fr)); gap: 16px; margin-bottom: 8px; }
 .exam-card {
-  background: var(--card-bg); border: 1px solid var(--card-border);
+  background: var(--card-bg); border: 0.4px solid var(--card-border);
   border-radius: var(--r-lg); padding: 22px 24px; box-shadow: var(--card-shadow);
 }
 .exam-icon { font-size: 48px; margin-bottom: 12px; }
@@ -622,7 +622,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .test-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 16px; }
 .test-card {
-  background: var(--card-bg); border: 1px solid var(--card-border);
+  background: var(--card-bg); border: 0.4px solid var(--card-border);
   border-radius: var(--r-lg); padding: 20px; text-align: center; box-shadow: var(--card-shadow);
 }
 .test-name {
@@ -632,7 +632,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .test-score     { font-family: var(--font-heading); font-size: 28px; font-weight: 700; color: var(--page-text); line-height: 1; }
 .test-max       { font-size: 14px; color: var(--page-text); opacity: 0.5; margin-top: 3px; }
 .test-year      { font-size: 18px; color: var(--page-text); opacity: 0.5; margin-top: 8px; }
-.test-breakdown { margin-top: 12px; font-size: 18px; color: var(--page-text); line-height: 1.8; text-align: left; border-top: 1px solid var(--accent-light); padding-top: 10px; }
+.test-breakdown { margin-top: 12px; font-size: 18px; color: var(--page-text); line-height: 1.8; text-align: left; border-top: 0.4px solid var(--accent-light); padding-top: 10px; }
 
 /* ================================================================
    AWARDS GRID
@@ -644,7 +644,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    ================================================================ */
 .winner-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 8px; }
 .winner-card {
-  background: var(--card-bg); border: 1px solid var(--card-border);
+  background: var(--card-bg); border: 0.4px solid var(--card-border);
   border-radius: var(--r-lg); padding: 24px 16px; text-align: center; box-shadow: var(--card-shadow);
 }
 .winner-trophy       { font-size: 42px; margin-bottom: 10px; }
@@ -655,7 +655,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   display: inline-block; font-family: var(--font-bangla);
   background: #d5ebc8; color: #166534;
   font-size: 14px; font-weight: 500; padding: 4px 10px;
-  border-radius: 20px; border: 1px solid #86efac; margin-top: 8px;
+  border-radius: 20px; border: 0.4px solid #86efac; margin-top: 8px;
 }
 
 /* ================================================================
@@ -663,7 +663,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    ================================================================ */
 .book-entry {
   display: flex; align-items: center; gap: 16px;
-  border: 1px solid var(--card-border); border-radius: var(--r-md);
+  border: 0.4px solid var(--card-border); border-radius: var(--r-md);
   padding: 12px 16px; margin-bottom: 10px;
   background: var(--card-bg); box-shadow: 0 2px 8px rgba(30,58,95,0.07);
 }
@@ -677,7 +677,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .book-tag {
   display: inline-block; font-size: 14px; font-weight: 500;
-  padding: 3px 10px; border-radius: 20px; border: 1px solid transparent;
+  padding: 3px 10px; border-radius: 20px; border: 0.4px solid transparent;
 }
 .tag-read     { background: #d5ebc8; color: #166534; border-color: #86efac; }
 .tag-want     { background: #dbeafe; color: #1e40af; border-color: #93c5fd; }
@@ -686,7 +686,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .tag-gave     { background: #fee2e2; color: #991b1b; border-color: #fca5a5; }
 .book-cover {
   width: 72px; height: 72px; border-radius: 4px; overflow: hidden; flex-shrink: 0;
-  border: 1px solid var(--card-border); background: var(--accent-light);
+  border: 0.4px solid var(--card-border); background: var(--accent-light);
   display: flex; align-items: center; justify-content: center; font-size: 22px;
 }
 .book-cover img { width: 100%; height: 100%; object-fit: cover; }
@@ -697,7 +697,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .trips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .trip-card {
   height: 320px; border-radius: var(--r-lg); overflow: hidden; position: relative;
-  box-shadow: var(--card-shadow); border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow); border: 0.4px solid var(--card-border);
 }
 .trip-bg {
   width: 100%; height: 100%; background: var(--accent);
@@ -952,7 +952,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    CONTACT PAGE
    ================================================================ */
 .contact-hero {
-  background: var(--card-bg); border: 1px solid var(--card-border);
+  background: var(--card-bg); border: 0.4px solid var(--card-border);
   border-radius: var(--r-lg); padding: 36px var(--pad) 30px;
   text-align: center; box-shadow: var(--card-shadow); margin-bottom: 28px;
 }
@@ -962,16 +962,16 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 .address-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 16px; margin-bottom: 36px; }
 .address-card {
-  background: var(--card-bg); border: 1px solid var(--card-border);
+  background: var(--card-bg); border: 0.4px solid var(--card-border);
   border-radius: var(--r-lg); padding: 20px 22px; box-shadow: var(--card-shadow);
 }
 .address-card-title { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent); margin-bottom: 10px; }
 .address-line { font-size: 18px; color: var(--page-text); line-height: 1.75; margin-bottom: 4px; }
-.address-link { display: inline-flex; align-items: center; gap: 6px; font-size: 20px; color: var(--accent); font-weight: 500; border-bottom: 1px solid var(--accent-light); padding-bottom: 1px; }
+.address-link { display: inline-flex; align-items: center; gap: 6px; font-size: 20px; color: var(--accent); font-weight: 500; border-bottom: 0.4px solid var(--accent-light); padding-bottom: 1px; }
 .address-link:hover { opacity: 0.75; }
 
 .contact-form-wrap {
-  background: var(--card-bg); border: 1px solid var(--card-border);
+  background: var(--card-bg); border: 0.4px solid var(--card-border);
   border-radius: var(--r-lg); padding: 28px 30px; margin-bottom: 20px; box-shadow: var(--card-shadow);
 }
 .contact-form-title { font-family: var(--font-heading); font-size: 28px; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
@@ -982,7 +982,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .form-group input,
 .form-group textarea,
 .form-group select {
-  padding: 11px 14px; border: 1px solid var(--card-border); border-radius: var(--r-md);
+  padding: 11px 14px; border: 0.4px solid var(--card-border); border-radius: var(--r-md);
   font-family: var(--font-body); font-size: 18px; color: var(--page-text); background: #ffffff; outline: none;
 }
 .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
@@ -1013,7 +1013,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .webinar-card {
   background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  border: 0.4px solid var(--card-border);
   box-shadow: var(--card-shadow);
   border-radius: var(--r-lg);
   overflow: hidden;
@@ -1029,7 +1029,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid var(--card-border);
+  border-bottom: 0.4px solid var(--card-border);
 }
 .webinar-poster img {
   width: 100%; height: 100%;
@@ -1087,7 +1087,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .footer-interests-label { font-size: 14px; text-transform: uppercase; letter-spacing: 0.10em; font-weight: 600; color: var(--footer-text); margin-bottom: 12px; }
 .footer-tags   { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-.footer-tag    { font-size: 14px; padding: 4px 11px; border-radius: 20px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); color: rgba(255,255,255,0.45); }
+.footer-tag    { font-size: 14px; padding: 4px 11px; border-radius: 20px; background: rgba(255,255,255,0.06); border: 0.4px solid rgba(255,255,255,0.10); color: rgba(255,255,255,0.45); }
 .footer-location { font-size: 18px; color: var(--footer-text); display: flex; align-items: center; gap: 6px; }
 
 .footer-pages-label  { font-size: 14px; text-transform: uppercase; letter-spacing: 0.10em; color: var(--footer-text); margin-bottom: 14px; font-weight: 600; }
