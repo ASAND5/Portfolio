@@ -62,7 +62,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   animation: none !important; animation-duration: 0s !important;
   transition: none !important;
 }
-}
+
 
 /* ── FADE-UP / FLOAT-UP ON SCROLL ─────────────────────────────
    Add class="fade-up" to any box you want to float up into view.
