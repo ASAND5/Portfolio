@@ -14,15 +14,15 @@
 
 /* ── CSS VARIABLES ────────────────────────────────────────────── */
 :root {
-  --accent       : #002147;
-  --accent-light : #3582b8;
+  --accent       : #64003b;
+  --accent-light : #ca3a8f;
   --page-bg      : #e8e0ef; /* e6f0f7 */
-  --page-text    : #001227;
-  --nav-accent   : #002147;
+  --page-text    : #38001b;
+  --nav-accent   : #64003b;
   --card-bg      : #ffffff;
-  --card-border  : #000000;
+  --card-border  : rgba(0, 0, 0, 0.4);
   --card-shadow  : 0 6px 18px rgba(30,58,95,0.10);
-  --topbar-bg    : #002147;
+  --topbar-bg    : #64003b;
   --topbar-border: rgba(255,255,255,0.08);
   --glass-blur   : blur(14px);
   --footer-bg    : #001227;
@@ -194,7 +194,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .sidenav-top {
   height: var(--topbar-h); padding: 0 18px;
   display: flex; align-items: center; justify-content: space-between;
-  border-bottom: 1px solid var(--card-border); flex-shrink: 0;
+  border-bottom: 0.4px solid var(--card-border); flex-shrink: 0;
 }
 .sidenav-logo { font-family: var(--page-text); font-size: 18px; font-weight: 700; color: var(--accent); }
 .sidenav-close-btn {
@@ -214,7 +214,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   border-left-color: transparent;
 }
 .sidenav-socials {
-  padding: 14px 20px; border-top: 1px solid var(--card-border);
+  padding: 14px 20px; border-top: 0.4px solid var(--card-border);
   display: flex; gap: 14px; flex-shrink: 0;
 }
 
@@ -232,13 +232,13 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   padding: 9px 20px;
   font-family: var(--font-heading); font-size: 14px; font-weight: 500;
   color: var(--page-text); opacity: 1;
-  border-left: 3px solid transparent; display: block;
+  border-left: none; display: block;
 }
 .sidenav-nav .nav-sub a {
   padding: 9px 20px 9px 34px;
   font-family: var(--font-heading); font-size: 14px; font-weight: 500;
   color: var(--page-text); opacity: 1;
-  border-left: 3px solid transparent; display: block;
+  border-left: none; display: block;
 }
 .sidenav-nav a:hover,
 .sidenav-nav a.active {
@@ -247,7 +247,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   text-decoration-color: var(--accent);
   text-underline-offset: 3px;
   background: none;
-  border-left-color: transparent;
+  border-left-color: none;
 }
 
 /* ================================================================
@@ -496,7 +496,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .gallery-caption {
   padding: 6px 8px 8px; font-size: 18px; color: var(--accent);
-  line-height: 1.4; background: #ffffff; border-top: 1px solid var(--card-border);
+  line-height: 1.4; background: #ffffff; border-top: 0.4px solid var(--card-border);
 }
 .gallery-placeholder {
   width: 100%; aspect-ratio: 1; background: var(--accent-light);
@@ -576,7 +576,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 .fieldwork-entry {
   display: flex; gap: 20px; align-items: flex-start;
-  background: var(--card-bg); border: 1px solid var(--card-border);
+  background: var(--card-bg); border: 0.4px solid var(--card-border);
   border-radius: var(--r-lg); padding: 22px 24px; margin-bottom: 16px; box-shadow: var(--card-shadow);
 }
 .fieldwork-entry.extra         { display: none; }
@@ -1101,7 +1101,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 
 .footer-bottom {
-  border-top: 1px solid var(--footer-border); padding: 14px var(--pad);
+  border-top: 2px solid var(--footer-border); padding: 14px var(--pad);
   text-align: center; font-size: 14px; color: rgba(255,255,255,0.25);
   display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;
 }
