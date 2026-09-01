@@ -14,7 +14,7 @@
 
 /* ── CSS VARIABLES ────────────────────────────────────────────── */
 :root {
-  --accent       : #64003b;
+  --accent       : #500030;
   --accent-light : #ca3a8f;
   --page-bg      : #e8e0ef; /* e6f0f7 */
   --page-text    : #38001b;
@@ -22,7 +22,7 @@
   --card-bg      : #ffffff;
   --card-border  : rgba(0, 0, 0, 0.4);
   --card-shadow  : 0 6px 18px rgba(30,58,95,0.10);
-  --topbar-bg    : #64003b;
+  --topbar-bg    : #500030;
   --topbar-border: rgba(255,255,255,0.08);
   --glass-blur   : blur(14px);
   --footer-bg    : #001227;
@@ -113,7 +113,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .topbar-brand small {
   display: block; font-family: var(--font-body);
-  font-size: 14px; font-weight: 600; color: #dfe9ff; opacity: 1;
+  font-size: 14px; font-weight: 600; color: var(--page-bg); opacity: 1;
 }
 /* ================================================================
    TOPBAR DESKTOP NAV — dropdown menus
@@ -129,7 +129,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .topbar-nav .nav-link {
   font-family: var(--font-heading); font-size: 18px; font-weight: 600;
-  color: #dfe9ff; padding: 0 48px; height: 100%;
+  color: var(--page-bg); padding: 0 48px; height: 100%;
   display: flex; align-items: center;
   text-decoration: none; border-bottom: 2px solid transparent;
   white-space: nowrap;
