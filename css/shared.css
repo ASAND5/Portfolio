@@ -412,6 +412,8 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   box-shadow: var(--card-shadow);
   border-radius: var(--r-lg);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .award-img-wrap {
   width: 100%; height: 350px; flex-shrink: 0; overflow: hidden;
