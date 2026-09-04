@@ -425,9 +425,9 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .award-name {
   font-family: var(--font-heading); font-size: 30px; font-weight: 700;
-  color: var(--accent); line-height: 1.3; margin: 0 0 6px;
+  color: var(--accent); line-height: 1.3; margin-bottom: 6px;
 }
-.award-year { font-size: 18px; color: var(--page-text); opacity: 0.6; }
+.award-year      { font-size: 18px; color: var(--page-text); opacity: 0.75; }
 .award-card.extra         { display: none; }
 .award-card.extra.visible { display: flex; }
 
