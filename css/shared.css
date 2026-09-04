@@ -402,15 +402,19 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 
 .awards-preview-grid {
-  display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-bottom: 4px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 .award-card {
-  display: flex; flex-direction: row; align-items: stretch;
-  background: var(--card-bg); border: 0.4px solid var(--card-border);
-  border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--card-shadow);
+  background: var(--card-bg);
+  border: 0.4px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--r-lg);
+  overflow: hidden;
 }
 .award-img-wrap {
-  width: 250px; flex-shrink: 0; aspect-ratio: 2/3; overflow: hidden;
+  width: 100%; height: 350px; flex-shrink: 0; overflow: hidden;
   background: #ffffff; display: flex; align-items: center; justify-content: center;
 }
 .award-img-wrap img { width: 100%; height: 100%; object-fit: contain; background: #ffffff; }
@@ -420,7 +424,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   display: flex; flex-direction: column; justify-content: center;
 }
 .award-name {
-  font-family: var(--font-heading); font-size: 18px; font-weight: 700;
+  font-family: var(--font-heading); font-size: 30px; font-weight: 700;
   color: var(--accent); line-height: 1.3; margin: 0 0 6px;
 }
 .award-year { font-size: 18px; color: var(--page-text); opacity: 0.6; }
@@ -440,6 +444,56 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   border-radius: var(--r-lg); padding: 26px 28px; box-shadow: var(--card-shadow);
 }
 .contact-preview p { font-size: 18px; color: var(--page-text); margin-bottom: 14px; }
+
+/* ================================================================
+   SEMINARS & WEBINARS — poster cards (Professional page)
+   ================================================================ */
+.webinar-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.webinar-card {
+  background: var(--card-bg);
+  border: 0.4px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.webinar-card.extra         { display: none; }
+.webinar-card.extra.visible { display: block; }
+
+.webinar-poster {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: #ffffff;       /* letterbox fill — matches your award-img-wrap convention */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 0.4px solid var(--card-border);
+}
+.webinar-poster img {
+  width: 100%; height: 100%;
+  object-fit: contain;        /* shows the whole poster, no cropping — whitespace fills gaps instead */
+  display: block;
+}
+.webinar-poster .award-pdf {
+  width: 100%; height: 100%; border: none; background: #ffffff; display: block;
+}
+
+.webinar-info { padding: 18px 20px; }
+.webinar-title {
+  font-family: var(--font-heading); font-size: 24px; font-weight: 700;
+  color: var(--accent); line-height: 1.3; margin-bottom: 6px;
+}
+.webinar-year      { font-size: 18px; color: var(--page-text); opacity: 0.75; }
+.webinar-institute { font-size: 18px; color: var(--page-text); opacity: 0.75; }
+
+@media (max-width: 768px) {
+  .webinar-grid { grid-template-columns: 1fr; }
+}
+
 
 /* ================================================================
    HERO (index.html)
@@ -1002,55 +1056,6 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .form-success.show { display: block; }
 .form-success p { font-size: 18px; color: #166534; }
-
-/* ================================================================
-   SEMINARS & WEBINARS — poster cards (Professional page)
-   ================================================================ */
-.webinar-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-.webinar-card {
-  background: var(--card-bg);
-  border: 0.4px solid var(--card-border);
-  box-shadow: var(--card-shadow);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-}
-.webinar-card.extra         { display: none; }
-.webinar-card.extra.visible { display: block; }
-
-.webinar-poster {
-  width: 100%;
-  height: 450px;
-  overflow: hidden;
-  background: #ffffff;       /* letterbox fill — matches your award-img-wrap convention */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 0.4px solid var(--card-border);
-}
-.webinar-poster img {
-  width: 100%; height: 100%;
-  object-fit: contain;        /* shows the whole poster, no cropping — whitespace fills gaps instead */
-  display: block;
-}
-.webinar-poster .award-pdf {
-  width: 100%; height: 100%; border: none; background: #ffffff; display: block;
-}
-
-.webinar-info { padding: 18px 20px; }
-.webinar-title {
-  font-family: var(--font-heading); font-size: 30px; font-weight: 700;
-  color: var(--accent); line-height: 1.3; margin-bottom: 6px;
-}
-.webinar-year      { font-size: 18px; color: var(--page-text); opacity: 0.75; }
-.webinar-institute { font-size: 18px; color: var(--page-text); opacity: 0.75; }
-
-@media (max-width: 768px) {
-  .webinar-grid { grid-template-columns: 1fr; }
-}
 
 /* ================================================================
    FOOTER
