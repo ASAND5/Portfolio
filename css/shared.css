@@ -174,7 +174,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   display: flex; flex-direction: column; gap: 5px; border-radius: var(--r-sm);
 }
 .hamburger span { display: block; width: 24px; height: 2px; background: #ffffff; border-radius: 2px; }
-.hamburger:hover { background: var(--accent-light); }
+.hamburger:hover { color: var(--accent); background: var(--accent-light); }
 
 /* ================================================================
    SIDE NAVIGATION
