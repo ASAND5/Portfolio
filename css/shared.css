@@ -448,6 +448,44 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .contact-preview p { font-size: 18px; color: var(--page-text); margin-bottom: 14px; }
 
 /* ================================================================
+   SKILLS & TOOLS — two equal-height cards side by side
+   ================================================================ */
+.skills-tools-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch; /* forces both cards to match the tallest one */
+}
+.skills-tools-card {
+  background: var(--card-bg);
+  border-radius: var(--r-lg);
+  padding: 24px 26px;
+  box-shadow: var(--card-shadow);
+}
+.skills-tools-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.skills-tools-list {
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.skills-tools-list li {
+  font-size: 18px;
+  color: var(--page-text);
+  line-height: 1.8;
+}
+
+@media (max-width: 700px) {
+  .skills-tools-grid { grid-template-columns: 1fr; }
+}
+
+/* ================================================================
    SEMINARS & WEBINARS — poster cards (Professional page)
    ================================================================ */
 .webinar-grid {
