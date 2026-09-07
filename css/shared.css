@@ -474,11 +474,14 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding-left: 24px;
 }
 .skills-tools-list li {
   font-size: 18px;
   color: var(--page-text);
   line-height: 1.8;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 @media (max-width: 700px) {
