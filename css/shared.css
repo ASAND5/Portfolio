@@ -397,7 +397,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   border-radius: var(--r-lg); padding: 28px 32px; box-shadow: var(--card-shadow);
 }
 .intro-punchline {
-  font-family: var(--font-heading); font-size: 28px; font-weight: 700;
+  font-family: var(--font-heading); font-size: 30px; font-weight: 700;
   color: var(--accent); margin-bottom: 14px;
 }
 
