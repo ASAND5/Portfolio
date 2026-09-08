@@ -432,6 +432,10 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .award-year      { font-size: 18px; color: var(--page-text); opacity: 0.75; }
 .award-card.extra         { display: none; }
 .award-card.extra.visible { display: flex; }
+.awards-preview-grid {
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 16px;
+  margin-bottom: 20px; /* was 4px — more breathing room before Explore more */
+}
 
 .lens-preview {
   background: var(--card-bg); border: 0.4px solid var(--card-border);
@@ -617,6 +621,9 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   width: 100%;
   margin-top: 8px;
   padding-top: 8px;
+}
+.cert-list {
+  margin-bottom: 28px; /* space after the certificate list before Award cards begin */
 }
 
 /* ================================================================
