@@ -60,6 +60,31 @@ document.querySelectorAll('.sidenav-nav a').forEach(link => {
   if (link.getAttribute('href') === path) link.classList.add('active');
 });
 
+/* ─── LIVE EMBED AUTO-REFRESH — Life Through My Lens only ─────
+   Reloads just the iframe content, not the whole page, so
+   Sudoku/Chess elsewhere on this page stay untouched.
+   HOW TO EDIT: change REFRESH_MINUTES below.
+   ═══════════════════════════════════════════════════════════ */
+(function () {
+  const frame = document.getElementById('liveEmbedFrame');
+  const label = document.getElementById('liveEmbedUpdated');
+  if (!frame) return; // only runs on pages that have this embed
+
+  const REFRESH_MINUTES = 11; // EDIT: 10-15 as you like
+  const REFRESH_MS = REFRESH_MINUTES * 60 * 1000;
+
+  function refreshEmbed() {
+    const src = frame.getAttribute('src');
+    frame.setAttribute('src', src); // reloads just the iframe
+    if (label) {
+      const now = new Date();
+      label.textContent = 'Updated ' + now.toLocaleTimeString([], { minute: '2-digit' });
+    }
+  }
+
+  setInterval(refreshEmbed, REFRESH_MS);
+})();
+
 /* ─── LOAD MORE (generic) ─────────────────────────────────── */
 /*
   Call setupLoadMore(buttonId, 'selector-for-hidden-items')
