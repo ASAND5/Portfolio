@@ -630,6 +630,38 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 
 /* ================================================================
+   LIVE PAGE EMBED (Life Through My Lens — between Books and Chess)
+   ================================================================ */
+.live-embed-wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.live-embed-frame-box {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+.live-embed-frame-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+.live-embed-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.live-embed-updated {
+  font-size: 18px;
+  color: var(--page-text);
+  opacity: 0.55;
+}
+
+/* ================================================================
    GALLERY (life-through-my-lens)
    ================================================================ */
 .gallery-grid {
