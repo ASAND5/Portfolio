@@ -60,29 +60,59 @@ document.querySelectorAll('.sidenav-nav a').forEach(link => {
   if (link.getAttribute('href') === path) link.classList.add('active');
 });
 
-/* ─── LIVE EMBED AUTO-REFRESH — Life Through My Lens only ─────
-   Reloads just the iframe content, not the whole page, so
-   Sudoku/Chess elsewhere on this page stay untouched.
-   HOW TO EDIT: change REFRESH_MINUTES below.
+/* ─── LETTERBOXD RSS FEED — auto-refreshes every 10-15 min ────
+   Fetches your Letterboxd RSS feed via a free public proxy
+   (RSS feeds can't be fetched directly from browser JS due to
+   CORS). HOW TO EDIT: change RSS_URL or REFRESH_MINUTES below.
    ═══════════════════════════════════════════════════════════ */
 (function () {
-  const frame = document.getElementById('liveEmbedFrame');
+  const container = document.getElementById('letterboxdFeed');
   const label = document.getElementById('liveEmbedUpdated');
-  if (!frame) return; // only runs on pages that have this embed
+  if (!container) return; // only runs on pages with this section
 
-  const REFRESH_MINUTES = 11; // EDIT: 10-15 as you like
-  const REFRESH_MS = REFRESH_MINUTES * 60 * 1000;
+  const RSS_URL = 'https://letterboxd.com/bored_man_ab/rss/';
+  const PROXY_URL = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(RSS_URL);
+  const REFRESH_MINUTES = 12; // EDIT: 10-15 as you like
+  const MAX_ENTRIES = 5;      // EDIT: how many recent entries to show
 
-  function refreshEmbed() {
-    const src = frame.getAttribute('src');
-    frame.setAttribute('src', src); // reloads just the iframe
-    if (label) {
-      const now = new Date();
-      label.textContent = 'Updated ' + now.toLocaleTimeString([], { minute: '2-digit' });
+  async function loadFeed() {
+    try {
+      const res = await fetch(PROXY_URL);
+      const data = await res.json();
+
+      if (!data.items || data.items.length === 0) {
+        container.innerHTML = '<div class="live-embed-loading">No recent activity yet.</div>';
+        return;
+      }
+
+      container.innerHTML = data.items.slice(0, MAX_ENTRIES).map(item => {
+        const date = new Date(item.pubDate).toLocaleDateString([], { month: 'short', day: 'numeric' });
+        // Letterboxd includes a poster image in the description HTML — extract it
+        const imgMatch = item.description.match(/<img[^>]+src="([^">]+)"/);
+        const posterSrc = imgMatch ? imgMatch[1] : '';
+
+        return `
+          <div class="lb-entry">
+            ${posterSrc ? `<img class="lb-entry-poster" src="${posterSrc}" alt="" loading="lazy" />` : ''}
+            <div>
+              <div class="lb-entry-title"><a href="${item.link}" target="_blank">${item.title}</a></div>
+              <div class="lb-entry-date">${date}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      if (label) {
+        const now = new Date();
+        label.textContent = 'Updated ' + now.toLocaleTimeString([], { minute: '2-digit' }) + ' minutes ago';
+      }
+    } catch (err) {
+      container.innerHTML = '<div class="live-embed-loading">Could not load activity right now.</div>';
     }
   }
 
-  setInterval(refreshEmbed, REFRESH_MS);
+  loadFeed(); // initial load
+  setInterval(loadFeed, REFRESH_MINUTES * 60 * 1000);
 })();
 
 /* ─── LOAD MORE (generic) ─────────────────────────────────── */
