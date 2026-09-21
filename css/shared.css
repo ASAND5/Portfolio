@@ -1230,7 +1230,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   line-height: 1.7; margin-bottom: 20px;
   padding-left: 14px; border-left: 2px solid rgba(255,255,255,0.12);
 }
-.footer-interests-label { font-size: 22px; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 500; color: var(--footer-text); margin-bottom: 20px; }
+.footer-interests-label { font-size: 24px; text-transform: uppercase; letter-spacing: 0.20em; font-weight: 500; color: var(--footer-text); margin-bottom: 20px; }
 .footer-tags   { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
 .footer-tag    { font-size: 14px; padding: 4px 11px; border-radius: 20px; background: rgba(255,255,255,0.06); border: 0.4px solid rgba(255,255,255,0.10); color: rgba(255,255,255,0.45); }
 .footer-location { font-size: 18px; color: var(--footer-text); display: flex; align-items: center; gap: 6px; }
