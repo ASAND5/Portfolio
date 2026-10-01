@@ -1283,8 +1283,8 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 /* Pages */
 .site-footer .footer-pages-label {
-  font-size: var(--fs-md); font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.12em;
+  font-size: var(--fs-xl); font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.16em;
   padding-bottom: 14px; margin-bottom: 24px; border-bottom: 2px solid var(--footer-line);
 }
 .site-footer .footer-page-links {
@@ -1294,7 +1294,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 .site-footer .footer-page-links .nav-group-label {
   display: block; font-size: var(--fs-md); font-weight: 600; opacity: 1;
-  text-transform: uppercase; letter-spacing: 0.08em;
+  text-transform: none; letter-spacing: 0em;
   margin-top: 16px; pointer-events: none;
 }
 .site-footer .footer-page-links .nav-group-label:first-child { margin-top: 0; }
@@ -1304,7 +1304,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   display: flex; align-items: center; gap: 7px;
   font-size: var(--fs-md); font-weight: 400;
 }
-.site-footer .footer-page-links .nav-home-link { font-weight: 600; letter-spacing: 0.08em; }
+.site-footer .footer-page-links .nav-home-link { font-weight: 600; letter-spacing: 0em; }
 .site-footer .footer-page-links .nav-sub-link  { padding-left: 14px; }
 
 .site-footer .footer-page-links .nav-home-link:hover,
