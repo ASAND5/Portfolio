@@ -228,89 +228,106 @@
 <footer class="site-footer">
 
   <!-- Back to top button -->
-  <a class="back-to-top" href="#" title="Back to top">&#8679;</a>
+  <a class="back-to-top" href="#" title="Back to top" aria-label="Back to top">&#8679;</a>
 
   <div class="footer-body">
 
-    <!-- LEFT: photo + name + socials -->
-    <div class="footer-left">
-      <div class="footer-avatar">
-        <img src="images/26-May (13).jpg" alt="Abrar" />
+    <!-- 1. TOP ROW: avatar + name, then socials -->
+    <div class="footer-top">
+      <div class="footer-id">
+        <div class="footer-avatar">
+          <img src="images/26-May (13).jpg" alt="Abrar" />
+        </div>
+        <div class="footer-name">Md Abrar Hasin Parash</div>
       </div>
-      <div class="footer-name">Md Abrar Hasin Parash</div>
+
+      <!-- To add a social, copy one <a> line. Up to 6 fit. Width adjusts automatically. -->
       <div class="footer-socials">
-        <!--  <a class="footer-social" href="https://www.linkedin.com/in/abrar-hasin-parash-md/" target="_blank" title="LinkedIn">
-      <i class="fa-brands fa-linkedin" style="font-size:28px;color:#0a66c2;"></i> LinkedIn
-    </a>-->
-        <a class="footer-social" href="https://www.instagram.com/bored_beard_" target="_blank" title="Insta">
-      <i class="fab fa-instagram" style="font-size:28px; color:#E1306C;"></i> Insta
-    </a>
-        <a class="footer-social" href="https://scholar.google.com/citations?user=Wed5szQAAAAJ&hl=en" target="_blank">
-          <i class="fa-brands fa-google-scholar" style="font-size:24px;color:#4285f4;"></i> Google Scholar
+        <a class="footer-social" href="https://www.instagram.com/bored_beard_" target="_blank" rel="noopener" title="Instagram">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i><span>Insta</span>
         </a>
-        <a class="footer-social" href="https://www.researchgate.net/profile/Abrar-Hasin-Parash-Md" target="_blank">
-          <i class="fa-brands fa-researchgate" style="font-size:28px;color:#40ba9b;"></i> ResearchGate
+        <a class="footer-social" href="https://scholar.google.com/citations?user=Wed5szQAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar">
+          <i class="fa-brands fa-google-scholar" aria-hidden="true"></i><span>Google Scholar</span>
         </a>
-        <a class="footer-social" href="https://medium.com/@abrarparash" target="_blank">
-  <i class="fa-brands fa-medium" style="font-size:21px; color:#000000;"></i> Medium
-</a>
+        <a class="footer-social" href="https://www.researchgate.net/profile/Abrar-Hasin-Parash-Md" target="_blank" rel="noopener" title="ResearchGate">
+          <i class="fa-brands fa-researchgate" aria-hidden="true"></i><span>ResearchGate</span>
+        </a>
+        <a class="footer-social" href="https://medium.com/@abrarparash" target="_blank" rel="noopener" title="Medium">
+          <i class="fa-brands fa-medium" aria-hidden="true"></i><span>Medium</span>
+        </a>
+        <!--
+        <a class="footer-social" href="https://www.linkedin.com/in/abrar-hasin-parash-md/" target="_blank" rel="noopener" title="LinkedIn">
+          <i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span>
+        </a>
+        -->
       </div>
     </div>
 
-    <!-- MIDDLE: symbolic quote + research interests -->
-    <div class="footer-middle">
-      <div class="footer-quote">
-        <!-- EDIT: Change to your own quote or motto -->
-        "To ensure a sustainable environment for all."
-      </div>
-      <div class="footer-interests-label">Research Interests</div>
-      <div class="footer-tags">
-        <!-- EDIT: Add or remove your research interest tags -->
-        <span class="footer-tag">Environmental Compliance</span>
+    <!-- 2. QUOTE (full width) -->
+    <div class="footer-quote">
+      <!-- EDIT: change to your own quote or motto -->
+      "To ensure a sustainable environment for all."
+    </div>
+
+    <!-- 3. MIDDLE: research interests (left) + pages (right, 2 columns) -->
+    <div class="footer-mid">
+
+      <div class="footer-left">
+        <div class="footer-interests-label">Research Interests</div>
+        <div class="footer-tags">
+          <!-- EDIT: add or remove tags -->
+          <span class="footer-tag">Environmental Compliance</span>
           <span class="footer-tag">Consulting</span>
           <span class="footer-tag">ESG &amp; CSR</span>
           <span class="footer-tag">Data Analysis</span>
           <span class="footer-tag">Machine Learning</span>
           <span class="footer-tag">Sustainability</span>
+        </div>
+        <div class="footer-location">
+          <!-- EDIT: your location -->
+          Dhaka, Bangladesh
+        </div>
       </div>
-      <div class="footer-location">
-        <!-- EDIT: Your location -->
-        Dhaka, Bangladesh
+
+      <div class="footer-right">
+        <div class="footer-pages-label">Pages</div>
+        <div class="footer-page-links">
+
+          <!-- Column 1 -->
+          <div class="footer-links-col">
+            <a href="index.html" class="nav-home-link">PORTFOLIO</a>
+
+            <span class="nav-group-label">Academics</span>
+            <a href="research-articles.html" class="nav-sub-link">Research and Articles</a>
+            <a href="academic-results.html" class="nav-sub-link">Academic Results</a>
+            <a href="cocurricular-activities.html" class="nav-sub-link">Co-curricular Activities</a>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="footer-links-col">
+            <span class="nav-group-label">Professional</span>
+            <a href="professional-leadership.html" class="nav-sub-link">Professional and Leadership</a>
+            <a href="mentoring-experience.html" class="nav-sub-link">Mentoring Experience</a>
+
+            <span class="nav-group-label">About</span>
+            <a href="awards-certificates.html" class="nav-sub-link">Awards and Certificates</a>
+            <a href="contact.html" class="nav-sub-link">Contact</a>
+          </div>
+
+        </div>
       </div>
+
     </div>
-
-    <!-- RIGHT: page links -->
-    <div class="footer-right">
-      <div class="footer-pages-label">Pages</div>
-      <div class="footer-page-links">
-  <a href="index.html" class="nav-home-link">PORTFOLIO</a>
-
-  <span class="nav-group-label">Academics</span>
-  <a href="research-articles.html" class="nav-sub-link">Research and Articles</a>
-  <a href="academic-results.html" class="nav-sub-link">Academic Results</a>
-  <a href="cocurricular-activities.html" class="nav-sub-link">Co-curricular Activities</a>
-
-  <span class="nav-group-label">Professional</span>
-  <a href="professional-leadership.html" class="nav-sub-link">Professional and Leadership</a>
-  <a href="mentoring-experience.html" class="nav-sub-link">Mentoring Experience</a>
-
-  <span class="nav-group-label">About</span>
-  <a href="awards-certificates.html" class="nav-sub-link">Awards and Certificates</a>
-  <a href="contact.html" class="nav-sub-link">Contact</a>
-</div>
-    </div>
-
   </div>
 
-  <!-- Bottom bar -->
+  <!-- 4. BOTTOM BAR -->
   <div class="footer-bottom">
     <span>&copy; 2026 Md Abrar Hasin Parash. All rights reserved.</span>
-    <span class="footer-bottom-dot">•</span>
+    <span class="footer-bottom-dot">&bull;</span>
     <span>The copyright of the contents of this page belongs to the respective owners.</span>
   </div>
 
 </footer>
-
 <script src="js/shared.js"></script>
 <script>
   document.getElementById('loadMoreAwardsBtn')?.addEventListener('click', function() {
