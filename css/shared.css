@@ -1176,7 +1176,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .site-footer {
   /* local tokens: this block works without touching :root.
      (If you prefer, update the same values in :root and delete these.) */
-  --footer-bg:      #775577;
+  --footer-bg:      #555577;
   --footer-text:    #ffffff;
   --footer-heading: #ffffff;
   --footer-border:  rgba(255,255,255,0.30);   /* bottom divider */
@@ -1184,9 +1184,9 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   --footer-soft:    rgba(255,255,255,0.12);   /* pill fill */
   --footer-accent:  #ffffff;                  /* top strip + back-to-top circle */
 
-  --fs-xl: 28px;
-  --fs-md: 20px;
-  --fs-sm: 16px;
+  --fs-xl: 38px;
+  --fs-md: 16px;
+  --fs-sm: 10px;
   --footer-max-w: 1440px;                     /* wider than the page container */
 
   background: var(--footer-bg);
