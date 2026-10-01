@@ -16,10 +16,10 @@
 :root {
   --accent       : #002447;
   --accent-light : #4C657E;
-  --page-bg      : #dadfea;
+  --page-bg      : #deefff;
   --page-text    : #001b38;
   --nav-accent   : #002447;
-  --card-bg      : #f0faff;
+  --card-bg      : #fafefa;
   --card-border  : rgba(91,18,69,0.28);
   --card-shadow  : 0 6px 18px rgba(91,18,69,0.10);
   --topbar-bg    : #002447;
@@ -105,7 +105,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .topbar-brand {
   font-family: var(--font-heading); font-size: 18px; font-weight: 700;
-  color: #dadfea; letter-spacing: -0.01em; line-height: 1.2;
+  color: #deefff; letter-spacing: -0.01em; line-height: 1.2;
 }
 .topbar-brand small {
   display: block; font-family: var(--font-body);
@@ -131,7 +131,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   white-space: nowrap;
 }
 .topbar-nav .nav-link:hover {
-  background: #dadfea;
+  background: #deefff;
   color: var(--accent);
   border-bottom-color: transparent;
 }
@@ -149,13 +149,13 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .topbar-nav .dropdown a {
   display: block; padding: 13px 20px;
   font-family: var(--font-heading); font-size: 14px; font-weight: 400;
-  color: #dadfea; opacity: 0.85;
+  color: #deefff; opacity: 0.85;
   text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.10);
   text-underline-offset: 3px;
 }
 .topbar-nav .dropdown a:last-child { border-bottom: none; }
 .topbar-nav .dropdown a:hover {
-  background: #dadfea;
+  background: #deefff;
   color: var(--accent);
   opacity: 1;
   text-decoration: none;
@@ -185,7 +185,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .sidenav-overlay.active { opacity: 1; visibility: visible; }
 .sidenav {
   position: fixed; top: 0; left: -290px;
-  width: 272px; height: 100%; background: #ffffff; z-index: 1100;
+  width: 272px; height: 100%; background: #fafefa; z-index: 1100;
   display: flex; flex-direction: column;
   box-shadow: 4px 0 26px rgba(0,0,0,0.18);
 }
@@ -1267,7 +1267,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .site-footer .footer-right { flex: 1.5 1 480px; min-width: 0; }
 
 .site-footer .footer-interests-label {
-  font-size: var(--fs-xl); font-weight: 500; line-height: 1.2;
+  font-size: 28px; font-weight: 500; line-height: 1.2;
   text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 24px;
 }
 .site-footer .footer-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
@@ -1279,7 +1279,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 /* Pages */
 .site-footer .footer-pages-label {
-  font-size: var(--fs-xl); font-weight: 500;
+  font-size: 28px; font-weight: 500;
   text-transform: uppercase; letter-spacing: 0.16em;
   padding-bottom: 14px; margin-bottom: 24px; border-bottom: 2px solid var(--footer-line);
 }
