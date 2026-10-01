@@ -14,21 +14,17 @@
 
 /* ── CSS VARIABLES ────────────────────────────────────────────── */
 :root {
-  --accent       : #500030;
-  --accent-light : #ffffff;
-  --page-bg      : #e8e0ef; /* e6f0f7 */
+  --accent       : #7B3750;
+  --accent-light : #F6DCEA;
+  --page-bg      : #ffffff;
   --page-text    : #38001b;
-  --nav-accent   : #64003b;
-  --card-bg      : #fffcf9;
-  --card-border  : rgba(0, 0, 0, 0.4);
-  --card-shadow  : 0 6px 18px rgba(30,58,95,0.10);
-  --topbar-bg    : #500030;
-  --topbar-border: rgba(255,255,255,0.08);
+  --nav-accent   : #67232C;
+  --card-bg      : #FDEEF9;
+  --card-border  : rgba(91,18,69,0.28);
+  --card-shadow  : 0 6px 18px rgba(91,18,69,0.10);
+  --topbar-bg    : #7B3750;
+  --topbar-border: #7B3750;
   --glass-blur   : blur(14px);
-  --footer-bg    : #001227;
-  --footer-text  : #dfe9ff;
-  --footer-heading: #dfe9ff;
-  --footer-border: rgba(255,255,255,0.07);
   --font-heading : 'Jost', sans-serif;
   --font-body    : 'Jost', sans-serif;
   --font-bangla  : 'Jost', sans-serif;
@@ -135,7 +131,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   white-space: nowrap;
 }
 .topbar-nav .nav-link:hover {
-  background: #e8e0ef;
+  background: #ffffff;
   color: var(--accent);
   border-bottom-color: transparent;
 }
@@ -159,7 +155,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .topbar-nav .dropdown a:last-child { border-bottom: none; }
 .topbar-nav .dropdown a:hover {
-  background: #e8e0ef;
+  background: #ffffff;
   color: var(--accent);
   opacity: 1;
   text-decoration: none;
