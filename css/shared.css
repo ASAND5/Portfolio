@@ -14,16 +14,16 @@
 
 /* ── CSS VARIABLES ────────────────────────────────────────────── */
 :root {
-  --accent       : #002447;
+  --accent       : #3e82d3;
   --accent-light : #4C657E;
   --page-bg      : #deefff;
   --page-text    : #001b38;
-  --nav-accent   : #002447;
+  --nav-accent   : #3e82d3;
   --card-bg      : #fafefa;
   --card-border  : rgba(91,18,69,0.28);
   --card-shadow  : 0 6px 18px rgba(91,18,69,0.10);
-  --topbar-bg    : #002447;
-  --topbar-border: #002447;
+  --topbar-bg    : #3e82d3;
+  --topbar-border: #3e82d3;
   --glass-blur   : blur(14px);
   --font-heading : 'Jost', sans-serif;
   --font-body    : 'Jost', sans-serif;
