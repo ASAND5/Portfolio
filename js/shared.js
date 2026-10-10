@@ -115,6 +115,20 @@ document.querySelectorAll('.sidenav-nav a').forEach(link => {
   setInterval(loadFeed, REFRESH_MINUTES * 60 * 1000);
 })();
 
+/* ─── 2 seperate course tables ─────────────────────────────────── */
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.course-split .collapse-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var panel = document.getElementById(btn.dataset.target);
+        var isOpen = panel.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen);
+        btn.querySelector('.toggle-label').textContent = isOpen ? 'Hide courses' : 'Show courses';
+      });
+    });
+  });
+</script>
+
 /* ─── LOAD MORE (generic) ─────────────────────────────────── */
 /*
   Call setupLoadMore(buttonId, 'selector-for-hidden-items')
