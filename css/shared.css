@@ -715,25 +715,79 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   padding: 3px 9px; border-radius: 12px;
   background: #d5ebc8; color: #166534; border: 0.4px solid #86efac;
 }
-.course-code {
-  font-family: 'Courier New', monospace; font-weight: 700; font-size: 14px;
-  color: var(--page-text); background: var(--page-bg); padding: 2px 8px; border-radius: 4px;
+/* ═══════════════════════════════════════════════════
+   RELEVANT COURSES — SPLIT LAYOUT (Bio/Chem | Earth/Env)
+   Additive only: nothing existing is overridden.
+   ═══════════════════════════════════════════════════ */
+
+/* Two columns, side by side */
+.course-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: start;           /* each column opens/closes independently */
 }
 
-.collapse-toggle {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--accent); border: 0.4px solid var(--accent);
-  border-radius: 30px; padding: 10px 22px;
-  font-family: var(--font-body); font-size: 18px; font-weight: 600;
-  color: #ffffff; cursor: pointer; box-shadow: var(--card-shadow);
+/* One column = title + toggle + collapsible table */
+.course-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;                 /* lets the table shrink inside the grid cell */
 }
-.collapse-toggle:hover {
-  background: var(--page-bg);
-  color: var(--accent);
+
+.course-col-title {
+  margin: 0 0 14px;
+  padding-left: 18px;
+  box-shadow: inset 4px 0 0 var(--accent);   /* accent bar without a border */
+  font-family: var(--font-body);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--page-text);
 }
-.chevron { font-size: 14px; }
-.collapse-panel         { max-height: 0; overflow: hidden; }
-.collapse-panel.open    { max-height: 4000px; margin-top: 18px; }
+
+.course-col .collapse-toggle {
+  align-self: flex-start;
+}
+
+/* Chevron flips when its panel is open */
+.course-split .chevron {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+.course-split .collapse-toggle[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+}
+
+.course-split .collapse-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Open panel stops clipping, so the table card's shadow shows.
+   Closed panels still clip (max-height: 0 + overflow: hidden). */
+.course-split .collapse-panel.open {
+  overflow: visible;
+}
+
+/* Side-by-side only (above 720px): tighter table so half-width columns fit */
+@media (min-width: 721px) {
+  .course-split .result-table th,
+  .course-split .result-table td { padding: 10px; }
+  .course-split .result-table th { font-size: 14px; letter-spacing: 0.02em; }
+}
+
+/* Stack at 720px and below: Bio & Chem on top, Earth & Env below */
+@media (max-width: 720px) {
+  .course-split {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .course-split .chevron { transition: none; }
+}
 
 .fieldwork-entry {
   display: flex; gap: 20px; align-items: flex-start;
