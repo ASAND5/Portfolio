@@ -52,9 +52,9 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    (hero background animation) are allowed to animate — these are
    the two deliberate motion effects on the site, everything else
    stays still */
-*:not(.fade-up):not(.hero-glass-band):not(.reveal-box),
-*:not(.fade-up):not(.hero-glass-band):not(.reveal-box)::before,
-*:not(.fade-up):not(.hero-glass-band):not(.reveal-box)::after {
+*:not(.fade-up):not(.hero-glass-band):not(.reveal-box):not(.chevron),
+*:not(.fade-up):not(.hero-glass-band):not(.reveal-box):not(.chevron)::before,
+*:not(.fade-up):not(.hero-glass-band):not(.reveal-box):not(.chevron)::after {
   animation: none !important; animation-duration: 0s !important;
   transition: none !important;
 }
@@ -719,6 +719,25 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    RELEVANT COURSES — SPLIT LAYOUT (Bio/Chem | Earth/Env)
    Additive only: nothing existing is overridden.
    ═══════════════════════════════════════════════════ */
+.course-code {
+  font-family: 'Courier New', monospace; font-weight: 700; font-size: 14px;
+  color: var(--page-text); background: var(--page-bg); padding: 2px 8px; border-radius: 4px;
+}
+
+.collapse-toggle {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent); border: 0.4px solid var(--accent);
+  border-radius: 30px; padding: 10px 22px;
+  font-family: var(--font-body); font-size: 18px; font-weight: 600;
+  color: #ffffff; cursor: pointer; box-shadow: var(--card-shadow);
+}
+.collapse-toggle:hover {
+  background: var(--page-bg);
+  color: var(--accent);
+}
+.chevron { font-size: 14px; }
+.collapse-panel         { max-height: 0; overflow: hidden; }
+.collapse-panel.open    { max-height: 4000px; margin-top: 18px; }
 
 /* Two columns, side by side */
 .course-split {
@@ -772,6 +791,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 /* Side-by-side only (above 720px): tighter table so half-width columns fit */
 @media (min-width: 721px) {
+  .course-split .course-col-title { min-height: 2.5em; }
   .course-split .result-table th,
   .course-split .result-table td { padding: 10px; }
   .course-split .result-table th { font-size: 14px; letter-spacing: 0.02em; }
