@@ -171,7 +171,96 @@
     Noteworthy courses completed during the Bachelor of Science program.
   </p>
 
-  <button class="collapse-toggle" id="courseToggleBtn" onclick="toggleCourseTable()">
+  <div class="course-split">
+
+  <!-- ═════════ LEFT — BIOSCIENCE & CHEMISTRY ═════════ -->
+  <div class="course-col">
+    <h3 class="course-col-title">Bioscience &amp; Chemistry</h3>
+
+    <button class="collapse-toggle" type="button"
+            aria-expanded="false" aria-controls="bioChemPanel" data-target="bioChemPanel">
+      <span class="chevron">▼</span>
+      <span class="toggle-label">Show courses</span>
+    </button>
+
+    <div class="collapse-panel" id="bioChemPanel">
+      <div class="result-table-wrap reveal-box">
+        <table class="result-table">
+          <thead>
+            <tr>
+              <th>Course Code</th>
+              <th>Course Name</th>
+              <th>Credit</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!--
+            ═══════════════════════════════════════════════════
+            ROW — COPY THIS BLOCK TO ADD A NEW COURSE
+            EDIT: Course Code, Course Name, Credit, Grade
+            ═══════════════════════════════════════════════════
+            -->
+            <tr>
+              <td><span class="course-code">BIO 101</span></td>
+              <td>Course Name</td>
+              <td>0.00</td>
+              <td><span class="result-grade">A</span></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═════════ RIGHT — EARTH & ENVIRONMENTAL SCIENCE ═════════ -->
+  <div class="course-col">
+    <h3 class="course-col-title">Earth &amp; Environmental Science</h3>
+
+    <button class="collapse-toggle" type="button"
+            aria-expanded="false" aria-controls="earthEnvPanel" data-target="earthEnvPanel">
+      <span class="chevron">▼</span>
+      <span class="toggle-label">Show courses</span>
+    </button>
+
+    <div class="collapse-panel" id="earthEnvPanel">
+      <div class="result-table-wrap reveal-box">
+        <table class="result-table">
+          <thead>
+            <tr>
+              <th>Course Code</th>
+              <th>Course Name</th>
+              <th>Credit</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!--
+            ═══════════════════════════════════════════════════
+            ROW — COPY THIS BLOCK TO ADD A NEW COURSE
+            EDIT: Course Code, Course Name, Credit, Grade
+            ═══════════════════════════════════════════════════
+            -->
+            <tr>
+              <td><span class="course-code">SWE 101</span></td>
+              <td>Introduction to Soil-I</td>
+              <td>2.00</td>
+              <td><span class="result-grade">A-</span></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+  <!-- button class="collapse-toggle" id="courseToggleBtn" onclick="toggleCourseTable()">
     <span id="courseToggleText">View the courses</span>
     <span class="chevron">▾</span>
   </button>
@@ -334,7 +423,7 @@
     </table>
   </div>
   </div>
-</section>
+</section -->
 
     <!-- ══════════════════════════════════════════════════════
      FIELD WORKS SECTION
