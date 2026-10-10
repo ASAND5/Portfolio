@@ -720,7 +720,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    Additive only: nothing existing is overridden.
    ═══════════════════════════════════════════════════ */
 .course-code {
-  font-family: 'Courier New', monospace; font-weight: 700; font-size: 14px;
+  font-family: 'Courier New', monospace; font-weight: 700; font-size: 12px;
   color: var(--page-text); background: var(--page-bg); padding: 2px 8px; border-radius: 4px;
 }
 
@@ -729,7 +729,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   background: var(--accent); border: 0.4px solid var(--accent);
   border-radius: 30px; padding: 10px 22px;
   font-family: var(--font-body); font-size: 18px; font-weight: 600;
-  color: #ffffff; cursor: pointer; box-shadow: var(--card-shadow);
+  color: var(--page-bg); cursor: pointer; box-shadow: var(--card-shadow);
 }
 .collapse-toggle:hover {
   background: var(--page-bg);
@@ -762,7 +762,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   font-size: 22px;
   font-weight: 700;
   line-height: 1.25;
-  color: var(--page-text);
+  color: var(--accent);
 }
 
 .course-col .collapse-toggle {
@@ -793,8 +793,8 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 @media (min-width: 721px) {
   .course-split .course-col-title { min-height: 2.5em; }
   .course-split .result-table th,
-  .course-split .result-table td { padding: 10px; }
-  .course-split .result-table th { font-size: 14px; letter-spacing: 0.02em; }
+  .course-split .result-table td { padding: 8px 8px; }
+  .course-split .result-table th { font-size: 12px; letter-spacing: 0.02em; }
 }
 
 /* Stack at 720px and below: Bio & Chem on top, Earth & Env below */
