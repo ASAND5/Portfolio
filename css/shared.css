@@ -795,6 +795,14 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   .course-split .result-table th,
   .course-split .result-table td { padding: 8px 8px; }
   .course-split .result-table th { font-size: 12px; letter-spacing: 0.02em; }
+
+  /* Equal, fixed column widths in both tables */
+  .course-split .result-table { table-layout: fixed; }
+  .course-split .result-table th:nth-child(1) { width: 26%; }  /* Course Code */
+  .course-split .result-table th:nth-child(2) { width: 42%; }  /* Course Name */
+  .course-split .result-table th:nth-child(3) { width: 16%; }  /* Credit */
+  .course-split .result-table th:nth-child(4) { width: 16%; }  /* Result */
+  .course-split .course-code { white-space: nowrap; }          /* keeps "SWE 102" on one line */
 }
 
 /* Stack at 720px and below: Bio & Chem on top, Earth & Env below */
