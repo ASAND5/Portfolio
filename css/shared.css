@@ -14,16 +14,19 @@
 
 /* ── CSS VARIABLES ────────────────────────────────────────────── */
 :root {
-  --accent       : #3e82d3;
-  --accent-light : #ffffff;
-  --page-bg      : #deefff;
-  --page-text    : #001b38;
-  --nav-accent   : #3e82d3;
-  --card-bg      : #f0fbff;
-  --card-border  : rgba(91,18,69,0.28);
-  --card-shadow  : 0 6px 18px rgba(91,18,69,0.10);
-  --topbar-bg    : #3e82d3;
-  --topbar-border: #3e82d3;
+  --shade-dark   : #301500;
+  --shade-light  : #fffff9;
+   
+  --accent       : var(--shade-dark);
+  --accent-light : var(--shade-light);
+  --page-bg      : var(--shade-light);
+  --page-text    : var(--shade-dark);
+  --nav-accent   : var(--shade-dark);
+  --card-bg      : var(--shade-light);
+  --card-border  : transparent;
+  --card-shadow  : none;
+  --topbar-bg    : var(--shade-light);
+  --topbar-border: var(--shade-light);
   --glass-blur   : blur(14px);
   --font-heading : 'Jost', sans-serif;
   --font-body    : 'Jost', sans-serif;
@@ -93,24 +96,24 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 
 /* ================================================================
-   TOPBAR — the ONE glass element
+   TOPBAR — same color as page, dark text, dark hover
    ================================================================ */
 .topbar {
   position: fixed; top: 0; left: 0; right: 0;
   height: var(--topbar-h);
   background: var(--topbar-bg);
-  border-bottom: 1px solid var(--topbar-border);
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 var(--pad); z-index: 900;
 }
 .topbar-brand {
   font-family: var(--font-heading); font-size: 18px; font-weight: 700;
-  color: #deefff; letter-spacing: -0.01em; line-height: 1.2;
+  color: var(--shade-dark); letter-spacing: -0.01em; line-height: 1.2;
 }
 .topbar-brand small {
   display: block; font-family: var(--font-body);
-  font-size: 14px; font-weight: 600; color: var(--page-bg); opacity: 1;
+  font-size: 14px; font-weight: 600; color: var(--shade-dark);
 }
+
 /* ================================================================
    TOPBAR DESKTOP NAV — dropdown menus
    ================================================================ */
@@ -119,101 +122,105 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   height: var(--topbar-h);
   margin-right: 12px; margin-left: auto;
 }
-
 .topbar-nav .nav-item {
   position: relative; display: flex; align-items: center;
 }
 .topbar-nav .nav-link {
   font-family: var(--font-heading); font-size: 18px; font-weight: 600;
-  color: var(--page-bg); padding: 0 48px; height: 100%;
+  color: var(--shade-dark); padding: 0 48px; height: 100%;
   display: flex; align-items: center;
-  text-decoration: none; border-bottom: 2px solid transparent;
-  white-space: nowrap;
+  text-decoration: none; white-space: nowrap;
 }
-.topbar-nav .nav-link:hover {
-  background: #deefff;
-  color: var(--accent);
-  border-bottom-color: transparent;
+/* Hover on the whole item, so the link stays dark while the dropdown is open */
+.topbar-nav .nav-item:hover > .nav-link,
+.topbar-nav .nav-item:focus-within > .nav-link {
+  background: var(--shade-dark);
+  color: var(--shade-light);
 }
 
 /* ── DROPDOWN ─────────────────────────────────────────────────── */
 .topbar-nav .dropdown {
   position: absolute; top: 100%; left: 0;
-  background: var(--accent);
-  border: none; border-radius: 0;
+  background: var(--shade-light);
   min-width: 220px; z-index: 1000;
   display: none;
 }
-.topbar-nav .nav-item:hover .dropdown { display: block; }
+.topbar-nav .nav-item:hover .dropdown,
+.topbar-nav .nav-item:focus-within .dropdown { display: block; }
 
 .topbar-nav .dropdown a {
   display: block; padding: 13px 20px;
   font-family: var(--font-heading); font-size: 14px; font-weight: 400;
-  color: #deefff; opacity: 0.85;
-  text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.10);
-  text-underline-offset: 3px;
-}
-.topbar-nav .dropdown a:last-child { border-bottom: none; }
-.topbar-nav .dropdown a:hover {
-  background: #deefff;
-  color: var(--accent);
-  opacity: 1;
+  color: var(--shade-dark);
   text-decoration: none;
+}
+.topbar-nav .dropdown a:hover,
+.topbar-nav .dropdown a:focus-visible {
+  background: var(--shade-dark);
+  color: var(--shade-light);
 }
 
 /* Hide desktop nav on mobile (hamburger takes over) */
 @media (max-width: 768px) {
   .topbar-nav { display: none; }
 }
+
+/* ── HAMBURGER ────────────────────────────────────────────────── */
 .hamburger {
   background: none; border: none; padding: 8px;
   display: flex; flex-direction: column; gap: 5px; border-radius: var(--r-sm);
 }
-.hamburger span { display: block; width: 24px; height: 2px; background: var(--page-bg); border-radius: 2px; }
-.hamburger:hover { background: var(--page-bg); }
-.hamburger:hover span {
-  background: var(--accent);
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--shade-dark); border-radius: 2px;
 }
+.hamburger:hover { background: var(--shade-dark); }
+.hamburger:hover span { background: var(--shade-light); }
 
 /* ================================================================
    SIDE NAVIGATION
    ================================================================ */
+/* Overlay: dimmed dark tint, so the menu stands out from the page */
 .sidenav-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.45);
+  position: fixed; inset: 0;
+  background: rgba(48,21,0,0.45);                                  /* fallback */
+  background: color-mix(in srgb, var(--shade-dark) 45%, transparent);
   z-index: 1000; opacity: 0; visibility: hidden;
 }
 .sidenav-overlay.active { opacity: 1; visibility: visible; }
+
 .sidenav {
   position: fixed; top: 0; left: -290px;
-  width: 272px; height: 100%; background: #fafefa; z-index: 1100;
+  width: 272px; height: 100%;
+  background: var(--shade-light);
+  z-index: 1100;
   display: flex; flex-direction: column;
-  box-shadow: 4px 0 26px rgba(0,0,0,0.18);
 }
 .sidenav.active { left: 0; }
+
 .sidenav-top {
   height: var(--topbar-h); padding: 0 18px;
   display: flex; align-items: center; justify-content: space-between;
-  border-bottom: 0.4px solid var(--card-border); flex-shrink: 0;
+  flex-shrink: 0;
 }
-.sidenav-logo { font-family: var(--page-text); font-size: 18px; font-weight: 700; color: var(--accent); }
+.sidenav-logo {
+  font-family: var(--font-heading); font-size: 18px; font-weight: 700;
+  color: var(--shade-dark);
+}
 .sidenav-close-btn {
   background: none; border: none; font-size: 18px; line-height: 1;
-  color: var(--page-text); opacity: 0.5; padding: 4px; border-radius: 6px;
+  color: var(--shade-dark); padding: 4px 8px; border-radius: 6px;
 }
-.sidenav-close-btn:hover { background: var(--accent-light); opacity: 1; }
+.sidenav-close-btn:hover { background: var(--shade-dark); color: var(--shade-light); }
+
 .sidenav-nav { flex: 1; overflow-y: auto; padding: 8px 0; }
 .sidenav-nav a {
   display: flex; align-items: center; gap: 11px;
-  padding: 12px 20px; font-family: var(--page-text); font-size: 18px;
-  color: var(--page-text); opacity: 1;
-  border-left: 3px solid transparent;
-}
-.sidenav-nav .nav-sub a:hover {
-  background: none;
-  border-left-color: transparent;
+  padding: 12px 20px; font-family: var(--font-body); font-size: 18px;
+  color: var(--shade-dark);
 }
 .sidenav-socials {
-  padding: 14px 20px; border-top: 0.4px solid var(--card-border);
+  padding: 14px 20px;
   display: flex; gap: 14px; flex-shrink: 0;
 }
 
@@ -224,29 +231,25 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   display: block; padding: 10px 20px 4px;
   font-family: var(--font-heading); font-size: 14px; font-weight: 500;
   text-transform: uppercase; letter-spacing: 0.08em;
-  color: var(--page-text); opacity: 1;
+  color: var(--shade-dark);
   pointer-events: none; user-select: none;
 }
 .sidenav-nav .nav-home a {
   padding: 9px 20px;
   font-family: var(--font-heading); font-size: 14px; font-weight: 500;
-  color: var(--page-text); opacity: 1;
-  border-left: none; display: block;
+  color: var(--shade-dark); display: block;
 }
 .sidenav-nav .nav-sub a {
   padding: 9px 20px 9px 34px;
   font-family: var(--font-heading); font-size: 14px; font-weight: 500;
-  color: var(--page-text); opacity: 1;
-  border-left: none; display: block;
+  color: var(--shade-dark); display: block;
 }
 .sidenav-nav a:hover,
 .sidenav-nav a.active {
-  opacity: 1;
   text-decoration: underline;
-  text-decoration-color: var(--accent);
+  text-decoration-color: var(--shade-dark);
   text-underline-offset: 3px;
   background: none;
-  border-left-color: none;
 }
 
 /* ================================================================
@@ -262,14 +265,14 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .page-title-simple {
   font-family: var(--font-heading); font-size: 40px; font-weight: 700;
   color: var(--accent); margin: 28px 0 36px;
-  padding-bottom: 16px; border-bottom: 2px solid var(--accent);
+  padding-bottom: 16px; border-bottom: 0px solid var(--accent);
 }
 
 /* 30px — all section & card titles */
 .sec-title {
   font-family: var(--font-heading); font-size: 25px; font-weight: 700;
   color: var(--accent); margin-bottom: 20px;
-  padding-bottom: 10px; border-bottom: 2px solid var(--accent);
+  padding-bottom: 10px; border-bottom: 0px solid var(--accent);
 }
 .sec-sub-title {
   font-family: var(--accent); font-size: 18px; font-weight: 600;
@@ -288,7 +291,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    ================================================================ */
 .entry-card {
   display: flex; gap: 18px;
-  border: 0.4px solid var(--card-border); border-radius: var(--r-lg);
+  border: 0px solid var(--card-border); border-radius: var(--r-lg);
   padding: 20px 24px; margin-bottom: 16px;
   background: var(--card-bg); box-shadow: var(--card-shadow);
 }
@@ -296,12 +299,12 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .entry-thumb {
   width: 100px; height: 120px; flex-shrink: 0;
   border-radius: var(--r-sm); overflow: hidden;
-  border: 0.4px solid var(--card-border); background: var(--accent-light);
+  border: 0px solid var(--card-border); background: var(--accent-light);
   display: flex; align-items: center; justify-content: center;
-  font-size: 36px; color: #C8D5EB;
+  font-size: 36px; color: var(--shade-dark);
 }
 .entry-thumb img    { width: 100%; height: 100%; object-fit: cover; }
-.entry-thumb iframe { width: 100%; height: 100%; border: none; background: #ffffff; display: block; }
+.entry-thumb iframe { width: 100%; height: 100%; border: none; background: var(--shade-light); display: block; }
 
 .entry-title {
   font-family: var(--font-heading); font-size: 28px; font-weight: 700;
@@ -327,11 +330,11 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    ================================================================ */
 .load-more-wrap { text-align: center; margin: 24px 0 4px; }
 .load-more-btn {
-  background: none; border: 2px solid var(--accent); color: var(--accent);
+  background: var(--shade-dark); border: 0px solid transparent; color: var(--shade-light);
   padding: 10px 32px; border-radius: 30px;
   font-family: var(--font-body); font-size: 18px; font-weight: 600;
 }
-.load-more-btn:hover    { background: var(--accent); color: #ffffff; }
+.load-more-btn:hover    { background: var(--shade-dark); color: var(--shade-light); opacity: 0.85; }
 .load-more-btn:disabled { opacity: 0.4; cursor: default; }
 .extra                  { display: none; }
 .extra.visible          { display: flex; }
@@ -344,10 +347,10 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .explore-btn {
   display: inline-flex; align-items: center; gap: 6px;
   font-family: var(--font-body); font-size: 18px; font-weight: 600;
-  color: var(--accent); border: 2px solid var(--accent);
+  background: var(--shade-dark); color: var(--shade-light); border: 0px solid transparent;
   padding: 8px 22px; border-radius: 30px; margin-top: 12px;
 }
-.explore-btn:hover { background: var(--accent); color: #ffffff; }
+.explore-btn:hover { background: var(--shade-dark); color: var(--shade-light); opacity: 0.85; }
 
 /* ================================================================
    HOME PAGE
@@ -356,14 +359,14 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .home-sec-title {
   font-family: var(--font-heading); font-size: 28px; font-weight: 700;
   color: var(--accent); margin-bottom: 20px;
-  padding-bottom: 10px; border-bottom: 2px solid var(--accent); display: block;
+  padding-bottom: 10px; border-bottom: 0px solid var(--accent); display: block;
 }
 .home-sec-title::after { content: ' ›'; font-weight: 300; }
 .home-sec-title:hover  { opacity: 0.75; }
 
 .intro-section { padding: 44px 0 0; }
 .intro-glass {
-  background: var(--card-bg); border: 0.4px solid var(--card-border);
+  background: var(--card-bg); border: 0px solid var(--card-border);
   border-radius: var(--r-lg); padding: 28px 32px; box-shadow: var(--card-shadow);
 }
 .intro-punchline {
@@ -378,7 +381,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .award-card {
   background: var(--card-bg);
-  border: 0.4px solid var(--card-border);
+  border: 0px solid var(--card-border);
   box-shadow: var(--card-shadow);
   border-radius: var(--r-lg);
   overflow: hidden;
@@ -387,10 +390,10 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .award-img-wrap {
   width: 100%; height: 350px; flex-shrink: 0; overflow: hidden;
-  background: #ffffff; display: flex; align-items: center; justify-content: center;
+  background: var(--shade-light); display: flex; align-items: center; justify-content: center;
 }
-.award-img-wrap img { width: 100%; height: 100%; object-fit: contain; background: #ffffff; }
-.award-pdf   { width: 100%; height: 100%; border: none; background: #ffffff; display: block; }
+.award-img-wrap img { width: 100%; height: 100%; object-fit: contain; background: var(--shade-light); }
+.award-pdf   { width: 100%; height: 100%; border: none; background: var(--shade-light); display: block; }
 .award-caption {
   flex: 1; min-width: 0; padding: 16px 18px;
   display: flex; flex-direction: column; justify-content: center;
@@ -408,15 +411,15 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 
 .lens-preview {
-  background: var(--card-bg); border: 0.4px solid var(--card-border);
+  background: var(--card-bg); border: 0px solid var(--card-border);
   border-radius: var(--r-lg); padding: 28px 32px; display: block; box-shadow: var(--card-shadow);
 }
 .lens-preview:hover  { opacity: 0.9; }
-.lens-preview-text   { font-size: 18px; color: #1d3356; line-height: 1.75; }
+.lens-preview-text   { font-size: 18px; color: var(--shade-dark); line-height: 1.75; }
 .lens-preview-cta    { font-size: 18px; font-weight: 600; color: var(--accent); margin-top: 10px; }
 
 .contact-preview {
-  background: var(--card-bg); border: 0.4px solid var(--card-border);
+  background: var(--card-bg); border: 0px solid var(--card-border);
   border-radius: var(--r-lg); padding: 26px 28px; box-shadow: var(--card-shadow);
 }
 .contact-preview p { font-size: 18px; color: var(--page-text); margin-bottom: 14px; }
@@ -432,7 +435,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .skills-tools-card {
   background: var(--card-bg);
-  border: 0.4px solid var(--card-border);
+  border: 0px solid var(--card-border);
   border-radius: var(--r-lg);
   padding: 24px 26px;
   box-shadow: var(--card-shadow);
@@ -473,7 +476,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .webinar-card {
   background: var(--card-bg);
-  border: 0.4px solid var(--card-border);
+  border: 0px solid var(--card-border);
   box-shadow: var(--card-shadow);
   border-radius: var(--r-lg);
   overflow: hidden;
@@ -485,11 +488,11 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   width: 100%;
   height: 250px;
   overflow: hidden;
-  background: #ffffff;       /* letterbox fill — matches your award-img-wrap convention */
+  background: var(--shade-light);       /* letterbox fill — matches your award-img-wrap convention */
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 0.4px solid var(--card-border);
+  border-bottom: 0px solid var(--card-border);
 }
 .webinar-poster img {
   width: 100%; height: 100%;
@@ -532,9 +535,12 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .hero-field, .hero-uni { font-size: 18px; font-weight: 500; color: var(--accent); margin-bottom: 4px; }
 .hero-tags  { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 .hero-tag {
-  background: var(--card-bg); border: 0.4px solid var(--card-border);
-  color: var(--accent); font-size: 14px; font-weight: 400;
-  padding: 4px 11px; border-radius: 20px; box-shadow: var(--card-shadow);
+  background: color-mix(in srgb, var(--shade-dark) 10%, var(--shade-light));
+  color: var(--shade-dark);
+  border: 0px solid transparent;
+  font-size: 14px; font-weight: 400;
+  padding: 4px 11px; border-radius: 20px;
+  box-shadow: none;
 }
 .hero-photo-area {
   position: absolute; right: -70px; top: 45%; transform: translateY(-50%);
@@ -542,7 +548,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .hero-circle {
   width: 500px; height: 500px; border-radius: 55%; overflow: hidden; flex-shrink: 0;
-  border: 5px solid #ffffff; box-shadow: var(--card-shadow);
+  border: 5px solid var(--shade-dark); box-shadow: var(--card-shadow);
 }
 .hero-circle img { width: 100%; height: 100%; object-fit: cover; }
 .hero-circle .photo-placeholder {
@@ -619,7 +625,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   display: flex;
   gap: 12px;
   padding: 10px 0;
-  border-bottom: 0.4px solid var(--card-border);
+  border-bottom: 0px solid var(--card-border);
 }
 .lb-entry:last-child { border-bottom: none; }
 .lb-entry-poster {
@@ -646,18 +652,18 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 22px;
 }
 .gallery-item {
-  border: 0.4px solid var(--card-border); border-radius: var(--r-sm);
-  overflow: hidden; background: #ffffff; cursor: pointer; box-shadow: var(--card-shadow);
+  border: 0px solid var(--card-border); border-radius: var(--r-sm);
+  overflow: hidden; background: var(--shade-light); cursor: pointer; box-shadow: var(--card-shadow);
 }
 .gallery-thumb {
   width: 100%; aspect-ratio: 1;
   object-fit: contain;
-  background: #ffffff;
+  background: var(--shade-light);
   display: block;
 }
 .gallery-caption {
   padding: 6px 8px 8px; font-size: 18px; color: var(--accent);
-  line-height: 1.4; background: #ffffff; border-top: 0.4px solid var(--card-border);
+  line-height: 1.4; background: var(--shade-light); border-top: 0px solid var(--card-border);
 }
 .gallery-placeholder {
   width: 100%; aspect-ratio: 1; background: var(--accent-light);
@@ -684,7 +690,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .lightbox-close:hover { opacity: 1; }
 .lb-nav {
   position: fixed; top: 50%; transform: translateY(-50%);
-  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.12); border: 0px solid rgba(255,255,255,0.2);
   color: #fff; font-size: 22px; width: 48px; height: 48px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
 }
@@ -696,14 +702,14 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    ACADEMIC RESULTS
    ================================================================ */
 .result-table-wrap {
-  overflow-x: auto; border: 0.4px solid var(--card-border);
+  overflow-x: auto; border: 0px solid var(--card-border);
   border-radius: var(--r-lg); box-shadow: var(--card-shadow); margin-bottom: 8px;
 }
 .result-table { width: 100%; border-collapse: collapse; background: var(--card-bg); }
-.result-table thead tr { background: var(--card-bg); }
+.result-table thead tr { background: var(--shade-dark); }
 .result-table th {
   padding: 13px 16px; text-align: left; font-family: var(--font-heading);
-  font-size: 18px; font-weight: 700; color: var(--accent);
+  font-size: 18px; font-weight: 700; color: var(--shade-light);
   text-transform: uppercase; letter-spacing: 0.05em;
 }
 .result-table td {
@@ -713,7 +719,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .result-badge {
   display: inline-block; font-size: 14px; font-weight: 600;
   padding: 3px 9px; border-radius: 12px;
-  background: #d5ebc8; color: #166534; border: 0.4px solid #86efac;
+  background: var(--shade-light); color: var(--shade-dark); border: 0px solid #86efac;
 }
 /* ═══════════════════════════════════════════════════
    RELEVANT COURSES — SPLIT LAYOUT (Bio/Chem | Earth/Env)
@@ -721,20 +727,22 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    ═══════════════════════════════════════════════════ */
 .course-code {
   font-family: 'Courier New', monospace; font-weight: 700; font-size: 12px;
-  color: var(--page-text); background: var(--page-bg); padding: 2px 8px; border-radius: 4px;
+  color: var(--shade-light); background: var(--shade-dark); padding: 2px 8px; border-radius: 4px;
 }
 
 .collapse-toggle {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--accent); border: 0.4px solid var(--accent);
+  background: var(--accent); border: 0px solid var(--accent);
   border-radius: 30px; padding: 10px 22px;
   font-family: var(--font-body); font-size: 18px; font-weight: 600;
   color: var(--page-bg); cursor: pointer; box-shadow: var(--card-shadow);
 }
 .collapse-toggle:hover {
-  background: var(--page-bg);
-  color: var(--accent);
+  background: var(--shade-dark);
+  color: var(--shade-light);
+  opacity: 0.85;
 }
+
 .chevron { font-size: 14px; }
 .collapse-panel         { max-height: 0; overflow: hidden; }
 .collapse-panel.open    { max-height: 4000px; margin-top: 18px; }
@@ -756,8 +764,6 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 .course-col-title {
   margin: 0 0 14px;
-  padding-left: 18px;
-  box-shadow: inset 4px 0 0 var(--accent);   /* accent bar without a border */
   font-family: var(--font-body);
   font-size: 22px;
   font-weight: 700;
@@ -819,7 +825,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 .fieldwork-entry {
   display: flex; gap: 20px; align-items: flex-start;
-  background: var(--card-bg); border: 0.4px solid var(--card-border);
+  background: var(--card-bg); border: 0px solid var(--card-border);
   border-radius: var(--r-lg); padding: 22px 24px; margin-bottom: 16px; box-shadow: var(--card-shadow);
 }
 .fieldwork-entry.extra         { display: none; }
@@ -836,19 +842,19 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .fieldwork-year {
   background: var(--page-bg); color: var(--accent);
   font-size: 14px; font-weight: 600; padding: 3px 9px; border-radius: 12px;
-  border: 0.4px solid var(--card-border);
+  border: 0px solid var(--card-border);
 }
 .fieldwork-desc { font-size: 18px; color: var(--page-text); line-height: 1.7; }
 .fieldwork-img {
   width: 160px; height: 120px; border-radius: var(--r-md); overflow: hidden; flex-shrink: 0;
-  border: 0.4px solid var(--card-border); background: var(--accent-light);
+  border: 0px solid var(--card-border); background: var(--accent-light);
   display: flex; align-items: center; justify-content: center; font-size: 48px;
 }
 .fieldwork-img img { width: 100%; height: 100%; object-fit: cover; }
 
 .exam-grid { display: grid; grid-template-columns: repeat(2, minmax(240px, 1fr)); gap: 16px; margin-bottom: 8px; }
 .exam-card {
-  background: var(--card-bg); border: 0.4px solid var(--card-border);
+  background: var(--card-bg); border: 0px solid var(--card-border);
   border-radius: var(--r-lg); padding: 22px 24px; box-shadow: var(--card-shadow);
 }
 .exam-icon { font-size: 48px; margin-bottom: 12px; }
@@ -865,7 +871,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .test-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 16px; }
 .test-card {
-  background: var(--card-bg); border: 0.4px solid var(--card-border);
+  background: var(--card-bg); border: 0px solid var(--card-border);
   border-radius: var(--r-lg); padding: 20px; text-align: center; box-shadow: var(--card-shadow);
 }
 .test-name {
@@ -875,7 +881,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .test-score     { font-family: var(--font-heading); font-size: 28px; font-weight: 700; color: var(--page-text); line-height: 1; }
 .test-max       { font-size: 14px; color: var(--page-text); opacity: 0.5; margin-top: 3px; }
 .test-year      { font-size: 18px; color: var(--page-text); opacity: 0.5; margin-top: 8px; }
-.test-breakdown { margin-top: 12px; font-size: 18px; color: var(--page-text); line-height: 1.8; text-align: left; border-top: 0.4px solid var(--accent-light); padding-top: 10px; }
+.test-breakdown { margin-top: 12px; font-size: 18px; color: var(--page-text); line-height: 1.8; text-align: left; border-top: 0px solid var(--accent-light); padding-top: 10px; }
 
 /* ================================================================
    AWARDS GRID
@@ -887,7 +893,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    ================================================================ */
 .winner-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 8px; }
 .winner-card {
-  background: var(--card-bg); border: 0.4px solid var(--card-border);
+  background: var(--card-bg); border: 0px solid var(--card-border);
   border-radius: var(--r-lg); padding: 24px 16px; text-align: center; box-shadow: var(--card-shadow);
 }
 .winner-trophy       { font-size: 42px; margin-bottom: 10px; }
@@ -896,9 +902,9 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .winner-label { font-family: var(--font-bangla); font-size: 18px; color: var(--page-text); line-height: 1.5; }
 .winner-badge {
   display: inline-block; font-family: var(--font-bangla);
-  background: #d5ebc8; color: #166534;
+  background: var(--shade-light); color: var(--shade-dark);
   font-size: 14px; font-weight: 500; padding: 4px 10px;
-  border-radius: 20px; border: 0.4px solid #86efac; margin-top: 8px;
+  border-radius: 20px; border: 00px solid #86efac; margin-top: 8px;
 }
 
 /* ================================================================
@@ -906,7 +912,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    ================================================================ */
 .book-entry {
   display: flex; align-items: center; gap: 16px;
-  border: 0.4px solid var(--card-border); border-radius: var(--r-md);
+  border: 0px solid var(--card-border); border-radius: var(--r-md);
   padding: 12px 16px; margin-bottom: 10px;
   background: var(--card-bg); box-shadow: 0 2px 8px rgba(30,58,95,0.07);
 }
@@ -920,7 +926,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .book-tag {
   display: inline-block; font-size: 14px; font-weight: 500;
-  padding: 3px 10px; border-radius: 20px; border: 0.4px solid transparent;
+  padding: 3px 10px; border-radius: 20px; border: 0px solid transparent;
 }
 .tag-read     { background: #d5ebc8; color: #166534; border-color: #86efac; }
 .tag-want     { background: #dbeafe; color: #1e40af; border-color: #93c5fd; }
@@ -929,7 +935,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .tag-gave     { background: #fee2e2; color: #991b1b; border-color: #fca5a5; }
 .book-cover {
   width: 72px; height: 72px; border-radius: 4px; overflow: hidden; flex-shrink: 0;
-  border: 0.4px solid var(--card-border); background: var(--accent-light);
+  border: 0px solid var(--card-border); background: var(--accent-light);
   display: flex; align-items: center; justify-content: center; font-size: 22px;
 }
 .book-cover img { width: 100%; height: 100%; object-fit: cover; }
@@ -940,7 +946,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .trips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .trip-card {
   height: 320px; border-radius: var(--r-lg); overflow: hidden; position: relative;
-  box-shadow: var(--card-shadow); border: 0.4px solid var(--card-border);
+  box-shadow: var(--card-shadow); border: 0px solid var(--card-border);
 }
 .trip-bg {
   width: 100%; height: 100%; background: var(--accent);
@@ -1195,7 +1201,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    CONTACT PAGE
    ================================================================ */
 .contact-hero {
-  background: var(--card-bg); border: 0.4px solid var(--card-border);
+  background: var(--card-bg); border: 0px solid var(--card-border);
   border-radius: var(--r-lg); padding: 36px var(--pad) 30px;
   text-align: center; box-shadow: var(--card-shadow); margin-bottom: 28px;
 }
@@ -1205,46 +1211,56 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 .address-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 16px; margin-bottom: 36px; }
 .address-card {
-  background: var(--card-bg); border: 0.4px solid var(--card-border);
+  background: var(--card-bg); border: 0px solid var(--card-border);
   border-radius: var(--r-lg); padding: 20px 22px; box-shadow: var(--card-shadow);
 }
 .address-card-title { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent); margin-bottom: 10px; }
 .address-line { font-size: 18px; color: var(--page-text); line-height: 1.75; margin-bottom: 4px; }
-.address-link { display: inline-flex; align-items: center; gap: 6px; font-size: 20px; color: var(--accent); font-weight: 500; border-bottom: 0.4px solid var(--accent-light); padding-bottom: 1px; }
+.address-link { display: inline-flex; align-items: center; gap: 6px; font-size: 20px; color: var(--accent); font-weight: 500; border-bottom: 0px solid var(--accent-light); padding-bottom: 1px; }
 .address-link:hover { opacity: 0.75; }
 
 .contact-form-wrap {
-  background: var(--card-bg); border: 0.4px solid var(--card-border);
-  border-radius: var(--r-lg); padding: 28px 30px; margin-bottom: 20px; box-shadow: var(--card-shadow);
+  background: var(--shade-dark); border: 0px solid transparent;
+  border-radius: var(--r-lg); padding: 28px 30px; margin-bottom: 20px; box-shadow: none;
 }
-.contact-form-title { font-family: var(--font-heading); font-size: 28px; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
-.contact-form-sub   { font-size: 18px; color: var(--page-text); opacity: 0.6; margin-bottom: 22px; }
+.contact-form-title { font-family: var(--font-heading); font-size: 28px; font-weight: 700; color: var(--shade-light); margin-bottom: 6px; }
+.contact-form-sub   { font-size: 18px; color: var(--shade-light); opacity: 0.8; margin-bottom: 22px; }
 .form-row    { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
 .form-group  { display: flex; flex-direction: column; gap: 5px; }
-.form-group label { font-size: 14px; font-weight: 600; color: var(--page-text); opacity: 0.65; letter-spacing: 0.03em; }
+.form-group label { font-size: 14px; font-weight: 600; color: var(--shade-light); opacity: 0.85; letter-spacing: 0.03em; }
+
 .form-group input,
 .form-group textarea,
 .form-group select {
-  padding: 11px 14px; border: 0.4px solid var(--card-border); border-radius: var(--r-md);
-  font-family: var(--font-body); font-size: 18px; color: var(--page-text); background: #ffffff; outline: none;
+  padding: 11px 14px; border: 0px solid transparent; border-radius: var(--r-md);
+  font-family: var(--font-body); font-size: 18px;
+  color: var(--shade-dark); background: var(--shade-light); outline: none;
 }
-.form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--shade-dark); opacity: 0.5; }
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus { outline: 2px solid var(--shade-light); outline-offset: 2px; }
 .form-group textarea  { min-height: 130px; resize: vertical; line-height: 1.6; }
 .form-group.full      { grid-column: 1/-1; }
+
 .form-submit-btn {
-  background: var(--accent); color: #fff; border: none; border-radius: 30px;
+  background: var(--shade-light); color: var(--shade-dark); border: none; border-radius: 30px;
   padding: 13px 36px; font-family: var(--font-body); font-size: 18px; font-weight: 600;
   display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
 }
 .form-submit-btn:hover { opacity: 0.85; }
-.form-note    { font-size: 14px; color: var(--page-text); opacity: 0.5; margin-top: 14px; line-height: 1.6; }
-.form-note a  { color: var(--accent); opacity: 1; }
+
+.form-note    { font-size: 14px; color: var(--shade-light); opacity: 0.8; margin-top: 14px; line-height: 1.6; }
+.form-note a  { color: var(--shade-light); text-decoration: underline; opacity: 1; }
+
+/* Success message: flipped to light, since it sits inside the dark card */
 .form-success {
-  display: none; background: #dcfce7; border: 2px solid #86efac;
+  display: none; background: var(--shade-light); border: 0px solid transparent;
   border-radius: var(--r-md); padding: 20px 22px; margin-top: 18px; text-align: center;
 }
 .form-success.show { display: block; }
-.form-success p { font-size: 18px; color: #166534; }
+.form-success p { font-size: 18px; color: var(--shade-dark); }
 
 /* ================================================================
    FOOTER  (includes the page-links styles)
@@ -1258,17 +1274,17 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .site-footer {
   /* local tokens: this block works without touching :root.
      (If you prefer, update the same values in :root and delete these.) */
-  --footer-bg:      #555577;
-  --footer-text:    #ffffff;
-  --footer-heading: #ffffff;
-  --footer-border:  rgba(255,255,255,0.30);   /* bottom divider */
-  --footer-line:    rgba(255,255,255,0.35);   /* quote bar, pill border, PAGES divider */
-  --footer-soft:    rgba(255,255,255,0.12);   /* pill fill */
-  --footer-accent:  #ffffff;                  /* top strip + back-to-top circle */
+  --footer-bg:      var(--shade-dark);
+  --footer-text:    var(--shade-light);
+  --footer-heading: var(--shade-light);
+  --footer-border:  transparent;   /* bottom divider */
+  --footer-line:    var(--shade-light);   /* quote bar, pill border, PAGES divider */
+  --footer-soft:    var(--shade-light);   /* pill fill */
+  --footer-accent:  var(--shade-light);                  /* top strip + back-to-top circle */
 
-  --fs-xl: 38px;
-  --fs-md: 16px;
-  --fs-sm: 10px;
+  --fs-xl: 20px;
+  --fs-md: 12px;
+  --fs-sm: 8px;
   --footer-max-w: 1440px;                     /* wider than the page container */
 
   background: var(--footer-bg);
@@ -1283,7 +1299,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 .site-footer a,
 .site-footer a:visited { color: var(--footer-text); text-decoration: none; }
-.site-footer a:focus-visible { outline: 2px solid #ffffff; outline-offset: 3px; }
+.site-footer a:focus-visible { outline: 2px solid var(--shade-light); outline-offset: 3px; }
 
 /* ---------- Back to top ---------- */
 .site-footer .back-to-top {
@@ -1310,7 +1326,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .site-footer .footer-id { flex: 0 0 auto; }
 .site-footer .footer-avatar {
   width: 80px; height: 80px; border-radius: 50%; overflow: hidden;
-  border: 2px solid rgba(255,255,255,0.40); margin-bottom: 14px;
+  border: 0px solid rgba(255,255,255,0.40); margin-bottom: 14px;
 }
 .site-footer .footer-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .site-footer .footer-name {
@@ -1338,7 +1354,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 /* ---------- 2. Quote ---------- */
 .site-footer .footer-quote {
   font-size: var(--fs-xl); font-weight: 500; line-height: 1.4;
-  padding-left: 22px; border-left: 3px solid var(--footer-line);
+  padding-left: 22px; border-left: 0px solid var(--footer-line);
 }
 
 /* ---------- 3. Middle: Research (left) + Pages (right) ---------- */
@@ -1352,10 +1368,13 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   font-size: 28px; font-weight: 500; line-height: 1.2;
   text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 24px;
 }
-.site-footer .footer-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
-.site-footer .footer-tag {
+.site-footer .footer-tag,
+.site-footer a.footer-tag,
+.site-footer a.footer-tag:visited {
   font-size: var(--fs-md); line-height: 1.3; padding: 6px 16px; border-radius: 999px;
-  background: var(--footer-soft); border: 1px solid var(--footer-line);
+  background: transparent;
+  color: var(--shade-light);
+  border: 1px solid var(--shade-light);
 }
 .site-footer .footer-location { font-size: var(--fs-md); }
 
@@ -1363,7 +1382,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .site-footer .footer-pages-label {
   font-size: 28px; font-weight: 500;
   text-transform: uppercase; letter-spacing: 0.16em;
-  padding-bottom: 14px; margin-bottom: 24px; border-bottom: 2px solid var(--footer-line);
+  padding-bottom: 14px; margin-bottom: 24px; border-bottom: 0px solid var(--footer-line);
 }
 .site-footer .footer-page-links {
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px;
@@ -1392,7 +1411,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 /* ---------- 4. Bottom bar ---------- */
 .site-footer .footer-bottom {
-  border-top: 1px solid var(--footer-border);
+  border-top: 0px solid var(--footer-border);
   padding: 18px var(--pad, 32px);
   display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 16px;
   text-align: center; font-size: var(--fs-sm);
@@ -1403,11 +1422,11 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    NARROW SCREENS  (below 700px) — everything in one column
    ================================================================ */
 @media (max-width: 699px) {
-  .site-footer { --fs-xl: 22px; --fs-md: 18px; --fs-sm: 14px; margin-top: 56px; }
+  .site-footer { --fs-xl: 18px; --fs-md: 14px; --fs-sm: 11px; margin-top: 56px; }
 
-  .site-footer .back-to-top { width: 44px; height: 44px; top: -22px; right: 16px; font-size: 16px; }
-
-  .site-footer .footer-body { padding: 44px var(--pad, 20px) 28px; gap: 32px; }
+  /* section labels: fixed 28px on desktop, too big on a phone */
+  .site-footer .footer-interests-label,
+  .site-footer .footer-pages-label { font-size: 20px; letter-spacing: 0.10em; }
 
   /* avatar, name, then socials 2 x N */
   .site-footer .footer-top { flex-direction: column; align-items: flex-start; gap: 24px; }
