@@ -261,22 +261,24 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 /* ================================================================
    TYPE HIERARCHY
    ================================================================ */
-/* 40px — hero name & page name only */
+/* 44px — hero name & page name only */
 .page-title-simple {
-  font-family: var(--font-heading); font-size: 40px; font-weight: 700;
+  font-family: var(--font-heading); font-size: 44px; font-weight: 700;
   color: var(--accent); margin: 28px 0 36px;
-  padding-bottom: 16px; border-bottom: 0px solid var(--accent);
+  padding-bottom: 0; border-bottom: 0;
 }
 
-/* 30px — all section & card titles */
+/* 32px — all section titles */
 .sec-title {
-  font-family: var(--font-heading); font-size: 25px; font-weight: 700;
+  font-family: var(--font-heading); font-size: 32px; font-weight: 700;
   color: var(--accent); margin-bottom: 20px;
-  padding-bottom: 10px; border-bottom: 0px solid var(--accent);
+  padding-bottom: 0; border-bottom: 0;
 }
+
+/* 22px — sub-titles inside a section */
 .sec-sub-title {
-  font-family: var(--accent); font-size: 18px; font-weight: 600;
-  color: var(--title-text); margin: 26px 0 14px;
+  font-family: var(--font-heading); font-size: 22px; font-weight: 600;
+  color: var(--accent); margin: 26px 0 14px;
 }
 
 /* 20px — body text */
@@ -355,11 +357,11 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 /* ================================================================
    HOME PAGE
    ================================================================ */
-.home-section { padding: 40px 0 0; margin-bottom: 44px; }
+.home-section { padding: 40px 0 0; margin-bottom: 72px; }
 .home-sec-title {
-  font-family: var(--font-heading); font-size: 28px; font-weight: 700;
+  font-family: var(--font-heading); font-size: 34px; font-weight: 700;
   color: var(--accent); margin-bottom: 20px;
-  padding-bottom: 10px; border-bottom: 0px solid var(--accent); display: block;
+  padding-bottom: 0; border-bottom: 0; display: block;
 }
 .home-sec-title::after { content: ' ›'; font-weight: 300; }
 .home-sec-title:hover  { opacity: 0.75; }
@@ -515,7 +517,6 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   .webinar-grid { grid-template-columns: 1fr; }
 }
 
-
 /* ================================================================
    HERO (index.html)
    ================================================================ */
@@ -528,7 +529,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .hero .container { position: relative; z-index: 2; width: 100%; }
 .hero-text { max-width: 52%; padding: 48px 0; }
 .hero-name {
-  font-family: var(--font-heading); font-size: 40px; font-weight: 700;
+  font-family: var(--font-heading); font-size: 44px; font-weight: 700;
   color: var(--accent); line-height: 1.15; margin-bottom: 10px;
 }
 .hero-title-line { font-size: 18px; font-weight: 500; color: var(--accent); margin-bottom: 4px; }
@@ -607,12 +608,8 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    ================================================================ */
 .live-embed-frame-box {
   width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: var(--r-lg);
-  overflow-y: auto;
-  box-shadow: var(--card-shadow);
-  background: var(--card-bg);
-  padding: 18px 20px;
+  padding: 0;
+  background: none;
 }
 .live-embed-loading {
   font-size: 15px;
@@ -825,8 +822,8 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 
 .fieldwork-entry {
   display: flex; gap: 20px; align-items: flex-start;
-  background: var(--card-bg); border: 0px solid var(--card-border);
-  border-radius: var(--r-lg); padding: 22px 24px; margin-bottom: 16px; box-shadow: var(--card-shadow);
+  background: none; border: 0; box-shadow: none;
+  padding: 0; margin-bottom: 28px;
 }
 .fieldwork-entry.extra         { display: none; }
 .fieldwork-entry.extra.visible { display: flex; }
@@ -852,10 +849,10 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 }
 .fieldwork-img img { width: 100%; height: 100%; object-fit: cover; }
 
-.exam-grid { display: grid; grid-template-columns: repeat(2, minmax(240px, 1fr)); gap: 16px; margin-bottom: 8px; }
+.exam-grid { display: grid; grid-template-columns: repeat(2, minmax(240px, 1fr)); gap: 32px; margin-bottom: 8px; }
 .exam-card {
-  background: var(--card-bg); border: 0px solid var(--card-border);
-  border-radius: var(--r-lg); padding: 22px 24px; box-shadow: var(--card-shadow);
+  background: none; border: 0; box-shadow: none;
+  padding: 0;
 }
 .exam-icon { font-size: 48px; margin-bottom: 12px; }
 .exam-icon img { max-height: 100%; width: auto; object-fit: cover; }
@@ -869,10 +866,10 @@ em, i  { font-style: italic; } /* scientific names keep italic */
     grid-template-columns: 1fr;
   }
 }
-.test-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 16px; }
+.test-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 32px; }
 .test-card {
-  background: var(--card-bg); border: 0px solid var(--card-border);
-  border-radius: var(--r-lg); padding: 20px; text-align: center; box-shadow: var(--card-shadow);
+  background: none; border: 0; box-shadow: none;
+  padding: 0; text-align: center;
 }
 .test-name {
   font-family: var(--font-heading); font-size: 18px; font-weight: 700;
@@ -891,10 +888,10 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 /* ================================================================
    CO-CURRICULAR — WINNER CARDS
    ================================================================ */
-.winner-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 8px; }
+.winner-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-bottom: 8px; }
 .winner-card {
-  background: var(--card-bg); border: 0px solid var(--card-border);
-  border-radius: var(--r-lg); padding: 24px 16px; text-align: center; box-shadow: var(--card-shadow);
+  background: none; border: 0; box-shadow: none;
+  padding: 0; text-align: center;
 }
 .winner-trophy       { font-size: 42px; margin-bottom: 10px; }
 .winner-trophy img   { max-width: 100%; height: auto; object-fit: contain; margin: 0 auto; }
@@ -1201,12 +1198,11 @@ em, i  { font-style: italic; } /* scientific names keep italic */
    CONTACT PAGE
    ================================================================ */
 .contact-hero {
-  background: var(--card-bg); border: 0px solid var(--card-border);
-  border-radius: var(--r-lg); padding: 36px var(--pad) 30px;
-  text-align: center; box-shadow: var(--card-shadow); margin-bottom: 28px;
+  background: none; border: 0; box-shadow: none;
+  padding: 0; text-align: center; margin-bottom: 56px;
 }
 .contact-hero-emoji { font-size: 48px; margin-bottom: 10px; color: var(--accent); }
-.contact-hero h1 { font-family: var(--font-heading); font-size: 28px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+.contact-hero h1 { font-family: var(--font-heading); font-size: 44px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
 .contact-hero p  { font-size: 18px; color: var(--page-text); opacity: 0.75; max-width: 520px; margin: 0 auto; line-height: 1.7; }
 
 .address-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 16px; margin-bottom: 36px; }
@@ -1361,8 +1357,8 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .site-footer .footer-mid {
   display: flex; flex-wrap: wrap; align-items: flex-start; gap: 48px 56px;
 }
-.site-footer .footer-left  { flex: 1 1 300px; min-width: 0; }
-.site-footer .footer-right { flex: 1.5 1 480px; min-width: 0; }
+.site-footer .footer-left  { flex: 0 1 380px; min-width: 0; }
+.site-footer .footer-right { flex: 1 1 480px; min-width: 0; }
 
 .site-footer .footer-interests-label {
   font-size: 28px; font-weight: 500; line-height: 1.2;
