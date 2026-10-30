@@ -1357,8 +1357,8 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .site-footer .footer-mid {
   display: flex; flex-wrap: wrap; align-items: flex-start; gap: 48px 56px;
 }
-.site-footer .footer-left  { flex: 0 1 380px; min-width: 0; }
-.site-footer .footer-right { flex: 1 1 480px; min-width: 0; }
+.site-footer .footer-left  { flex: 0 1 45%; min-width: 0; }
+.site-footer .footer-right { flex: 1 1 300px; min-width: 0; }
 
 .site-footer .footer-interests-label {
   font-size: 28px; font-weight: 500; line-height: 1.2;
