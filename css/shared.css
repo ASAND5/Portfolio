@@ -108,10 +108,18 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .topbar-brand {
   font-family: var(--font-heading); font-size: 18px; font-weight: 700;
   color: var(--shade-dark); letter-spacing: -0.01em; line-height: 1.2;
+  white-space: nowrap; flex-shrink: 0;
 }
 .topbar-brand small {
   display: block; font-family: var(--font-body);
   font-size: 14px; font-weight: 600; color: var(--shade-dark);
+  white-space: nowrap;
+}
+
+/* Phones: the nav is hidden, so only the brand needs to fit beside the hamburger */
+@media (max-width: 768px) {
+  .topbar-brand       { font-size: clamp(14px, 4.6vw, 18px); }
+  .topbar-brand small { font-size: clamp(11px, 3.3vw, 14px); }
 }
 
 /* ================================================================
@@ -136,6 +144,11 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .topbar-nav .nav-item:focus-within > .nav-link {
   background: var(--shade-dark);
   color: var(--shade-light);
+}
+
+@media (max-width: 768px) {
+  .topbar-brand       { font-size: clamp(13px, 4.2vw, 16px); }
+  .topbar-brand small { font-size: clamp(10px, 3vw, 12px); }
 }
 
 /* ── DROPDOWN ─────────────────────────────────────────────────── */
