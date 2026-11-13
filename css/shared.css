@@ -933,6 +933,8 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   color: var(--page-text);
   margin-bottom: 12px;
 }
+.repo-card.extra         { display: none; }
+.repo-card.extra.visible { display: flex; }
 
 /* ── Websites built: wide live previews, one per row ─────────── */
 .site-list {
