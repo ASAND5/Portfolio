@@ -899,6 +899,98 @@ em, i  { font-style: italic; } /* scientific names keep italic */
 .test-breakdown { margin-top: 12px; font-size: 18px; color: var(--page-text); line-height: 1.8; text-align: left; border-top: 0px solid var(--accent-light); padding-top: 10px; }
 
 /* ================================================================
+   TECH CRAFTS PAGE  (tech-crafts.html)
+   PASTE THIS AT THE VERY END OF shared.css
+   ================================================================ */
+
+/* ── GitHub repositories: two text-only cards side by side ───── */
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.repo-card {
+  background: #f3eee4; /* fallback */
+  background: color-mix(in srgb, var(--shade-dark) 8%, var(--shade-light));
+  border-radius: var(--r-lg);
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+}
+.repo-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.3;
+  margin-bottom: 8px;
+  overflow-wrap: anywhere;
+}
+.repo-desc {
+  flex: 1;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--page-text);
+  margin-bottom: 12px;
+}
+
+/* ── Websites built: wide live previews, one per row ─────────── */
+.site-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.site-card {
+  background: #f3eee4; /* fallback */
+  background: color-mix(in srgb, var(--shade-dark) 8%, var(--shade-light));
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.site-preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #fff;
+}
+/* The iframe renders at desktop width; the page script scales it to fit */
+.site-preview iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 1280px; height: 800px;
+  border: 0;
+  background: #fff;
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+/* Invisible link over the preview: clicking anywhere opens the site */
+.site-preview-link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+.site-info { padding: 18px 22px 20px; }
+.site-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+.site-desc {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--page-text);
+  margin-bottom: 10px;
+}
+
+/* Stack the two repo cards on phones */
+@media (max-width: 700px) {
+  .repo-grid { grid-template-columns: 1fr; }
+}
+
+/* ================================================================
    AWARDS GRID
    ================================================================ */
 .awards-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
