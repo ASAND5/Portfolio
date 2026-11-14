@@ -910,7 +910,7 @@ em, i  { font-style: italic; } /* scientific names keep italic */
   gap: 20px;
 }
 .repo-card {
-  background: #f3eee4; /* fallback */
+  background: var(--shade-light); /* fallback */
   background: color-mix(in srgb, var(--shade-dark) 8%, var(--shade-light));
   border-radius: var(--r-lg);
   padding: 24px 26px;
